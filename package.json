@@ -1,0 +1,70 @@
+{
+  "name": "@fimbul-works/vec",
+  "version": "1.0.0",
+  "description": "A high-performance vector math library for TypeScript",
+  "type": "module",
+  "private": false,
+  "license": "MIT",
+  "author": "FimbulWorks <contact@fimbul.works>",
+  "homepage": "https://github.com/fimbul-works/vec#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fimbul-works/vec.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fimbul-works/vec/issues"
+  },
+  "keywords": [
+    "2d",
+    "3d",
+    "4d",
+    "computer-graphics",
+    "game-development",
+    "geometry",
+    "graphics",
+    "linear-algebra",
+    "math",
+    "physics",
+    "vector-math",
+    "vector"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": ["dist", "README.md", "LICENSE"],
+  "sideEffects": false,
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc --build --clean && tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    },
+    "./vec2": {
+      "types": "./dist/vec2.d.ts",
+      "import": "./dist/vec2.js",
+      "require": "./dist/vec2.js"
+    },
+    "./vec3": {
+      "types": "./dist/vec3.d.ts",
+      "import": "./dist/vec3.js",
+      "require": "./dist/vec3.js"
+    },
+    "./vec4": {
+      "types": "./dist/vec4.d.ts",
+      "import": "./dist/vec4.js",
+      "require": "./dist/vec4.js"
+    }
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "typescript": "^5.6.2"
+  }
+}
