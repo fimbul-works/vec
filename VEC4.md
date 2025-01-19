@@ -1,6 +1,6 @@
 # Vec4
 
-A 4D vector implementation with comprehensive mathematical operations and utility methods. Incudes color representation in RGB with alpha.
+A 4D vector implementation with comprehensive mathematical operations and utility methods.
 
 ## Constructor
 
@@ -143,7 +143,4 @@ console.log(v1.angleX);
 
 // Convert to array
 const [x, y, z, w] = v1;
-
-// Use as RGBA color
-const color = new Vec4(1, 0, 0, 0.5);  // Semi-transparent red
 ```

@@ -244,6 +244,24 @@ export class Vec3 {
     const isZero = x === 0 && y === 0 && z === 0;
     const xyz = Object.freeze([...data.slice(0, 3)]);
     return {
+      get x() {
+        return data[0];
+      },
+      get y() {
+        return data[1];
+      },
+      get z() {
+        return data[2];
+      },
+      get xyz() {
+        return xyz;
+      },
+      get magnitude() {
+        return data[8];
+      },
+      get magnitudeSq() {
+        return data[10];
+      },
       get angleX() {
         return data[4];
       },
@@ -261,36 +279,6 @@ export class Vec3 {
       },
       get isZero() {
         return isZero;
-      },
-      get magnitude() {
-        return data[8];
-      },
-      get magnitudeSq() {
-        return data[10];
-      },
-      get r() {
-        return data[0];
-      },
-      get g() {
-        return data[1];
-      },
-      get b() {
-        return data[2];
-      },
-      get rgb() {
-        return xyz;
-      },
-      get x() {
-        return data[0];
-      },
-      get xyz() {
-        return xyz;
-      },
-      get y() {
-        return data[1];
-      },
-      get z() {
-        return data[2];
       },
     };
   }

@@ -246,8 +246,26 @@ export class Vec4 {
     const isZero = x === 0 && y === 0 && z === 0 && w === 0;
     const xyzw = Object.freeze([...data.slice(0, 4)]);
     return {
-      get a() {
+      get x() {
+        return data[0];
+      },
+      get y() {
+        return data[1];
+      },
+      get z() {
+        return data[2];
+      },
+      get w() {
         return data[3];
+      },
+      get xyzw() {
+        return xyzw;
+      },
+      get magnitude() {
+        return data[8];
+      },
+      get magnitudeSq() {
+        return data[10];
       },
       get angleW() {
         return data[7];
@@ -269,39 +287,6 @@ export class Vec4 {
       },
       get isZero() {
         return isZero;
-      },
-      get magnitude() {
-        return data[8];
-      },
-      get magnitudeSq() {
-        return data[10];
-      },
-      get r() {
-        return data[0];
-      },
-      get g() {
-        return data[1];
-      },
-      get b() {
-        return data[2];
-      },
-      get rgba() {
-        return xyzw;
-      },
-      get w() {
-        return data[3];
-      },
-      get x() {
-        return data[0];
-      },
-      get xyzw() {
-        return xyzw;
-      },
-      get y() {
-        return data[1];
-      },
-      get z() {
-        return data[2];
       },
     };
   }

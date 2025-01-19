@@ -11,7 +11,6 @@ A high-performance TypeScript vector math library providing 2D, 3D, and 4D vecto
 - 🛡️ **Type Safety**: Full TypeScript support with strict typing and readonly options
 - 📏 **Multiple Distance Metrics**: Euclidean, Manhattan, Chebyshev, and Minkowski
 - 🔒 **Immutability Support**: Both mutable and immutable operation modes
-- 🎨 **Color Operations**: Built-in RGBA and RGB color handling
 - 🎮 **Graphics Ready**: Homogeneous coordinates and transformation support
 - 🧮 **Math Features**: Comprehensive geometric and arithmetic operations
 - ⚡ **Memory Efficient**: Zero-allocation options for performance-critical code
@@ -37,9 +36,6 @@ position.add(movement);
 // 3D graphics with homogeneous coordinates
 const point = new Vec4(x, y, z, 1);    // Point in 3D space
 const vector = new Vec4(dx, dy, dz, 0); // Direction in 3D space
-
-// Color manipulation
-const color = new Vec4(1, 0, 0, 0.5);  // Semi-transparent red
 ```
 
 ## Zero-Allocation Usage

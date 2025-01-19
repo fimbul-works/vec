@@ -1,6 +1,6 @@
 {
   "name": "@fimbul-works/vec",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A high-performance vector math library for TypeScript",
   "type": "module",
   "private": false,

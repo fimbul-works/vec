@@ -220,6 +220,21 @@ export class Vec2 {
     const isZero = x === 0 && y === 0;
     const xy = Object.freeze([...data.slice(0, 2)]);
     return {
+      get x() {
+        return data[0];
+      },
+      get y() {
+        return data[1];
+      },
+      get xy() {
+        return xy;
+      },
+      get magnitude() {
+        return data[8];
+      },
+      get magnitudeSq() {
+        return data[10];
+      },
       get angleX() {
         return data[4];
       },
@@ -234,21 +249,6 @@ export class Vec2 {
       },
       get isZero() {
         return isZero;
-      },
-      get magnitude() {
-        return data[8];
-      },
-      get magnitudeSq() {
-        return data[10];
-      },
-      get x() {
-        return data[0];
-      },
-      get xy() {
-        return xy;
-      },
-      get y() {
-        return data[1];
       },
     };
   }

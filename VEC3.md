@@ -1,6 +1,6 @@
 # Vec3
 
-A 3D vector implementation with comprehensive mathematical operations and utility methods. Includes color representation in RGB.
+A 3D vector implementation with comprehensive mathematical operations and utility methods.
 
 ## Constructor
 
