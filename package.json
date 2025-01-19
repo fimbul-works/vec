@@ -1,6 +1,6 @@
 {
   "name": "@fimbul-works/vec",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A comprehensive TypeScript vector math library providing 2D, 3D, and 4D vector operations with a focus on performance and type safety.",
   "type": "module",
   "private": false,
@@ -31,7 +31,7 @@
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "files": ["dist", "README.md", "LICENSE"],
+  "files": ["dist", "README.md", "VEC2.md", "VEC3.md", "VEC4.md", "LICENSE"],
   "sideEffects": false,
   "scripts": {
     "dev": "tsc --watch",
