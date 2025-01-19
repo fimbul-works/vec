@@ -1,7 +1,7 @@
 {
   "name": "@fimbul-works/vec",
-  "version": "1.0.1",
-  "description": "A high-performance vector math library for TypeScript",
+  "version": "1.0.2",
+  "description": "A comprehensive TypeScript vector math library providing 2D, 3D, and 4D vector operations with a focus on performance and type safety.",
   "type": "module",
   "private": false,
   "license": "MIT",
