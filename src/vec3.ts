@@ -256,6 +256,18 @@ export class Vec3 {
       get xyz() {
         return xyz;
       },
+      get r() {
+        return data[0];
+      },
+      get g() {
+        return data[1];
+      },
+      get b() {
+        return data[2];
+      },
+      get rgb() {
+        return xyz;
+      },
       get magnitude() {
         return data[8];
       },
@@ -533,14 +545,78 @@ export class Vec3 {
   }
 
   /**
-   * Sets both components of the vector at once.
+   * Sets all components of the vector at once.
    * @param xyz - An array containing the new x, y and z components.
    */
-  set xyz(xyz: [number, number, number] | number[]) {
+  set xyz(xyz: [number, number, number]) {
     this.#xyz[0] = xyz[0];
     this.#xyz[1] = xyz[1];
     this.#xyz[2] = xyz[2];
     this.#computeMagnitude();
+  }
+
+  /**
+   * Gets the Red-component of a Color.
+   * @returns The Red-component.
+   */
+  get r() {
+    return this.x;
+  }
+
+  /**
+   * Sets the Red-component of a Color.
+   * @param r - The new Red-component.
+   */
+  set r(r: number) {
+    this.x = r;
+  }
+
+  /**
+   * Gets the Green-component of a Color.
+   * @returns The Green-component.
+   */
+  get g() {
+    return this.y;
+  }
+
+  /**
+   * Sets the Green-component of the Color.
+   * @param g - The new Green-component.
+   */
+  set g(g: number) {
+    this.y = g;
+  }
+
+  /**
+   * Gets the Blue-component of the color.
+   * @returns The Blue-component.
+   */
+  get b() {
+    return this.z;
+  }
+
+  /**
+   * Sets the Blue-component of the Color.
+   * @param b - The new Blue-component.
+   */
+  set b(b: number) {
+    this.z = b;
+  }
+
+  /**
+   * Gets a copy of the vector's components as an array.
+   * @returns An array containing the x, y and z components of the vector.
+   */
+  get rgb(): [number, number, number] {
+    return this.xyz;
+  }
+
+  /**
+   * Sets all components of the Color at once.
+   * @param rgb - An array containing the new Red, Green and Blue components.
+   */
+  set rgb(rgb: [number, number, number]) {
+    this.xyz = rgb;
   }
 
   /**
@@ -1073,7 +1149,8 @@ export class Vec3 {
    * @returns An object with x, y and z properties.
    */
   toObject(): { x: number; y: number; z: number } {
-    return { x: this.#xyz[0], y: this.#xyz[1], z: this.#xyz[2] };
+    const [x, y, z] = this.#xyz;
+    return { x, y, z };
   }
 
   /**
