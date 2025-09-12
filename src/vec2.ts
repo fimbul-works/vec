@@ -906,6 +906,7 @@ export class Vec2 {
   scale(c: number): this {
     this.#xy[0] *= c;
     this.#xy[1] *= c;
+    this.#computeMagnitude();
     return this;
   }
 

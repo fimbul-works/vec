@@ -31,45 +31,44 @@
     "vector-math",
     "vector"
   ],
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
   "files": ["dist", "README.md", "VEC2.md", "VEC3.md", "VEC4.md", "LICENSE"],
   "sideEffects": false,
   "scripts": {
-    "dev": "tsc --watch",
-    "build": "tsc --build --clean && tsc",
-    "prepublishOnly": "npm run build",
-    "test": "vitest"
+    "build": "rm -rf dist && pnpm build:esm && pnpm build:cjs",
+    "build:esm": "tsc -p tsconfig.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json && echo '{\"type\":\"commonjs\"}' > dist/cjs/package.json",
+    "format": "npx biome format --write src",
+    "test": "vitest",
+    "prepublishOnly": "npm run build"
   },
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.js"
+      "types": "./dist/esm/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
     },
     "./vec2": {
-      "types": "./dist/vec2.d.ts",
-      "import": "./dist/vec2.js",
-      "require": "./dist/vec2.js"
+      "types": "./dist/esm/vec2.d.ts",
+      "import": "./dist/esm/vec2.js",
+      "require": "./dist/cjs/vec2.js"
     },
     "./vec3": {
-      "types": "./dist/vec3.d.ts",
-      "import": "./dist/vec3.js",
-      "require": "./dist/vec3.js"
+      "types": "./dist/esm/vec3.d.ts",
+      "import": "./dist/esm/vec3.js",
+      "require": "./dist/cjs/vec3.js"
     },
     "./vec4": {
-      "types": "./dist/vec4.d.ts",
-      "import": "./dist/vec4.js",
-      "require": "./dist/vec4.js"
+      "types": "./dist/esm/vec4.d.ts",
+      "import": "./dist/esm/vec4.js",
+      "require": "./dist/cjs/vec4.js"
     }
   },
-  "engines": {
-    "node": ">=16.0.0"
-  },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.4",
-    "typescript": "^5.6.2",
-    "vitest": "^3.0.8"
+    "@biomejs/biome": "^2.2.4",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
   }
 }

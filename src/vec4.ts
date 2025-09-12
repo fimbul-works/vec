@@ -514,12 +514,7 @@ export class Vec4 {
    * @param json - The JSON-parsed object containing x and y properties.
    * @returns A new Vec4 instance.
    */
-  static fromJSON(json: {
-    x: number;
-    y: number;
-    z: number;
-    w: number;
-  }): Vec4 {
+  static fromJSON(json: { x: number; y: number; z: number; w: number }): Vec4 {
     return Vec4.fromObject(json);
   }
 
@@ -688,7 +683,7 @@ export class Vec4 {
    * @param rgba - An array containing the new Red, Green and Blue components.
    */
   set rgba(rgba: [number, number, number, number]) {
-    this.rgba = rgba;
+    this.xyzw = rgba;
   }
 
   /**

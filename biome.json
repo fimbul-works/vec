@@ -7,18 +7,7 @@
   },
   "linter": {
     "rules": {
-      "complexity": {
-        "noForEach": "off"
-      },
-      "suspicious": {
-        "noDebugger": "off",
-        "noConsoleLog": "off",
-        "noAssignInExpressions": "off"
-      },
       "style": {
-        "noShoutyConstants": "warn",
-        "useNamingConvention": "warn",
-        "noCommaOperator": "off",
         "noParameterAssign": "off"
       }
     }

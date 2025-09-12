@@ -63,6 +63,10 @@ A 3D vector implementation with comprehensive mathematical operations and utilit
 - `y`: Gets or sets the y-component
 - `z`: Gets or sets the z-component
 - `xyz`: Gets or sets all components as an array
+- `r`: Gets or sets the red component (alias for x)
+- `g`: Gets or sets the green component (alias for y)
+- `b`: Gets or sets the blue component (alias for z)
+- `rgb`: Gets or sets all color components as an array (alias for xyz)
 - `magnitude`: Gets or sets the vector's magnitude
 - `magnitudeSq`: Gets the squared magnitude (read-only)
 - `angleX`: Gets the angle with positive x-axis
@@ -156,4 +160,13 @@ const [x, y, z] = v1;
 // Create from special coordinates
 const cylindrical = Vec3.fromCylindricalCoords(2, Math.PI/4, 5);
 const spherical = Vec3.fromSphericalCoords(2, Math.PI/3, Math.PI/4);
+
+// Color operations
+const color = new Vec3(1.0, 0.5, 0.2); // RGB color
+color.r = 0.8; // Modify red channel
+color.g *= 0.9; // Darken green channel
+
+// Access as RGB array
+const [red, green, blue] = color.rgb;
+color.rgb = [0.2, 0.7, 0.9]; // Set new RGB values
 ```

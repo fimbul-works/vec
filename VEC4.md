@@ -61,6 +61,11 @@ A 4D vector implementation with comprehensive mathematical operations and utilit
 - `z`: Gets or sets the z-component
 - `w`: Gets or sets the w-component
 - `xyzw`: Gets or sets all components as an array
+- `r`: Gets or sets the red component (alias for x)
+- `g`: Gets or sets the green component (alias for y)
+- `b`: Gets or sets the blue component (alias for z)
+- `a`: Gets or sets the alpha component (alias for w)
+- `rgba`: Gets or sets all color components as an array (alias for xyzw)
 - `magnitude`: Gets or sets the vector's magnitude
 - `magnitudeSq`: Gets the squared magnitude (read-only)
 - `angleX`: Gets the angle with positive x-axis
@@ -143,4 +148,14 @@ console.log(v1.angleX);
 
 // Convert to array
 const [x, y, z, w] = v1;
+
+// RGBA color with transparency
+const color = new Vec4(1.0, 0.5, 0.2, 0.8); // RGBA color
+color.r = 0.8; // Modify red channel
+color.g *= 0.9; // Darken green channel
+color.a = 1.0; // Make fully opaque
+
+// Access as RGBA array
+const [red, green, blue, alpha] = color.rgba;
+color.rgba = [0.2, 0.7, 0.9, 0.6]; // Set new RGBA values
 ```
