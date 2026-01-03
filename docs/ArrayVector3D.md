@@ -1,8 +1,4 @@
-[**@fimbul-works/vec**](README.md)
-
-***
-
-[@fimbul-works/vec](modules.md) / ArrayVector3D
+[@fimbul-works/vec](README.md) / ArrayVector3D
 
 # ArrayVector3D
 
@@ -16,7 +12,7 @@ Documentation for functional 3D Vector array operations.
 type ArrayVector3D = [number, number, number];
 ```
 
-Defined in: [3d/types.ts:4](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/types.ts#L4)
+Defined in: [3d/types.ts:4](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/types.ts#L4)
 
 3D vector as an array.
 
@@ -28,23 +24,16 @@ Defined in: [3d/types.ts:4](https://github.com/claus-codes/vec/blob/64e80c906947
 function add3D(xyz1, xyz2): ArrayVector3D;
 ```
 
-Defined in: [3d/add-3d.ts:9](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/add-3d.ts#L9)
+Defined in: [3d/add-3d.ts:9](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/add-3d.ts#L9)
 
 Adds two 3D vectors.
 
 #### Parameters
 
-##### xyz1
-
-[`ArrayVector3D`](#arrayvector3d)
-
-First vector as `[x, y, z]` as [x, y, z]
-
-##### xyz2
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Second vector as `[x, y, z]` as [x, y, z]
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz1` | [`ArrayVector3D`](#arrayvector3d) | First vector as `[x, y, z]` as [x, y, z] |
+| `xyz2` | [`ArrayVector3D`](#arrayvector3d) | Second vector as `[x, y, z]` as [x, y, z] |
 
 #### Returns
 
@@ -64,35 +53,18 @@ function angleBetween3D(
    m2?): number;
 ```
 
-Defined in: [3d/angle-between-3d.ts:12](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/angle-between-3d.ts#L12)
+Defined in: [3d/angle-between-3d.ts:12](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/angle-between-3d.ts#L12)
 
 Calculates the angle between two 3D vectors.
 
 #### Parameters
 
-##### xyz1
-
-[`ArrayVector3D`](#arrayvector3d)
-
-First vector as `[x, y, z]`
-
-##### xyz2
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Second vector as `[x, y, z]`
-
-##### m1?
-
-`number` = `...`
-
-Optional first vector magnitude (default: `magnitude3D(xyz1)`)
-
-##### m2?
-
-`number` = `...`
-
-Optional second vector magnitude (default: `magnitude3D(xyz2)`)
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz1` | [`ArrayVector3D`](#arrayvector3d) | First vector as `[x, y, z]` |
+| `xyz2` | [`ArrayVector3D`](#arrayvector3d) | Second vector as `[x, y, z]` |
+| `m1?` | `number` | Optional first vector magnitude (default: `magnitude3D(xyz1)`) |
+| `m2?` | `number` | Optional second vector magnitude (default: `magnitude3D(xyz2)`) |
 
 #### Returns
 
@@ -108,17 +80,15 @@ Angle between the vectors in radians
 function angleX3D(xyz): number;
 ```
 
-Defined in: [3d/angle-x-3d.ts:8](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/angle-x-3d.ts#L8)
+Defined in: [3d/angle-x-3d.ts:8](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/angle-x-3d.ts#L8)
 
 Gets the angle between a 3D vector and the positive x-axis in radians.
 
 #### Parameters
 
-##### xyz
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Vector as `[x, y, z]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz` | [`ArrayVector3D`](#arrayvector3d) | Vector as `[x, y, z]` |
 
 #### Returns
 
@@ -134,17 +104,15 @@ Angle in radians, always in the range [0, 2π)
 function angleY3D(xyz): number;
 ```
 
-Defined in: [3d/angle-y-3d.ts:8](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/angle-y-3d.ts#L8)
+Defined in: [3d/angle-y-3d.ts:8](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/angle-y-3d.ts#L8)
 
 Gets the angle between a 3D vector and the positive y-axis in radians.
 
 #### Parameters
 
-##### xyz
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Vector as `[x, y, z]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz` | [`ArrayVector3D`](#arrayvector3d) | Vector as `[x, y, z]` |
 
 #### Returns
 
@@ -160,17 +128,15 @@ Angle in radians, always in the range [0, 2π)
 function angleZ3D(xyz): number;
 ```
 
-Defined in: [3d/angle-z-3d.ts:8](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/angle-z-3d.ts#L8)
+Defined in: [3d/angle-z-3d.ts:8](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/angle-z-3d.ts#L8)
 
 Gets the angle between a 3D vector and the positive z-axis in radians.
 
 #### Parameters
 
-##### xyz
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Vector as `[x, y, z]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz` | [`ArrayVector3D`](#arrayvector3d) | Vector as `[x, y, z]` |
 
 #### Returns
 
@@ -190,35 +156,18 @@ function clamp3D(
    m?): ArrayVector3D;
 ```
 
-Defined in: [3d/clamp-3d.ts:12](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/clamp-3d.ts#L12)
+Defined in: [3d/clamp-3d.ts:12](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/clamp-3d.ts#L12)
 
 Clamps the magnitude of a vector between min and max.
 
 #### Parameters
 
-##### xyz
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Vector as `[x, y, z]`
-
-##### min
-
-`number`
-
-Minimum magnitude
-
-##### max
-
-`number`
-
-Maximum magnitude
-
-##### m?
-
-`number` = `...`
-
-Optional current magnitude (default: `magnitude3D(xyz)`)
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz` | [`ArrayVector3D`](#arrayvector3d) | Vector as `[x, y, z]` |
+| `min` | `number` | Minimum magnitude |
+| `max` | `number` | Maximum magnitude |
+| `m?` | `number` | Optional current magnitude (default: `magnitude3D(xyz)`) |
 
 #### Returns
 
@@ -234,17 +183,15 @@ The clamped vector
 function clone3D(xyz): ArrayVector3D;
 ```
 
-Defined in: [3d/clone-3d.ts:8](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/clone-3d.ts#L8)
+Defined in: [3d/clone-3d.ts:8](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/clone-3d.ts#L8)
 
 Clone a 3D vector.
 
 #### Parameters
 
-##### xyz
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Vector as `[x, y, z]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz` | [`ArrayVector3D`](#arrayvector3d) | Vector as `[x, y, z]` |
 
 #### Returns
 
@@ -260,23 +207,16 @@ The cloned vector
 function cross3D(xyz1, xyz2): ArrayVector3D;
 ```
 
-Defined in: [3d/cross-3d.ts:9](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/cross-3d.ts#L9)
+Defined in: [3d/cross-3d.ts:9](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/cross-3d.ts#L9)
 
 Calculates the cross product of two 3D vectors.
 
 #### Parameters
 
-##### xyz1
-
-[`ArrayVector3D`](#arrayvector3d)
-
-First vector as `[x, y, z]`
-
-##### xyz2
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Second vector as `[x, y, z]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz1` | [`ArrayVector3D`](#arrayvector3d) | First vector as `[x, y, z]` |
+| `xyz2` | [`ArrayVector3D`](#arrayvector3d) | Second vector as `[x, y, z]` |
 
 #### Returns
 
@@ -292,23 +232,16 @@ The cross product
 function distance3D(xyz1, xyz2): number;
 ```
 
-Defined in: [3d/distance-3d.ts:9](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/distance-3d.ts#L9)
+Defined in: [3d/distance-3d.ts:9](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/distance-3d.ts#L9)
 
 Calculates the Euclidean distance between two 3D vectors.
 
 #### Parameters
 
-##### xyz1
-
-[`ArrayVector3D`](#arrayvector3d)
-
-First vector as `[x, y, z]`
-
-##### xyz2
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Second vector as `[x, y, z]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz1` | [`ArrayVector3D`](#arrayvector3d) | First vector as `[x, y, z]` |
+| `xyz2` | [`ArrayVector3D`](#arrayvector3d) | Second vector as `[x, y, z]` |
 
 #### Returns
 
@@ -324,23 +257,16 @@ Euclidian distance
 function distanceChebyshev3D(xyz1, xyz2): number;
 ```
 
-Defined in: [3d/distance-chebyshev-3d.ts:9](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/distance-chebyshev-3d.ts#L9)
+Defined in: [3d/distance-chebyshev-3d.ts:9](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/distance-chebyshev-3d.ts#L9)
 
 Calculates the Chebyshev distance between two 3D vectors.
 
 #### Parameters
 
-##### xyz1
-
-[`ArrayVector3D`](#arrayvector3d)
-
-First vector as `[x, y, z]` as
-
-##### xyz2
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Second vector as `[x, y, z]` as
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz1` | [`ArrayVector3D`](#arrayvector3d) | First vector as `[x, y, z]` as |
+| `xyz2` | [`ArrayVector3D`](#arrayvector3d) | Second vector as `[x, y, z]` as |
 
 #### Returns
 
@@ -356,23 +282,16 @@ Chebyshev distance
 function distanceManhattan3D(xyz1, xyz2): number;
 ```
 
-Defined in: [3d/distance-manhattan-3d.ts:9](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/distance-manhattan-3d.ts#L9)
+Defined in: [3d/distance-manhattan-3d.ts:9](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/distance-manhattan-3d.ts#L9)
 
 Calculates the Manhattan distance between two 3D vectors.
 
 #### Parameters
 
-##### xyz1
-
-[`ArrayVector3D`](#arrayvector3d)
-
-First vector as `[x, y, z]`
-
-##### xyz2
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Second vector as `[x, y, z]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz1` | [`ArrayVector3D`](#arrayvector3d) | First vector as `[x, y, z]` |
+| `xyz2` | [`ArrayVector3D`](#arrayvector3d) | Second vector as `[x, y, z]` |
 
 #### Returns
 
@@ -391,29 +310,17 @@ function distanceMinkowski3D(
    p): number;
 ```
 
-Defined in: [3d/distance-minkowski-3d.ts:10](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/distance-minkowski-3d.ts#L10)
+Defined in: [3d/distance-minkowski-3d.ts:10](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/distance-minkowski-3d.ts#L10)
 
 Calculates the Minkowski distance between two 3D vectors.
 
 #### Parameters
 
-##### xyz1
-
-[`ArrayVector3D`](#arrayvector3d)
-
-First vector as `[x, y, z]`
-
-##### xyz2
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Second vector as `[x, y, z]`
-
-##### p
-
-`number`
-
-Order of the Minkowski distance
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz1` | [`ArrayVector3D`](#arrayvector3d) | First vector as `[x, y, z]` |
+| `xyz2` | [`ArrayVector3D`](#arrayvector3d) | Second vector as `[x, y, z]` |
+| `p` | `number` | Order of the Minkowski distance |
 
 #### Returns
 
@@ -429,23 +336,16 @@ Minkowski distance
 function distanceSq3D(xyz1, xyz2): number;
 ```
 
-Defined in: [3d/distance-sq-3d.ts:9](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/distance-sq-3d.ts#L9)
+Defined in: [3d/distance-sq-3d.ts:9](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/distance-sq-3d.ts#L9)
 
 Calculates the squared Euclidean distance between two 3D vectors.
 
 #### Parameters
 
-##### xyz1
-
-[`ArrayVector3D`](#arrayvector3d)
-
-First vector as `[x, y, z]`
-
-##### xyz2
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Second vector as `[x, y, z]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz1` | [`ArrayVector3D`](#arrayvector3d) | First vector as `[x, y, z]` |
+| `xyz2` | [`ArrayVector3D`](#arrayvector3d) | Second vector as `[x, y, z]` |
 
 #### Returns
 
@@ -461,23 +361,16 @@ Squared Euclidian distance
 function divide3D(xyz1, xyz2): ArrayVector3D;
 ```
 
-Defined in: [3d/divide-3d.ts:9](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/divide-3d.ts#L9)
+Defined in: [3d/divide-3d.ts:9](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/divide-3d.ts#L9)
 
 Divides one 3D vector with another.
 
 #### Parameters
 
-##### xyz1
-
-[`ArrayVector3D`](#arrayvector3d)
-
-First vector as `[x, y, z]`
-
-##### xyz2
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Second vector as `[x, y, z]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz1` | [`ArrayVector3D`](#arrayvector3d) | First vector as `[x, y, z]` |
+| `xyz2` | [`ArrayVector3D`](#arrayvector3d) | Second vector as `[x, y, z]` |
 
 #### Returns
 
@@ -493,23 +386,16 @@ The divided vector
 function dot3D(xyz1, xyz2): number;
 ```
 
-Defined in: [3d/dot-3d.ts:9](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/dot-3d.ts#L9)
+Defined in: [3d/dot-3d.ts:9](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/dot-3d.ts#L9)
 
 Calculates the dot product of two 3D vectors.
 
 #### Parameters
 
-##### xyz1
-
-[`ArrayVector3D`](#arrayvector3d)
-
-First vector as `[x, y, z]`
-
-##### xyz2
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Second vector as `[x, y, z]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz1` | [`ArrayVector3D`](#arrayvector3d) | First vector as `[x, y, z]` |
+| `xyz2` | [`ArrayVector3D`](#arrayvector3d) | Second vector as `[x, y, z]` |
 
 #### Returns
 
@@ -528,29 +414,17 @@ function fromCylindricalCoords(
    z): ArrayVector3D;
 ```
 
-Defined in: [3d/from-cylindrical-coords-3d.ts:10](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/from-cylindrical-coords-3d.ts#L10)
+Defined in: [3d/from-cylindrical-coords-3d.ts:10](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/from-cylindrical-coords-3d.ts#L10)
 
 Creates a vector from cylindrical coordinates.
 
 #### Parameters
 
-##### r
-
-`number`
-
-Radius
-
-##### phi
-
-`number`
-
-Angle in radians
-
-##### z
-
-`number`
-
-Vector z axis
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `r` | `number` | Radius |
+| `phi` | `number` | Angle in radians |
+| `z` | `number` | Vector z axis |
 
 #### Returns
 
@@ -566,27 +440,18 @@ Vector
 function fromObject3D(vector3D): ArrayVector3D;
 ```
 
-Defined in: [3d/from-object-3d.ts:8](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/from-object-3d.ts#L8)
+Defined in: [3d/from-object-3d.ts:8](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/from-object-3d.ts#L8)
 
 Creates an ArrayVector3D from an object with x, y and z properties.
 
 #### Parameters
 
-##### vector3D
-
-Object with x, y and z properties
-
-###### x
-
-`number`
-
-###### y
-
-`number`
-
-###### z
-
-`number`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `vector3D` | \{ `x`: `number`; `y`: `number`; `z`: `number`; \} | Object with x, y and z properties |
+| `vector3D.x` | `number` | - |
+| `vector3D.y` | `number` | - |
+| `vector3D.z` | `number` | - |
 
 #### Returns
 
@@ -605,29 +470,17 @@ function fromSphericalCoords3D(
    m?): ArrayVector3D;
 ```
 
-Defined in: [3d/from-spherical-coords-3d.ts:10](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/from-spherical-coords-3d.ts#L10)
+Defined in: [3d/from-spherical-coords-3d.ts:10](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/from-spherical-coords-3d.ts#L10)
 
 Creates a 3D vector from spherical coordinates.
 
 #### Parameters
 
-##### theta
-
-`number`
-
-First angle
-
-##### phi
-
-`number`
-
-Second angle
-
-##### m?
-
-`number` = `1`
-
-Optional magnitude (default: `1`)
+| Parameter | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `theta` | `number` | `undefined` | First angle |
+| `phi` | `number` | `undefined` | Second angle |
+| `m?` | `number` | `1` | Optional magnitude (default: `1`) |
 
 #### Returns
 
@@ -643,17 +496,15 @@ Vector
 function immutable3D(xyz): readonly [number, number, number];
 ```
 
-Defined in: [3d/immutable-3d.ts:8](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/immutable-3d.ts#L8)
+Defined in: [3d/immutable-3d.ts:8](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/immutable-3d.ts#L8)
 
 Create an immutable 3D vector.
 
 #### Parameters
 
-##### xyz
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Vector as `[x, y, z]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz` | [`ArrayVector3D`](#arrayvector3d) | Vector as `[x, y, z]` |
 
 #### Returns
 
@@ -669,23 +520,16 @@ The immutable vector
 function isEqual3D(xyz1, xyz2): boolean;
 ```
 
-Defined in: [3d/is-equal-3d.ts:9](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/is-equal-3d.ts#L9)
+Defined in: [3d/is-equal-3d.ts:9](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/is-equal-3d.ts#L9)
 
 Checks if two 3D vectors are equal.
 
 #### Parameters
 
-##### xyz1
-
-[`ArrayVector3D`](#arrayvector3d)
-
-First vector as `[x, y, z]`
-
-##### xyz2
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Second vector as `[x, y, z]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz1` | [`ArrayVector3D`](#arrayvector3d) | First vector as `[x, y, z]` |
+| `xyz2` | [`ArrayVector3D`](#arrayvector3d) | Second vector as `[x, y, z]` |
 
 #### Returns
 
@@ -704,29 +548,17 @@ function isEqualApprox3D(
    epsilon): boolean;
 ```
 
-Defined in: [3d/is-equal-approx-3d.ts:10](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/is-equal-approx-3d.ts#L10)
+Defined in: [3d/is-equal-approx-3d.ts:10](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/is-equal-approx-3d.ts#L10)
 
 Compares two 3D vectors using an epsilon value for floating-point comparison.
 
 #### Parameters
 
-##### xyz1
-
-[`ArrayVector3D`](#arrayvector3d)
-
-First vector as `[x, y, z]`
-
-##### xyz2
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Second vector as `[x, y, z]`
-
-##### epsilon
-
-`number` = `Number.EPSILON`
-
-Tolerance for comparison (default: `Number.EPSILON`)
+| Parameter | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `xyz1` | [`ArrayVector3D`](#arrayvector3d) | `undefined` | First vector as `[x, y, z]` |
+| `xyz2` | [`ArrayVector3D`](#arrayvector3d) | `undefined` | Second vector as `[x, y, z]` |
+| `epsilon` | `number` | `Number.EPSILON` | Tolerance for comparison (default: `Number.EPSILON`) |
 
 #### Returns
 
@@ -742,17 +574,15 @@ Tolerance for comparison (default: `Number.EPSILON`)
 function isInfinite3D(xyz): boolean;
 ```
 
-Defined in: [3d/is-infinite-3d.ts:8](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/is-infinite-3d.ts#L8)
+Defined in: [3d/is-infinite-3d.ts:8](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/is-infinite-3d.ts#L8)
 
 Checks if a vector has infinite components.
 
 #### Parameters
 
-##### xyz
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Vector as `[x, y, z]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz` | [`ArrayVector3D`](#arrayvector3d) | Vector as `[x, y, z]` |
 
 #### Returns
 
@@ -768,17 +598,15 @@ Vector as `[x, y, z]`
 function isNaN3D(xyz): boolean;
 ```
 
-Defined in: [3d/is-nan-3d.ts:8](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/is-nan-3d.ts#L8)
+Defined in: [3d/is-nan-3d.ts:8](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/is-nan-3d.ts#L8)
 
 Checks if a 3D vector has NaN components.
 
 #### Parameters
 
-##### xyz
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Vector as `[x, y, z]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz` | [`ArrayVector3D`](#arrayvector3d) | Vector as `[x, y, z]` |
 
 #### Returns
 
@@ -794,23 +622,16 @@ Vector as `[x, y, z]`
 function isOpposite3D(xyz1, xyz2): boolean;
 ```
 
-Defined in: [3d/is-opposite-3d.ts:9](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/is-opposite-3d.ts#L9)
+Defined in: [3d/is-opposite-3d.ts:9](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/is-opposite-3d.ts#L9)
 
 Checks if two 3D vectors are opposite.
 
 #### Parameters
 
-##### xyz1
-
-[`ArrayVector3D`](#arrayvector3d)
-
-First vector as `[x, y, z]`
-
-##### xyz2
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Second vector as `[x, y, z]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz1` | [`ArrayVector3D`](#arrayvector3d) | First vector as `[x, y, z]` |
+| `xyz2` | [`ArrayVector3D`](#arrayvector3d) | Second vector as `[x, y, z]` |
 
 #### Returns
 
@@ -826,17 +647,15 @@ Second vector as `[x, y, z]`
 function isZero3D(xyz): boolean;
 ```
 
-Defined in: [3d/is-zero-3d.ts:8](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/is-zero-3d.ts#L8)
+Defined in: [3d/is-zero-3d.ts:8](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/is-zero-3d.ts#L8)
 
 Checks if a 3D vector is zero.
 
 #### Parameters
 
-##### xyz
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Vector as `[x, y, z]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz` | [`ArrayVector3D`](#arrayvector3d) | Vector as `[x, y, z]` |
 
 #### Returns
 
@@ -855,29 +674,17 @@ function lerp3D(
    t): ArrayVector3D;
 ```
 
-Defined in: [3d/lerp-3d.ts:10](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/lerp-3d.ts#L10)
+Defined in: [3d/lerp-3d.ts:10](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/lerp-3d.ts#L10)
 
 Performs linear interpolation between two vectors.
 
 #### Parameters
 
-##### xyz1
-
-[`ArrayVector3D`](#arrayvector3d)
-
-First vector as `[x, y, z]`
-
-##### xyz2
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Second vector as `[x, y, z]`
-
-##### t
-
-`number`
-
-Interpolation parameter
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz1` | [`ArrayVector3D`](#arrayvector3d) | First vector as `[x, y, z]` |
+| `xyz2` | [`ArrayVector3D`](#arrayvector3d) | Second vector as `[x, y, z]` |
+| `t` | `number` | Interpolation parameter |
 
 #### Returns
 
@@ -896,29 +703,17 @@ function limitMax3D(
    m?): ArrayVector3D;
 ```
 
-Defined in: [3d/limit-max-3d.ts:11](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/limit-max-3d.ts#L11)
+Defined in: [3d/limit-max-3d.ts:11](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/limit-max-3d.ts#L11)
 
 Limits the maximum magnitude of a 3D vector.
 
 #### Parameters
 
-##### xyz
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Vector as `[x, y, z]`
-
-##### max
-
-`number`
-
-Maximum magnitude
-
-##### m?
-
-`number` = `...`
-
-Optional current magnitude (default: `magnitude3D(xyz)`)
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz` | [`ArrayVector3D`](#arrayvector3d) | Vector as `[x, y, z]` |
+| `max` | `number` | Maximum magnitude |
+| `m?` | `number` | Optional current magnitude (default: `magnitude3D(xyz)`) |
 
 #### Returns
 
@@ -937,29 +732,17 @@ function limitMin3D(
    m?): ArrayVector3D;
 ```
 
-Defined in: [3d/limit-min-3d.ts:11](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/limit-min-3d.ts#L11)
+Defined in: [3d/limit-min-3d.ts:11](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/limit-min-3d.ts#L11)
 
 Limits the minimum magnitude of a 3D vector.
 
 #### Parameters
 
-##### xyz
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Vector as `[x, y, z]`
-
-##### min
-
-`number`
-
-Minimum magnitude
-
-##### m?
-
-`number` = `...`
-
-Optional current magnitude (default: `magnitude3D(xyz)`)
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz` | [`ArrayVector3D`](#arrayvector3d) | Vector as `[x, y, z]` |
+| `min` | `number` | Minimum magnitude |
+| `m?` | `number` | Optional current magnitude (default: `magnitude3D(xyz)`) |
 
 #### Returns
 
@@ -979,35 +762,18 @@ function lookAt3D(
    m2?): ArrayVector3D;
 ```
 
-Defined in: [3d/look-at-3d.ts:12](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/look-at-3d.ts#L12)
+Defined in: [3d/look-at-3d.ts:12](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/look-at-3d.ts#L12)
 
 Creates a vector pointing from the first vector to the second vector, maintaining the magnitude of the first vector.
 
 #### Parameters
 
-##### xyz1
-
-[`ArrayVector3D`](#arrayvector3d)
-
-First vector as `[x, y, z]` (source direction)
-
-##### xyz2
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Second vector as `[x, y, z]` (target direction)
-
-##### m1?
-
-`number` = `...`
-
-Optional current magnitude of the first vector (default: `magnitude3D(xyz1)`)
-
-##### m2?
-
-`number` = `...`
-
-Optional current magnitude of the second vector (default: `magnitude3D(xyz2)`)
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz1` | [`ArrayVector3D`](#arrayvector3d) | First vector as `[x, y, z]` (source direction) |
+| `xyz2` | [`ArrayVector3D`](#arrayvector3d) | Second vector as `[x, y, z]` (target direction) |
+| `m1?` | `number` | Optional current magnitude of the first vector (default: `magnitude3D(xyz1)`) |
+| `m2?` | `number` | Optional current magnitude of the second vector (default: `magnitude3D(xyz2)`) |
 
 #### Returns
 
@@ -1023,17 +789,15 @@ The look-at vector
 function magnitude3D(xyz): number;
 ```
 
-Defined in: [3d/magnitude-3d.ts:8](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/magnitude-3d.ts#L8)
+Defined in: [3d/magnitude-3d.ts:8](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/magnitude-3d.ts#L8)
 
 Calculates the magnitude of a 3D vector.
 
 #### Parameters
 
-##### xyz
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Vector as `[x, y, z]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz` | [`ArrayVector3D`](#arrayvector3d) | Vector as `[x, y, z]` |
 
 #### Returns
 
@@ -1049,17 +813,15 @@ Magnitude of the vector
 function magnitudeSq3D(xyz): number;
 ```
 
-Defined in: [3d/magnitude-sq-3d.ts:8](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/magnitude-sq-3d.ts#L8)
+Defined in: [3d/magnitude-sq-3d.ts:8](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/magnitude-sq-3d.ts#L8)
 
 Calculate the squared magnitude of a 3D vector.
 
 #### Parameters
 
-##### xyz
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Vector as `[x, y, z]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz` | [`ArrayVector3D`](#arrayvector3d) | Vector as `[x, y, z]` |
 
 #### Returns
 
@@ -1075,23 +837,16 @@ Squared magnitude
 function multiply3D(xyz1, xyz2): ArrayVector3D;
 ```
 
-Defined in: [3d/multiply-3d.ts:9](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/multiply-3d.ts#L9)
+Defined in: [3d/multiply-3d.ts:9](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/multiply-3d.ts#L9)
 
 Multiplies one 3D vector with another component-wise.
 
 #### Parameters
 
-##### xyz1
-
-[`ArrayVector3D`](#arrayvector3d)
-
-First vector as `[x, y, z]`
-
-##### xyz2
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Second vector as `[x, y, z]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz1` | [`ArrayVector3D`](#arrayvector3d) | First vector as `[x, y, z]` |
+| `xyz2` | [`ArrayVector3D`](#arrayvector3d) | Second vector as `[x, y, z]` |
 
 #### Returns
 
@@ -1107,17 +862,15 @@ The multiplied value
 function negate3D(xyz): ArrayVector3D;
 ```
 
-Defined in: [3d/negate-3d.ts:8](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/negate-3d.ts#L8)
+Defined in: [3d/negate-3d.ts:8](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/negate-3d.ts#L8)
 
 Negates a 3D vector.
 
 #### Parameters
 
-##### xyz
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Vector as `[x, y, z]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz` | [`ArrayVector3D`](#arrayvector3d) | Vector as `[x, y, z]` |
 
 #### Returns
 
@@ -1133,23 +886,16 @@ The negated vector
 function normalize3D(xyz, m?): ArrayVector3D;
 ```
 
-Defined in: [3d/normalize-3d.ts:10](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/normalize-3d.ts#L10)
+Defined in: [3d/normalize-3d.ts:10](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/normalize-3d.ts#L10)
 
 Normalize a 3D vector.
 
 #### Parameters
 
-##### xyz
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Vector as `[x, y, z]`
-
-##### m?
-
-`number` = `...`
-
-Optional current magnitude (default: `magnitude3D(xyz)`)
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz` | [`ArrayVector3D`](#arrayvector3d) | Vector as `[x, y, z]` |
+| `m?` | `number` | Optional current magnitude (default: `magnitude3D(xyz)`) |
 
 #### Returns
 
@@ -1165,7 +911,7 @@ The normalized vector
 function one3D(): ArrayVector3D;
 ```
 
-Defined in: [3d/one-3d.ts:7](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/one-3d.ts#L7)
+Defined in: [3d/one-3d.ts:7](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/one-3d.ts#L7)
 
 Creates a 3D vector with all components to to 1.0.
 
@@ -1187,35 +933,18 @@ function project3D(
    m2?): ArrayVector3D;
 ```
 
-Defined in: [3d/project-3d.ts:12](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/project-3d.ts#L12)
+Defined in: [3d/project-3d.ts:12](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/project-3d.ts#L12)
 
 Projects one 3D vector onto the second.
 
 #### Parameters
 
-##### xyz1
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Vector to project
-
-##### xyz2
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Vector to project onto
-
-##### m1?
-
-`number` = `...`
-
-Optional magnitude of the vector to project (default: `magnitude3D(xyz1)`)
-
-##### m2?
-
-`number` = `...`
-
-Optional magnitude of the vector to project onto (default: `magnitude3D(xyz2)`)
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz1` | [`ArrayVector3D`](#arrayvector3d) | Vector to project |
+| `xyz2` | [`ArrayVector3D`](#arrayvector3d) | Vector to project onto |
+| `m1?` | `number` | Optional magnitude of the vector to project (default: `magnitude3D(xyz1)`) |
+| `m2?` | `number` | Optional magnitude of the vector to project onto (default: `magnitude3D(xyz2)`) |
 
 #### Returns
 
@@ -1231,17 +960,15 @@ The projected vector
 function random3D(random): ArrayVector3D;
 ```
 
-Defined in: [3d/random-3d.ts:9](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/random-3d.ts#L9)
+Defined in: [3d/random-3d.ts:9](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/random-3d.ts#L9)
 
 Creates a random unit 3D vector.
 
 #### Parameters
 
-##### random
-
-() => `number`
-
-A function that returns a random number between 0 and 1 (default: `Math.random`)
+| Parameter | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `random` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1 (default: `Math.random`) |
 
 #### Returns
 
@@ -1257,24 +984,17 @@ Random unit vector
 function reflect3D(xyz, normal): ArrayVector3D;
 ```
 
-Defined in: [3d/reflect-3d.ts:11](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/reflect-3d.ts#L11)
+Defined in: [3d/reflect-3d.ts:11](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/reflect-3d.ts#L11)
 
 Reflects a vector across a normal vector.
 The normal vector should be normalized (unit length).
 
 #### Parameters
 
-##### xyz
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Vector as `[x, y, z]` to reflect
-
-##### normal
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Normal vector to reflect across (must be normalized)
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz` | [`ArrayVector3D`](#arrayvector3d) | Vector as `[x, y, z]` to reflect |
+| `normal` | [`ArrayVector3D`](#arrayvector3d) | Normal vector to reflect across (must be normalized) |
 
 #### Returns
 
@@ -1293,29 +1013,17 @@ function rotateX3D(
    axis): ArrayVector3D;
 ```
 
-Defined in: [3d/rotate-x-3d.ts:10](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/rotate-x-3d.ts#L10)
+Defined in: [3d/rotate-x-3d.ts:10](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/rotate-x-3d.ts#L10)
 
 Rotates a 3D vector around the x-axis.
 
 #### Parameters
 
-##### xyz
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Vector as `[x, y, z]`
-
-##### phi
-
-`number`
-
-Angle of rotation in radians
-
-##### axis
-
-[`ArrayVector3D`](#arrayvector3d) = `...`
-
-Rotation axis point (default: `[0, 0, 0]`)
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz` | [`ArrayVector3D`](#arrayvector3d) | Vector as `[x, y, z]` |
+| `phi` | `number` | Angle of rotation in radians |
+| `axis` | [`ArrayVector3D`](#arrayvector3d) | Rotation axis point (default: `[0, 0, 0]`) |
 
 #### Returns
 
@@ -1334,29 +1042,17 @@ function rotateY3D(
    axis): ArrayVector3D;
 ```
 
-Defined in: [3d/rotate-y-3d.ts:10](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/rotate-y-3d.ts#L10)
+Defined in: [3d/rotate-y-3d.ts:10](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/rotate-y-3d.ts#L10)
 
 Rotates a 3D vector around the y-axis.
 
 #### Parameters
 
-##### xyz
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Vector as `[x, y, z]`
-
-##### phi
-
-`number`
-
-Angle of rotation in radians
-
-##### axis
-
-[`ArrayVector3D`](#arrayvector3d) = `...`
-
-Rotation axis point (default: `[0, 0, 0]`)
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz` | [`ArrayVector3D`](#arrayvector3d) | Vector as `[x, y, z]` |
+| `phi` | `number` | Angle of rotation in radians |
+| `axis` | [`ArrayVector3D`](#arrayvector3d) | Rotation axis point (default: `[0, 0, 0]`) |
 
 #### Returns
 
@@ -1375,29 +1071,17 @@ function rotateZ3D(
    axis): ArrayVector3D;
 ```
 
-Defined in: [3d/rotate-z-3d.ts:10](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/rotate-z-3d.ts#L10)
+Defined in: [3d/rotate-z-3d.ts:10](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/rotate-z-3d.ts#L10)
 
 Rotates a 3D vector around the z-axis.
 
 #### Parameters
 
-##### xyz
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Vector as `[x, y, z]`
-
-##### phi
-
-`number`
-
-Angle of rotation in radians
-
-##### axis
-
-[`ArrayVector3D`](#arrayvector3d) = `...`
-
-Rotation axis point (default: `[0, 0, 0]`)
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz` | [`ArrayVector3D`](#arrayvector3d) | Vector as `[x, y, z]` |
+| `phi` | `number` | Angle of rotation in radians |
+| `axis` | [`ArrayVector3D`](#arrayvector3d) | Rotation axis point (default: `[0, 0, 0]`) |
 
 #### Returns
 
@@ -1416,29 +1100,17 @@ function setMagnitude3D(
    m?): ArrayVector3D;
 ```
 
-Defined in: [3d/set-magnitude-3d.ts:11](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/set-magnitude-3d.ts#L11)
+Defined in: [3d/set-magnitude-3d.ts:11](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/set-magnitude-3d.ts#L11)
 
 Sets the magnitude (length) of a 3D vector, maintaining its direction.
 
 #### Parameters
 
-##### xyz
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Vector as `[x, y, z]`
-
-##### newMagnitude
-
-`number`
-
-New magnitude
-
-##### m?
-
-`number` = `...`
-
-Optional current magnitude (default: `magnitude3D(xyz)`)
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz` | [`ArrayVector3D`](#arrayvector3d) | Vector as `[x, y, z]` |
+| `newMagnitude` | `number` | New magnitude |
+| `m?` | `number` | Optional current magnitude (default: `magnitude3D(xyz)`) |
 
 #### Returns
 
@@ -1454,23 +1126,16 @@ The adjusted vector
 function subtract3D(xyz1, xyz2): ArrayVector3D;
 ```
 
-Defined in: [3d/subtract-3d.ts:9](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/subtract-3d.ts#L9)
+Defined in: [3d/subtract-3d.ts:9](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/subtract-3d.ts#L9)
 
 Subtracts a 3D vector from another.
 
 #### Parameters
 
-##### xyz1
-
-[`ArrayVector3D`](#arrayvector3d)
-
-First vector as `[x, y, z]`
-
-##### xyz2
-
-[`ArrayVector3D`](#arrayvector3d)
-
-Second vector as `[x, y, z]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz1` | [`ArrayVector3D`](#arrayvector3d) | First vector as `[x, y, z]` |
+| `xyz2` | [`ArrayVector3D`](#arrayvector3d) | Second vector as `[x, y, z]` |
 
 #### Returns
 
@@ -1486,7 +1151,7 @@ The difference between the vectors
 function zero3D(): ArrayVector3D;
 ```
 
-Defined in: [3d/zero-3d.ts:7](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/3d/zero-3d.ts#L7)
+Defined in: [3d/zero-3d.ts:7](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/3d/zero-3d.ts#L7)
 
 Creates a zero 3D vector.
 

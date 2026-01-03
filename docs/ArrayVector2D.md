@@ -1,8 +1,4 @@
-[**@fimbul-works/vec**](README.md)
-
-***
-
-[@fimbul-works/vec](modules.md) / ArrayVector2D
+[@fimbul-works/vec](README.md) / ArrayVector2D
 
 # ArrayVector2D
 
@@ -16,7 +12,7 @@ Documentation for functional 2D Vector array operations.
 type ArrayVector2D = [number, number];
 ```
 
-Defined in: [2d/types.ts:4](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/types.ts#L4)
+Defined in: [2d/types.ts:4](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/types.ts#L4)
 
 2D vector as an array.
 
@@ -28,23 +24,16 @@ Defined in: [2d/types.ts:4](https://github.com/claus-codes/vec/blob/64e80c906947
 function add2D(xy1, xy2): ArrayVector2D;
 ```
 
-Defined in: [2d/add-2d.ts:9](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/add-2d.ts#L9)
+Defined in: [2d/add-2d.ts:9](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/add-2d.ts#L9)
 
 Adds one 2D vectors.
 
 #### Parameters
 
-##### xy1
-
-[`ArrayVector2D`](#arrayvector2d)
-
-First vector as `[x, y]`
-
-##### xy2
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Second vector as `[x, y]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xy1` | [`ArrayVector2D`](#arrayvector2d) | First vector as `[x, y]` |
+| `xy2` | [`ArrayVector2D`](#arrayvector2d) | Second vector as `[x, y]` |
 
 #### Returns
 
@@ -60,23 +49,16 @@ The sum of the vectors
 function angleBetween2D(xy1, xy2): number;
 ```
 
-Defined in: [2d/angle-between-2d.ts:9](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/angle-between-2d.ts#L9)
+Defined in: [2d/angle-between-2d.ts:9](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/angle-between-2d.ts#L9)
 
 Calculates the angle between two 2D vectors.
 
 #### Parameters
 
-##### xy1
-
-[`ArrayVector2D`](#arrayvector2d)
-
-First vector as `[x, y]`
-
-##### xy2
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Second vector as `[x, y]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xy1` | [`ArrayVector2D`](#arrayvector2d) | First vector as `[x, y]` |
+| `xy2` | [`ArrayVector2D`](#arrayvector2d) | Second vector as `[x, y]` |
 
 #### Returns
 
@@ -92,17 +74,15 @@ Angle between the vectors in radians
 function angleX2D(xy): number;
 ```
 
-Defined in: [2d/angle-x-2d.ts:8](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/angle-x-2d.ts#L8)
+Defined in: [2d/angle-x-2d.ts:8](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/angle-x-2d.ts#L8)
 
 Gets the angle between a 2D vector and the positive x-axis in radians.
 
 #### Parameters
 
-##### xy
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Vector as `[x, y]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xy` | [`ArrayVector2D`](#arrayvector2d) | Vector as `[x, y]` |
 
 #### Returns
 
@@ -118,17 +98,15 @@ Angle in radians, always in the range [0, 2π)
 function angleY2D(xy): number;
 ```
 
-Defined in: [2d/angle-y-2d.ts:8](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/angle-y-2d.ts#L8)
+Defined in: [2d/angle-y-2d.ts:8](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/angle-y-2d.ts#L8)
 
 Gets the angle between a 2D vector and the positive y-axis in radians.
 
 #### Parameters
 
-##### xy
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Vector as `[x, y]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xy` | [`ArrayVector2D`](#arrayvector2d) | Vector as `[x, y]` |
 
 #### Returns
 
@@ -148,35 +126,18 @@ function clamp2D(
    m?): ArrayVector2D;
 ```
 
-Defined in: [2d/clamp-2d.ts:12](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/clamp-2d.ts#L12)
+Defined in: [2d/clamp-2d.ts:12](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/clamp-2d.ts#L12)
 
 Clamps the magnitude of a 2D vector between a minimum and maximum value.
 
 #### Parameters
 
-##### xy
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Vector as `[x, y]`
-
-##### min
-
-`number`
-
-Minimum magnitude
-
-##### max
-
-`number`
-
-Maximum magnitude
-
-##### m?
-
-`number` = `...`
-
-Optional current magnitude (default: `magnitude2D(xy)`)
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xy` | [`ArrayVector2D`](#arrayvector2d) | Vector as `[x, y]` |
+| `min` | `number` | Minimum magnitude |
+| `max` | `number` | Maximum magnitude |
+| `m?` | `number` | Optional current magnitude (default: `magnitude2D(xy)`) |
 
 #### Returns
 
@@ -192,17 +153,15 @@ The clamped vector
 function clone2D(xy): ArrayVector2D;
 ```
 
-Defined in: [2d/clone-2d.ts:8](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/clone-2d.ts#L8)
+Defined in: [2d/clone-2d.ts:8](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/clone-2d.ts#L8)
 
 Clone a 2D vector.
 
 #### Parameters
 
-##### xy
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Vector as `[x, y]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xy` | [`ArrayVector2D`](#arrayvector2d) | Vector as `[x, y]` |
 
 #### Returns
 
@@ -218,23 +177,16 @@ The cloned vector
 function cross2D(xy1, xy2): number;
 ```
 
-Defined in: [2d/cross-2d.ts:9](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/cross-2d.ts#L9)
+Defined in: [2d/cross-2d.ts:9](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/cross-2d.ts#L9)
 
 Calculates the cross product of two 2D vectors.
 
 #### Parameters
 
-##### xy1
-
-[`ArrayVector2D`](#arrayvector2d)
-
-First vector as `[x, y]`
-
-##### xy2
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Second vector as `[x, y]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xy1` | [`ArrayVector2D`](#arrayvector2d) | First vector as `[x, y]` |
+| `xy2` | [`ArrayVector2D`](#arrayvector2d) | Second vector as `[x, y]` |
 
 #### Returns
 
@@ -250,23 +202,16 @@ Cross product
 function distance2D(xy1, xy2): number;
 ```
 
-Defined in: [2d/distance-2d.ts:9](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/distance-2d.ts#L9)
+Defined in: [2d/distance-2d.ts:9](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/distance-2d.ts#L9)
 
 Calculate the Euclidean distance between two 2D vectors.
 
 #### Parameters
 
-##### xy1
-
-[`ArrayVector2D`](#arrayvector2d)
-
-First vector as `[x, y]`
-
-##### xy2
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Second vector as `[x, y]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xy1` | [`ArrayVector2D`](#arrayvector2d) | First vector as `[x, y]` |
+| `xy2` | [`ArrayVector2D`](#arrayvector2d) | Second vector as `[x, y]` |
 
 #### Returns
 
@@ -282,23 +227,16 @@ Euclidean distance
 function distanceChebyshev2D(xy1, xy2): number;
 ```
 
-Defined in: [2d/distance-chebyshev-2d.ts:9](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/distance-chebyshev-2d.ts#L9)
+Defined in: [2d/distance-chebyshev-2d.ts:9](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/distance-chebyshev-2d.ts#L9)
 
 Calculates the Chebyshev distance between two 2D vectors.
 
 #### Parameters
 
-##### xy1
-
-[`ArrayVector2D`](#arrayvector2d)
-
-First vector as `[x, y]`
-
-##### xy2
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Second vector as `[x, y]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xy1` | [`ArrayVector2D`](#arrayvector2d) | First vector as `[x, y]` |
+| `xy2` | [`ArrayVector2D`](#arrayvector2d) | Second vector as `[x, y]` |
 
 #### Returns
 
@@ -314,23 +252,16 @@ Chebyshev distance
 function distanceManhattan2D(xy1, xy2): number;
 ```
 
-Defined in: [2d/distance-manhattan-2d.ts:9](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/distance-manhattan-2d.ts#L9)
+Defined in: [2d/distance-manhattan-2d.ts:9](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/distance-manhattan-2d.ts#L9)
 
 Calculates the Manhattan distance between two 2D vectors.
 
 #### Parameters
 
-##### xy1
-
-[`ArrayVector2D`](#arrayvector2d)
-
-First vector as `[x, y]`
-
-##### xy2
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Second vector as `[x, y]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xy1` | [`ArrayVector2D`](#arrayvector2d) | First vector as `[x, y]` |
+| `xy2` | [`ArrayVector2D`](#arrayvector2d) | Second vector as `[x, y]` |
 
 #### Returns
 
@@ -349,29 +280,17 @@ function distanceMinkowski2D(
    p): number;
 ```
 
-Defined in: [2d/distance-minkowski-2d.ts:10](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/distance-minkowski-2d.ts#L10)
+Defined in: [2d/distance-minkowski-2d.ts:10](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/distance-minkowski-2d.ts#L10)
 
 Calculates the Minkowski distance between two 2D vectors.
 
 #### Parameters
 
-##### xy1
-
-[`ArrayVector2D`](#arrayvector2d)
-
-First vector as `[x, y]`
-
-##### xy2
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Second vector as `[x, y]`
-
-##### p
-
-`number`
-
-Order of the Minkowski distance
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xy1` | [`ArrayVector2D`](#arrayvector2d) | First vector as `[x, y]` |
+| `xy2` | [`ArrayVector2D`](#arrayvector2d) | Second vector as `[x, y]` |
+| `p` | `number` | Order of the Minkowski distance |
 
 #### Returns
 
@@ -387,23 +306,16 @@ Minkowski distance
 function distanceSq2D(xy1, xy2): number;
 ```
 
-Defined in: [2d/distance-sq-2d.ts:9](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/distance-sq-2d.ts#L9)
+Defined in: [2d/distance-sq-2d.ts:9](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/distance-sq-2d.ts#L9)
 
 Calculates the squared Euclidean distance between two 2D vectors.
 
 #### Parameters
 
-##### xy1
-
-[`ArrayVector2D`](#arrayvector2d)
-
-First vector as `[x, y]`
-
-##### xy2
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Second vector as `[x, y]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xy1` | [`ArrayVector2D`](#arrayvector2d) | First vector as `[x, y]` |
+| `xy2` | [`ArrayVector2D`](#arrayvector2d) | Second vector as `[x, y]` |
 
 #### Returns
 
@@ -419,23 +331,16 @@ Squared distance
 function divide2D(xy1, xy2): ArrayVector2D;
 ```
 
-Defined in: [2d/divide-2d.ts:9](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/divide-2d.ts#L9)
+Defined in: [2d/divide-2d.ts:9](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/divide-2d.ts#L9)
 
 Divides one 2D vector with another.
 
 #### Parameters
 
-##### xy1
-
-[`ArrayVector2D`](#arrayvector2d)
-
-First vector as `[x, y]`
-
-##### xy2
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Second vector as `[x, y]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xy1` | [`ArrayVector2D`](#arrayvector2d) | First vector as `[x, y]` |
+| `xy2` | [`ArrayVector2D`](#arrayvector2d) | Second vector as `[x, y]` |
 
 #### Returns
 
@@ -451,23 +356,16 @@ The divided value
 function dot2D(xy1, xy2): number;
 ```
 
-Defined in: [2d/dot-2d.ts:9](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/dot-2d.ts#L9)
+Defined in: [2d/dot-2d.ts:9](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/dot-2d.ts#L9)
 
 Calculates the dot product of two vectors.
 
 #### Parameters
 
-##### xy1
-
-[`ArrayVector2D`](#arrayvector2d)
-
-First vector as `[x, y]`
-
-##### xy2
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Second vector as `[x, y]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xy1` | [`ArrayVector2D`](#arrayvector2d) | First vector as `[x, y]` |
+| `xy2` | [`ArrayVector2D`](#arrayvector2d) | Second vector as `[x, y]` |
 
 #### Returns
 
@@ -483,23 +381,16 @@ Dot product
 function fromAngleX2D(phi, magnitude): ArrayVector2D;
 ```
 
-Defined in: [2d/from-angle-x-2d.ts:9](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/from-angle-x-2d.ts#L9)
+Defined in: [2d/from-angle-x-2d.ts:9](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/from-angle-x-2d.ts#L9)
 
 Creates an ArrayVector2D from x-axis angle.
 
 #### Parameters
 
-##### phi
-
-`number`
-
-Angle in radians
-
-##### magnitude
-
-`number` = `1`
-
-Optional magnitude of the vector (default: `1`)
+| Parameter | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `phi` | `number` | `undefined` | Angle in radians |
+| `magnitude` | `number` | `1` | Optional magnitude of the vector (default: `1`) |
 
 #### Returns
 
@@ -515,23 +406,16 @@ Vector
 function fromAngleY2D(phi, magnitude): ArrayVector2D;
 ```
 
-Defined in: [2d/from-angle-y-2d.ts:9](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/from-angle-y-2d.ts#L9)
+Defined in: [2d/from-angle-y-2d.ts:9](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/from-angle-y-2d.ts#L9)
 
 Creates an ArrayVector2D from y-axis angle.
 
 #### Parameters
 
-##### phi
-
-`number`
-
-Angle in radians
-
-##### magnitude
-
-`number` = `1`
-
-Optional magnitude of the vector (default: `1`)
+| Parameter | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `phi` | `number` | `undefined` | Angle in radians |
+| `magnitude` | `number` | `1` | Optional magnitude of the vector (default: `1`) |
 
 #### Returns
 
@@ -547,23 +431,17 @@ Vector
 function fromObject2D(vector2D): ArrayVector2D;
 ```
 
-Defined in: [2d/from-object-2d.ts:8](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/from-object-2d.ts#L8)
+Defined in: [2d/from-object-2d.ts:8](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/from-object-2d.ts#L8)
 
 Creates an `ArrayVector2D` from an object with x and y properties.
 
 #### Parameters
 
-##### vector2D
-
-Object with x and y properties
-
-###### x
-
-`number`
-
-###### y
-
-`number`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `vector2D` | \{ `x`: `number`; `y`: `number`; \} | Object with x and y properties |
+| `vector2D.x` | `number` | - |
+| `vector2D.y` | `number` | - |
 
 #### Returns
 
@@ -579,23 +457,16 @@ Object with x and y properties
 function fromPolarCoords2D(phi, m?): ArrayVector2D;
 ```
 
-Defined in: [2d/from-polar-coords-2d.ts:9](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/from-polar-coords-2d.ts#L9)
+Defined in: [2d/from-polar-coords-2d.ts:9](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/from-polar-coords-2d.ts#L9)
 
 Creates an `ArrayVector2D` from polar coordinates.
 
 #### Parameters
 
-##### phi
-
-`number`
-
-Angle in radians
-
-##### m?
-
-`number` = `1`
-
-Optional magnitude (default: `1`)
+| Parameter | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `phi` | `number` | `undefined` | Angle in radians |
+| `m?` | `number` | `1` | Optional magnitude (default: `1`) |
 
 #### Returns
 
@@ -611,17 +482,15 @@ Vector
 function immutable2D(xy): readonly [number, number];
 ```
 
-Defined in: [2d/immutable-2d.ts:8](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/immutable-2d.ts#L8)
+Defined in: [2d/immutable-2d.ts:8](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/immutable-2d.ts#L8)
 
 Create an immutable 2D vector.
 
 #### Parameters
 
-##### xy
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Vector as `[x, y]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xy` | [`ArrayVector2D`](#arrayvector2d) | Vector as `[x, y]` |
 
 #### Returns
 
@@ -637,23 +506,16 @@ The immutable vector
 function isEqual2D(xy1, xy2): boolean;
 ```
 
-Defined in: [2d/is-equal-2d.ts:9](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/is-equal-2d.ts#L9)
+Defined in: [2d/is-equal-2d.ts:9](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/is-equal-2d.ts#L9)
 
 Checks if two 2D vectors are equal.
 
 #### Parameters
 
-##### xy1
-
-[`ArrayVector2D`](#arrayvector2d)
-
-First vector as `[x, y]`
-
-##### xy2
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Second vector as `[x, y]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xy1` | [`ArrayVector2D`](#arrayvector2d) | First vector as `[x, y]` |
+| `xy2` | [`ArrayVector2D`](#arrayvector2d) | Second vector as `[x, y]` |
 
 #### Returns
 
@@ -672,29 +534,17 @@ function isEqualApprox2D(
    epsilon): boolean;
 ```
 
-Defined in: [2d/is-equal-approx-2d.ts:10](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/is-equal-approx-2d.ts#L10)
+Defined in: [2d/is-equal-approx-2d.ts:10](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/is-equal-approx-2d.ts#L10)
 
 Compares a 2D vector with another vector using an epsilon value for floating-point comparison.
 
 #### Parameters
 
-##### xy1
-
-[`ArrayVector2D`](#arrayvector2d)
-
-First vector as `[x, y]`
-
-##### xy2
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Second vector as `[x, y]`
-
-##### epsilon
-
-`number` = `Number.EPSILON`
-
-Maximum difference between components to consider them equal (default: `Number.EPSILON`)
+| Parameter | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `xy1` | [`ArrayVector2D`](#arrayvector2d) | `undefined` | First vector as `[x, y]` |
+| `xy2` | [`ArrayVector2D`](#arrayvector2d) | `undefined` | Second vector as `[x, y]` |
+| `epsilon` | `number` | `Number.EPSILON` | Maximum difference between components to consider them equal (default: `Number.EPSILON`) |
 
 #### Returns
 
@@ -710,17 +560,15 @@ Maximum difference between components to consider them equal (default: `Number.E
 function isInfinite2D(xy): boolean;
 ```
 
-Defined in: [2d/is-infinite-2d.ts:8](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/is-infinite-2d.ts#L8)
+Defined in: [2d/is-infinite-2d.ts:8](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/is-infinite-2d.ts#L8)
 
 Checks if a vector has infinite components.
 
 #### Parameters
 
-##### xy
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Vector as `[x, y]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xy` | [`ArrayVector2D`](#arrayvector2d) | Vector as `[x, y]` |
 
 #### Returns
 
@@ -736,17 +584,15 @@ Vector as `[x, y]`
 function isNaN2D(xy): boolean;
 ```
 
-Defined in: [2d/is-nan-2d.ts:8](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/is-nan-2d.ts#L8)
+Defined in: [2d/is-nan-2d.ts:8](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/is-nan-2d.ts#L8)
 
 Checks if a vector has NaN components.
 
 #### Parameters
 
-##### xy
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Vector as `[x, y]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xy` | [`ArrayVector2D`](#arrayvector2d) | Vector as `[x, y]` |
 
 #### Returns
 
@@ -762,23 +608,16 @@ Vector as `[x, y]`
 function isOpposite2D(xy1, xy2): boolean;
 ```
 
-Defined in: [2d/is-opposite-2d.ts:9](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/is-opposite-2d.ts#L9)
+Defined in: [2d/is-opposite-2d.ts:9](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/is-opposite-2d.ts#L9)
 
 Checks if two 2D vectors are opposite.
 
 #### Parameters
 
-##### xy1
-
-[`ArrayVector2D`](#arrayvector2d)
-
-First vector as `[x, y]`
-
-##### xy2
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Second vector as `[x, y]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xy1` | [`ArrayVector2D`](#arrayvector2d) | First vector as `[x, y]` |
+| `xy2` | [`ArrayVector2D`](#arrayvector2d) | Second vector as `[x, y]` |
 
 #### Returns
 
@@ -794,17 +633,15 @@ Second vector as `[x, y]`
 function isZero2D(xy): boolean;
 ```
 
-Defined in: [2d/is-zero-2d.ts:8](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/is-zero-2d.ts#L8)
+Defined in: [2d/is-zero-2d.ts:8](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/is-zero-2d.ts#L8)
 
 Checks if a vector is zero.
 
 #### Parameters
 
-##### xy
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Vector as `[x, y]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xy` | [`ArrayVector2D`](#arrayvector2d) | Vector as `[x, y]` |
 
 #### Returns
 
@@ -823,29 +660,17 @@ function lerp2D(
    t): ArrayVector2D;
 ```
 
-Defined in: [2d/lerp-2d.ts:10](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/lerp-2d.ts#L10)
+Defined in: [2d/lerp-2d.ts:10](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/lerp-2d.ts#L10)
 
 Performs linear interpolation between two 2D vectors.
 
 #### Parameters
 
-##### xy1
-
-[`ArrayVector2D`](#arrayvector2d)
-
-First vector as `[x, y]`
-
-##### xy2
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Second vector as `[x, y]`
-
-##### t
-
-`number`
-
-Interpolation parameter
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xy1` | [`ArrayVector2D`](#arrayvector2d) | First vector as `[x, y]` |
+| `xy2` | [`ArrayVector2D`](#arrayvector2d) | Second vector as `[x, y]` |
+| `t` | `number` | Interpolation parameter |
 
 #### Returns
 
@@ -864,29 +689,17 @@ function limitMax2D(
    m?): ArrayVector2D;
 ```
 
-Defined in: [2d/limit-max-2d.ts:11](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/limit-max-2d.ts#L11)
+Defined in: [2d/limit-max-2d.ts:11](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/limit-max-2d.ts#L11)
 
 Limits the maximum magnitude of a 2D vector.
 
 #### Parameters
 
-##### xy
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Vector as `[x, y]`
-
-##### max
-
-`number`
-
-Maximum magnitude
-
-##### m?
-
-`number` = `...`
-
-Optional current magnitude (default: `magnitude2D(xy)`)
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xy` | [`ArrayVector2D`](#arrayvector2d) | Vector as `[x, y]` |
+| `max` | `number` | Maximum magnitude |
+| `m?` | `number` | Optional current magnitude (default: `magnitude2D(xy)`) |
 
 #### Returns
 
@@ -905,29 +718,17 @@ function limitMin2D(
    m?): ArrayVector2D;
 ```
 
-Defined in: [2d/limit-min-2d.ts:11](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/limit-min-2d.ts#L11)
+Defined in: [2d/limit-min-2d.ts:11](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/limit-min-2d.ts#L11)
 
 Limits the maximum magnitude of a 2D vector.
 
 #### Parameters
 
-##### xy
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Vector as `[x, y]`
-
-##### min
-
-`number`
-
-Minimum magnitude
-
-##### m?
-
-`number` = `...`
-
-Optional current magnitude (default: `magnitude2D(xy)`)
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xy` | [`ArrayVector2D`](#arrayvector2d) | Vector as `[x, y]` |
+| `min` | `number` | Minimum magnitude |
+| `m?` | `number` | Optional current magnitude (default: `magnitude2D(xy)`) |
 
 #### Returns
 
@@ -947,35 +748,18 @@ function lookAt2D(
    m2?): ArrayVector2D;
 ```
 
-Defined in: [2d/look-at-2d.ts:12](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/look-at-2d.ts#L12)
+Defined in: [2d/look-at-2d.ts:12](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/look-at-2d.ts#L12)
 
 Calculates the 2D vector angle of a vector pointing at another.
 
 #### Parameters
 
-##### xy1
-
-[`ArrayVector2D`](#arrayvector2d)
-
-First vector as `[x, y]`
-
-##### xy2
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Second vector as `[x, y]` (target to look at)
-
-##### m1?
-
-`number` = `...`
-
-Optional current magnitude of the first vector (default: magnitude2D(xy1))
-
-##### m2?
-
-`number` = `...`
-
-Optional current magnitude of the second vector (default: magnitude2D(xy2))
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xy1` | [`ArrayVector2D`](#arrayvector2d) | First vector as `[x, y]` |
+| `xy2` | [`ArrayVector2D`](#arrayvector2d) | Second vector as `[x, y]` (target to look at) |
+| `m1?` | `number` | Optional current magnitude of the first vector (default: magnitude2D(xy1)) |
+| `m2?` | `number` | Optional current magnitude of the second vector (default: magnitude2D(xy2)) |
 
 #### Returns
 
@@ -991,17 +775,15 @@ Vector pointing at the target with the magnitude of xy1
 function magnitude2D(xy): number;
 ```
 
-Defined in: [2d/magnitude-2d.ts:8](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/magnitude-2d.ts#L8)
+Defined in: [2d/magnitude-2d.ts:8](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/magnitude-2d.ts#L8)
 
 Calculates the magnitude of a 2D vector.
 
 #### Parameters
 
-##### xy
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Vector as `[x, y]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xy` | [`ArrayVector2D`](#arrayvector2d) | Vector as `[x, y]` |
 
 #### Returns
 
@@ -1017,17 +799,15 @@ Magnitude of the vector
 function magnitudeSq2D(xy): number;
 ```
 
-Defined in: [2d/magnitude-sq-2d.ts:8](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/magnitude-sq-2d.ts#L8)
+Defined in: [2d/magnitude-sq-2d.ts:8](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/magnitude-sq-2d.ts#L8)
 
 Calculate the squared magnitude of a 2D vector.
 
 #### Parameters
 
-##### xy
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Vector as `[x, y]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xy` | [`ArrayVector2D`](#arrayvector2d) | Vector as `[x, y]` |
 
 #### Returns
 
@@ -1043,23 +823,16 @@ Squared magnitude
 function multiply2D(xy1, xy2): ArrayVector2D;
 ```
 
-Defined in: [2d/multiply-2d.ts:9](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/multiply-2d.ts#L9)
+Defined in: [2d/multiply-2d.ts:9](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/multiply-2d.ts#L9)
 
 Multiplies one 2D vector with another component-wise.
 
 #### Parameters
 
-##### xy1
-
-[`ArrayVector2D`](#arrayvector2d)
-
-First vector as `[x, y]`
-
-##### xy2
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Second vector as `[x, y]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xy1` | [`ArrayVector2D`](#arrayvector2d) | First vector as `[x, y]` |
+| `xy2` | [`ArrayVector2D`](#arrayvector2d) | Second vector as `[x, y]` |
 
 #### Returns
 
@@ -1075,17 +848,15 @@ The multiplied vector
 function negate2D(xy): ArrayVector2D;
 ```
 
-Defined in: [2d/negate-2d.ts:8](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/negate-2d.ts#L8)
+Defined in: [2d/negate-2d.ts:8](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/negate-2d.ts#L8)
 
 Negates a 2D vector.
 
 #### Parameters
 
-##### xy
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Vector as `[x, y]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xy` | [`ArrayVector2D`](#arrayvector2d) | Vector as `[x, y]` |
 
 #### Returns
 
@@ -1101,23 +872,16 @@ The negated vector
 function normalize2D(xy, m?): ArrayVector2D;
 ```
 
-Defined in: [2d/normalize-2d.ts:10](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/normalize-2d.ts#L10)
+Defined in: [2d/normalize-2d.ts:10](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/normalize-2d.ts#L10)
 
 Normalize a 2D vector.
 
 #### Parameters
 
-##### xy
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Vector as `[x, y]`
-
-##### m?
-
-`number` = `...`
-
-Optional current magnitude (default: `magnitude2D(xy)`)
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xy` | [`ArrayVector2D`](#arrayvector2d) | Vector as `[x, y]` |
+| `m?` | `number` | Optional current magnitude (default: `magnitude2D(xy)`) |
 
 #### Returns
 
@@ -1133,7 +897,7 @@ The normalized vector
 function one2D(): ArrayVector2D;
 ```
 
-Defined in: [2d/one-2d.ts:7](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/one-2d.ts#L7)
+Defined in: [2d/one-2d.ts:7](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/one-2d.ts#L7)
 
 Creates a 2D vector with all components set to 1.0.
 
@@ -1155,35 +919,18 @@ function project2D(
    m2?): ArrayVector2D;
 ```
 
-Defined in: [2d/project-2d.ts:12](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/project-2d.ts#L12)
+Defined in: [2d/project-2d.ts:12](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/project-2d.ts#L12)
 
 Projects one 2D vector onto another.
 
 #### Parameters
 
-##### xy1
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Vector to project
-
-##### xy2
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Vector to project onto
-
-##### m1?
-
-`number` = `...`
-
-Optional magnitude of the first vector (default: `magnitude2D(xy1)`)
-
-##### m2?
-
-`number` = `...`
-
-Optional magnitude of the second vector (default: `magnitude2D(xy2)`)
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xy1` | [`ArrayVector2D`](#arrayvector2d) | Vector to project |
+| `xy2` | [`ArrayVector2D`](#arrayvector2d) | Vector to project onto |
+| `m1?` | `number` | Optional magnitude of the first vector (default: `magnitude2D(xy1)`) |
+| `m2?` | `number` | Optional magnitude of the second vector (default: `magnitude2D(xy2)`) |
 
 #### Returns
 
@@ -1199,17 +946,15 @@ The projected vector
 function random2D(random): ArrayVector2D;
 ```
 
-Defined in: [2d/random-2d.ts:8](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/random-2d.ts#L8)
+Defined in: [2d/random-2d.ts:8](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/random-2d.ts#L8)
 
 Creates a random unit 2D vector.
 
 #### Parameters
 
-##### random
-
-() => `number`
-
-A function that returns a random number between 0 and 1 (default: `Math.random`)
+| Parameter | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `random` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1 (default: `Math.random`) |
 
 #### Returns
 
@@ -1225,24 +970,17 @@ Random unit vector
 function reflect2D(xy, normal): ArrayVector2D;
 ```
 
-Defined in: [2d/reflect-2d.ts:11](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/reflect-2d.ts#L11)
+Defined in: [2d/reflect-2d.ts:11](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/reflect-2d.ts#L11)
 
 Reflects the vector across a normal vector.
 The normal vector should be normalized (unit length).
 
 #### Parameters
 
-##### xy
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Vector as `[x, y]` to reflect
-
-##### normal
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Normal vector to reflect across (must be normalized)
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xy` | [`ArrayVector2D`](#arrayvector2d) | Vector as `[x, y]` to reflect |
+| `normal` | [`ArrayVector2D`](#arrayvector2d) | Normal vector to reflect across (must be normalized) |
 
 #### Returns
 
@@ -1261,29 +999,17 @@ function rotate2D(
    axis): ArrayVector2D;
 ```
 
-Defined in: [2d/rotate-2d.ts:10](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/rotate-2d.ts#L10)
+Defined in: [2d/rotate-2d.ts:10](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/rotate-2d.ts#L10)
 
 Rotates a 2D point around an arbitrary axis point
 
 #### Parameters
 
-##### xy
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Point to rotate
-
-##### phi
-
-`number`
-
-Rotation angle in radians
-
-##### axis
-
-[`ArrayVector2D`](#arrayvector2d) = `...`
-
-Rotation axis point (default: `[0, 0]`)
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xy` | [`ArrayVector2D`](#arrayvector2d) | Point to rotate |
+| `phi` | `number` | Rotation angle in radians |
+| `axis` | [`ArrayVector2D`](#arrayvector2d) | Rotation axis point (default: `[0, 0]`) |
 
 #### Returns
 
@@ -1302,29 +1028,17 @@ function setMagnitude2D(
    m?): ArrayVector2D;
 ```
 
-Defined in: [2d/set-magnitude-2d.ts:11](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/set-magnitude-2d.ts#L11)
+Defined in: [2d/set-magnitude-2d.ts:11](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/set-magnitude-2d.ts#L11)
 
 Sets the magnitude (length) of a 2D vector, maintaining its direction.
 
 #### Parameters
 
-##### xy
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Vector as `[x, y]`
-
-##### newMag
-
-`number`
-
-New magnitude
-
-##### m?
-
-`number` = `...`
-
-Optional current magnitude (default: `magnitude2D(xy)`)
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xy` | [`ArrayVector2D`](#arrayvector2d) | Vector as `[x, y]` |
+| `newMag` | `number` | New magnitude |
+| `m?` | `number` | Optional current magnitude (default: `magnitude2D(xy)`) |
 
 #### Returns
 
@@ -1340,23 +1054,16 @@ The adjusted vector
 function subtract2D(xy1, xy2): ArrayVector2D;
 ```
 
-Defined in: [2d/subtract-2d.ts:9](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/subtract-2d.ts#L9)
+Defined in: [2d/subtract-2d.ts:9](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/subtract-2d.ts#L9)
 
 Subtracts a 2D vector from another.
 
 #### Parameters
 
-##### xy1
-
-[`ArrayVector2D`](#arrayvector2d)
-
-First vector as `[x, y]`
-
-##### xy2
-
-[`ArrayVector2D`](#arrayvector2d)
-
-Second vector as `[x, y]`
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xy1` | [`ArrayVector2D`](#arrayvector2d) | First vector as `[x, y]` |
+| `xy2` | [`ArrayVector2D`](#arrayvector2d) | Second vector as `[x, y]` |
 
 #### Returns
 
@@ -1372,7 +1079,7 @@ The difference between vectors
 function zero2D(): ArrayVector2D;
 ```
 
-Defined in: [2d/zero-2d.ts:7](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/2d/zero-2d.ts#L7)
+Defined in: [2d/zero-2d.ts:7](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/2d/zero-2d.ts#L7)
 
 Creates a zero 2D vector.
 

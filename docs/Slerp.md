@@ -1,8 +1,4 @@
-[**@fimbul-works/vec**](README.md)
-
-***
-
-[@fimbul-works/vec](modules.md) / Slerp
+[@fimbul-works/vec](README.md) / Slerp
 
 # Slerp
 
@@ -19,30 +15,18 @@ function slerp(
    t): number;
 ```
 
-Defined in: [slerp.ts:17](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/slerp.ts#L17)
+Defined in: [slerp.ts:17](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/slerp.ts#L17)
 
 Spherical linear interpolation for angles (in radians).
 Handles wrapping around 2π correctly.
 
 #### Parameters
 
-##### from
-
-`number`
-
-Start angle in radians
-
-##### to
-
-`number`
-
-End angle in radians
-
-##### t
-
-`number`
-
-Interpolation factor (0-1)
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `from` | `number` | Start angle in radians |
+| `to` | `number` | End angle in radians |
+| `t` | `number` | Interpolation factor (0-1) |
 
 #### Returns
 
@@ -61,29 +45,17 @@ function slerpDegrees(
    t): number;
 ```
 
-Defined in: [slerp.ts:27](https://github.com/claus-codes/vec/blob/64e80c9069476a15976526c526682ae4845883c9/src/slerp.ts#L27)
+Defined in: [slerp.ts:27](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/slerp.ts#L27)
 
 Spherical linear interpolation for angles (in degrees).
 
 #### Parameters
 
-##### from
-
-`number`
-
-Start angle in degrees
-
-##### to
-
-`number`
-
-End angle in degrees
-
-##### t
-
-`number`
-
-Interpolation factor (0-1)
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `from` | `number` | Start angle in degrees |
+| `to` | `number` | End angle in degrees |
+| `t` | `number` | Interpolation factor (0-1) |
 
 #### Returns
 

@@ -30,8 +30,23 @@
     "excludeCategories": false
   },
 
+  "navigation": {
+    "includeCategories": true,
+    "includeGroups": true,
+    "includeFolders": true
+  },
+
   // This cleans up the file names (prevents README/modules/moduleName.md)
-  "flattenOutputFiles": true,
+  "flattenOutputFiles": false,
   "hidePageTitle": false,
-  "hideBreadcrumbs": false
+  "hideBreadcrumbs": false,
+  "hidePageHeader": true,
+
+  "readme": "none",
+  "cleanOutputDir": true,
+  "indexFormat": "table",
+  "parametersFormat": "table",
+  "interfacePropertiesFormat": "table",
+  "classPropertiesFormat": "table",
+  "typeDeclarationFormat": "table"
 }
