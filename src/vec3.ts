@@ -1,3 +1,8 @@
+/**
+ * Documentation for 3D Vector class.
+ * @module Vec3
+ */
+
 const { sin, cos, acos, atan2, sqrt, abs } = Math;
 
 /**
@@ -11,9 +16,10 @@ export class Vec3 {
   /**
    * Computes and updates the magnitude of the vector.
    * @private
-   * @param x - The x-component of the vector.
-   * @param y - The y-component of the vector.
-   * @param z - The z-component of the vector.
+   * @param {number} x - The x-component of the vector.
+   * @param {number} y - The y-component of the vector.
+   * @param {number} z - The z-component of the vector.
+   * @returns {void}
    */
   #computeMagnitude(x: number = this.#xyz[0], y: number = this.#xyz[1], z: number = this.#xyz[2]) {
     if (x !== this.#prevXYZ[0] || y !== this.#prevXYZ[1] || z !== this.#prevXYZ[2]) {
@@ -26,9 +32,9 @@ export class Vec3 {
 
   /**
    * Creates a new Vec3 instance.
-   * @param x - The x-coordinate of the vector.
-   * @param y - The y-coordinate of the vector.
-   * @param z - The z-coordinate of the vector.
+   * @param {number} x - The x-coordinate of the vector.
+   * @param {number} y - The y-coordinate of the vector.
+   * @param {number} z - The z-coordinate of the vector.
    */
   constructor(x = 0, y = 0, z = 0) {
     this.#xyz[0] = x;
@@ -39,9 +45,9 @@ export class Vec3 {
 
   /**
    * Adds two vectors.
-   * @param v - The first vector.
-   * @param w - The second vector.
-   * @returns A new Vec3 instance representing the sum.
+   * @param {Vec3} v - The first vector.
+   * @param {Vec3} w - The second vector.
+   * @returns {Vec3} A new Vec3 instance representing the sum.
    */
   static add(v: Vec3, w: Vec3) {
     return new Vec3(v.#xyz[0] + w.#xyz[0], v.#xyz[1] + w.#xyz[1], v.#xyz[2] + w.#xyz[2]);
@@ -49,9 +55,9 @@ export class Vec3 {
 
   /**
    * Subtracts one vector from another.
-   * @param v - The vector to subtract from.
-   * @param w - The vector to subtract.
-   * @returns A new Vec2 instance representing the difference.
+   * @param {Vec3} v - The vector to subtract from.
+   * @param {Vec3} w - The vector to subtract.
+   * @returns {Vec3} A new Vec3 instance representing the difference.
    */
   static subtract(v: Vec3, w: Vec3) {
     return new Vec3(v.#xyz[0] - w.#xyz[0], v.#xyz[1] - w.#xyz[1], v.#xyz[2] - w.#xyz[2]);
@@ -83,9 +89,9 @@ export class Vec3 {
 
   /**
    * Calculates the angle between two vectors.
-   * @param v - The first vector.
-   * @param w - The second vector.
-   * @returns The angle between the vectors in radians.
+   * @param {Vec3} v - The first vector.
+   * @param {Vec3} w - The second vector.
+   * @returns {number} The angle between the vectors in radians.
    */
   static angleBetween(v: Vec3, w: Vec3) {
     return acos(
@@ -95,9 +101,9 @@ export class Vec3 {
 
   /**
    * Calculates the cross product of two vectors.
-   * @param v - The first vector.
-   * @param w - The second vector.
-   * @returns The cross product of the two vectors.
+   * @param {Vec3} v - The first vector.
+   * @param {Vec3} w - The second vector.
+   * @returns {Vec3} The cross product of the two vectors.
    */
   static cross(v: Vec3, w: Vec3) {
     const vX = v.#xyz[0];
@@ -129,9 +135,9 @@ export class Vec3 {
 
   /**
    * Calculates the Euclidean distance between two vectors.
-   * @param v - The first vector.
-   * @param w - The second vector.
-   * @returns The distance between the vectors.
+   * @param {Vec3} v - The first vector.
+   * @param {Vec3} w - The second vector.
+   * @returns {number} The distance between the vectors.
    */
   static distance(v: Vec3, w: Vec3) {
     return sqrt((v.#xyz[0] - w.#xyz[0]) ** 2 + (v.#xyz[1] - w.#xyz[1]) ** 2 + (v.#xyz[2] - w.#xyz[2]) ** 2);
@@ -139,9 +145,9 @@ export class Vec3 {
 
   /**
    * Calculates the Chebyshev distance between two vectors.
-   * @param v - The first vector.
-   * @param w - The second vector.
-   * @returns The Chebyshev distance between the vectors.
+   * @param {Vec3} v - The first vector.
+   * @param {Vec3} w - The second vector.
+   * @returns {number} The Chebyshev distance between the vectors.
    */
   static distanceChebyshev(v: Vec3, w: Vec3) {
     const absX = abs(v.#xyz[0] - w.#xyz[0]);
@@ -152,9 +158,9 @@ export class Vec3 {
 
   /**
    * Calculates the Manhattan distance between two vectors.
-   * @param v - The first vector.
-   * @param w - The second vector.
-   * @returns The Manhattan distance between the vectors.
+   * @param {Vec3} v - The first vector.
+   * @param {Vec3} w - The second vector.
+   * @returns {number} The Manhattan distance between the vectors.
    */
   static distanceManhattan(v: Vec3, w: Vec3) {
     return abs(v.#xyz[0] - w.#xyz[0]) + abs(v.#xyz[1] - w.#xyz[1]) + abs(v.#xyz[2] - w.#xyz[2]);
@@ -162,10 +168,10 @@ export class Vec3 {
 
   /**
    * Calculates the Minkowski distance between two vectors.
-   * @param v - The first vector.
-   * @param w - The second vector.
-   * @param p - The order of the Minkowski distance.
-   * @returns The Minkowski distance between the vectors.
+   * @param {Vec3} v - The first vector.
+   * @param {Vec3} w - The second vector.
+   * @param {number} p - The order of the Minkowski distance.
+   * @returns {number} The Minkowski distance between the vectors.
    */
   static distanceMinkowski(v: Vec3, w: Vec3, p: number) {
     return (
@@ -175,9 +181,9 @@ export class Vec3 {
 
   /**
    * Calculates the squared Euclidean distance between two vectors.
-   * @param v - The first vector.
-   * @param w - The second vector.
-   * @returns The squared distance between the vectors.
+   * @param {Vec3} v - The first vector.
+   * @param {Vec3} w - The second vector.
+   * @returns {number} The squared distance between the vectors.
    */
   static distanceSq(v: Vec3, w: Vec3) {
     return (v.#xyz[0] - w.#xyz[0]) ** 2 + (v.#xyz[1] - w.#xyz[1]) ** 2 + (v.#xyz[2] - w.#xyz[2]) ** 2;
@@ -185,9 +191,9 @@ export class Vec3 {
 
   /**
    * Calculates the dot product of two vectors.
-   * @param v - The first vector.
-   * @param w - The second vector.
-   * @returns The dot product of the two vectors.
+   * @param {Vec3} v - The first vector.
+   * @param {Vec3} w - The second vector.
+   * @returns {number} The dot product of the two vectors.
    */
   static dot(v: Vec3, w: Vec3) {
     return v.#xyz[0] * w.#xyz[0] + v.#xyz[1] * w.#xyz[1] + v.#xyz[2] * w.#xyz[2];
@@ -195,10 +201,10 @@ export class Vec3 {
 
   /**
    * Creates a Vec3 from cylindrical coordinates.
-   * @param r - Radial distance from the z-axis
-   * @param phi - Azimuthal angle in the x-y plane from the x-axis
-   * @param z - Height above the x-y plane
-   * @returns New Vec3 instance
+   * @param {number} r - Radial distance from the z-axis
+   * @param {number} phi - Azimuthal angle in the x-y plane from the x-axis
+   * @param {number} z - Height above the x-y plane
+   * @returns {Vec3} New Vec3 instance
    */
   static fromCylindricalCoords(r: number, phi: number, z: number) {
     return new Vec3(r * cos(phi), r * sin(phi), z);
@@ -206,10 +212,10 @@ export class Vec3 {
 
   /**
    * Creates a Vec3 from spherical coordinates.
-   * @param r - Radial distance from origin
-   * @param theta - Polar angle from the z-axis
-   * @param phi - Azimuthal angle in the x-y plane from the x-axis
-   * @returns New Vec3 instance
+   * @param {number} r - Radial distance from origin
+   * @param {number} theta - Polar angle from the z-axis
+   * @param {number} phi - Azimuthal angle in the x-y plane from the x-axis
+   * @returns {Vec3} New Vec3 instance
    */
   static fromSphericalCoords(r: number, theta: number, phi: number) {
     return new Vec3(r * sin(theta) * cos(phi), r * sin(theta) * sin(phi), r * cos(theta));
@@ -217,9 +223,10 @@ export class Vec3 {
 
   /**
    * Creates an immutable Vec3-like object.
-   * @param x - The x-coordinate of the vector.
-   * @param y - The y-coordinate of the vector.
-   * @returns An immutable object with Vec3-like properties.
+   * @param {number} x - The x-coordinate of the vector.
+   * @param {number} y - The y-coordinate of the vector.
+   * @param {number} z - The z-coordinate of the vector.
+   * @returns {Readonly<{ x: number; y: number; z: number; xyz: readonly number[]; r: number; g: number; b: number; rgb: readonly number[]; magnitude: number; magnitudeSq: number; angleX: number; angleY: number; angleZ: number; isInfinite: boolean; isNaN: boolean; isZero: boolean }>} An immutable object with Vec3-like properties.
    */
   static immutable(x = 0, y = 0, z = 0) {
     const data = new Float64Array(10);
@@ -297,8 +304,8 @@ export class Vec3 {
 
   /**
    * Checks if a vector has infinite components.
-   * @param v - The vector to check.
-   * @returns True if the vector has infinite components, false otherwise.
+   * @param {Vec3} v - The vector to check.
+   * @returns {boolean} True if the vector has infinite components, false otherwise.
    */
   static isInfinite(v: Vec3) {
     const x = v.#xyz[0];
@@ -316,8 +323,8 @@ export class Vec3 {
 
   /**
    * Checks if a vector has NaN components.
-   * @param v - The vector to check.
-   * @returns True if the vector has NaN components, false otherwise.
+   * @param {Vec3} v - The vector to check.
+   * @returns {boolean} True if the vector has NaN components, false otherwise.
    */
   static isNaN(v: Vec3) {
     return Number.isNaN(v.#xyz[0]) || Number.isNaN(v.#xyz[1]) || Number.isNaN(v.#xyz[2]);
@@ -325,8 +332,8 @@ export class Vec3 {
 
   /**
    * Checks if a vector is zero.
-   * @param v - The vector to check.
-   * @returns True if the vector is zero, false otherwise.
+   * @param {Vec3} v - The vector to check.
+   * @returns {boolean} True if the vector is zero, false otherwise.
    */
   static isZero(v: Vec3) {
     return v.#xyz[0] === 0 && v.#xyz[1] === 0 && v.#xyz[2] === 0;
@@ -334,10 +341,10 @@ export class Vec3 {
 
   /**
    * Performs linear interpolation between two vectors.
-   * @param v - The first vector.
-   * @param w - The second vector.
-   * @param t - The interpolation parameter (0 to 1).
-   * @returns A new Vec2 instance representing the interpolated vector.
+   * @param {Vec3} v - The first vector.
+   * @param {Vec3} w - The second vector.
+   * @param {number} t - The interpolation parameter (0 to 1).
+   * @returns {Vec3} A new Vec3 instance representing the interpolated vector.
    */
   static lerp(v: Vec3, w: Vec3, t: number) {
     if (t > 1) t = 1;
@@ -350,8 +357,8 @@ export class Vec3 {
 
   /**
    * Negates a vector.
-   * @param v - The vector to negate.
-   * @returns A new Vec2 instance representing the negated vector.
+   * @param {Vec3} v - The vector to negate.
+   * @returns {Vec3} A new Vec3 instance representing the negated vector.
    */
   static negate(v: Vec3) {
     return new Vec3(-v.#xyz[0], -v.#xyz[1], -v.#xyz[2]);
@@ -359,8 +366,8 @@ export class Vec3 {
 
   /**
    * Normalizes a vector.
-   * @param v - The vector to normalize.
-   * @returns A new Vec2 instance representing the normalized vector.
+   * @param {Vec3} v - The vector to normalize.
+   * @returns {Vec3} A new Vec3 instance representing the normalized vector.
    */
   static normalize(v: Vec3) {
     const m = v.#magnitude;
@@ -369,9 +376,9 @@ export class Vec3 {
 
   /**
    * Projects one vector onto another.
-   * @param v - The vector to project.
-   * @param w - The vector to project onto.
-   * @returns A new Vec2 instance representing the projected vector.
+   * @param {Vec3} v - The vector to project.
+   * @param {Vec3} w - The vector to project onto.
+   * @returns {Vec3} A new Vec3 instance representing the projected vector.
    */
   static project(v: Vec3, w: Vec3) {
     const vM = v.#magnitude;
@@ -385,25 +392,18 @@ export class Vec3 {
 
   /**
    * Creates a random unit vector.
-   * @param random - A function that returns a random number between 0 and 1.
-   * @returns A new Vec3 instance representing a random unit vector.
+   * @param {() => number} random - A function that returns a random number between 0 and 1.
+   * @returns {Vec3} A new Vec3 instance representing a random unit vector.
    */
   static random(random: () => number = Math.random) {
-    let x1: number;
-    let x2: number;
-    do {
-      x1 = random() * 2 - 1;
-      x2 = random() * 2 - 1;
-    } while (x1 ** 2 + x2 ** 2 >= 1);
-    const f = sqrt(1 - x1 ** 2 - x2 ** 2);
-    return new Vec3(2 * x1 * f, 2 * x2 * f, 1 - 2 * (x1 ** 2 + x2 ** 2));
+    return Vec3.fromSphericalCoords(Math.acos(2 * random() - 1), random() * Math.PI * 2, 1);
   }
 
   /**
    * Checks if two vectors are equal.
-   * @param v - The first vector.
-   * @param w - The second vector.
-   * @returns True if the vectors are equal, false otherwise.
+   * @param {Vec3} v - The first vector.
+   * @param {Vec3} w - The second vector.
+   * @returns {boolean} True if the vectors are equal, false otherwise.
    */
   static satisfyEquality(v: Vec3, w: Vec3) {
     return v.#xyz[0] === w.#xyz[0] && v.#xyz[1] === w.#xyz[1] && v.#xyz[2] === w.#xyz[2];
@@ -411,9 +411,9 @@ export class Vec3 {
 
   /**
    * Checks if two vectors are opposite.
-   * @param v - The first vector.
-   * @param w - The second vector.
-   * @returns True if the vectors are opposite, false otherwise.
+   * @param {Vec3} v - The first vector.
+   * @param {Vec3} w - The second vector.
+   * @returns {boolean} True if the vectors are opposite, false otherwise.
    */
   static satisfyOpposition(v: Vec3, w: Vec3) {
     return v.#xyz[0] === -w.#xyz[0] && v.#xyz[1] === -w.#xyz[1] && v.#xyz[2] === -w.#xyz[2];
@@ -436,9 +436,9 @@ export class Vec3 {
 
   /**
    * Scales a vector by a scalar value.
-   * @param v - The vector to scale.
-   * @param c - The scalar value.
-   * @returns A new Vec3 instance representing the scaled vector.
+   * @param {Vec3} v - The vector to scale.
+   * @param {number} c - The scalar value.
+   * @returns {Vec3} A new Vec3 instance representing the scaled vector.
    */
   static scale(v: Vec3, c: number) {
     return new Vec3(v.#xyz[0] * c, v.#xyz[1] * c, v.#xyz[2] * c);
@@ -446,7 +446,7 @@ export class Vec3 {
 
   /**
    * Creates a zero vector.
-   * @returns A new Vec3 instance representing a zero vector.
+   * @returns {Vec3} A new Vec3 instance representing a zero vector.
    */
   static zero() {
     return new Vec3();
@@ -462,7 +462,8 @@ export class Vec3 {
 
   /**
    * Creates a Vec3 from an array.
-   * @returns A new Vec3 instance.
+   * @param {[number, number, number] | number[]} arr - An array containing the x, y, and z coordinates.
+   * @returns {Vec3} A new Vec3 instance.
    */
   static fromArray(arr: [number, number, number] | number[]) {
     return new Vec3(arr[0] ?? 0, arr[1] ?? 0, arr[2] ?? 0);
@@ -470,7 +471,8 @@ export class Vec3 {
 
   /**
    * Creates a Vec3 from an object with x, y and z properties.
-   * @returns A new Vec3 instance.
+   * @param {{ x: number; y: number; z: number }} obj - An object with x, y, and z properties.
+   * @returns {Vec3} A new Vec3 instance.
    */
   static fromObject(obj: { x: number; y: number; z: number }) {
     return new Vec3(obj.x, obj.y, obj.z);
@@ -487,7 +489,7 @@ export class Vec3 {
 
   /**
    * Gets the x-component of the vector.
-   * @returns The x-component.
+   * @returns {number} The x-component.
    */
   get x() {
     return this.#xyz[0];
@@ -495,7 +497,8 @@ export class Vec3 {
 
   /**
    * Sets the x-component of the vector.
-   * @param x - The new x-component.
+   * @param {number} x - The new x-component.
+   * @returns {void}
    */
   set x(x: number) {
     this.#xyz[0] = x;
@@ -504,7 +507,7 @@ export class Vec3 {
 
   /**
    * Gets the y-component of the vector.
-   * @returns The y-component.
+   * @returns {number} The y-component.
    */
   get y() {
     return this.#xyz[1];
@@ -512,7 +515,8 @@ export class Vec3 {
 
   /**
    * Sets the y-component of the vector.
-   * @param y - The new y-component.
+   * @param {number} y - The new y-component.
+   * @returns {void}
    */
   set y(y: number) {
     this.#xyz[1] = y;
@@ -521,7 +525,7 @@ export class Vec3 {
 
   /**
    * Gets the z-component of the vector.
-   * @returns The z-component.
+   * @returns {number} The z-component.
    */
   get z() {
     return this.#xyz[2];
@@ -529,7 +533,8 @@ export class Vec3 {
 
   /**
    * Sets the z-component of the vector.
-   * @param z - The new z-component.
+   * @param {number} z - The new z-component.
+   * @returns {void}
    */
   set z(z: number) {
     this.#xyz[2] = z;
@@ -538,7 +543,7 @@ export class Vec3 {
 
   /**
    * Gets a copy of the vector's components as an array.
-   * @returns An array containing the x, y and z components of the vector.
+   * @returns {[number, number, number]} An array containing the x, y and z components of the vector.
    */
   get xyz(): [number, number, number] {
     return Array.from(this.#xyz.slice()) as [number, number, number];
@@ -546,7 +551,8 @@ export class Vec3 {
 
   /**
    * Sets all components of the vector at once.
-   * @param xyz - An array containing the new x, y and z components.
+   * @param {[number, number, number]} xyz - An array containing the new x, y and z components.
+   * @returns {void}
    */
   set xyz(xyz: [number, number, number]) {
     this.#xyz[0] = xyz[0];
@@ -557,7 +563,7 @@ export class Vec3 {
 
   /**
    * Gets the Red-component of a Color.
-   * @returns The Red-component.
+   * @returns {number} The Red-component.
    */
   get r() {
     return this.x;
@@ -565,7 +571,8 @@ export class Vec3 {
 
   /**
    * Sets the Red-component of a Color.
-   * @param r - The new Red-component.
+   * @param {number} r - The new Red-component.
+   * @returns {void}
    */
   set r(r: number) {
     this.x = r;
@@ -573,7 +580,7 @@ export class Vec3 {
 
   /**
    * Gets the Green-component of a Color.
-   * @returns The Green-component.
+   * @returns {number} The Green-component.
    */
   get g() {
     return this.y;
@@ -581,7 +588,8 @@ export class Vec3 {
 
   /**
    * Sets the Green-component of the Color.
-   * @param g - The new Green-component.
+   * @param {number} g - The new Green-component.
+   * @returns {void}
    */
   set g(g: number) {
     this.y = g;
@@ -589,7 +597,7 @@ export class Vec3 {
 
   /**
    * Gets the Blue-component of the color.
-   * @returns The Blue-component.
+   * @returns {number} The Blue-component.
    */
   get b() {
     return this.z;
@@ -597,7 +605,8 @@ export class Vec3 {
 
   /**
    * Sets the Blue-component of the Color.
-   * @param b - The new Blue-component.
+   * @param {number} b - The new Blue-component.
+   * @returns {void}
    */
   set b(b: number) {
     this.z = b;
@@ -605,7 +614,7 @@ export class Vec3 {
 
   /**
    * Gets a copy of the vector's components as an array.
-   * @returns An array containing the x, y and z components of the vector.
+   * @returns {[number, number, number]} An array containing the x, y and z components of the vector.
    */
   get rgb(): [number, number, number] {
     return this.xyz;
@@ -613,7 +622,8 @@ export class Vec3 {
 
   /**
    * Sets all components of the Color at once.
-   * @param rgb - An array containing the new Red, Green and Blue components.
+   * @param {[number, number, number]} rgb - An array containing the new Red, Green and Blue components.
+   * @returns {void}
    */
   set rgb(rgb: [number, number, number]) {
     this.xyz = rgb;
@@ -674,8 +684,8 @@ export class Vec3 {
 
   /**
    * Adds another vector to this vector.
-   * @param v - The vector to add.
-   * @returns This Vec3 instance for method chaining.
+   * @param {Vec3} v - The vector to add.
+   * @returns {this} This Vec3 instance for method chaining.
    */
   add(v: Vec3) {
     this.#xyz[0] += v.#xyz[0];
@@ -760,7 +770,7 @@ export class Vec3 {
 
   /**
    * Creates a copy of this vector.
-   * @returns A new Vec3 instance with the same components.
+   * @returns {Vec3} A new Vec3 instance with the same components.
    */
   clone() {
     return new Vec3(this.#xyz[0], this.#xyz[1], this.#xyz[2]);
@@ -781,8 +791,8 @@ export class Vec3 {
 
   /**
    * Calculates the dot product of this vector with another vector.
-   * @param v - The other vector.
-   * @returns The dot product of the vectors.
+   * @param {Vec3} v - The other vector.
+   * @returns {number} The dot product of the vectors.
    */
   dot(v: Vec3): number {
     return this.#xyz[0] * v.#xyz[0] + this.#xyz[1] * v.#xyz[1] + this.#xyz[2] * v.#xyz[2];
@@ -790,8 +800,8 @@ export class Vec3 {
 
   /**
    * Calculates cross product between this vector and another vector.
-   * @param v - The other vector.
-   * @returns The distance between the vectors.
+   * @param {Vec3} v - The other vector.
+   * @returns {this} This Vec3 instance for method chaining.
    */
   cross(v: Vec3): this {
     const x = this.#xyz[0];
@@ -834,8 +844,8 @@ export class Vec3 {
 
   /**
    * Calculates the Chebyshev distance between vector and another vector.
-   * @param v - The other vector.
-   * @returns The Chebyshev distance between the vectors.
+   * @param {Vec3} v - The other vector.
+   * @returns {number} The Chebyshev distance between the vectors.
    */
   distanceChebyshev(v: Vec3) {
     const absX = abs(this.#xyz[0] - v.#xyz[0]);
@@ -846,8 +856,8 @@ export class Vec3 {
 
   /**
    * Calculates the Manhattan distance between vector and another vector.
-   * @param v - The other vector.
-   * @returns The Manhattan distance between the vectors.
+   * @param {Vec3} v - The other vector.
+   * @returns {number} The Manhattan distance between the vectors.
    */
   distanceManhattan(v: Vec3) {
     return abs(this.#xyz[0] - v.#xyz[0]) + abs(this.#xyz[1] - v.#xyz[1]) + abs(this.#xyz[2] - v.#xyz[2]);
@@ -855,9 +865,9 @@ export class Vec3 {
 
   /**
    * Calculates the Minkowski distance between this vector and another vector.
-   * @param v - The other vector.
-   * @param p - The order of the Minkowski distance.
-   * @returns The Minkowski distance between the vectors.
+   * @param {Vec3} v - The other vector.
+   * @param {number} p - The order of the Minkowski distance.
+   * @returns {number} The Minkowski distance between the vectors.
    */
   distanceMinkowski(v: Vec3, p: number) {
     return (
@@ -1006,18 +1016,7 @@ export class Vec3 {
    * @returns This Vec3 instance for method chaining.
    */
   random(random: () => number = Math.random): this {
-    let x1: number;
-    let x2: number;
-    do {
-      x1 = random() * 2 - 1;
-      x2 = random() * 2 - 1;
-    } while (x1 ** 2 + x2 ** 2 >= 1);
-    const f = sqrt(1 - x1 ** 2 - x2 ** 2);
-    const m = this.#magnitude;
-    this.#xyz[0] = m * 2 * x1 * f;
-    this.#xyz[1] = m * 2 * x2 * f;
-    this.#xyz[2] = m * (1 - 2 * (x1 ** 2 + x2 ** 2));
-    this.#computeMagnitude();
+    this.copy(Vec3.fromSphericalCoords(Math.acos(2 * random() - 1), random() * Math.PI * 2, 1));
     return this;
   }
 

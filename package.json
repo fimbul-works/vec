@@ -1,6 +1,6 @@
 {
   "name": "@fimbul-works/vec",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "A comprehensive TypeScript vector math library providing 2D, 3D, and 4D vector operations with a focus on performance and type safety.",
   "type": "module",
   "private": false,
@@ -18,11 +18,9 @@
     "2d",
     "3d",
     "4d",
-    "rgb",
-    "rgba",
-    "color",
     "computer-graphics",
     "game-development",
+    "gamedev",
     "geometry",
     "graphics",
     "linear-algebra",
@@ -34,12 +32,18 @@
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
-  "files": ["dist", "README.md", "VEC2.md", "VEC3.md", "VEC4.md", "LICENSE"],
+  "files": [
+    "dist",
+    "docs",
+    "README.md",
+    "LICENSE"
+  ],
   "sideEffects": false,
   "scripts": {
-    "build": "rm -rf dist && pnpm build:esm && pnpm build:cjs",
+    "build": "rm -rf dist && pnpm build:esm && pnpm build:cjs pnpm build:docs",
     "build:esm": "tsc -p tsconfig.json",
     "build:cjs": "tsc -p tsconfig.cjs.json && echo '{\"type\":\"commonjs\"}' > dist/cjs/package.json",
+    "build:docs": "typedoc",
     "format": "npx biome format --write src",
     "test": "vitest",
     "prepublishOnly": "npm run build"
@@ -49,6 +53,21 @@
       "types": "./dist/esm/index.d.ts",
       "import": "./dist/esm/index.js",
       "require": "./dist/cjs/index.js"
+    },
+    "./2d": {
+      "types": "./dist/esm/2d/index.d.ts",
+      "import": "./dist/esm/2d/index.js",
+      "require": "./dist/cjs/2d/index.js"
+    },
+    "./3d": {
+      "types": "./dist/esm/3d/index.d.ts",
+      "import": "./dist/esm/3d/index.js",
+      "require": "./dist/cjs/3d/index.js"
+    },
+    "./4d": {
+      "types": "./dist/esm/4d/index.d.ts",
+      "import": "./dist/esm/4d/index.js",
+      "require": "./dist/cjs/4d/index.js"
     },
     "./vec2": {
       "types": "./dist/esm/vec2.d.ts",
@@ -67,8 +86,10 @@
     }
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.2.4",
-    "typescript": "^5.9.2",
-    "vitest": "^3.2.4"
+    "@biomejs/biome": "^2.3.11",
+    "typedoc": "^0.28.15",
+    "typedoc-plugin-markdown": "^4.9.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.16"
   }
 }

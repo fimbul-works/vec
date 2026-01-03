@@ -1,3 +1,8 @@
+/**
+ * Documentation for 2D Vector class.
+ * @module Vec2
+ */
+
 const { PI, sin, cos, atan2, sqrt, abs } = Math;
 const PI2 = PI * 2;
 
@@ -12,8 +17,9 @@ export class Vec2 {
   /**
    * Computes and updates the magnitude of the vector.
    * @private
-   * @param x - The x-component of the vector.
-   * @param y - The y-component of the vector.
+   * @param {number} x - The x-component of the vector.
+   * @param {number} y - The y-component of the vector.
+   * @returns {void}
    */
   #computeMagnitude(x = this.#xy[0], y = this.#xy[1]): void {
     if (x !== this.#prevXY[0] || y !== this.#prevXY[1]) {
@@ -25,8 +31,8 @@ export class Vec2 {
 
   /**
    * Creates a new Vec2 instance.
-   * @param x - The x-coordinate of the vector.
-   * @param y - The y-coordinate of the vector.
+   * @param {number} x - The x-coordinate of the vector.
+   * @param {number} y - The y-coordinate of the vector.
    */
   constructor(x = 0, y = x) {
     this.#xy[0] = x;
@@ -406,7 +412,8 @@ export class Vec2 {
 
   /**
    * Creates a Vec2 from an array.
-   * @returns A new Vec2 instance.
+   * @param {[number, number] | number[]} arr - An array containing the x and y coordinates.
+   * @returns {Vec2} A new Vec2 instance.
    */
   static fromArray(arr: [number, number] | number[]) {
     return new Vec2(arr[0] ?? 0, arr[1] ?? 0);
@@ -414,7 +421,8 @@ export class Vec2 {
 
   /**
    * Creates a Vec2 from an object with x and y properties.
-   * @returns A new Vec2 instance.
+   * @param {{ x: number; y: number }} obj - An object with x and y properties.
+   * @returns {Vec2} A new Vec2 instance.
    */
   static fromObject(obj: { x: number; y: number }) {
     return new Vec2(obj.x, obj.y);

@@ -1,4 +1,9 @@
-const { cos, acos, atan2, sqrt, abs } = Math;
+/**
+ * Documentation for 4D Vector class.
+ * @module Vec4
+ */
+
+const { sin, cos, acos, atan2, sqrt, abs, log, PI } = Math;
 
 /**
  * Represents a 4D vector with various operations.
@@ -11,10 +16,11 @@ export class Vec4 {
   /**
    * Computes and updates the magnitude of the vector.
    * @private
-   * @param x - The x-component of the vector.
-   * @param y - The y-component of the vector.
-   * @param z - The z-component of the vector.
-   * @param w - The w-component of the vector.
+   * @param {number} x - The x-component of the vector.
+   * @param {number} y - The y-component of the vector.
+   * @param {number} z - The z-component of the vector.
+   * @param {number} w - The w-component of the vector.
+   * @returns {void}
    */
   #computeMagnitude(x = this.#xyzw[0], y = this.#xyzw[1], z = this.#xyzw[2], w = this.#xyzw[3]) {
     if (x !== this.#prevXYZW[0] || y !== this.#prevXYZW[1] || z !== this.#prevXYZW[2] || w !== this.#prevXYZW[3]) {
@@ -28,10 +34,10 @@ export class Vec4 {
 
   /**
    * Creates a new Vec4 instance.
-   * @param x - The x-coordinate of the vector.
-   * @param y - The y-coordinate of the vector.
-   * @param z - The z-coordinate of the vector.
-   * @param w - The w-coordinate of the vector.
+   * @param {number} x - The x-coordinate of the vector.
+   * @param {number} y - The y-coordinate of the vector.
+   * @param {number} z - The z-coordinate of the vector.
+   * @param {number} w - The w-coordinate of the vector.
    */
   constructor(x = 0, y = 0, z = 0, w = 0) {
     this.#xyzw[0] = x;
@@ -43,9 +49,9 @@ export class Vec4 {
 
   /**
    * Adds two vectors.
-   * @param v - The first vector.
-   * @param w - The second vector.
-   * @returns A new Vec3 instance representing the sum.
+   * @param {Vec4} v - The first vector.
+   * @param {Vec4} w - The second vector.
+   * @returns {Vec4} A new Vec4 instance representing the sum.
    */
   static add(v: Vec4, w: Vec4) {
     return new Vec4(v.#xyzw[0] + w.#xyzw[0], v.#xyzw[1] + w.#xyzw[1], v.#xyzw[2] + w.#xyzw[2], v.#xyzw[3] + w.#xyzw[3]);
@@ -53,9 +59,9 @@ export class Vec4 {
 
   /**
    * Subtracts one vector from another.
-   * @param v - The vector to subtract from.
-   * @param w - The vector to subtract.
-   * @returns A new Vec2 instance representing the difference.
+   * @param {Vec4} v - The vector to subtract from.
+   * @param {Vec4} w - The vector to subtract.
+   * @returns {Vec4} A new Vec4 instance representing the difference.
    */
   static subtract(v: Vec4, w: Vec4) {
     return new Vec4(v.#xyzw[0] - w.#xyzw[0], v.#xyzw[1] - w.#xyzw[1], v.#xyzw[2] - w.#xyzw[2], v.#xyzw[3] - w.#xyzw[3]);
@@ -88,9 +94,9 @@ export class Vec4 {
 
   /**
    * Calculates the angle between two vectors.
-   * @param v - The first vector.
-   * @param w - The second vector.
-   * @returns The angle between the vectors in radians.
+   * @param {Vec4} v - The first vector.
+   * @param {Vec4} w - The second vector.
+   * @returns {number} The angle between the vectors in radians.
    */
   static angleBetween(v: Vec4, w: Vec4) {
     return acos(
@@ -101,9 +107,9 @@ export class Vec4 {
 
   /**
    * Calculates the Euclidean distance between two vectors.
-   * @param v - The first vector.
-   * @param w - The second vector.
-   * @returns The distance between the vectors.
+   * @param {Vec4} v - The first vector.
+   * @param {Vec4} w - The second vector.
+   * @returns {number} The distance between the vectors.
    */
   static distance(v: Vec4, w: Vec4) {
     return sqrt(
@@ -116,9 +122,9 @@ export class Vec4 {
 
   /**
    * Calculates the Chebyshev distance between two vectors.
-   * @param v - The first vector.
-   * @param w - The second vector.
-   * @returns The Chebyshev distance between the vectors.
+   * @param {Vec4} v - The first vector.
+   * @param {Vec4} w - The second vector.
+   * @returns {number} The Chebyshev distance between the vectors.
    */
   static distanceChebyshev(v: Vec4, w: Vec4) {
     const absX = abs(v.#xyzw[0] - w.#xyzw[0]);
@@ -136,9 +142,9 @@ export class Vec4 {
 
   /**
    * Calculates the Manhattan distance between two vectors.
-   * @param v - The first vector.
-   * @param w - The second vector.
-   * @returns The Manhattan distance between the vectors.
+   * @param {Vec4} v - The first vector.
+   * @param {Vec4} w - The second vector.
+   * @returns {number} The Manhattan distance between the vectors.
    */
   static distanceManhattan(v: Vec4, w: Vec4) {
     return (
@@ -151,10 +157,10 @@ export class Vec4 {
 
   /**
    * Calculates the Minkowski distance between two vectors.
-   * @param v - The first vector.
-   * @param w - The second vector.
-   * @param p - The order of the Minkowski distance.
-   * @returns The Minkowski distance between the vectors.
+   * @param {Vec4} v - The first vector.
+   * @param {Vec4} w - The second vector.
+   * @param {number} p - The order of the Minkowski distance.
+   * @returns {number} The Minkowski distance between the vectors.
    */
   static distanceMinkowski(v: Vec4, w: Vec4, p: number) {
     return (
@@ -168,9 +174,9 @@ export class Vec4 {
 
   /**
    * Calculates the squared Euclidean distance between two vectors.
-   * @param v - The first vector.
-   * @param w - The second vector.
-   * @returns The squared distance between the vectors.
+   * @param {Vec4} v - The first vector.
+   * @param {Vec4} w - The second vector.
+   * @returns {number} The squared distance between the vectors.
    */
   static distanceSq(v: Vec4, w: Vec4) {
     return (
@@ -183,9 +189,9 @@ export class Vec4 {
 
   /**
    * Calculates the dot product of two vectors.
-   * @param v - The first vector.
-   * @param w - The second vector.
-   * @returns The dot product of the two vectors.
+   * @param {Vec4} v - The first vector.
+   * @param {Vec4} w - The second vector.
+   * @returns {number} The dot product of the two vectors.
    */
   static dot(v: Vec4, w: Vec4) {
     return v.#xyzw[0] * w.#xyzw[0] + v.#xyzw[1] * w.#xyzw[1] + v.#xyzw[2] * w.#xyzw[2] + v.#xyzw[3] * w.#xyzw[3];
@@ -215,9 +221,11 @@ export class Vec4 {
   }
   /**
    * Creates an immutable Vec4-like object.
-   * @param x - The x-coordinate of the vector.
-   * @param y - The y-coordinate of the vector.
-   * @returns An immutable object with Vec4-like properties.
+   * @param {number} x - The x-coordinate of the vector.
+   * @param {number} y - The y-coordinate of the vector.
+   * @param {number} z - The z-coordinate of the vector.
+   * @param {number} w - The w-coordinate of the vector.
+   * @returns {Readonly<{ x: number; y: number; z: number; w: number; xyzw: readonly number[]; r: number; g: number; b: number; a: number; rgba: readonly number[]; magnitude: number; magnitudeSq: number; angleW: number; angleX: number; angleY: number; angleZ: number; isInfinite: boolean; isNaN: boolean; isZero: boolean }>} An immutable object with Vec4-like properties.
    */
   static immutable(x = 0, y = 0, z = 0, w = 0) {
     const data = new Float64Array(10);
@@ -308,8 +316,8 @@ export class Vec4 {
 
   /**
    * Checks if a vector has infinite components.
-   * @param v - The vector to check.
-   * @returns True if the vector has infinite components, false otherwise.
+   * @param {Vec4} v - The vector to check.
+   * @returns {boolean} True if the vector has infinite components, false otherwise.
    */
   static isInfinite(v: Vec4) {
     const x = v.#xyzw[0];
@@ -330,8 +338,8 @@ export class Vec4 {
 
   /**
    * Checks if a vector has NaN components.
-   * @param v - The vector to check.
-   * @returns True if the vector has NaN components, false otherwise.
+   * @param {Vec4} v - The vector to check.
+   * @returns {boolean} True if the vector has NaN components, false otherwise.
    */
   static isNaN(v: Vec4) {
     return Number.isNaN(v.#xyzw[0]) || Number.isNaN(v.#xyzw[1]) || Number.isNaN(v.#xyzw[2]) || Number.isNaN(v.#xyzw[3]);
@@ -339,8 +347,8 @@ export class Vec4 {
 
   /**
    * Checks if a vector is zero.
-   * @param v - The vector to check.
-   * @returns True if the vector is zero, false otherwise.
+   * @param {Vec4} v - The vector to check.
+   * @returns {boolean} True if the vector is zero, false otherwise.
    */
   static isZero(v: Vec4) {
     return v.#xyzw[0] === 0 && v.#xyzw[1] === 0 && v.#xyzw[2] === 0 && v.#xyzw[3] === 0;
@@ -348,10 +356,10 @@ export class Vec4 {
 
   /**
    * Performs linear interpolation between two vectors.
-   * @param v - The first vector.
-   * @param w - The second vector.
-   * @param t - The interpolation parameter (0 to 1).
-   * @returns A new Vec2 instance representing the interpolated vector.
+   * @param {Vec4} v - The first vector.
+   * @param {Vec4} w - The second vector.
+   * @param {number} t - The interpolation parameter (0 to 1).
+   * @returns {Vec4} A new Vec4 instance representing the interpolated vector.
    */
   static lerp(v: Vec4, w: Vec4, t: number) {
     if (t > 1) t = 1;
@@ -370,8 +378,8 @@ export class Vec4 {
 
   /**
    * Negates a vector.
-   * @param v - The vector to negate.
-   * @returns A new Vec2 instance representing the negated vector.
+   * @param {Vec4} v - The vector to negate.
+   * @returns {Vec4} A new Vec4 instance representing the negated vector.
    */
   static negate(v: Vec4) {
     return new Vec4(-v.#xyzw[0], -v.#xyzw[1], -v.#xyzw[2], -v.#xyzw[3]);
@@ -379,8 +387,8 @@ export class Vec4 {
 
   /**
    * Normalizes a vector.
-   * @param v - The vector to normalize.
-   * @returns A new Vec2 instance representing the normalized vector.
+   * @param {Vec4} v - The vector to normalize.
+   * @returns {Vec4} A new Vec4 instance representing the normalized vector.
    */
   static normalize(v: Vec4) {
     const m = v.#magnitude;
@@ -389,9 +397,9 @@ export class Vec4 {
 
   /**
    * Projects one vector onto another.
-   * @param v - The vector to project.
-   * @param w - The vector to project onto.
-   * @returns A new Vec2 instance representing the projected vector.
+   * @param {Vec4} v - The vector to project.
+   * @param {Vec4} w - The vector to project onto.
+   * @returns {Vec4} A new Vec4 instance representing the projected vector.
    */
   static project(v: Vec4, w: Vec4) {
     const vM = v.#magnitude;
@@ -406,29 +414,28 @@ export class Vec4 {
 
   /**
    * Creates a random unit vector.
-   * @param random - A function that returns a random number between 0 and 1.
-   * @returns A new Vec4 instance representing a random unit vector.
+   * @param {() => number} random - A function that returns a random number between 0 and 1.
+   * @returns {Vec4} A new Vec4 instance representing a random unit vector.
    */
   static random(random: () => number = Math.random) {
-    let x1: number;
-    let x2: number;
-    let x3: number;
-    let x4: number;
-    do {
-      x1 = random() * 2 - 1;
-      x2 = random() * 2 - 1;
-      x3 = random() * 2 - 1;
-      x4 = random() * 2 - 1;
-    } while (x1 ** 2 + x2 ** 2 >= 1 || x3 ** 2 + x4 ** 2 >= 1);
-    const f = sqrt((1 - x1 ** 2 - x2 ** 2) / (x3 ** 2 + x4 ** 2));
-    return new Vec4(x1, x2, x3 * f, x4 * f);
+    // 1. Generate four numbers from a Normal Distribution (Box-Muller transform)
+    const x = sqrt(-2 * log(random())) * cos(2 * PI * random());
+    const y = sqrt(-2 * log(random())) * sin(2 * PI * random());
+    const z = sqrt(-2 * log(random())) * cos(2 * PI * random());
+    const w = sqrt(-2 * log(random())) * sin(2 * PI * random());
+
+    // 2. Calculate the current length
+    const length = sqrt(x * x + y * y + z * z + w * w);
+
+    // 3. Divide by length to make it a unit vector
+    return new Vec4(x / length, y / length, z / length, w / length);
   }
 
   /**
    * Checks if two vectors are equal.
-   * @param v - The first vector.
-   * @param w - The second vector.
-   * @returns True if the vectors are equal, false otherwise.
+   * @param {Vec4} v - The first vector.
+   * @param {Vec4} w - The second vector.
+   * @returns {boolean} True if the vectors are equal, false otherwise.
    */
   static satisfyEquality(v: Vec4, w: Vec4) {
     return (
@@ -438,9 +445,9 @@ export class Vec4 {
 
   /**
    * Checks if two vectors are opposite.
-   * @param v - The first vector.
-   * @param w - The second vector.
-   * @returns True if the vectors are opposite, false otherwise.
+   * @param {Vec4} v - The first vector.
+   * @param {Vec4} w - The second vector.
+   * @returns {boolean} True if the vectors are opposite, false otherwise.
    */
   static satisfyOpposition(v: Vec4, w: Vec4) {
     return (
@@ -469,9 +476,9 @@ export class Vec4 {
 
   /**
    * Scales a vector by a scalar value.
-   * @param v - The vector to scale.
-   * @param c - The scalar value.
-   * @returns A new Vec2 instance representing the scaled vector.
+   * @param {Vec4} v - The vector to scale.
+   * @param {number} c - The scalar value.
+   * @returns {Vec4} A new Vec4 instance representing the scaled vector.
    */
   static scale(v: Vec4, c: number) {
     return new Vec4(v.#xyzw[0] * c, v.#xyzw[1] * c, v.#xyzw[2] * c, v.#xyzw[3] * c);
@@ -479,7 +486,7 @@ export class Vec4 {
 
   /**
    * Creates a zero vector.
-   * @returns A new Vec4 instance representing a zero vector.
+   * @returns {Vec4} A new Vec4 instance representing a zero vector.
    */
   static zero() {
     return new Vec4();
@@ -495,7 +502,8 @@ export class Vec4 {
 
   /**
    * Creates a Vec4 from an array.
-   * @returns A new Vec4 instance.
+   * @param {[number, number, number, number] | number[]} arr - An array containing the x, y, z, and w coordinates.
+   * @returns {Vec4} A new Vec4 instance.
    */
   static fromArray(arr: [number, number, number, number] | number[]) {
     return new Vec4(arr[0] ?? 0, arr[1] ?? 0, arr[2] ?? 0, arr[3] ?? 0);
@@ -503,7 +511,8 @@ export class Vec4 {
 
   /**
    * Creates a Vec4 from an object with x, y, z and w properties.
-   * @returns A new Vec4 instance.
+   * @param {{ x: number; y: number; z: number; w: number }} obj - An object with x, y, z, and w properties.
+   * @returns {Vec4} A new Vec4 instance.
    */
   static fromObject(obj: { x: number; y: number; z: number; w: number }) {
     return new Vec4(obj.x, obj.y, obj.z, obj.w);
@@ -520,7 +529,7 @@ export class Vec4 {
 
   /**
    * Gets the x-component of the vector.
-   * @returns The x-component.
+   * @returns {number} The x-component.
    */
   get x() {
     return this.#xyzw[0];
@@ -528,7 +537,8 @@ export class Vec4 {
 
   /**
    * Sets the x-component of the vector.
-   * @param x - The new x-component.
+   * @param {number} x - The new x-component.
+   * @returns {void}
    */
   set x(x: number) {
     this.#xyzw[0] = x;
@@ -537,7 +547,7 @@ export class Vec4 {
 
   /**
    * Gets the y-component of the vector.
-   * @returns The y-component.
+   * @returns {number} The y-component.
    */
   get y() {
     return this.#xyzw[1];
@@ -545,7 +555,8 @@ export class Vec4 {
 
   /**
    * Sets the z-component of the vector.
-   * @param y - The new z-component.
+   * @param {number} y - The new z-component.
+   * @returns {void}
    */
   set y(y: number) {
     this.#xyzw[1] = y;
@@ -554,7 +565,7 @@ export class Vec4 {
 
   /**
    * Gets the z-component of the vector.
-   * @returns The z-component.
+   * @returns {number} The z-component.
    */
   get z() {
     return this.#xyzw[2];
@@ -562,7 +573,8 @@ export class Vec4 {
 
   /**
    * Sets the z-component of the vector.
-   * @param z - The new z-component.
+   * @param {number} z - The new z-component.
+   * @returns {void}
    */
   set z(z: number) {
     this.#xyzw[2] = z;
@@ -571,7 +583,7 @@ export class Vec4 {
 
   /**
    * Gets the w-component of the vector.
-   * @returns The w-component.
+   * @returns {number} The w-component.
    */
   get w() {
     return this.#xyzw[3];
@@ -579,7 +591,8 @@ export class Vec4 {
 
   /**
    * Sets the w-component of the vector.
-   * @param w - The new w-component.
+   * @param {number} w - The new w-component.
+   * @returns {void}
    */
   set w(w: number) {
     this.#xyzw[3] = w;
@@ -588,7 +601,7 @@ export class Vec4 {
 
   /**
    * Gets a copy of the vector's components as an array.
-   * @returns An array containing the x, y, z and w components of the vector.
+   * @returns {[number, number, number, number]} An array containing the x, y, z and w components of the vector.
    */
   get xyzw(): [number, number, number, number] {
     return Array.from(this.#xyzw.slice()) as [number, number, number, number];
@@ -596,7 +609,8 @@ export class Vec4 {
 
   /**
    * Sets both components of the vector at once.
-   * @param xyzw - An array containing the new x, y and z components.
+   * @param {[number, number, number, number]} xyzw - An array containing the new x, y, z and w components.
+   * @returns {void}
    */
   set xyzw(xyzw: [number, number, number, number]) {
     this.#xyzw[0] = xyzw[0];
@@ -608,7 +622,7 @@ export class Vec4 {
 
   /**
    * Gets the Red-component of a Color.
-   * @returns The Red-component.
+   * @returns {number} The Red-component.
    */
   get r() {
     return this.x;
@@ -616,7 +630,8 @@ export class Vec4 {
 
   /**
    * Sets the Red-component of a Color.
-   * @param r - The new Red-component.
+   * @param {number} r - The new Red-component.
+   * @returns {void}
    */
   set r(r: number) {
     this.x = r;
@@ -624,7 +639,7 @@ export class Vec4 {
 
   /**
    * Gets the Green-component of a Color.
-   * @returns The Green-component.
+   * @returns {number} The Green-component.
    */
   get g() {
     return this.y;
@@ -632,7 +647,8 @@ export class Vec4 {
 
   /**
    * Sets the Green-component of the Color.
-   * @param g - The new Green-component.
+   * @param {number} g - The new Green-component.
+   * @returns {void}
    */
   set g(g: number) {
     this.y = g;
@@ -640,7 +656,7 @@ export class Vec4 {
 
   /**
    * Gets the Blue-component of the color.
-   * @returns The Blue-component.
+   * @returns {number} The Blue-component.
    */
   get b() {
     return this.z;
@@ -648,7 +664,8 @@ export class Vec4 {
 
   /**
    * Sets the Blue-component of the Color.
-   * @param b - The new Blue-component.
+   * @param {number} b - The new Blue-component.
+   * @returns {void}
    */
   set b(b: number) {
     this.z = b;
@@ -656,7 +673,7 @@ export class Vec4 {
 
   /**
    * Gets the Alpha-component of the color.
-   * @returns The Alpha-component.
+   * @returns {number} The Alpha-component.
    */
   get a() {
     return this.w;
@@ -664,7 +681,8 @@ export class Vec4 {
 
   /**
    * Sets the Alpha-component of the Color.
-   * @param b - The new Alpha-component.
+   * @param {number} a - The new Alpha-component.
+   * @returns {void}
    */
   set a(a: number) {
     this.w = a;
@@ -672,7 +690,7 @@ export class Vec4 {
 
   /**
    * Gets a copy of the vector's components as an array.
-   * @returns An array containing the Red, Green, Blue and Alpha components of the Color.
+   * @returns {[number, number, number, number]} An array containing the Red, Green, Blue and Alpha components of the Color.
    */
   get rgba(): [number, number, number, number] {
     return this.xyzw;
@@ -680,7 +698,8 @@ export class Vec4 {
 
   /**
    * Sets all components of the Color at once.
-   * @param rgba - An array containing the new Red, Green and Blue components.
+   * @param {[number, number, number, number]} rgba - An array containing the new Red, Green, Blue and Alpha components.
+   * @returns {void}
    */
   set rgba(rgba: [number, number, number, number]) {
     this.xyzw = rgba;
@@ -750,8 +769,8 @@ export class Vec4 {
 
   /**
    * Adds another vector to this vector.
-   * @param v - The vector to add.
-   * @returns This Vec4 instance for method chaining.
+   * @param {Vec4} v - The vector to add.
+   * @returns {this} This Vec4 instance for method chaining.
    */
   add(v: Vec4) {
     this.#xyzw[0] += v.#xyzw[0];
@@ -820,9 +839,9 @@ export class Vec4 {
 
   /**
    * Clamps the magnitude of this vector between a minimum and maximum value.
-   * @param min - The minimum magnitude.
-   * @param max - The maximum magnitude.
-   * @returns This Vec4 instance for method chaining.
+   * @param {number} min - The minimum magnitude.
+   * @param {number} max - The maximum magnitude.
+   * @returns {this} This Vec4 instance for method chaining.
    */
   clamp(min: number, max: number) {
     const m = this.#magnitude;
@@ -844,7 +863,7 @@ export class Vec4 {
 
   /**
    * Creates a copy of this vector.
-   * @returns A new Vec4 instance with the same components.
+   * @returns {Vec4} A new Vec4 instance with the same components.
    */
   clone() {
     return new Vec4(this.#xyzw[0], this.#xyzw[1], this.#xyzw[2], this.#xyzw[3]);
@@ -880,8 +899,8 @@ export class Vec4 {
 
   /**
    * Calculates the Chebyshev distance between this vector and another vector.
-   * @param v - The first vector.
-   * @returns The Chebyshev distance between the vectors.
+   * @param {Vec4} v - The other vector.
+   * @returns {number} The Chebyshev distance between the vectors.
    */
   distanceChebyshev(v: Vec4) {
     const absX = abs(this.#xyzw[0] - v.#xyzw[0]);
@@ -899,8 +918,8 @@ export class Vec4 {
 
   /**
    * Calculates the Manhattan distance between this vector and another vector.
-   * @param v - The other vector.
-   * @returns The Manhattan distance between the vectors.
+   * @param {Vec4} v - The other vector.
+   * @returns {number} The Manhattan distance between the vectors.
    */
   distanceManhattan(v: Vec4) {
     return (
@@ -912,10 +931,10 @@ export class Vec4 {
   }
 
   /**
-   * Calculates the Minkowski distance between  thisvector and another vector.
-   * @param v - The other vector.
-   * @param p - The order of the Minkowski distance.
-   * @returns The Minkowski distance between the vectors.
+   * Calculates the Minkowski distance between this vector and another vector.
+   * @param {Vec4} v - The other vector.
+   * @param {number} p - The order of the Minkowski distance.
+   * @returns {number} The Minkowski distance between the vectors.
    */
   distanceMinkowski(v: Vec4, p: number) {
     return (
@@ -1120,23 +1139,7 @@ export class Vec4 {
    * @returns This Vec4 instance for method chaining.
    */
   random(random: () => number = Math.random): this {
-    let x1: number;
-    let x2: number;
-    let x3: number;
-    let x4: number;
-    do {
-      x1 = random() * 2 - 1;
-      x2 = random() * 2 - 1;
-      x3 = random() * 2 - 1;
-      x4 = random() * 2 - 1;
-    } while (x1 ** 2 + x2 ** 2 >= 1 || x3 ** 2 + x4 ** 2 >= 1);
-    const f = sqrt((1 - x1 ** 2 - x2 ** 2) / (x3 ** 2 + x4 ** 2));
-    const m = this.#magnitude;
-    this.#xyzw[0] = m * x1;
-    this.#xyzw[1] = m * x2;
-    this.#xyzw[2] = m * x3 * f;
-    this.#xyzw[3] = m * x4 * f;
-    this.#computeMagnitude();
+    this.copy(Vec4.random(random));
     return this;
   }
 

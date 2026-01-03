@@ -1,0 +1,37 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": [
+    "src/2d/index.ts",
+    "src/3d/index.ts",
+    "src/4d/index.ts",
+    "src/vec2.ts",
+    "src/vec3.ts",
+    "src/vec4.ts",
+    "src/slerp.ts"
+  ],
+  "outputs": [
+    {
+      "name": "markdown",
+      "path": "./docs"
+    }
+  ],
+  "plugin": ["typedoc-plugin-markdown"],
+
+  // This is the critical setting to stop the single-file behavior
+  "outputFileStrategy": "modules",
+
+  // This ensures your @module tags in index.ts are treated as the top-level
+  "useCodeBlocks": true,
+  "expandObjects": true,
+
+  // Navigation settings for the new version of the plugin
+  "navigationModel": {
+    "excludeGroups": false,
+    "excludeCategories": false
+  },
+
+  // This cleans up the file names (prevents README/modules/moduleName.md)
+  "flattenOutputFiles": true,
+  "hidePageTitle": false,
+  "hideBreadcrumbs": false
+}
