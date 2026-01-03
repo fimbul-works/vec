@@ -32,8 +32,8 @@ Adds two 3D vectors.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `xyz1` | [`ArrayVector3D`](#arrayvector3d) | First vector as `[x, y, z]` as [x, y, z] |
-| `xyz2` | [`ArrayVector3D`](#arrayvector3d) | Second vector as `[x, y, z]` as [x, y, z] |
+| `xyz1` | [`ArrayVector3D`](#arrayvector3d) | First vector as `[x, y, z]` |
+| `xyz2` | [`ArrayVector3D`](#arrayvector3d) | Second vector as `[x, y, z]` |
 
 #### Returns
 
@@ -47,9 +47,9 @@ The sum of the vectors
 
 ```ts
 function angleBetween3D(
-   xyz1, 
-   xyz2, 
-   m1?, 
+   xyz1,
+   xyz2,
+   m1?,
    m2?): number;
 ```
 
@@ -150,9 +150,9 @@ Angle in radians, always in the range [0, 2π)
 
 ```ts
 function clamp3D(
-   xyz, 
-   min, 
-   max, 
+   xyz,
+   min,
+   max,
    m?): ArrayVector3D;
 ```
 
@@ -305,8 +305,8 @@ Manhattan distance
 
 ```ts
 function distanceMinkowski3D(
-   xyz1, 
-   xyz2, 
+   xyz1,
+   xyz2,
    p): number;
 ```
 
@@ -409,8 +409,8 @@ Dot product
 
 ```ts
 function fromCylindricalCoords(
-   r, 
-   phi, 
+   r,
+   phi,
    z): ArrayVector3D;
 ```
 
@@ -465,8 +465,8 @@ Vector
 
 ```ts
 function fromSphericalCoords3D(
-   theta, 
-   phi, 
+   theta,
+   phi,
    m?): ArrayVector3D;
 ```
 
@@ -543,8 +543,8 @@ Checks if two 3D vectors are equal.
 
 ```ts
 function isEqualApprox3D(
-   xyz1, 
-   xyz2, 
+   xyz1,
+   xyz2,
    epsilon): boolean;
 ```
 
@@ -669,8 +669,8 @@ Checks if a 3D vector is zero.
 
 ```ts
 function lerp3D(
-   xyz1, 
-   xyz2, 
+   xyz1,
+   xyz2,
    t): ArrayVector3D;
 ```
 
@@ -698,8 +698,8 @@ The interpolated vector
 
 ```ts
 function limitMax3D(
-   xyz, 
-   max, 
+   xyz,
+   max,
    m?): ArrayVector3D;
 ```
 
@@ -727,8 +727,8 @@ The adjusted vector
 
 ```ts
 function limitMin3D(
-   xyz, 
-   min, 
+   xyz,
+   min,
    m?): ArrayVector3D;
 ```
 
@@ -756,9 +756,9 @@ The adjusted vector
 
 ```ts
 function lookAt3D(
-   xyz1, 
-   xyz2, 
-   m1?, 
+   xyz1,
+   xyz2,
+   m1?,
    m2?): ArrayVector3D;
 ```
 
@@ -927,9 +927,9 @@ Vector `[1, 1, 1]`
 
 ```ts
 function project3D(
-   xyz1, 
-   xyz2, 
-   m1?, 
+   xyz1,
+   xyz2,
+   m1?,
    m2?): ArrayVector3D;
 ```
 
@@ -1008,8 +1008,8 @@ The reflected vector
 
 ```ts
 function rotateX3D(
-   xyz, 
-   phi, 
+   xyz,
+   phi,
    axis): ArrayVector3D;
 ```
 
@@ -1037,8 +1037,8 @@ The rotated vector
 
 ```ts
 function rotateY3D(
-   xyz, 
-   phi, 
+   xyz,
+   phi,
    axis): ArrayVector3D;
 ```
 
@@ -1066,8 +1066,8 @@ The rotated vector
 
 ```ts
 function rotateZ3D(
-   xyz, 
-   phi, 
+   xyz,
+   phi,
    axis): ArrayVector3D;
 ```
 
@@ -1095,8 +1095,8 @@ The rotated vector
 
 ```ts
 function setMagnitude3D(
-   xyz, 
-   newMagnitude, 
+   xyz,
+   newMagnitude,
    m?): ArrayVector3D;
 ```
 
