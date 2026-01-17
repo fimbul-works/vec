@@ -4,6 +4,7 @@ A high-performance TypeScript vector math library providing both **functional** 
 
 [![npm version](https://badge.fury.io/js/%40fimbul-works%2Fvec.svg)](https://www.npmjs.com/package/@fimbul-works/vec)
 [![TypeScript](https://badges.frapsoft.com/typescript/code/typescript.svg?v=101)](https://github.com/microsoft/TypeScript)
+[![Bundle Size](https://img.shields.io/bundlephobia/minzip/@fimbul-works/vec)](https://bundlephobia.com/package/@fimbul-works/vec)
 
 ## ✨ Highlights
 
