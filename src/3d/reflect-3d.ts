@@ -1,5 +1,5 @@
-import { dot3D } from "./dot-3d";
-import type { ArrayVector3D } from "./types";
+import { dot3D } from "./dot-3d.js";
+import type { ArrayVector3D } from "./types.js";
 
 /**
  * Reflects a vector across a normal vector.

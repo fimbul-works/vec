@@ -1,4 +1,4 @@
-import type { ArrayVector3D } from "./types";
+import type { ArrayVector3D } from "./types.js";
 
 /**
  * Subtracts a 3D vector from another.

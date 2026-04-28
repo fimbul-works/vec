@@ -1,4 +1,4 @@
-import type { ArrayVector3D } from "./types";
+import type { ArrayVector3D } from "./types.js";
 
 /**
  * Calculate the squared magnitude of a 3D vector.

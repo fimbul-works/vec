@@ -1,4 +1,4 @@
-import type { ArrayVector3D } from "./types";
+import type { ArrayVector3D } from "./types.js";
 
 /**
  * Compares two 3D vectors using an epsilon value for floating-point comparison.

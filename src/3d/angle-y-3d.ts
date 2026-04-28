@@ -1,4 +1,4 @@
-import type { ArrayVector3D } from "./types";
+import type { ArrayVector3D } from "./types.js";
 
 /**
  * Gets the angle between a 3D vector and the positive y-axis in radians.

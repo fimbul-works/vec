@@ -8,7 +8,7 @@ Documentation for 3D Vector class.
 
 ### Vec3
 
-Defined in: [vec3.ts:11](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L11)
+Defined in: [vec3.ts:11](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L11)
 
 Represents a 3D vector with various operations.
 
@@ -23,7 +23,7 @@ new Vec3(
    z): Vec3;
 ```
 
-Defined in: [vec3.ts:39](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L39)
+Defined in: [vec3.ts:39](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L39)
 
 Creates a new Vec3 instance.
 
@@ -49,7 +49,7 @@ Creates a new Vec3 instance.
 get angleX(): number;
 ```
 
-Defined in: [vec3.ts:636](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L636)
+Defined in: [vec3.ts:636](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L636)
 
 Gets the angle between the vector and the positive x-axis in radians.
 
@@ -67,7 +67,7 @@ The angle in radians, always in the range [0, 2π).
 get angleY(): number;
 ```
 
-Defined in: [vec3.ts:644](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L644)
+Defined in: [vec3.ts:644](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L644)
 
 Gets the angle between the vector and the positive y-axis in radians.
 
@@ -85,7 +85,7 @@ The angle in radians, always in the range [0, 2π).
 get angleZ(): number;
 ```
 
-Defined in: [vec3.ts:652](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L652)
+Defined in: [vec3.ts:652](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L652)
 
 Gets the angle between the vector and the positive z-axis in radians.
 
@@ -103,7 +103,7 @@ The angle in radians, always in the range [0, 2π).
 get b(): number;
 ```
 
-Defined in: [vec3.ts:602](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L602)
+Defined in: [vec3.ts:602](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L602)
 
 Gets the Blue-component of the color.
 
@@ -119,7 +119,7 @@ The Blue-component.
 set b(b): void;
 ```
 
-Defined in: [vec3.ts:611](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L611)
+Defined in: [vec3.ts:611](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L611)
 
 Sets the Blue-component of the Color.
 
@@ -141,7 +141,7 @@ Sets the Blue-component of the Color.
 get g(): number;
 ```
 
-Defined in: [vec3.ts:585](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L585)
+Defined in: [vec3.ts:585](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L585)
 
 Gets the Green-component of a Color.
 
@@ -157,7 +157,7 @@ The Green-component.
 set g(g): void;
 ```
 
-Defined in: [vec3.ts:594](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L594)
+Defined in: [vec3.ts:594](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L594)
 
 Sets the Green-component of the Color.
 
@@ -179,7 +179,7 @@ Sets the Green-component of the Color.
 get magnitude(): number;
 ```
 
-Defined in: [vec3.ts:660](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L660)
+Defined in: [vec3.ts:660](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L660)
 
 Sets the magnitude (length) of the vector, maintaining its direction.
 
@@ -193,7 +193,7 @@ Sets the magnitude (length) of the vector, maintaining its direction.
 set magnitude(m): void;
 ```
 
-Defined in: [vec3.ts:677](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L677)
+Defined in: [vec3.ts:677](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L677)
 
 Sets the magnitude (length) of the vector, maintaining its direction.
 
@@ -215,7 +215,7 @@ Sets the magnitude (length) of the vector, maintaining its direction.
 get magnitudeSq(): number;
 ```
 
-Defined in: [vec3.ts:669](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L669)
+Defined in: [vec3.ts:669](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L669)
 
 Gets the squared magnitude of the vector.
 This is faster to compute than the actual magnitude and is useful for comparisons.
@@ -234,7 +234,7 @@ The squared magnitude of the vector.
 get r(): number;
 ```
 
-Defined in: [vec3.ts:568](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L568)
+Defined in: [vec3.ts:568](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L568)
 
 Gets the Red-component of a Color.
 
@@ -250,7 +250,7 @@ The Red-component.
 set r(r): void;
 ```
 
-Defined in: [vec3.ts:577](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L577)
+Defined in: [vec3.ts:577](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L577)
 
 Sets the Red-component of a Color.
 
@@ -272,7 +272,7 @@ Sets the Red-component of a Color.
 get rgb(): [number, number, number];
 ```
 
-Defined in: [vec3.ts:619](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L619)
+Defined in: [vec3.ts:619](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L619)
 
 Gets a copy of the vector's components as an array.
 
@@ -288,7 +288,7 @@ An array containing the x, y and z components of the vector.
 set rgb(rgb): void;
 ```
 
-Defined in: [vec3.ts:628](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L628)
+Defined in: [vec3.ts:628](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L628)
 
 Sets all components of the Color at once.
 
@@ -310,7 +310,7 @@ Sets all components of the Color at once.
 get x(): number;
 ```
 
-Defined in: [vec3.ts:494](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L494)
+Defined in: [vec3.ts:494](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L494)
 
 Gets the x-component of the vector.
 
@@ -326,7 +326,7 @@ The x-component.
 set x(x): void;
 ```
 
-Defined in: [vec3.ts:503](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L503)
+Defined in: [vec3.ts:503](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L503)
 
 Sets the x-component of the vector.
 
@@ -348,7 +348,7 @@ Sets the x-component of the vector.
 get xyz(): [number, number, number];
 ```
 
-Defined in: [vec3.ts:548](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L548)
+Defined in: [vec3.ts:548](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L548)
 
 Gets a copy of the vector's components as an array.
 
@@ -364,7 +364,7 @@ An array containing the x, y and z components of the vector.
 set xyz(xyz): void;
 ```
 
-Defined in: [vec3.ts:557](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L557)
+Defined in: [vec3.ts:557](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L557)
 
 Sets all components of the vector at once.
 
@@ -386,7 +386,7 @@ Sets all components of the vector at once.
 get y(): number;
 ```
 
-Defined in: [vec3.ts:512](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L512)
+Defined in: [vec3.ts:512](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L512)
 
 Gets the y-component of the vector.
 
@@ -402,7 +402,7 @@ The y-component.
 set y(y): void;
 ```
 
-Defined in: [vec3.ts:521](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L521)
+Defined in: [vec3.ts:521](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L521)
 
 Sets the y-component of the vector.
 
@@ -424,7 +424,7 @@ Sets the y-component of the vector.
 get z(): number;
 ```
 
-Defined in: [vec3.ts:530](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L530)
+Defined in: [vec3.ts:530](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L530)
 
 Gets the z-component of the vector.
 
@@ -440,7 +440,7 @@ The z-component.
 set z(z): void;
 ```
 
-Defined in: [vec3.ts:539](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L539)
+Defined in: [vec3.ts:539](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L539)
 
 Sets the z-component of the vector.
 
@@ -462,7 +462,7 @@ Sets the z-component of the vector.
 iterator: IterableIterator<number>;
 ```
 
-Defined in: [vec3.ts:1132](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L1132)
+Defined in: [vec3.ts:1132](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L1132)
 
 Makes the Vec3 instance iterable.
 
@@ -480,7 +480,7 @@ The x, y and z components of the vector.
 add(v): Vec3;
 ```
 
-Defined in: [vec3.ts:690](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L690)
+Defined in: [vec3.ts:690](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L690)
 
 Adds another vector to this vector.
 
@@ -502,7 +502,7 @@ This Vec3 instance for method chaining.
 angleBetween(v): number;
 ```
 
-Defined in: [vec3.ts:742](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L742)
+Defined in: [vec3.ts:742](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L742)
 
 Calculates the angle between this vector and another vector.
 
@@ -524,7 +524,7 @@ The angle between the vectors in radians.
 clamp(min, max): this;
 ```
 
-Defined in: [vec3.ts:755](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L755)
+Defined in: [vec3.ts:755](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L755)
 
 Clamps the magnitude of this vector between a minimum and maximum value.
 
@@ -547,7 +547,7 @@ This Vec3 instance for method chaining.
 clone(): Vec3;
 ```
 
-Defined in: [vec3.ts:775](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L775)
+Defined in: [vec3.ts:775](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L775)
 
 Creates a copy of this vector.
 
@@ -563,7 +563,7 @@ A new Vec3 instance with the same components.
 copy(v): this;
 ```
 
-Defined in: [vec3.ts:784](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L784)
+Defined in: [vec3.ts:784](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L784)
 
 Copies the components of another vector to this vector.
 
@@ -585,7 +585,7 @@ This Vec3 instance for method chaining.
 cross(v): this;
 ```
 
-Defined in: [vec3.ts:806](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L806)
+Defined in: [vec3.ts:806](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L806)
 
 Calculates cross product between this vector and another vector.
 
@@ -607,7 +607,7 @@ This Vec3 instance for method chaining.
 distance(v): number;
 ```
 
-Defined in: [vec3.ts:841](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L841)
+Defined in: [vec3.ts:841](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L841)
 
 Calculates the distance between this vector and another vector.
 
@@ -629,7 +629,7 @@ The distance between the vectors.
 distanceChebyshev(v): number;
 ```
 
-Defined in: [vec3.ts:850](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L850)
+Defined in: [vec3.ts:850](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L850)
 
 Calculates the Chebyshev distance between vector and another vector.
 
@@ -651,7 +651,7 @@ The Chebyshev distance between the vectors.
 distanceManhattan(v): number;
 ```
 
-Defined in: [vec3.ts:862](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L862)
+Defined in: [vec3.ts:862](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L862)
 
 Calculates the Manhattan distance between vector and another vector.
 
@@ -673,7 +673,7 @@ The Manhattan distance between the vectors.
 distanceMinkowski(v, p): number;
 ```
 
-Defined in: [vec3.ts:872](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L872)
+Defined in: [vec3.ts:872](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L872)
 
 Calculates the Minkowski distance between this vector and another vector.
 
@@ -696,7 +696,7 @@ The Minkowski distance between the vectors.
 distanceSq(v): number;
 ```
 
-Defined in: [vec3.ts:884](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L884)
+Defined in: [vec3.ts:884](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L884)
 
 Calculates the squared distance between this vector and another vector.
 
@@ -718,7 +718,7 @@ The squared distance between the vectors.
 divide(v): this;
 ```
 
-Defined in: [vec3.ts:729](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L729)
+Defined in: [vec3.ts:729](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L729)
 
 Divides this vector with another vector.
 
@@ -740,7 +740,7 @@ This Vec3 instance for method chaining.
 dot(v): number;
 ```
 
-Defined in: [vec3.ts:797](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L797)
+Defined in: [vec3.ts:797](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L797)
 
 Calculates the dot product of this vector with another vector.
 
@@ -762,7 +762,7 @@ The dot product of the vectors.
 equals(v, epsilon): boolean;
 ```
 
-Defined in: [vec3.ts:1095](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L1095)
+Defined in: [vec3.ts:1095](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L1095)
 
 Compares this vector with another vector using an epsilon value for floating-point comparison.
 
@@ -785,7 +785,7 @@ True if the vectors are equal within epsilon, false otherwise.
 isInfinite(): boolean;
 ```
 
-Defined in: [vec3.ts:892](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L892)
+Defined in: [vec3.ts:892](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L892)
 
 Checks if this vector has infinite components.
 
@@ -801,7 +801,7 @@ True if the vector has infinite components, false otherwise.
 isNaN(): boolean;
 ```
 
-Defined in: [vec3.ts:910](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L910)
+Defined in: [vec3.ts:910](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L910)
 
 Checks if this vector has NaN components.
 
@@ -817,7 +817,7 @@ True if the vector has NaN components, false otherwise.
 isZero(): boolean;
 ```
 
-Defined in: [vec3.ts:918](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L918)
+Defined in: [vec3.ts:918](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L918)
 
 Checks if this vector is zero.
 
@@ -833,7 +833,7 @@ True if the vector is zero, false otherwise.
 limitMax(max): this;
 ```
 
-Defined in: [vec3.ts:927](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L927)
+Defined in: [vec3.ts:927](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L927)
 
 Limits the maximum magnitude of this vector.
 
@@ -855,7 +855,7 @@ This Vec3 instance for method chaining.
 limitMin(min): this;
 ```
 
-Defined in: [vec3.ts:943](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L943)
+Defined in: [vec3.ts:943](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L943)
 
 Limits the minimum magnitude of this vector.
 
@@ -877,7 +877,7 @@ This Vec3 instance for method chaining.
 lookAt(v): this;
 ```
 
-Defined in: [vec3.ts:959](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L959)
+Defined in: [vec3.ts:959](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L959)
 
 Sets this vector to point towards another vector.
 
@@ -899,7 +899,7 @@ This Vec3 instance for method chaining.
 multiply(v): this;
 ```
 
-Defined in: [vec3.ts:716](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L716)
+Defined in: [vec3.ts:716](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L716)
 
 Multiplies this vector with another vector.
 
@@ -921,7 +921,7 @@ This Vec3 instance for method chaining.
 negate(): this;
 ```
 
-Defined in: [vec3.ts:973](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L973)
+Defined in: [vec3.ts:973](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L973)
 
 Negates this vector.
 
@@ -937,7 +937,7 @@ This Vec3 instance for method chaining.
 normalize(): this;
 ```
 
-Defined in: [vec3.ts:985](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L985)
+Defined in: [vec3.ts:985](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L985)
 
 Normalizes this vector.
 
@@ -953,7 +953,7 @@ This Vec3 instance for method chaining.
 project(v): this;
 ```
 
-Defined in: [vec3.ts:999](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L999)
+Defined in: [vec3.ts:999](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L999)
 
 Projects this vector onto another vector.
 
@@ -975,7 +975,7 @@ This Vec3 instance for method chaining.
 random(random): this;
 ```
 
-Defined in: [vec3.ts:1018](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L1018)
+Defined in: [vec3.ts:1018](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L1018)
 
 Sets this vector to a random direction with the same magnitude.
 
@@ -997,7 +997,7 @@ This Vec3 instance for method chaining.
 reflect(normal): this;
 ```
 
-Defined in: [vec3.ts:826](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L826)
+Defined in: [vec3.ts:826](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L826)
 
 Reflects this vector across a normal vector.
 The normal vector should be normalized (unit length).
@@ -1020,7 +1020,7 @@ This Vec3 instance for method chaining.
 rotateX(phi): this;
 ```
 
-Defined in: [vec3.ts:1028](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L1028)
+Defined in: [vec3.ts:1028](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L1028)
 
 Rotates this vector around the X-axis.
 
@@ -1042,7 +1042,7 @@ This Vec3 instance for method chaining.
 rotateY(phi): this;
 ```
 
-Defined in: [vec3.ts:1044](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L1044)
+Defined in: [vec3.ts:1044](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L1044)
 
 Rotates this vector around the Y-axis.
 
@@ -1064,7 +1064,7 @@ This Vec3 instance for method chaining.
 rotateZ(phi): this;
 ```
 
-Defined in: [vec3.ts:1060](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L1060)
+Defined in: [vec3.ts:1060](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L1060)
 
 Rotates this vector around the Z-axis.
 
@@ -1086,7 +1086,7 @@ This Vec3 instance for method chaining.
 satisfyEquality(v): boolean;
 ```
 
-Defined in: [vec3.ts:1076](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L1076)
+Defined in: [vec3.ts:1076](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L1076)
 
 Checks if this vector is equal to another vector.
 
@@ -1108,7 +1108,7 @@ True if the vectors are equal, false otherwise.
 satisfyOpposition(v): boolean;
 ```
 
-Defined in: [vec3.ts:1085](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L1085)
+Defined in: [vec3.ts:1085](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L1085)
 
 Checks if this vector is opposite to another vector.
 
@@ -1130,7 +1130,7 @@ True if the vectors are opposite, false otherwise.
 scale(c): this;
 ```
 
-Defined in: [vec3.ts:1108](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L1108)
+Defined in: [vec3.ts:1108](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L1108)
 
 Scales this vector by a scalar value.
 
@@ -1152,7 +1152,7 @@ This Vec3 instance for method chaining.
 subtract(v): this;
 ```
 
-Defined in: [vec3.ts:703](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L703)
+Defined in: [vec3.ts:703](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L703)
 
 Subtracts another vector from this vector.
 
@@ -1177,7 +1177,7 @@ toJSON(): {
 };
 ```
 
-Defined in: [vec3.ts:1159](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L1159)
+Defined in: [vec3.ts:1159](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L1159)
 
 Serializes the vector to a JSON-friendly format.
 
@@ -1194,8 +1194,8 @@ A JSON-friendly object representation of the vector.
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `x` | `number` | [vec3.ts:1159](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L1159) |
-| `y` | `number` | [vec3.ts:1159](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L1159) |
+| `x` | `number` | [vec3.ts:1159](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L1159) |
+| `y` | `number` | [vec3.ts:1159](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L1159) |
 
 ##### toObject()
 
@@ -1207,7 +1207,7 @@ toObject(): {
 };
 ```
 
-Defined in: [vec3.ts:1150](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L1150)
+Defined in: [vec3.ts:1150](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L1150)
 
 Converts the vector to a plain object.
 
@@ -1225,9 +1225,9 @@ An object with x, y and z properties.
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `x` | `number` | [vec3.ts:1150](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L1150) |
-| `y` | `number` | [vec3.ts:1150](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L1150) |
-| `z` | `number` | [vec3.ts:1150](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L1150) |
+| `x` | `number` | [vec3.ts:1150](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L1150) |
+| `y` | `number` | [vec3.ts:1150](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L1150) |
+| `z` | `number` | [vec3.ts:1150](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L1150) |
 
 ##### toString()
 
@@ -1235,7 +1235,7 @@ An object with x, y and z properties.
 toString(): string;
 ```
 
-Defined in: [vec3.ts:1142](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L1142)
+Defined in: [vec3.ts:1142](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L1142)
 
 Returns a string representation of the vector.
 
@@ -1251,7 +1251,7 @@ A string in the format "Vec3(x, y, z)".
 zero(): this;
 ```
 
-Defined in: [vec3.ts:1120](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L1120)
+Defined in: [vec3.ts:1120](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L1120)
 
 Sets this vector to zero.
 
@@ -1267,7 +1267,7 @@ This Vec3 instance for method chaining.
 static add(v, w): Vec3;
 ```
 
-Defined in: [vec3.ts:52](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L52)
+Defined in: [vec3.ts:52](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L52)
 
 Adds two vectors.
 
@@ -1290,7 +1290,7 @@ A new Vec3 instance representing the sum.
 static angleBetween(v, w): number;
 ```
 
-Defined in: [vec3.ts:96](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L96)
+Defined in: [vec3.ts:96](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L96)
 
 Calculates the angle between two vectors.
 
@@ -1313,7 +1313,7 @@ The angle between the vectors in radians.
 static cross(v, w): Vec3;
 ```
 
-Defined in: [vec3.ts:108](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L108)
+Defined in: [vec3.ts:108](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L108)
 
 Calculates the cross product of two vectors.
 
@@ -1336,7 +1336,7 @@ The cross product of the two vectors.
 static distance(v, w): number;
 ```
 
-Defined in: [vec3.ts:142](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L142)
+Defined in: [vec3.ts:142](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L142)
 
 Calculates the Euclidean distance between two vectors.
 
@@ -1359,7 +1359,7 @@ The distance between the vectors.
 static distanceChebyshev(v, w): number;
 ```
 
-Defined in: [vec3.ts:152](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L152)
+Defined in: [vec3.ts:152](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L152)
 
 Calculates the Chebyshev distance between two vectors.
 
@@ -1382,7 +1382,7 @@ The Chebyshev distance between the vectors.
 static distanceManhattan(v, w): number;
 ```
 
-Defined in: [vec3.ts:165](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L165)
+Defined in: [vec3.ts:165](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L165)
 
 Calculates the Manhattan distance between two vectors.
 
@@ -1408,7 +1408,7 @@ static distanceMinkowski(
    p): number;
 ```
 
-Defined in: [vec3.ts:176](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L176)
+Defined in: [vec3.ts:176](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L176)
 
 Calculates the Minkowski distance between two vectors.
 
@@ -1432,7 +1432,7 @@ The Minkowski distance between the vectors.
 static distanceSq(v, w): number;
 ```
 
-Defined in: [vec3.ts:188](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L188)
+Defined in: [vec3.ts:188](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L188)
 
 Calculates the squared Euclidean distance between two vectors.
 
@@ -1455,7 +1455,7 @@ The squared distance between the vectors.
 static divide(v, w): Vec3;
 ```
 
-Defined in: [vec3.ts:82](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L82)
+Defined in: [vec3.ts:82](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L82)
 
 Divides one vector with another.
 
@@ -1478,7 +1478,7 @@ A new Vec3 instance representing the divided value.
 static dot(v, w): number;
 ```
 
-Defined in: [vec3.ts:198](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L198)
+Defined in: [vec3.ts:198](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L198)
 
 Calculates the dot product of two vectors.
 
@@ -1504,7 +1504,7 @@ static equals(
    epsilon): boolean;
 ```
 
-Defined in: [vec3.ts:429](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L429)
+Defined in: [vec3.ts:429](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L429)
 
 Compares a vector with another vector using an epsilon value for floating-point comparison.
 
@@ -1528,7 +1528,7 @@ True if the vectors are equal within epsilon, false otherwise.
 static fromArray(arr): Vec3;
 ```
 
-Defined in: [vec3.ts:468](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L468)
+Defined in: [vec3.ts:468](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L468)
 
 Creates a Vec3 from an array.
 
@@ -1553,7 +1553,7 @@ static fromCylindricalCoords(
    z): Vec3;
 ```
 
-Defined in: [vec3.ts:209](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L209)
+Defined in: [vec3.ts:209](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L209)
 
 Creates a Vec3 from cylindrical coordinates.
 
@@ -1577,7 +1577,7 @@ New Vec3 instance
 static fromJSON(json): Vec3;
 ```
 
-Defined in: [vec3.ts:486](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L486)
+Defined in: [vec3.ts:486](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L486)
 
 Creates a Vec3 instance from a JSON-parsed object.
 
@@ -1602,7 +1602,7 @@ A new Vec3 instance.
 static fromObject(obj): Vec3;
 ```
 
-Defined in: [vec3.ts:477](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L477)
+Defined in: [vec3.ts:477](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L477)
 
 Creates a Vec3 from an object with x, y and z properties.
 
@@ -1630,7 +1630,7 @@ static fromSphericalCoords(
    phi): Vec3;
 ```
 
-Defined in: [vec3.ts:220](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L220)
+Defined in: [vec3.ts:220](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L220)
 
 Creates a Vec3 from spherical coordinates.
 
@@ -1674,7 +1674,7 @@ static immutable(
 };
 ```
 
-Defined in: [vec3.ts:231](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L231)
+Defined in: [vec3.ts:231](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L231)
 
 Creates an immutable Vec3-like object.
 
@@ -1713,22 +1713,22 @@ An immutable object with Vec3-like properties.
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `get angleX` | `number` | [vec3.ts:284](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L284) |
-| `get angleY` | `number` | [vec3.ts:287](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L287) |
-| `get angleZ` | `number` | [vec3.ts:290](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L290) |
-| `get b` | `number` | [vec3.ts:272](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L272) |
-| `get g` | `number` | [vec3.ts:269](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L269) |
-| `get isInfinite` | `boolean` | [vec3.ts:293](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L293) |
-| `get isNaN` | `boolean` | [vec3.ts:296](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L296) |
-| `get isZero` | `boolean` | [vec3.ts:299](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L299) |
-| `get magnitude` | `number` | [vec3.ts:278](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L278) |
-| `get magnitudeSq` | `number` | [vec3.ts:281](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L281) |
-| `get r` | `number` | [vec3.ts:266](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L266) |
-| `get rgb` | readonly `number`[] | [vec3.ts:275](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L275) |
-| `get x` | `number` | [vec3.ts:254](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L254) |
-| `get xyz` | readonly `number`[] | [vec3.ts:263](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L263) |
-| `get y` | `number` | [vec3.ts:257](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L257) |
-| `get z` | `number` | [vec3.ts:260](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L260) |
+| `get angleX` | `number` | [vec3.ts:284](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L284) |
+| `get angleY` | `number` | [vec3.ts:287](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L287) |
+| `get angleZ` | `number` | [vec3.ts:290](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L290) |
+| `get b` | `number` | [vec3.ts:272](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L272) |
+| `get g` | `number` | [vec3.ts:269](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L269) |
+| `get isInfinite` | `boolean` | [vec3.ts:293](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L293) |
+| `get isNaN` | `boolean` | [vec3.ts:296](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L296) |
+| `get isZero` | `boolean` | [vec3.ts:299](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L299) |
+| `get magnitude` | `number` | [vec3.ts:278](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L278) |
+| `get magnitudeSq` | `number` | [vec3.ts:281](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L281) |
+| `get r` | `number` | [vec3.ts:266](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L266) |
+| `get rgb` | readonly `number`[] | [vec3.ts:275](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L275) |
+| `get x` | `number` | [vec3.ts:254](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L254) |
+| `get xyz` | readonly `number`[] | [vec3.ts:263](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L263) |
+| `get y` | `number` | [vec3.ts:257](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L257) |
+| `get z` | `number` | [vec3.ts:260](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L260) |
 
 ##### isInfinite()
 
@@ -1736,7 +1736,7 @@ An immutable object with Vec3-like properties.
 static isInfinite(v): boolean;
 ```
 
-Defined in: [vec3.ts:310](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L310)
+Defined in: [vec3.ts:310](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L310)
 
 Checks if a vector has infinite components.
 
@@ -1758,7 +1758,7 @@ True if the vector has infinite components, false otherwise.
 static isNaN(v): boolean;
 ```
 
-Defined in: [vec3.ts:329](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L329)
+Defined in: [vec3.ts:329](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L329)
 
 Checks if a vector has NaN components.
 
@@ -1780,7 +1780,7 @@ True if the vector has NaN components, false otherwise.
 static isZero(v): boolean;
 ```
 
-Defined in: [vec3.ts:338](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L338)
+Defined in: [vec3.ts:338](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L338)
 
 Checks if a vector is zero.
 
@@ -1805,7 +1805,7 @@ static lerp(
    t): Vec3;
 ```
 
-Defined in: [vec3.ts:349](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L349)
+Defined in: [vec3.ts:349](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L349)
 
 Performs linear interpolation between two vectors.
 
@@ -1829,7 +1829,7 @@ A new Vec3 instance representing the interpolated vector.
 static multiply(v, w): Vec3;
 ```
 
-Defined in: [vec3.ts:72](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L72)
+Defined in: [vec3.ts:72](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L72)
 
 Multiplies one vector with another.
 
@@ -1852,7 +1852,7 @@ A new Vec3 instance representing the multiplied value.
 static negate(v): Vec3;
 ```
 
-Defined in: [vec3.ts:363](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L363)
+Defined in: [vec3.ts:363](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L363)
 
 Negates a vector.
 
@@ -1874,7 +1874,7 @@ A new Vec3 instance representing the negated vector.
 static normalize(v): Vec3;
 ```
 
-Defined in: [vec3.ts:372](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L372)
+Defined in: [vec3.ts:372](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L372)
 
 Normalizes a vector.
 
@@ -1896,7 +1896,7 @@ A new Vec3 instance representing the normalized vector.
 static one(): Vec3;
 ```
 
-Defined in: [vec3.ts:459](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L459)
+Defined in: [vec3.ts:459](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L459)
 
 Creates a vector with all components set to 1.0.
 
@@ -1912,7 +1912,7 @@ A new Vec3 instance representing a vector with all components set to 1.0.
 static project(v, w): Vec3;
 ```
 
-Defined in: [vec3.ts:383](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L383)
+Defined in: [vec3.ts:383](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L383)
 
 Projects one vector onto another.
 
@@ -1935,7 +1935,7 @@ A new Vec3 instance representing the projected vector.
 static random(random): Vec3;
 ```
 
-Defined in: [vec3.ts:398](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L398)
+Defined in: [vec3.ts:398](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L398)
 
 Creates a random unit vector.
 
@@ -1957,7 +1957,7 @@ A new Vec3 instance representing a random unit vector.
 static reflect(v, normal): Vec3;
 ```
 
-Defined in: [vec3.ts:125](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L125)
+Defined in: [vec3.ts:125](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L125)
 
 Reflects a vector across a normal vector.
 The normal vector should be normalized (unit length).
@@ -1981,7 +1981,7 @@ A new Vec3 instance representing the reflected vector.
 static satisfyEquality(v, w): boolean;
 ```
 
-Defined in: [vec3.ts:408](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L408)
+Defined in: [vec3.ts:408](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L408)
 
 Checks if two vectors are equal.
 
@@ -2004,7 +2004,7 @@ True if the vectors are equal, false otherwise.
 static satisfyOpposition(v, w): boolean;
 ```
 
-Defined in: [vec3.ts:418](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L418)
+Defined in: [vec3.ts:418](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L418)
 
 Checks if two vectors are opposite.
 
@@ -2027,7 +2027,7 @@ True if the vectors are opposite, false otherwise.
 static scale(v, c): Vec3;
 ```
 
-Defined in: [vec3.ts:443](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L443)
+Defined in: [vec3.ts:443](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L443)
 
 Scales a vector by a scalar value.
 
@@ -2050,7 +2050,7 @@ A new Vec3 instance representing the scaled vector.
 static subtract(v, w): Vec3;
 ```
 
-Defined in: [vec3.ts:62](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L62)
+Defined in: [vec3.ts:62](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L62)
 
 Subtracts one vector from another.
 
@@ -2073,7 +2073,7 @@ A new Vec3 instance representing the difference.
 static zero(): Vec3;
 ```
 
-Defined in: [vec3.ts:451](https://github.com/claus-codes/vec/blob/1a991556255e5555afd05799362abaa631fc20cc/src/vec3.ts#L451)
+Defined in: [vec3.ts:451](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/vec3.ts#L451)
 
 Creates a zero vector.
 

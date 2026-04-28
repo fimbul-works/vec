@@ -1,4 +1,4 @@
-import type { ArrayVector3D } from "./types";
+import type { ArrayVector3D } from "./types.js";
 
 /**
  * Calculates the dot product of two 3D vectors.

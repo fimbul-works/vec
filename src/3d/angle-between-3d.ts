@@ -1,5 +1,5 @@
-import { magnitude3D } from "./magnitude-3d";
-import type { ArrayVector3D } from "./types";
+import { magnitude3D } from "./magnitude-3d.js";
+import type { ArrayVector3D } from "./types.js";
 
 /**
  * Calculates the angle between two 3D vectors.

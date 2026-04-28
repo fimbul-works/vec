@@ -1,6 +1,6 @@
 {
   "name": "@fimbul-works/vec",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A comprehensive TypeScript vector math library providing 2D, 3D, and 4D vector operations with a focus on performance and type safety.",
   "type": "module",
   "private": false,
@@ -40,13 +40,13 @@
   ],
   "sideEffects": false,
   "scripts": {
-    "build": "rm -rf dist && pnpm build:esm && pnpm build:cjs pnpm build:docs",
+    "build": "rm -rf dist && pnpm build:esm && pnpm build:cjs && pnpm build:docs",
     "build:esm": "tsc -p tsconfig.json",
     "build:cjs": "tsc -p tsconfig.cjs.json && echo '{\"type\":\"commonjs\"}' > dist/cjs/package.json",
     "build:docs": "typedoc",
     "format": "npx biome format --write src",
     "test": "vitest",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "pnpm run build"
   },
   "exports": {
     ".": {
