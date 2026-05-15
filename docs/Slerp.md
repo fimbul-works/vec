@@ -15,7 +15,7 @@ function slerp(
    t): number;
 ```
 
-Defined in: [slerp.ts:17](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/slerp.ts#L17)
+Defined in: [slerp.ts:17](https://github.com/claus-codes/vec/blob/main/src/slerp.ts#L17)
 
 Spherical linear interpolation for angles (in radians).
 Handles wrapping around 2π correctly.
@@ -45,7 +45,7 @@ function slerpDegrees(
    t): number;
 ```
 
-Defined in: [slerp.ts:27](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/slerp.ts#L27)
+Defined in: [slerp.ts:27](https://github.com/claus-codes/vec/blob/main/src/slerp.ts#L27)
 
 Spherical linear interpolation for angles (in degrees).
 

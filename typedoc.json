@@ -17,6 +17,9 @@
   ],
   "plugin": ["typedoc-plugin-markdown"],
 
+  // Prevent commit hash documentation
+  "gitRevision": "main",
+
   // This is the critical setting to stop the single-file behavior
   "outputFileStrategy": "modules",
 
@@ -37,7 +40,7 @@
   },
 
   // This cleans up the file names (prevents README/modules/moduleName.md)
-  "flattenOutputFiles": false,
+  "flattenOutputFiles": true,
   "hidePageTitle": false,
   "hideBreadcrumbs": false,
   "hidePageHeader": true,

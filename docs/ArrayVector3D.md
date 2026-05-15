@@ -12,7 +12,7 @@ Documentation for functional 3D Vector array operations.
 type ArrayVector3D = [number, number, number];
 ```
 
-Defined in: [3d/types.ts:4](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/types.ts#L4)
+Defined in: [3d/types.ts:4](https://github.com/claus-codes/vec/blob/main/src/3d/types.ts#L4)
 
 3D vector as an array.
 
@@ -24,7 +24,7 @@ Defined in: [3d/types.ts:4](https://github.com/claus-codes/vec/blob/eea4ff6832a9
 function add3D(xyz1, xyz2): ArrayVector3D;
 ```
 
-Defined in: [3d/add-3d.ts:9](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/add-3d.ts#L9)
+Defined in: [3d/add-3d.ts:9](https://github.com/claus-codes/vec/blob/main/src/3d/add-3d.ts#L9)
 
 Adds two 3D vectors.
 
@@ -53,7 +53,7 @@ function angleBetween3D(
    m2?): number;
 ```
 
-Defined in: [3d/angle-between-3d.ts:12](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/angle-between-3d.ts#L12)
+Defined in: [3d/angle-between-3d.ts:12](https://github.com/claus-codes/vec/blob/main/src/3d/angle-between-3d.ts#L12)
 
 Calculates the angle between two 3D vectors.
 
@@ -80,7 +80,7 @@ Angle between the vectors in radians
 function angleX3D(xyz): number;
 ```
 
-Defined in: [3d/angle-x-3d.ts:8](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/angle-x-3d.ts#L8)
+Defined in: [3d/angle-x-3d.ts:8](https://github.com/claus-codes/vec/blob/main/src/3d/angle-x-3d.ts#L8)
 
 Gets the angle between a 3D vector and the positive x-axis in radians.
 
@@ -104,7 +104,7 @@ Angle in radians, always in the range [0, 2π)
 function angleY3D(xyz): number;
 ```
 
-Defined in: [3d/angle-y-3d.ts:8](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/angle-y-3d.ts#L8)
+Defined in: [3d/angle-y-3d.ts:8](https://github.com/claus-codes/vec/blob/main/src/3d/angle-y-3d.ts#L8)
 
 Gets the angle between a 3D vector and the positive y-axis in radians.
 
@@ -128,7 +128,7 @@ Angle in radians, always in the range [0, 2π)
 function angleZ3D(xyz): number;
 ```
 
-Defined in: [3d/angle-z-3d.ts:8](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/angle-z-3d.ts#L8)
+Defined in: [3d/angle-z-3d.ts:8](https://github.com/claus-codes/vec/blob/main/src/3d/angle-z-3d.ts#L8)
 
 Gets the angle between a 3D vector and the positive z-axis in radians.
 
@@ -156,7 +156,7 @@ function clamp3D(
    m?): ArrayVector3D;
 ```
 
-Defined in: [3d/clamp-3d.ts:12](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/clamp-3d.ts#L12)
+Defined in: [3d/clamp-3d.ts:12](https://github.com/claus-codes/vec/blob/main/src/3d/clamp-3d.ts#L12)
 
 Clamps the magnitude of a vector between min and max.
 
@@ -183,7 +183,7 @@ The clamped vector
 function clone3D(xyz): ArrayVector3D;
 ```
 
-Defined in: [3d/clone-3d.ts:8](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/clone-3d.ts#L8)
+Defined in: [3d/clone-3d.ts:8](https://github.com/claus-codes/vec/blob/main/src/3d/clone-3d.ts#L8)
 
 Clone a 3D vector.
 
@@ -207,7 +207,7 @@ The cloned vector
 function cross3D(xyz1, xyz2): ArrayVector3D;
 ```
 
-Defined in: [3d/cross-3d.ts:9](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/cross-3d.ts#L9)
+Defined in: [3d/cross-3d.ts:9](https://github.com/claus-codes/vec/blob/main/src/3d/cross-3d.ts#L9)
 
 Calculates the cross product of two 3D vectors.
 
@@ -232,7 +232,7 @@ The cross product
 function distance3D(xyz1, xyz2): number;
 ```
 
-Defined in: [3d/distance-3d.ts:9](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/distance-3d.ts#L9)
+Defined in: [3d/distance-3d.ts:9](https://github.com/claus-codes/vec/blob/main/src/3d/distance-3d.ts#L9)
 
 Calculates the Euclidean distance between two 3D vectors.
 
@@ -257,7 +257,7 @@ Euclidian distance
 function distanceChebyshev3D(xyz1, xyz2): number;
 ```
 
-Defined in: [3d/distance-chebyshev-3d.ts:9](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/distance-chebyshev-3d.ts#L9)
+Defined in: [3d/distance-chebyshev-3d.ts:9](https://github.com/claus-codes/vec/blob/main/src/3d/distance-chebyshev-3d.ts#L9)
 
 Calculates the Chebyshev distance between two 3D vectors.
 
@@ -282,7 +282,7 @@ Chebyshev distance
 function distanceManhattan3D(xyz1, xyz2): number;
 ```
 
-Defined in: [3d/distance-manhattan-3d.ts:9](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/distance-manhattan-3d.ts#L9)
+Defined in: [3d/distance-manhattan-3d.ts:9](https://github.com/claus-codes/vec/blob/main/src/3d/distance-manhattan-3d.ts#L9)
 
 Calculates the Manhattan distance between two 3D vectors.
 
@@ -310,7 +310,7 @@ function distanceMinkowski3D(
    p): number;
 ```
 
-Defined in: [3d/distance-minkowski-3d.ts:10](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/distance-minkowski-3d.ts#L10)
+Defined in: [3d/distance-minkowski-3d.ts:10](https://github.com/claus-codes/vec/blob/main/src/3d/distance-minkowski-3d.ts#L10)
 
 Calculates the Minkowski distance between two 3D vectors.
 
@@ -336,7 +336,7 @@ Minkowski distance
 function distanceSq3D(xyz1, xyz2): number;
 ```
 
-Defined in: [3d/distance-sq-3d.ts:9](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/distance-sq-3d.ts#L9)
+Defined in: [3d/distance-sq-3d.ts:9](https://github.com/claus-codes/vec/blob/main/src/3d/distance-sq-3d.ts#L9)
 
 Calculates the squared Euclidean distance between two 3D vectors.
 
@@ -361,7 +361,7 @@ Squared Euclidian distance
 function divide3D(xyz1, xyz2): ArrayVector3D;
 ```
 
-Defined in: [3d/divide-3d.ts:9](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/divide-3d.ts#L9)
+Defined in: [3d/divide-3d.ts:9](https://github.com/claus-codes/vec/blob/main/src/3d/divide-3d.ts#L9)
 
 Divides one 3D vector with another.
 
@@ -386,7 +386,7 @@ The divided vector
 function dot3D(xyz1, xyz2): number;
 ```
 
-Defined in: [3d/dot-3d.ts:9](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/dot-3d.ts#L9)
+Defined in: [3d/dot-3d.ts:9](https://github.com/claus-codes/vec/blob/main/src/3d/dot-3d.ts#L9)
 
 Calculates the dot product of two 3D vectors.
 
@@ -414,7 +414,7 @@ function fromCylindricalCoords(
    z): ArrayVector3D;
 ```
 
-Defined in: [3d/from-cylindrical-coords-3d.ts:10](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/from-cylindrical-coords-3d.ts#L10)
+Defined in: [3d/from-cylindrical-coords-3d.ts:10](https://github.com/claus-codes/vec/blob/main/src/3d/from-cylindrical-coords-3d.ts#L10)
 
 Creates a vector from cylindrical coordinates.
 
@@ -440,7 +440,7 @@ Vector
 function fromObject3D(vector3D): ArrayVector3D;
 ```
 
-Defined in: [3d/from-object-3d.ts:8](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/from-object-3d.ts#L8)
+Defined in: [3d/from-object-3d.ts:8](https://github.com/claus-codes/vec/blob/main/src/3d/from-object-3d.ts#L8)
 
 Creates an ArrayVector3D from an object with x, y and z properties.
 
@@ -470,7 +470,7 @@ function fromSphericalCoords3D(
    m?): ArrayVector3D;
 ```
 
-Defined in: [3d/from-spherical-coords-3d.ts:10](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/from-spherical-coords-3d.ts#L10)
+Defined in: [3d/from-spherical-coords-3d.ts:10](https://github.com/claus-codes/vec/blob/main/src/3d/from-spherical-coords-3d.ts#L10)
 
 Creates a 3D vector from spherical coordinates.
 
@@ -496,7 +496,7 @@ Vector
 function immutable3D(xyz): readonly [number, number, number];
 ```
 
-Defined in: [3d/immutable-3d.ts:8](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/immutable-3d.ts#L8)
+Defined in: [3d/immutable-3d.ts:8](https://github.com/claus-codes/vec/blob/main/src/3d/immutable-3d.ts#L8)
 
 Create an immutable 3D vector.
 
@@ -520,7 +520,7 @@ The immutable vector
 function isEqual3D(xyz1, xyz2): boolean;
 ```
 
-Defined in: [3d/is-equal-3d.ts:9](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/is-equal-3d.ts#L9)
+Defined in: [3d/is-equal-3d.ts:9](https://github.com/claus-codes/vec/blob/main/src/3d/is-equal-3d.ts#L9)
 
 Checks if two 3D vectors are equal.
 
@@ -545,10 +545,10 @@ Checks if two 3D vectors are equal.
 function isEqualApprox3D(
    xyz1, 
    xyz2, 
-   epsilon): boolean;
+   epsilon?): boolean;
 ```
 
-Defined in: [3d/is-equal-approx-3d.ts:10](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/is-equal-approx-3d.ts#L10)
+Defined in: [3d/is-equal-approx-3d.ts:10](https://github.com/claus-codes/vec/blob/main/src/3d/is-equal-approx-3d.ts#L10)
 
 Compares two 3D vectors using an epsilon value for floating-point comparison.
 
@@ -574,7 +574,7 @@ Compares two 3D vectors using an epsilon value for floating-point comparison.
 function isInfinite3D(xyz): boolean;
 ```
 
-Defined in: [3d/is-infinite-3d.ts:8](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/is-infinite-3d.ts#L8)
+Defined in: [3d/is-infinite-3d.ts:8](https://github.com/claus-codes/vec/blob/main/src/3d/is-infinite-3d.ts#L8)
 
 Checks if a vector has infinite components.
 
@@ -598,7 +598,7 @@ Checks if a vector has infinite components.
 function isNaN3D(xyz): boolean;
 ```
 
-Defined in: [3d/is-nan-3d.ts:8](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/is-nan-3d.ts#L8)
+Defined in: [3d/is-nan-3d.ts:8](https://github.com/claus-codes/vec/blob/main/src/3d/is-nan-3d.ts#L8)
 
 Checks if a 3D vector has NaN components.
 
@@ -622,7 +622,7 @@ Checks if a 3D vector has NaN components.
 function isOpposite3D(xyz1, xyz2): boolean;
 ```
 
-Defined in: [3d/is-opposite-3d.ts:9](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/is-opposite-3d.ts#L9)
+Defined in: [3d/is-opposite-3d.ts:9](https://github.com/claus-codes/vec/blob/main/src/3d/is-opposite-3d.ts#L9)
 
 Checks if two 3D vectors are opposite.
 
@@ -647,7 +647,7 @@ Checks if two 3D vectors are opposite.
 function isZero3D(xyz): boolean;
 ```
 
-Defined in: [3d/is-zero-3d.ts:8](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/is-zero-3d.ts#L8)
+Defined in: [3d/is-zero-3d.ts:8](https://github.com/claus-codes/vec/blob/main/src/3d/is-zero-3d.ts#L8)
 
 Checks if a 3D vector is zero.
 
@@ -674,7 +674,7 @@ function lerp3D(
    t): ArrayVector3D;
 ```
 
-Defined in: [3d/lerp-3d.ts:10](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/lerp-3d.ts#L10)
+Defined in: [3d/lerp-3d.ts:10](https://github.com/claus-codes/vec/blob/main/src/3d/lerp-3d.ts#L10)
 
 Performs linear interpolation between two vectors.
 
@@ -703,7 +703,7 @@ function limitMax3D(
    m?): ArrayVector3D;
 ```
 
-Defined in: [3d/limit-max-3d.ts:11](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/limit-max-3d.ts#L11)
+Defined in: [3d/limit-max-3d.ts:11](https://github.com/claus-codes/vec/blob/main/src/3d/limit-max-3d.ts#L11)
 
 Limits the maximum magnitude of a 3D vector.
 
@@ -732,7 +732,7 @@ function limitMin3D(
    m?): ArrayVector3D;
 ```
 
-Defined in: [3d/limit-min-3d.ts:11](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/limit-min-3d.ts#L11)
+Defined in: [3d/limit-min-3d.ts:11](https://github.com/claus-codes/vec/blob/main/src/3d/limit-min-3d.ts#L11)
 
 Limits the minimum magnitude of a 3D vector.
 
@@ -762,7 +762,7 @@ function lookAt3D(
    m2?): ArrayVector3D;
 ```
 
-Defined in: [3d/look-at-3d.ts:12](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/look-at-3d.ts#L12)
+Defined in: [3d/look-at-3d.ts:12](https://github.com/claus-codes/vec/blob/main/src/3d/look-at-3d.ts#L12)
 
 Creates a vector pointing from the first vector to the second vector, maintaining the magnitude of the first vector.
 
@@ -789,7 +789,7 @@ The look-at vector
 function magnitude3D(xyz): number;
 ```
 
-Defined in: [3d/magnitude-3d.ts:8](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/magnitude-3d.ts#L8)
+Defined in: [3d/magnitude-3d.ts:8](https://github.com/claus-codes/vec/blob/main/src/3d/magnitude-3d.ts#L8)
 
 Calculates the magnitude of a 3D vector.
 
@@ -813,7 +813,7 @@ Magnitude of the vector
 function magnitudeSq3D(xyz): number;
 ```
 
-Defined in: [3d/magnitude-sq-3d.ts:8](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/magnitude-sq-3d.ts#L8)
+Defined in: [3d/magnitude-sq-3d.ts:8](https://github.com/claus-codes/vec/blob/main/src/3d/magnitude-sq-3d.ts#L8)
 
 Calculate the squared magnitude of a 3D vector.
 
@@ -837,7 +837,7 @@ Squared magnitude
 function multiply3D(xyz1, xyz2): ArrayVector3D;
 ```
 
-Defined in: [3d/multiply-3d.ts:9](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/multiply-3d.ts#L9)
+Defined in: [3d/multiply-3d.ts:9](https://github.com/claus-codes/vec/blob/main/src/3d/multiply-3d.ts#L9)
 
 Multiplies one 3D vector with another component-wise.
 
@@ -862,7 +862,7 @@ The multiplied value
 function negate3D(xyz): ArrayVector3D;
 ```
 
-Defined in: [3d/negate-3d.ts:8](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/negate-3d.ts#L8)
+Defined in: [3d/negate-3d.ts:8](https://github.com/claus-codes/vec/blob/main/src/3d/negate-3d.ts#L8)
 
 Negates a 3D vector.
 
@@ -886,7 +886,7 @@ The negated vector
 function normalize3D(xyz, m?): ArrayVector3D;
 ```
 
-Defined in: [3d/normalize-3d.ts:10](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/normalize-3d.ts#L10)
+Defined in: [3d/normalize-3d.ts:10](https://github.com/claus-codes/vec/blob/main/src/3d/normalize-3d.ts#L10)
 
 Normalize a 3D vector.
 
@@ -911,7 +911,7 @@ The normalized vector
 function one3D(): ArrayVector3D;
 ```
 
-Defined in: [3d/one-3d.ts:7](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/one-3d.ts#L7)
+Defined in: [3d/one-3d.ts:7](https://github.com/claus-codes/vec/blob/main/src/3d/one-3d.ts#L7)
 
 Creates a 3D vector with all components to to 1.0.
 
@@ -933,7 +933,7 @@ function project3D(
    m2?): ArrayVector3D;
 ```
 
-Defined in: [3d/project-3d.ts:12](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/project-3d.ts#L12)
+Defined in: [3d/project-3d.ts:12](https://github.com/claus-codes/vec/blob/main/src/3d/project-3d.ts#L12)
 
 Projects one 3D vector onto the second.
 
@@ -957,10 +957,10 @@ The projected vector
 ### random3D()
 
 ```ts
-function random3D(random): ArrayVector3D;
+function random3D(random?): ArrayVector3D;
 ```
 
-Defined in: [3d/random-3d.ts:9](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/random-3d.ts#L9)
+Defined in: [3d/random-3d.ts:9](https://github.com/claus-codes/vec/blob/main/src/3d/random-3d.ts#L9)
 
 Creates a random unit 3D vector.
 
@@ -984,7 +984,7 @@ Random unit vector
 function reflect3D(xyz, normal): ArrayVector3D;
 ```
 
-Defined in: [3d/reflect-3d.ts:11](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/reflect-3d.ts#L11)
+Defined in: [3d/reflect-3d.ts:11](https://github.com/claus-codes/vec/blob/main/src/3d/reflect-3d.ts#L11)
 
 Reflects a vector across a normal vector.
 The normal vector should be normalized (unit length).
@@ -1010,10 +1010,10 @@ The reflected vector
 function rotateX3D(
    xyz, 
    phi, 
-   axis): ArrayVector3D;
+   axis?): ArrayVector3D;
 ```
 
-Defined in: [3d/rotate-x-3d.ts:10](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/rotate-x-3d.ts#L10)
+Defined in: [3d/rotate-x-3d.ts:10](https://github.com/claus-codes/vec/blob/main/src/3d/rotate-x-3d.ts#L10)
 
 Rotates a 3D vector around the x-axis.
 
@@ -1039,10 +1039,10 @@ The rotated vector
 function rotateY3D(
    xyz, 
    phi, 
-   axis): ArrayVector3D;
+   axis?): ArrayVector3D;
 ```
 
-Defined in: [3d/rotate-y-3d.ts:10](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/rotate-y-3d.ts#L10)
+Defined in: [3d/rotate-y-3d.ts:10](https://github.com/claus-codes/vec/blob/main/src/3d/rotate-y-3d.ts#L10)
 
 Rotates a 3D vector around the y-axis.
 
@@ -1068,10 +1068,10 @@ The rotated vector
 function rotateZ3D(
    xyz, 
    phi, 
-   axis): ArrayVector3D;
+   axis?): ArrayVector3D;
 ```
 
-Defined in: [3d/rotate-z-3d.ts:10](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/rotate-z-3d.ts#L10)
+Defined in: [3d/rotate-z-3d.ts:10](https://github.com/claus-codes/vec/blob/main/src/3d/rotate-z-3d.ts#L10)
 
 Rotates a 3D vector around the z-axis.
 
@@ -1100,7 +1100,7 @@ function setMagnitude3D(
    m?): ArrayVector3D;
 ```
 
-Defined in: [3d/set-magnitude-3d.ts:11](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/set-magnitude-3d.ts#L11)
+Defined in: [3d/set-magnitude-3d.ts:11](https://github.com/claus-codes/vec/blob/main/src/3d/set-magnitude-3d.ts#L11)
 
 Sets the magnitude (length) of a 3D vector, maintaining its direction.
 
@@ -1126,7 +1126,7 @@ The adjusted vector
 function subtract3D(xyz1, xyz2): ArrayVector3D;
 ```
 
-Defined in: [3d/subtract-3d.ts:9](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/subtract-3d.ts#L9)
+Defined in: [3d/subtract-3d.ts:9](https://github.com/claus-codes/vec/blob/main/src/3d/subtract-3d.ts#L9)
 
 Subtracts a 3D vector from another.
 
@@ -1151,7 +1151,7 @@ The difference between the vectors
 function zero3D(): ArrayVector3D;
 ```
 
-Defined in: [3d/zero-3d.ts:7](https://github.com/claus-codes/vec/blob/eea4ff6832a9681f1ed2c261912e1d4f70b0d700/src/3d/zero-3d.ts#L7)
+Defined in: [3d/zero-3d.ts:7](https://github.com/claus-codes/vec/blob/main/src/3d/zero-3d.ts#L7)
 
 Creates a zero 3D vector.
 

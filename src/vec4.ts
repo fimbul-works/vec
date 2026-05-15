@@ -739,7 +739,6 @@ export class Vec4 {
 
   /**
    * Sets the magnitude (length) of the vector, maintaining its direction.
-   * @param m - The new magnitude.
    */
   get magnitude(): number {
     return this.#magnitude;
