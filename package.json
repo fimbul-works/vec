@@ -91,12 +91,13 @@
     }
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.4.15",
-    "@fimbul-works/bundle-size": "link:../bundle-size",
-    "tsdown": "^0.22.0",
-    "typedoc": "^0.28.19",
-    "typedoc-plugin-markdown": "^4.11.0",
+    "@biomejs/biome": "^2.5.15",
+    "@fimbul-works/bundle-size": "^2.0.0",
+    "tsdown": "^0.22.14",
+    "tsx": "^4.23.15",
+    "typedoc": "^0.28.20",
+    "typedoc-plugin-markdown": "^4.13.1",
     "typescript": "^6.0.3",
-    "vitest": "^4.1.6"
+    "vitest": "^4.1.11"
   }
 }

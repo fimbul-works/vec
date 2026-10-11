@@ -12,7 +12,7 @@ Documentation for functional 2D Vector array operations.
 type ArrayVector2D = [number, number];
 ```
 
-Defined in: [2d/types.ts:4](https://github.com/claus-codes/vec/blob/main/src/2d/types.ts#L4)
+Defined in: [2d/types.ts:4](https://github.com/fimbul-works/vec/blob/main/src/2d/types.ts#L4)
 
 2D vector as an array.
 
@@ -24,7 +24,7 @@ Defined in: [2d/types.ts:4](https://github.com/claus-codes/vec/blob/main/src/2d/
 function add2D(xy1, xy2): ArrayVector2D;
 ```
 
-Defined in: [2d/add-2d.ts:9](https://github.com/claus-codes/vec/blob/main/src/2d/add-2d.ts#L9)
+Defined in: [2d/add-2d.ts:9](https://github.com/fimbul-works/vec/blob/main/src/2d/add-2d.ts#L9)
 
 Adds one 2D vectors.
 
@@ -49,7 +49,7 @@ The sum of the vectors
 function angleBetween2D(xy1, xy2): number;
 ```
 
-Defined in: [2d/angle-between-2d.ts:9](https://github.com/claus-codes/vec/blob/main/src/2d/angle-between-2d.ts#L9)
+Defined in: [2d/angle-between-2d.ts:9](https://github.com/fimbul-works/vec/blob/main/src/2d/angle-between-2d.ts#L9)
 
 Calculates the angle between two 2D vectors.
 
@@ -74,7 +74,7 @@ Angle between the vectors in radians
 function angleX2D(xy): number;
 ```
 
-Defined in: [2d/angle-x-2d.ts:8](https://github.com/claus-codes/vec/blob/main/src/2d/angle-x-2d.ts#L8)
+Defined in: [2d/angle-x-2d.ts:8](https://github.com/fimbul-works/vec/blob/main/src/2d/angle-x-2d.ts#L8)
 
 Gets the angle between a 2D vector and the positive x-axis in radians.
 
@@ -98,7 +98,7 @@ Angle in radians, always in the range [0, 2π)
 function angleY2D(xy): number;
 ```
 
-Defined in: [2d/angle-y-2d.ts:8](https://github.com/claus-codes/vec/blob/main/src/2d/angle-y-2d.ts#L8)
+Defined in: [2d/angle-y-2d.ts:8](https://github.com/fimbul-works/vec/blob/main/src/2d/angle-y-2d.ts#L8)
 
 Gets the angle between a 2D vector and the positive y-axis in radians.
 
@@ -123,10 +123,11 @@ function clamp2D(
    xy, 
    min, 
    max, 
-   m?): ArrayVector2D;
+   m?
+): ArrayVector2D;
 ```
 
-Defined in: [2d/clamp-2d.ts:12](https://github.com/claus-codes/vec/blob/main/src/2d/clamp-2d.ts#L12)
+Defined in: [2d/clamp-2d.ts:12](https://github.com/fimbul-works/vec/blob/main/src/2d/clamp-2d.ts#L12)
 
 Clamps the magnitude of a 2D vector between a minimum and maximum value.
 
@@ -153,7 +154,7 @@ The clamped vector
 function clone2D(xy): ArrayVector2D;
 ```
 
-Defined in: [2d/clone-2d.ts:8](https://github.com/claus-codes/vec/blob/main/src/2d/clone-2d.ts#L8)
+Defined in: [2d/clone-2d.ts:8](https://github.com/fimbul-works/vec/blob/main/src/2d/clone-2d.ts#L8)
 
 Clone a 2D vector.
 
@@ -177,7 +178,7 @@ The cloned vector
 function cross2D(xy1, xy2): number;
 ```
 
-Defined in: [2d/cross-2d.ts:9](https://github.com/claus-codes/vec/blob/main/src/2d/cross-2d.ts#L9)
+Defined in: [2d/cross-2d.ts:9](https://github.com/fimbul-works/vec/blob/main/src/2d/cross-2d.ts#L9)
 
 Calculates the cross product of two 2D vectors.
 
@@ -202,7 +203,7 @@ Cross product
 function distance2D(xy1, xy2): number;
 ```
 
-Defined in: [2d/distance-2d.ts:9](https://github.com/claus-codes/vec/blob/main/src/2d/distance-2d.ts#L9)
+Defined in: [2d/distance-2d.ts:9](https://github.com/fimbul-works/vec/blob/main/src/2d/distance-2d.ts#L9)
 
 Calculate the Euclidean distance between two 2D vectors.
 
@@ -227,7 +228,7 @@ Euclidean distance
 function distanceChebyshev2D(xy1, xy2): number;
 ```
 
-Defined in: [2d/distance-chebyshev-2d.ts:9](https://github.com/claus-codes/vec/blob/main/src/2d/distance-chebyshev-2d.ts#L9)
+Defined in: [2d/distance-chebyshev-2d.ts:9](https://github.com/fimbul-works/vec/blob/main/src/2d/distance-chebyshev-2d.ts#L9)
 
 Calculates the Chebyshev distance between two 2D vectors.
 
@@ -252,7 +253,7 @@ Chebyshev distance
 function distanceManhattan2D(xy1, xy2): number;
 ```
 
-Defined in: [2d/distance-manhattan-2d.ts:9](https://github.com/claus-codes/vec/blob/main/src/2d/distance-manhattan-2d.ts#L9)
+Defined in: [2d/distance-manhattan-2d.ts:9](https://github.com/fimbul-works/vec/blob/main/src/2d/distance-manhattan-2d.ts#L9)
 
 Calculates the Manhattan distance between two 2D vectors.
 
@@ -277,10 +278,11 @@ Manhattan distance
 function distanceMinkowski2D(
    xy1, 
    xy2, 
-   p): number;
+   p
+): number;
 ```
 
-Defined in: [2d/distance-minkowski-2d.ts:10](https://github.com/claus-codes/vec/blob/main/src/2d/distance-minkowski-2d.ts#L10)
+Defined in: [2d/distance-minkowski-2d.ts:10](https://github.com/fimbul-works/vec/blob/main/src/2d/distance-minkowski-2d.ts#L10)
 
 Calculates the Minkowski distance between two 2D vectors.
 
@@ -306,7 +308,7 @@ Minkowski distance
 function distanceSq2D(xy1, xy2): number;
 ```
 
-Defined in: [2d/distance-sq-2d.ts:9](https://github.com/claus-codes/vec/blob/main/src/2d/distance-sq-2d.ts#L9)
+Defined in: [2d/distance-sq-2d.ts:9](https://github.com/fimbul-works/vec/blob/main/src/2d/distance-sq-2d.ts#L9)
 
 Calculates the squared Euclidean distance between two 2D vectors.
 
@@ -331,7 +333,7 @@ Squared distance
 function divide2D(xy1, xy2): ArrayVector2D;
 ```
 
-Defined in: [2d/divide-2d.ts:9](https://github.com/claus-codes/vec/blob/main/src/2d/divide-2d.ts#L9)
+Defined in: [2d/divide-2d.ts:9](https://github.com/fimbul-works/vec/blob/main/src/2d/divide-2d.ts#L9)
 
 Divides one 2D vector with another.
 
@@ -356,7 +358,7 @@ The divided value
 function dot2D(xy1, xy2): number;
 ```
 
-Defined in: [2d/dot-2d.ts:9](https://github.com/claus-codes/vec/blob/main/src/2d/dot-2d.ts#L9)
+Defined in: [2d/dot-2d.ts:9](https://github.com/fimbul-works/vec/blob/main/src/2d/dot-2d.ts#L9)
 
 Calculates the dot product of two vectors.
 
@@ -381,7 +383,7 @@ Dot product
 function fromAngleX2D(phi, magnitude?): ArrayVector2D;
 ```
 
-Defined in: [2d/from-angle-x-2d.ts:9](https://github.com/claus-codes/vec/blob/main/src/2d/from-angle-x-2d.ts#L9)
+Defined in: [2d/from-angle-x-2d.ts:9](https://github.com/fimbul-works/vec/blob/main/src/2d/from-angle-x-2d.ts#L9)
 
 Creates an ArrayVector2D from x-axis angle.
 
@@ -406,7 +408,7 @@ Vector
 function fromAngleY2D(phi, magnitude?): ArrayVector2D;
 ```
 
-Defined in: [2d/from-angle-y-2d.ts:9](https://github.com/claus-codes/vec/blob/main/src/2d/from-angle-y-2d.ts#L9)
+Defined in: [2d/from-angle-y-2d.ts:9](https://github.com/fimbul-works/vec/blob/main/src/2d/from-angle-y-2d.ts#L9)
 
 Creates an ArrayVector2D from y-axis angle.
 
@@ -431,7 +433,7 @@ Vector
 function fromObject2D(vector2D): ArrayVector2D;
 ```
 
-Defined in: [2d/from-object-2d.ts:8](https://github.com/claus-codes/vec/blob/main/src/2d/from-object-2d.ts#L8)
+Defined in: [2d/from-object-2d.ts:8](https://github.com/fimbul-works/vec/blob/main/src/2d/from-object-2d.ts#L8)
 
 Creates an `ArrayVector2D` from an object with x and y properties.
 
@@ -457,7 +459,7 @@ Creates an `ArrayVector2D` from an object with x and y properties.
 function fromPolarCoords2D(phi, m?): ArrayVector2D;
 ```
 
-Defined in: [2d/from-polar-coords-2d.ts:9](https://github.com/claus-codes/vec/blob/main/src/2d/from-polar-coords-2d.ts#L9)
+Defined in: [2d/from-polar-coords-2d.ts:9](https://github.com/fimbul-works/vec/blob/main/src/2d/from-polar-coords-2d.ts#L9)
 
 Creates an `ArrayVector2D` from polar coordinates.
 
@@ -482,7 +484,7 @@ Vector
 function immutable2D(xy): readonly [number, number];
 ```
 
-Defined in: [2d/immutable-2d.ts:8](https://github.com/claus-codes/vec/blob/main/src/2d/immutable-2d.ts#L8)
+Defined in: [2d/immutable-2d.ts:8](https://github.com/fimbul-works/vec/blob/main/src/2d/immutable-2d.ts#L8)
 
 Create an immutable 2D vector.
 
@@ -506,7 +508,7 @@ The immutable vector
 function isEqual2D(xy1, xy2): boolean;
 ```
 
-Defined in: [2d/is-equal-2d.ts:9](https://github.com/claus-codes/vec/blob/main/src/2d/is-equal-2d.ts#L9)
+Defined in: [2d/is-equal-2d.ts:9](https://github.com/fimbul-works/vec/blob/main/src/2d/is-equal-2d.ts#L9)
 
 Checks if two 2D vectors are equal.
 
@@ -531,10 +533,11 @@ Checks if two 2D vectors are equal.
 function isEqualApprox2D(
    xy1, 
    xy2, 
-   epsilon?): boolean;
+   epsilon?
+): boolean;
 ```
 
-Defined in: [2d/is-equal-approx-2d.ts:10](https://github.com/claus-codes/vec/blob/main/src/2d/is-equal-approx-2d.ts#L10)
+Defined in: [2d/is-equal-approx-2d.ts:10](https://github.com/fimbul-works/vec/blob/main/src/2d/is-equal-approx-2d.ts#L10)
 
 Compares a 2D vector with another vector using an epsilon value for floating-point comparison.
 
@@ -560,7 +563,7 @@ Compares a 2D vector with another vector using an epsilon value for floating-poi
 function isInfinite2D(xy): boolean;
 ```
 
-Defined in: [2d/is-infinite-2d.ts:8](https://github.com/claus-codes/vec/blob/main/src/2d/is-infinite-2d.ts#L8)
+Defined in: [2d/is-infinite-2d.ts:8](https://github.com/fimbul-works/vec/blob/main/src/2d/is-infinite-2d.ts#L8)
 
 Checks if a vector has infinite components.
 
@@ -584,7 +587,7 @@ Checks if a vector has infinite components.
 function isNaN2D(xy): boolean;
 ```
 
-Defined in: [2d/is-nan-2d.ts:8](https://github.com/claus-codes/vec/blob/main/src/2d/is-nan-2d.ts#L8)
+Defined in: [2d/is-nan-2d.ts:8](https://github.com/fimbul-works/vec/blob/main/src/2d/is-nan-2d.ts#L8)
 
 Checks if a vector has NaN components.
 
@@ -608,7 +611,7 @@ Checks if a vector has NaN components.
 function isOpposite2D(xy1, xy2): boolean;
 ```
 
-Defined in: [2d/is-opposite-2d.ts:9](https://github.com/claus-codes/vec/blob/main/src/2d/is-opposite-2d.ts#L9)
+Defined in: [2d/is-opposite-2d.ts:9](https://github.com/fimbul-works/vec/blob/main/src/2d/is-opposite-2d.ts#L9)
 
 Checks if two 2D vectors are opposite.
 
@@ -633,7 +636,7 @@ Checks if two 2D vectors are opposite.
 function isZero2D(xy): boolean;
 ```
 
-Defined in: [2d/is-zero-2d.ts:8](https://github.com/claus-codes/vec/blob/main/src/2d/is-zero-2d.ts#L8)
+Defined in: [2d/is-zero-2d.ts:8](https://github.com/fimbul-works/vec/blob/main/src/2d/is-zero-2d.ts#L8)
 
 Checks if a vector is zero.
 
@@ -657,10 +660,11 @@ Checks if a vector is zero.
 function lerp2D(
    xy1, 
    xy2, 
-   t): ArrayVector2D;
+   t
+): ArrayVector2D;
 ```
 
-Defined in: [2d/lerp-2d.ts:10](https://github.com/claus-codes/vec/blob/main/src/2d/lerp-2d.ts#L10)
+Defined in: [2d/lerp-2d.ts:10](https://github.com/fimbul-works/vec/blob/main/src/2d/lerp-2d.ts#L10)
 
 Performs linear interpolation between two 2D vectors.
 
@@ -686,10 +690,11 @@ The interpolated vector
 function limitMax2D(
    xy, 
    max, 
-   m?): ArrayVector2D;
+   m?
+): ArrayVector2D;
 ```
 
-Defined in: [2d/limit-max-2d.ts:11](https://github.com/claus-codes/vec/blob/main/src/2d/limit-max-2d.ts#L11)
+Defined in: [2d/limit-max-2d.ts:11](https://github.com/fimbul-works/vec/blob/main/src/2d/limit-max-2d.ts#L11)
 
 Limits the maximum magnitude of a 2D vector.
 
@@ -715,10 +720,11 @@ The limited vector
 function limitMin2D(
    xy, 
    min, 
-   m?): ArrayVector2D;
+   m?
+): ArrayVector2D;
 ```
 
-Defined in: [2d/limit-min-2d.ts:11](https://github.com/claus-codes/vec/blob/main/src/2d/limit-min-2d.ts#L11)
+Defined in: [2d/limit-min-2d.ts:11](https://github.com/fimbul-works/vec/blob/main/src/2d/limit-min-2d.ts#L11)
 
 Limits the maximum magnitude of a 2D vector.
 
@@ -745,10 +751,11 @@ function lookAt2D(
    xy1, 
    xy2, 
    m1?, 
-   m2?): ArrayVector2D;
+   m2?
+): ArrayVector2D;
 ```
 
-Defined in: [2d/look-at-2d.ts:12](https://github.com/claus-codes/vec/blob/main/src/2d/look-at-2d.ts#L12)
+Defined in: [2d/look-at-2d.ts:12](https://github.com/fimbul-works/vec/blob/main/src/2d/look-at-2d.ts#L12)
 
 Calculates the 2D vector angle of a vector pointing at another.
 
@@ -775,7 +782,7 @@ Vector pointing at the target with the magnitude of xy1
 function magnitude2D(xy): number;
 ```
 
-Defined in: [2d/magnitude-2d.ts:8](https://github.com/claus-codes/vec/blob/main/src/2d/magnitude-2d.ts#L8)
+Defined in: [2d/magnitude-2d.ts:8](https://github.com/fimbul-works/vec/blob/main/src/2d/magnitude-2d.ts#L8)
 
 Calculates the magnitude of a 2D vector.
 
@@ -799,7 +806,7 @@ Magnitude of the vector
 function magnitudeSq2D(xy): number;
 ```
 
-Defined in: [2d/magnitude-sq-2d.ts:8](https://github.com/claus-codes/vec/blob/main/src/2d/magnitude-sq-2d.ts#L8)
+Defined in: [2d/magnitude-sq-2d.ts:8](https://github.com/fimbul-works/vec/blob/main/src/2d/magnitude-sq-2d.ts#L8)
 
 Calculate the squared magnitude of a 2D vector.
 
@@ -823,7 +830,7 @@ Squared magnitude
 function multiply2D(xy1, xy2): ArrayVector2D;
 ```
 
-Defined in: [2d/multiply-2d.ts:9](https://github.com/claus-codes/vec/blob/main/src/2d/multiply-2d.ts#L9)
+Defined in: [2d/multiply-2d.ts:9](https://github.com/fimbul-works/vec/blob/main/src/2d/multiply-2d.ts#L9)
 
 Multiplies one 2D vector with another component-wise.
 
@@ -848,7 +855,7 @@ The multiplied vector
 function negate2D(xy): ArrayVector2D;
 ```
 
-Defined in: [2d/negate-2d.ts:8](https://github.com/claus-codes/vec/blob/main/src/2d/negate-2d.ts#L8)
+Defined in: [2d/negate-2d.ts:8](https://github.com/fimbul-works/vec/blob/main/src/2d/negate-2d.ts#L8)
 
 Negates a 2D vector.
 
@@ -872,7 +879,7 @@ The negated vector
 function normalize2D(xy, m?): ArrayVector2D;
 ```
 
-Defined in: [2d/normalize-2d.ts:10](https://github.com/claus-codes/vec/blob/main/src/2d/normalize-2d.ts#L10)
+Defined in: [2d/normalize-2d.ts:10](https://github.com/fimbul-works/vec/blob/main/src/2d/normalize-2d.ts#L10)
 
 Normalize a 2D vector.
 
@@ -897,7 +904,7 @@ The normalized vector
 function one2D(): ArrayVector2D;
 ```
 
-Defined in: [2d/one-2d.ts:7](https://github.com/claus-codes/vec/blob/main/src/2d/one-2d.ts#L7)
+Defined in: [2d/one-2d.ts:7](https://github.com/fimbul-works/vec/blob/main/src/2d/one-2d.ts#L7)
 
 Creates a 2D vector with all components set to 1.0.
 
@@ -916,10 +923,11 @@ function project2D(
    xy1, 
    xy2, 
    m1?, 
-   m2?): ArrayVector2D;
+   m2?
+): ArrayVector2D;
 ```
 
-Defined in: [2d/project-2d.ts:12](https://github.com/claus-codes/vec/blob/main/src/2d/project-2d.ts#L12)
+Defined in: [2d/project-2d.ts:12](https://github.com/fimbul-works/vec/blob/main/src/2d/project-2d.ts#L12)
 
 Projects one 2D vector onto another.
 
@@ -946,7 +954,7 @@ The projected vector
 function random2D(random?): ArrayVector2D;
 ```
 
-Defined in: [2d/random-2d.ts:8](https://github.com/claus-codes/vec/blob/main/src/2d/random-2d.ts#L8)
+Defined in: [2d/random-2d.ts:8](https://github.com/fimbul-works/vec/blob/main/src/2d/random-2d.ts#L8)
 
 Creates a random unit 2D vector.
 
@@ -970,7 +978,7 @@ Random unit vector
 function reflect2D(xy, normal): ArrayVector2D;
 ```
 
-Defined in: [2d/reflect-2d.ts:11](https://github.com/claus-codes/vec/blob/main/src/2d/reflect-2d.ts#L11)
+Defined in: [2d/reflect-2d.ts:11](https://github.com/fimbul-works/vec/blob/main/src/2d/reflect-2d.ts#L11)
 
 Reflects the vector across a normal vector.
 The normal vector should be normalized (unit length).
@@ -996,10 +1004,11 @@ The reflected vector
 function rotate2D(
    xy, 
    phi, 
-   axis?): ArrayVector2D;
+   axis?
+): ArrayVector2D;
 ```
 
-Defined in: [2d/rotate-2d.ts:10](https://github.com/claus-codes/vec/blob/main/src/2d/rotate-2d.ts#L10)
+Defined in: [2d/rotate-2d.ts:10](https://github.com/fimbul-works/vec/blob/main/src/2d/rotate-2d.ts#L10)
 
 Rotates a 2D point around an arbitrary axis point
 
@@ -1025,10 +1034,11 @@ The rotated vector
 function setMagnitude2D(
    xy, 
    newMag, 
-   m?): ArrayVector2D;
+   m?
+): ArrayVector2D;
 ```
 
-Defined in: [2d/set-magnitude-2d.ts:11](https://github.com/claus-codes/vec/blob/main/src/2d/set-magnitude-2d.ts#L11)
+Defined in: [2d/set-magnitude-2d.ts:11](https://github.com/fimbul-works/vec/blob/main/src/2d/set-magnitude-2d.ts#L11)
 
 Sets the magnitude (length) of a 2D vector, maintaining its direction.
 
@@ -1054,7 +1064,7 @@ The adjusted vector
 function subtract2D(xy1, xy2): ArrayVector2D;
 ```
 
-Defined in: [2d/subtract-2d.ts:9](https://github.com/claus-codes/vec/blob/main/src/2d/subtract-2d.ts#L9)
+Defined in: [2d/subtract-2d.ts:9](https://github.com/fimbul-works/vec/blob/main/src/2d/subtract-2d.ts#L9)
 
 Subtracts a 2D vector from another.
 
@@ -1079,7 +1089,7 @@ The difference between vectors
 function zero2D(): ArrayVector2D;
 ```
 
-Defined in: [2d/zero-2d.ts:7](https://github.com/claus-codes/vec/blob/main/src/2d/zero-2d.ts#L7)
+Defined in: [2d/zero-2d.ts:7](https://github.com/fimbul-works/vec/blob/main/src/2d/zero-2d.ts#L7)
 
 Creates a zero 2D vector.
 

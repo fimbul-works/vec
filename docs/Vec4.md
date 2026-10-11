@@ -8,7 +8,7 @@ Documentation for 4D Vector class.
 
 ### Vec4
 
-Defined in: [vec4.ts:11](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L11)
+Defined in: [vec4.ts:11](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L11)
 
 Represents a 4D vector with various operations.
 
@@ -21,10 +21,11 @@ new Vec4(
    x?, 
    y?, 
    z?, 
-   w?): Vec4;
+   w?
+): Vec4;
 ```
 
-Defined in: [vec4.ts:42](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L42)
+Defined in: [vec4.ts:42](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L42)
 
 Creates a new Vec4 instance.
 
@@ -51,7 +52,7 @@ Creates a new Vec4 instance.
 get a(): number;
 ```
 
-Defined in: [vec4.ts:678](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L678)
+Defined in: [vec4.ts:678](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L678)
 
 Gets the Alpha-component of the color.
 
@@ -67,7 +68,7 @@ The Alpha-component.
 set a(a): void;
 ```
 
-Defined in: [vec4.ts:687](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L687)
+Defined in: [vec4.ts:687](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L687)
 
 Sets the Alpha-component of the Color.
 
@@ -89,7 +90,7 @@ Sets the Alpha-component of the Color.
 get angleW(): number;
 ```
 
-Defined in: [vec4.ts:736](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L736)
+Defined in: [vec4.ts:736](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L736)
 
 Gets the angle between the vector and the positive w-axis in radians.
 
@@ -107,7 +108,7 @@ The angle in radians, always in the range [0, 2π).
 get angleX(): number;
 ```
 
-Defined in: [vec4.ts:712](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L712)
+Defined in: [vec4.ts:712](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L712)
 
 Gets the angle between the vector and the positive x-axis in radians.
 
@@ -125,7 +126,7 @@ The angle in radians, always in the range [0, 2π).
 get angleY(): number;
 ```
 
-Defined in: [vec4.ts:720](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L720)
+Defined in: [vec4.ts:720](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L720)
 
 Gets the angle between the vector and the positive y-axis in radians.
 
@@ -143,7 +144,7 @@ The angle in radians, always in the range [0, 2π).
 get angleZ(): number;
 ```
 
-Defined in: [vec4.ts:728](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L728)
+Defined in: [vec4.ts:728](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L728)
 
 Gets the angle between the vector and the positive z-axis in radians.
 
@@ -161,7 +162,7 @@ The angle in radians, always in the range [0, 2π).
 get b(): number;
 ```
 
-Defined in: [vec4.ts:661](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L661)
+Defined in: [vec4.ts:661](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L661)
 
 Gets the Blue-component of the color.
 
@@ -177,7 +178,7 @@ The Blue-component.
 set b(b): void;
 ```
 
-Defined in: [vec4.ts:670](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L670)
+Defined in: [vec4.ts:670](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L670)
 
 Sets the Blue-component of the Color.
 
@@ -199,7 +200,7 @@ Sets the Blue-component of the Color.
 get g(): number;
 ```
 
-Defined in: [vec4.ts:644](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L644)
+Defined in: [vec4.ts:644](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L644)
 
 Gets the Green-component of a Color.
 
@@ -215,7 +216,7 @@ The Green-component.
 set g(g): void;
 ```
 
-Defined in: [vec4.ts:653](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L653)
+Defined in: [vec4.ts:653](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L653)
 
 Sets the Green-component of the Color.
 
@@ -237,7 +238,7 @@ Sets the Green-component of the Color.
 get magnitude(): number;
 ```
 
-Defined in: [vec4.ts:743](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L743)
+Defined in: [vec4.ts:743](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L743)
 
 Sets the magnitude (length) of the vector, maintaining its direction.
 
@@ -251,7 +252,7 @@ Sets the magnitude (length) of the vector, maintaining its direction.
 set magnitude(m): void;
 ```
 
-Defined in: [vec4.ts:760](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L760)
+Defined in: [vec4.ts:760](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L760)
 
 Sets the magnitude (length) of the vector, maintaining its direction.
 
@@ -273,7 +274,7 @@ Sets the magnitude (length) of the vector, maintaining its direction.
 get magnitudeSq(): number;
 ```
 
-Defined in: [vec4.ts:752](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L752)
+Defined in: [vec4.ts:752](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L752)
 
 Gets the squared magnitude of the vector.
 This is faster to compute than the actual magnitude and is useful for comparisons.
@@ -292,7 +293,7 @@ The squared magnitude of the vector.
 get r(): number;
 ```
 
-Defined in: [vec4.ts:627](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L627)
+Defined in: [vec4.ts:627](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L627)
 
 Gets the Red-component of a Color.
 
@@ -308,7 +309,7 @@ The Red-component.
 set r(r): void;
 ```
 
-Defined in: [vec4.ts:636](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L636)
+Defined in: [vec4.ts:636](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L636)
 
 Sets the Red-component of a Color.
 
@@ -330,7 +331,7 @@ Sets the Red-component of a Color.
 get rgba(): [number, number, number, number];
 ```
 
-Defined in: [vec4.ts:695](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L695)
+Defined in: [vec4.ts:695](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L695)
 
 Gets a copy of the vector's components as an array.
 
@@ -346,7 +347,7 @@ An array containing the Red, Green, Blue and Alpha components of the Color.
 set rgba(rgba): void;
 ```
 
-Defined in: [vec4.ts:704](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L704)
+Defined in: [vec4.ts:704](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L704)
 
 Sets all components of the Color at once.
 
@@ -368,7 +369,7 @@ Sets all components of the Color at once.
 get w(): number;
 ```
 
-Defined in: [vec4.ts:588](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L588)
+Defined in: [vec4.ts:588](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L588)
 
 Gets the w-component of the vector.
 
@@ -384,7 +385,7 @@ The w-component.
 set w(w): void;
 ```
 
-Defined in: [vec4.ts:597](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L597)
+Defined in: [vec4.ts:597](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L597)
 
 Sets the w-component of the vector.
 
@@ -406,7 +407,7 @@ Sets the w-component of the vector.
 get x(): number;
 ```
 
-Defined in: [vec4.ts:534](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L534)
+Defined in: [vec4.ts:534](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L534)
 
 Gets the x-component of the vector.
 
@@ -422,7 +423,7 @@ The x-component.
 set x(x): void;
 ```
 
-Defined in: [vec4.ts:543](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L543)
+Defined in: [vec4.ts:543](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L543)
 
 Sets the x-component of the vector.
 
@@ -444,7 +445,7 @@ Sets the x-component of the vector.
 get xyzw(): [number, number, number, number];
 ```
 
-Defined in: [vec4.ts:606](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L606)
+Defined in: [vec4.ts:606](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L606)
 
 Gets a copy of the vector's components as an array.
 
@@ -460,7 +461,7 @@ An array containing the x, y, z and w components of the vector.
 set xyzw(xyzw): void;
 ```
 
-Defined in: [vec4.ts:615](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L615)
+Defined in: [vec4.ts:615](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L615)
 
 Sets both components of the vector at once.
 
@@ -482,7 +483,7 @@ Sets both components of the vector at once.
 get y(): number;
 ```
 
-Defined in: [vec4.ts:552](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L552)
+Defined in: [vec4.ts:552](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L552)
 
 Gets the y-component of the vector.
 
@@ -498,7 +499,7 @@ The y-component.
 set y(y): void;
 ```
 
-Defined in: [vec4.ts:561](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L561)
+Defined in: [vec4.ts:561](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L561)
 
 Sets the z-component of the vector.
 
@@ -520,7 +521,7 @@ Sets the z-component of the vector.
 get z(): number;
 ```
 
-Defined in: [vec4.ts:570](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L570)
+Defined in: [vec4.ts:570](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L570)
 
 Gets the z-component of the vector.
 
@@ -536,7 +537,7 @@ The z-component.
 set z(z): void;
 ```
 
-Defined in: [vec4.ts:579](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L579)
+Defined in: [vec4.ts:579](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L579)
 
 Sets the z-component of the vector.
 
@@ -558,7 +559,7 @@ Sets the z-component of the vector.
 iterator: IterableIterator<number>;
 ```
 
-Defined in: [vec4.ts:1219](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L1219)
+Defined in: [vec4.ts:1219](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L1219)
 
 Makes the Vec4 instance iterable.
 
@@ -576,7 +577,7 @@ The x, y, z and w components of the vector.
 add(v): Vec4;
 ```
 
-Defined in: [vec4.ts:774](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L774)
+Defined in: [vec4.ts:774](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L774)
 
 Adds another vector to this vector.
 
@@ -598,7 +599,7 @@ This Vec4 instance for method chaining.
 angleBetween(v): number;
 ```
 
-Defined in: [vec4.ts:829](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L829)
+Defined in: [vec4.ts:829](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L829)
 
 Calculates the angle between this vector and another vector.
 
@@ -620,7 +621,7 @@ The angle between the vectors in radians.
 clamp(min, max): Vec4;
 ```
 
-Defined in: [vec4.ts:845](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L845)
+Defined in: [vec4.ts:845](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L845)
 
 Clamps the magnitude of this vector between a minimum and maximum value.
 
@@ -643,7 +644,7 @@ This Vec4 instance for method chaining.
 clone(): Vec4;
 ```
 
-Defined in: [vec4.ts:867](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L867)
+Defined in: [vec4.ts:867](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L867)
 
 Creates a copy of this vector.
 
@@ -659,7 +660,7 @@ A new Vec4 instance with the same components.
 copy(v): Vec4;
 ```
 
-Defined in: [vec4.ts:876](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L876)
+Defined in: [vec4.ts:876](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L876)
 
 Copies the components of another vector to this vector.
 
@@ -681,7 +682,7 @@ This Vec2 instance for method chaining.
 distance(v): number;
 ```
 
-Defined in: [vec4.ts:890](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L890)
+Defined in: [vec4.ts:890](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L890)
 
 Calculates the distance between this vector and another vector.
 
@@ -703,7 +704,7 @@ The distance between the vectors.
 distanceChebyshev(v): number;
 ```
 
-Defined in: [vec4.ts:904](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L904)
+Defined in: [vec4.ts:904](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L904)
 
 Calculates the Chebyshev distance between this vector and another vector.
 
@@ -725,7 +726,7 @@ The Chebyshev distance between the vectors.
 distanceManhattan(v): number;
 ```
 
-Defined in: [vec4.ts:923](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L923)
+Defined in: [vec4.ts:923](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L923)
 
 Calculates the Manhattan distance between this vector and another vector.
 
@@ -747,7 +748,7 @@ The Manhattan distance between the vectors.
 distanceMinkowski(v, p): number;
 ```
 
-Defined in: [vec4.ts:938](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L938)
+Defined in: [vec4.ts:938](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L938)
 
 Calculates the Minkowski distance between this vector and another vector.
 
@@ -770,7 +771,7 @@ The Minkowski distance between the vectors.
 distanceSq(v): number;
 ```
 
-Defined in: [vec4.ts:953](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L953)
+Defined in: [vec4.ts:953](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L953)
 
 Calculates the squared distance between this vector and another vector.
 
@@ -792,7 +793,7 @@ The squared distance between the vectors.
 divide(v): this;
 ```
 
-Defined in: [vec4.ts:815](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L815)
+Defined in: [vec4.ts:815](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L815)
 
 Divides this vector with another vector.
 
@@ -814,7 +815,7 @@ This Vec4 instance for method chaining.
 dot(v): number;
 ```
 
-Defined in: [vec4.ts:967](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L967)
+Defined in: [vec4.ts:967](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L967)
 
 Calculates the dot product of this vector with another vector.
 
@@ -836,7 +837,7 @@ The dot product of the vectors.
 equals(v, epsilon?): boolean;
 ```
 
-Defined in: [vec4.ts:1179](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L1179)
+Defined in: [vec4.ts:1179](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L1179)
 
 Compares this vector with another vector using an epsilon value for floating-point comparison.
 
@@ -859,7 +860,7 @@ True if the vectors are equal within epsilon, false otherwise.
 isInfinite(): boolean;
 ```
 
-Defined in: [vec4.ts:998](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L998)
+Defined in: [vec4.ts:998](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L998)
 
 Checks if this vector has infinite components.
 
@@ -875,7 +876,7 @@ True if the vector has infinite components, false otherwise.
 isNaN(): boolean;
 ```
 
-Defined in: [vec4.ts:1019](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L1019)
+Defined in: [vec4.ts:1019](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L1019)
 
 Checks if this vector has NaN components.
 
@@ -891,7 +892,7 @@ True if the vector has NaN components, false otherwise.
 isZero(): boolean;
 ```
 
-Defined in: [vec4.ts:1032](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L1032)
+Defined in: [vec4.ts:1032](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L1032)
 
 Checks if this vector is zero.
 
@@ -907,7 +908,7 @@ True if the vector is zero, false otherwise.
 limitMax(max): this;
 ```
 
-Defined in: [vec4.ts:1041](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L1041)
+Defined in: [vec4.ts:1041](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L1041)
 
 Limits the maximum magnitude of this vector.
 
@@ -929,7 +930,7 @@ This Vec2 instance for method chaining.
 limitMin(min): this;
 ```
 
-Defined in: [vec4.ts:1058](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L1058)
+Defined in: [vec4.ts:1058](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L1058)
 
 Limits the minimum magnitude of this vector.
 
@@ -951,7 +952,7 @@ This Vec4 instance for method chaining.
 lookAt(v): this;
 ```
 
-Defined in: [vec4.ts:1075](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L1075)
+Defined in: [vec4.ts:1075](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L1075)
 
 Sets this vector to point towards another vector.
 
@@ -973,7 +974,7 @@ This Vec4 instance for method chaining.
 multiply(v): this;
 ```
 
-Defined in: [vec4.ts:802](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L802)
+Defined in: [vec4.ts:802](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L802)
 
 Multiplies this vector with another vector.
 
@@ -995,7 +996,7 @@ This Vec4 instance for method chaining.
 negate(): this;
 ```
 
-Defined in: [vec4.ts:1090](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L1090)
+Defined in: [vec4.ts:1090](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L1090)
 
 Negates this vector.
 
@@ -1011,7 +1012,7 @@ This Vec4 instance for method chaining.
 normalize(): this;
 ```
 
-Defined in: [vec4.ts:1103](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L1103)
+Defined in: [vec4.ts:1103](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L1103)
 
 Normalizes this vector.
 
@@ -1027,7 +1028,7 @@ This Ve4 instance for method chaining.
 project(v): this;
 ```
 
-Defined in: [vec4.ts:1118](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L1118)
+Defined in: [vec4.ts:1118](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L1118)
 
 Projects this vector onto another vector.
 
@@ -1049,7 +1050,7 @@ This Vec4 instance for method chaining.
 random(random?): this;
 ```
 
-Defined in: [vec4.ts:1140](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L1140)
+Defined in: [vec4.ts:1140](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L1140)
 
 Sets this vector to a random direction with the same magnitude.
 
@@ -1071,7 +1072,7 @@ This Vec4 instance for method chaining.
 reflect(normal): this;
 ```
 
-Defined in: [vec4.ts:979](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L979)
+Defined in: [vec4.ts:979](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L979)
 
 Reflects this vector across a normal vector.
 The normal vector should be normalized (unit length).
@@ -1094,7 +1095,7 @@ This Vec4 instance for method chaining.
 satisfyEquality(v): boolean;
 ```
 
-Defined in: [vec4.ts:1150](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L1150)
+Defined in: [vec4.ts:1150](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L1150)
 
 Checks if this vector is equal to another vector.
 
@@ -1116,7 +1117,7 @@ True if the vectors are equal, false otherwise.
 satisfyOpposition(v): boolean;
 ```
 
-Defined in: [vec4.ts:1164](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L1164)
+Defined in: [vec4.ts:1164](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L1164)
 
 Checks if this vector is opposite to another vector.
 
@@ -1138,7 +1139,7 @@ True if the vectors are opposite, false otherwise.
 scale(c): this;
 ```
 
-Defined in: [vec4.ts:1193](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L1193)
+Defined in: [vec4.ts:1193](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L1193)
 
 Scales this vector by a scalar value.
 
@@ -1160,7 +1161,7 @@ This Vec4 instance for method chaining.
 subtract(v): this;
 ```
 
-Defined in: [vec4.ts:788](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L788)
+Defined in: [vec4.ts:788](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L788)
 
 Subtracts another vector from this vector.
 
@@ -1185,7 +1186,7 @@ toJSON(): {
 };
 ```
 
-Defined in: [vec4.ts:1247](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L1247)
+Defined in: [vec4.ts:1247](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L1247)
 
 Serializes the vector to a JSON-friendly format.
 
@@ -1202,8 +1203,8 @@ A JSON-friendly object representation of the vector.
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `x` | `number` | [vec4.ts:1247](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L1247) |
-| `y` | `number` | [vec4.ts:1247](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L1247) |
+| `x` | `number` | [vec4.ts:1247](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L1247) |
+| `y` | `number` | [vec4.ts:1247](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L1247) |
 
 ##### toObject()
 
@@ -1216,7 +1217,7 @@ toObject(): {
 };
 ```
 
-Defined in: [vec4.ts:1238](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L1238)
+Defined in: [vec4.ts:1238](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L1238)
 
 Converts the vector to a plain object.
 
@@ -1235,10 +1236,10 @@ An object with x, y, z and w properties.
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `w` | `number` | [vec4.ts:1238](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L1238) |
-| `x` | `number` | [vec4.ts:1238](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L1238) |
-| `y` | `number` | [vec4.ts:1238](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L1238) |
-| `z` | `number` | [vec4.ts:1238](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L1238) |
+| `w` | `number` | [vec4.ts:1238](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L1238) |
+| `x` | `number` | [vec4.ts:1238](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L1238) |
+| `y` | `number` | [vec4.ts:1238](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L1238) |
+| `z` | `number` | [vec4.ts:1238](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L1238) |
 
 ##### toString()
 
@@ -1246,7 +1247,7 @@ An object with x, y, z and w properties.
 toString(): string;
 ```
 
-Defined in: [vec4.ts:1230](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L1230)
+Defined in: [vec4.ts:1230](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L1230)
 
 Returns a string representation of the vector.
 
@@ -1262,7 +1263,7 @@ A string in the format "Vec4(x, y, z, w)".
 zero(): this;
 ```
 
-Defined in: [vec4.ts:1206](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L1206)
+Defined in: [vec4.ts:1206](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L1206)
 
 Sets this vector to zero.
 
@@ -1278,7 +1279,7 @@ This Vec4 instance for method chaining.
 static add(v, w): Vec4;
 ```
 
-Defined in: [vec4.ts:56](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L56)
+Defined in: [vec4.ts:56](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L56)
 
 Adds two vectors.
 
@@ -1301,7 +1302,7 @@ A new Vec4 instance representing the sum.
 static angleBetween(v, w): number;
 ```
 
-Defined in: [vec4.ts:101](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L101)
+Defined in: [vec4.ts:101](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L101)
 
 Calculates the angle between two vectors.
 
@@ -1324,7 +1325,7 @@ The angle between the vectors in radians.
 static distance(v, w): number;
 ```
 
-Defined in: [vec4.ts:114](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L114)
+Defined in: [vec4.ts:114](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L114)
 
 Calculates the Euclidean distance between two vectors.
 
@@ -1347,7 +1348,7 @@ The distance between the vectors.
 static distanceChebyshev(v, w): number;
 ```
 
-Defined in: [vec4.ts:129](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L129)
+Defined in: [vec4.ts:129](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L129)
 
 Calculates the Chebyshev distance between two vectors.
 
@@ -1370,7 +1371,7 @@ The Chebyshev distance between the vectors.
 static distanceManhattan(v, w): number;
 ```
 
-Defined in: [vec4.ts:149](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L149)
+Defined in: [vec4.ts:149](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L149)
 
 Calculates the Manhattan distance between two vectors.
 
@@ -1393,10 +1394,11 @@ The Manhattan distance between the vectors.
 static distanceMinkowski(
    v, 
    w, 
-   p): number;
+   p
+): number;
 ```
 
-Defined in: [vec4.ts:165](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L165)
+Defined in: [vec4.ts:165](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L165)
 
 Calculates the Minkowski distance between two vectors.
 
@@ -1420,7 +1422,7 @@ The Minkowski distance between the vectors.
 static distanceSq(v, w): number;
 ```
 
-Defined in: [vec4.ts:181](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L181)
+Defined in: [vec4.ts:181](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L181)
 
 Calculates the squared Euclidean distance between two vectors.
 
@@ -1443,7 +1445,7 @@ The squared distance between the vectors.
 static divide(v, w): Vec4;
 ```
 
-Defined in: [vec4.ts:86](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L86)
+Defined in: [vec4.ts:86](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L86)
 
 Divides one vector with another.
 
@@ -1466,7 +1468,7 @@ A new Vec4 instance representing the divided value.
 static dot(v, w): number;
 ```
 
-Defined in: [vec4.ts:196](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L196)
+Defined in: [vec4.ts:196](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L196)
 
 Calculates the dot product of two vectors.
 
@@ -1489,10 +1491,11 @@ The dot product of the two vectors.
 static equals(
    v, 
    w, 
-   epsilon?): boolean;
+   epsilon?
+): boolean;
 ```
 
-Defined in: [vec4.ts:468](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L468)
+Defined in: [vec4.ts:468](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L468)
 
 Compares a vector with another vector using an epsilon value for floating-point comparison.
 
@@ -1516,7 +1519,7 @@ True if the vectors are equal within epsilon, false otherwise.
 static fromArray(arr): Vec4;
 ```
 
-Defined in: [vec4.ts:508](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L508)
+Defined in: [vec4.ts:508](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L508)
 
 Creates a Vec4 from an array.
 
@@ -1538,7 +1541,7 @@ A new Vec4 instance.
 static fromJSON(json): Vec4;
 ```
 
-Defined in: [vec4.ts:526](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L526)
+Defined in: [vec4.ts:526](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L526)
 
 Creates a Vec3 instance from a JSON-parsed object.
 
@@ -1564,7 +1567,7 @@ A new Vec4 instance.
 static fromObject(obj): Vec4;
 ```
 
-Defined in: [vec4.ts:517](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L517)
+Defined in: [vec4.ts:517](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L517)
 
 Creates a Vec4 from an object with x, y, z and w properties.
 
@@ -1591,7 +1594,8 @@ static immutable(
    x?, 
    y?, 
    z?, 
-   w?): {
+   w?
+): {
   get a(): number;
   get angleW(): number;
   get angleX(): number;
@@ -1614,7 +1618,7 @@ static immutable(
 };
 ```
 
-Defined in: [vec4.ts:230](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L230)
+Defined in: [vec4.ts:230](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L230)
 
 Creates an immutable Vec4-like object.
 
@@ -1657,25 +1661,25 @@ An immutable object with Vec4-like properties.
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `get a` | `number` | [vec4.ts:281](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L281) |
-| `get angleW` | `number` | [vec4.ts:293](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L293) |
-| `get angleX` | `number` | [vec4.ts:296](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L296) |
-| `get angleY` | `number` | [vec4.ts:299](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L299) |
-| `get angleZ` | `number` | [vec4.ts:302](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L302) |
-| `get b` | `number` | [vec4.ts:278](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L278) |
-| `get g` | `number` | [vec4.ts:275](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L275) |
-| `get isInfinite` | `boolean` | [vec4.ts:305](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L305) |
-| `get isNaN` | `boolean` | [vec4.ts:308](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L308) |
-| `get isZero` | `boolean` | [vec4.ts:311](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L311) |
-| `get magnitude` | `number` | [vec4.ts:287](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L287) |
-| `get magnitudeSq` | `number` | [vec4.ts:290](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L290) |
-| `get r` | `number` | [vec4.ts:272](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L272) |
-| `get rgba` | readonly `number`[] | [vec4.ts:284](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L284) |
-| `get w` | `number` | [vec4.ts:266](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L266) |
-| `get x` | `number` | [vec4.ts:257](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L257) |
-| `get xyzw` | readonly `number`[] | [vec4.ts:269](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L269) |
-| `get y` | `number` | [vec4.ts:260](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L260) |
-| `get z` | `number` | [vec4.ts:263](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L263) |
+| `get a` | `number` | [vec4.ts:281](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L281) |
+| `get angleW` | `number` | [vec4.ts:293](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L293) |
+| `get angleX` | `number` | [vec4.ts:296](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L296) |
+| `get angleY` | `number` | [vec4.ts:299](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L299) |
+| `get angleZ` | `number` | [vec4.ts:302](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L302) |
+| `get b` | `number` | [vec4.ts:278](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L278) |
+| `get g` | `number` | [vec4.ts:275](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L275) |
+| `get isInfinite` | `boolean` | [vec4.ts:305](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L305) |
+| `get isNaN` | `boolean` | [vec4.ts:308](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L308) |
+| `get isZero` | `boolean` | [vec4.ts:311](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L311) |
+| `get magnitude` | `number` | [vec4.ts:287](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L287) |
+| `get magnitudeSq` | `number` | [vec4.ts:290](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L290) |
+| `get r` | `number` | [vec4.ts:272](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L272) |
+| `get rgba` | readonly `number`[] | [vec4.ts:284](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L284) |
+| `get w` | `number` | [vec4.ts:266](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L266) |
+| `get x` | `number` | [vec4.ts:257](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L257) |
+| `get xyzw` | readonly `number`[] | [vec4.ts:269](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L269) |
+| `get y` | `number` | [vec4.ts:260](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L260) |
+| `get z` | `number` | [vec4.ts:263](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L263) |
 
 ##### isInfinite()
 
@@ -1683,7 +1687,7 @@ An immutable object with Vec4-like properties.
 static isInfinite(v): boolean;
 ```
 
-Defined in: [vec4.ts:322](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L322)
+Defined in: [vec4.ts:322](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L322)
 
 Checks if a vector has infinite components.
 
@@ -1705,7 +1709,7 @@ True if the vector has infinite components, false otherwise.
 static isNaN(v): boolean;
 ```
 
-Defined in: [vec4.ts:344](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L344)
+Defined in: [vec4.ts:344](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L344)
 
 Checks if a vector has NaN components.
 
@@ -1727,7 +1731,7 @@ True if the vector has NaN components, false otherwise.
 static isZero(v): boolean;
 ```
 
-Defined in: [vec4.ts:353](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L353)
+Defined in: [vec4.ts:353](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L353)
 
 Checks if a vector is zero.
 
@@ -1749,10 +1753,11 @@ True if the vector is zero, false otherwise.
 static lerp(
    v, 
    w, 
-   t): Vec4;
+   t
+): Vec4;
 ```
 
-Defined in: [vec4.ts:364](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L364)
+Defined in: [vec4.ts:364](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L364)
 
 Performs linear interpolation between two vectors.
 
@@ -1776,7 +1781,7 @@ A new Vec4 instance representing the interpolated vector.
 static multiply(v, w): Vec4;
 ```
 
-Defined in: [vec4.ts:76](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L76)
+Defined in: [vec4.ts:76](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L76)
 
 Multiplies one vector with another.
 
@@ -1799,7 +1804,7 @@ A new Vec4 instance representing the multiplied value.
 static negate(v): Vec4;
 ```
 
-Defined in: [vec4.ts:384](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L384)
+Defined in: [vec4.ts:384](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L384)
 
 Negates a vector.
 
@@ -1821,7 +1826,7 @@ A new Vec4 instance representing the negated vector.
 static normalize(v): Vec4;
 ```
 
-Defined in: [vec4.ts:393](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L393)
+Defined in: [vec4.ts:393](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L393)
 
 Normalizes a vector.
 
@@ -1843,7 +1848,7 @@ A new Vec4 instance representing the normalized vector.
 static one(): Vec4;
 ```
 
-Defined in: [vec4.ts:499](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L499)
+Defined in: [vec4.ts:499](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L499)
 
 Creates a vector with all components set to 1.0.
 
@@ -1859,7 +1864,7 @@ A new Vec4 instance representing a vector with all components set to 1.0.
 static project(v, w): Vec4;
 ```
 
-Defined in: [vec4.ts:404](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L404)
+Defined in: [vec4.ts:404](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L404)
 
 Projects one vector onto another.
 
@@ -1882,7 +1887,7 @@ A new Vec4 instance representing the projected vector.
 static random(random?): Vec4;
 ```
 
-Defined in: [vec4.ts:420](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L420)
+Defined in: [vec4.ts:420](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L420)
 
 Creates a random unit vector.
 
@@ -1904,7 +1909,7 @@ A new Vec4 instance representing a random unit vector.
 static reflect(v, normal): Vec4;
 ```
 
-Defined in: [vec4.ts:207](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L207)
+Defined in: [vec4.ts:207](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L207)
 
 Reflects a vector across a normal vector.
 The normal vector should be normalized (unit length).
@@ -1928,7 +1933,7 @@ A new Vec4 instance representing the reflected vector.
 static satisfyEquality(v, w): boolean;
 ```
 
-Defined in: [vec4.ts:440](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L440)
+Defined in: [vec4.ts:440](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L440)
 
 Checks if two vectors are equal.
 
@@ -1951,7 +1956,7 @@ True if the vectors are equal, false otherwise.
 static satisfyOpposition(v, w): boolean;
 ```
 
-Defined in: [vec4.ts:452](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L452)
+Defined in: [vec4.ts:452](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L452)
 
 Checks if two vectors are opposite.
 
@@ -1974,7 +1979,7 @@ True if the vectors are opposite, false otherwise.
 static scale(v, c): Vec4;
 ```
 
-Defined in: [vec4.ts:483](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L483)
+Defined in: [vec4.ts:483](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L483)
 
 Scales a vector by a scalar value.
 
@@ -1997,7 +2002,7 @@ A new Vec4 instance representing the scaled vector.
 static subtract(v, w): Vec4;
 ```
 
-Defined in: [vec4.ts:66](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L66)
+Defined in: [vec4.ts:66](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L66)
 
 Subtracts one vector from another.
 
@@ -2020,7 +2025,7 @@ A new Vec4 instance representing the difference.
 static zero(): Vec4;
 ```
 
-Defined in: [vec4.ts:491](https://github.com/claus-codes/vec/blob/main/src/vec4.ts#L491)
+Defined in: [vec4.ts:491](https://github.com/fimbul-works/vec/blob/main/src/vec4.ts#L491)
 
 Creates a zero vector.
 

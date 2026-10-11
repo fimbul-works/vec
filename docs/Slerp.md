@@ -12,10 +12,11 @@ Documentation for spherical linear interpolation functions.
 function slerp(
    from, 
    to, 
-   t): number;
+   t
+): number;
 ```
 
-Defined in: [slerp.ts:17](https://github.com/claus-codes/vec/blob/main/src/slerp.ts#L17)
+Defined in: [slerp.ts:17](https://github.com/fimbul-works/vec/blob/main/src/slerp.ts#L17)
 
 Spherical linear interpolation for angles (in radians).
 Handles wrapping around 2π correctly.
@@ -42,10 +43,11 @@ Interpolated angle
 function slerpDegrees(
    from, 
    to, 
-   t): number;
+   t
+): number;
 ```
 
-Defined in: [slerp.ts:27](https://github.com/claus-codes/vec/blob/main/src/slerp.ts#L27)
+Defined in: [slerp.ts:27](https://github.com/fimbul-works/vec/blob/main/src/slerp.ts#L27)
 
 Spherical linear interpolation for angles (in degrees).
 

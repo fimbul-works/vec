@@ -12,7 +12,7 @@ Documentation for functional 4D Vector array operations.
 type ArrayVector4D = [number, number, number, number];
 ```
 
-Defined in: [4d/types.ts:4](https://github.com/claus-codes/vec/blob/main/src/4d/types.ts#L4)
+Defined in: [4d/types.ts:4](https://github.com/fimbul-works/vec/blob/main/src/4d/types.ts#L4)
 
 4D vector as an array.
 
@@ -24,7 +24,7 @@ Defined in: [4d/types.ts:4](https://github.com/claus-codes/vec/blob/main/src/4d/
 function add4D(xyzw1, xyzw2): ArrayVector4D;
 ```
 
-Defined in: [4d/add-4d.ts:9](https://github.com/claus-codes/vec/blob/main/src/4d/add-4d.ts#L9)
+Defined in: [4d/add-4d.ts:9](https://github.com/fimbul-works/vec/blob/main/src/4d/add-4d.ts#L9)
 
 Adds two 4D vectors.
 
@@ -50,10 +50,11 @@ function angleBetween4D(
    xyzw1, 
    xyzw2, 
    m1?, 
-   m2?): number;
+   m2?
+): number;
 ```
 
-Defined in: [4d/angle-between-4d.ts:13](https://github.com/claus-codes/vec/blob/main/src/4d/angle-between-4d.ts#L13)
+Defined in: [4d/angle-between-4d.ts:13](https://github.com/fimbul-works/vec/blob/main/src/4d/angle-between-4d.ts#L13)
 
 Calculates the angle between two 4D vectors.
 
@@ -80,7 +81,7 @@ The angle in radians
 function angleW4D(xyzw): number;
 ```
 
-Defined in: [4d/angle-w-4d.ts:8](https://github.com/claus-codes/vec/blob/main/src/4d/angle-w-4d.ts#L8)
+Defined in: [4d/angle-w-4d.ts:8](https://github.com/fimbul-works/vec/blob/main/src/4d/angle-w-4d.ts#L8)
 
 Calculates the angle between a 4D vector and the positive w-axis.
 
@@ -104,7 +105,7 @@ The angle in radians
 function angleX4D(xyzw): number;
 ```
 
-Defined in: [4d/angle-x-4d.ts:8](https://github.com/claus-codes/vec/blob/main/src/4d/angle-x-4d.ts#L8)
+Defined in: [4d/angle-x-4d.ts:8](https://github.com/fimbul-works/vec/blob/main/src/4d/angle-x-4d.ts#L8)
 
 Calculates the angle between a 4D vector and the positive x-axis.
 
@@ -128,7 +129,7 @@ The angle in radians
 function angleY4D(xyzw): number;
 ```
 
-Defined in: [4d/angle-y-4d.ts:8](https://github.com/claus-codes/vec/blob/main/src/4d/angle-y-4d.ts#L8)
+Defined in: [4d/angle-y-4d.ts:8](https://github.com/fimbul-works/vec/blob/main/src/4d/angle-y-4d.ts#L8)
 
 Calculates the angle between a 4D vector and the positive y-axis.
 
@@ -152,7 +153,7 @@ The angle in radians
 function angleZ4D(xyzw): number;
 ```
 
-Defined in: [4d/angle-z-4d.ts:8](https://github.com/claus-codes/vec/blob/main/src/4d/angle-z-4d.ts#L8)
+Defined in: [4d/angle-z-4d.ts:8](https://github.com/fimbul-works/vec/blob/main/src/4d/angle-z-4d.ts#L8)
 
 Calculates the angle between a 4D vector and the positive z-axis.
 
@@ -177,10 +178,11 @@ function clamp4D(
    xyzw, 
    min, 
    max, 
-   m?): ArrayVector4D;
+   m?
+): ArrayVector4D;
 ```
 
-Defined in: [4d/clamp-4d.ts:12](https://github.com/claus-codes/vec/blob/main/src/4d/clamp-4d.ts#L12)
+Defined in: [4d/clamp-4d.ts:12](https://github.com/fimbul-works/vec/blob/main/src/4d/clamp-4d.ts#L12)
 
 Clamps the magnitude of a 4D vector between min and max.
 
@@ -207,7 +209,7 @@ The clamped vector
 function clone4D(xyzw): ArrayVector4D;
 ```
 
-Defined in: [4d/clone-4d.ts:8](https://github.com/claus-codes/vec/blob/main/src/4d/clone-4d.ts#L8)
+Defined in: [4d/clone-4d.ts:8](https://github.com/fimbul-works/vec/blob/main/src/4d/clone-4d.ts#L8)
 
 Clone a 4D vector.
 
@@ -231,7 +233,7 @@ The cloned vector
 function distance4D(xyzw1, xyzw2): number;
 ```
 
-Defined in: [4d/distance-4d.ts:9](https://github.com/claus-codes/vec/blob/main/src/4d/distance-4d.ts#L9)
+Defined in: [4d/distance-4d.ts:9](https://github.com/fimbul-works/vec/blob/main/src/4d/distance-4d.ts#L9)
 
 Calculates the Euclidean distance between two 4D vectors.
 
@@ -256,7 +258,7 @@ The distance
 function distanceChebyshev4D(xyzw1, xyzw2): number;
 ```
 
-Defined in: [4d/distance-chebyshev-4d.ts:9](https://github.com/claus-codes/vec/blob/main/src/4d/distance-chebyshev-4d.ts#L9)
+Defined in: [4d/distance-chebyshev-4d.ts:9](https://github.com/fimbul-works/vec/blob/main/src/4d/distance-chebyshev-4d.ts#L9)
 
 Calculates the Chebyshev distance between two 4D vectors.
 
@@ -281,7 +283,7 @@ The Chebyshev distance
 function distanceManhattan4D(xyzw1, xyzw2): number;
 ```
 
-Defined in: [4d/distance-manhattan-4d.ts:9](https://github.com/claus-codes/vec/blob/main/src/4d/distance-manhattan-4d.ts#L9)
+Defined in: [4d/distance-manhattan-4d.ts:9](https://github.com/fimbul-works/vec/blob/main/src/4d/distance-manhattan-4d.ts#L9)
 
 Calculates the Manhattan distance between two 4D vectors.
 
@@ -306,10 +308,11 @@ The Manhattan distance
 function distanceMinkowski4D(
    xyzw1, 
    xyzw2, 
-   p): number;
+   p
+): number;
 ```
 
-Defined in: [4d/distance-minkowski-4d.ts:10](https://github.com/claus-codes/vec/blob/main/src/4d/distance-minkowski-4d.ts#L10)
+Defined in: [4d/distance-minkowski-4d.ts:10](https://github.com/fimbul-works/vec/blob/main/src/4d/distance-minkowski-4d.ts#L10)
 
 Calculates the Minkowski distance between two 4D vectors.
 
@@ -335,7 +338,7 @@ The Minkowski distance
 function distanceSq4D(xyzw1, xyzw2): number;
 ```
 
-Defined in: [4d/distance-sq-4d.ts:10](https://github.com/claus-codes/vec/blob/main/src/4d/distance-sq-4d.ts#L10)
+Defined in: [4d/distance-sq-4d.ts:10](https://github.com/fimbul-works/vec/blob/main/src/4d/distance-sq-4d.ts#L10)
 
 Calculates the squared Euclidean distance between two 4D vectors.
 Faster than distance for comparisons.
@@ -361,7 +364,7 @@ The squared distance
 function divide4D(xyzw1, xyzw2): ArrayVector4D;
 ```
 
-Defined in: [4d/divide-4d.ts:9](https://github.com/claus-codes/vec/blob/main/src/4d/divide-4d.ts#L9)
+Defined in: [4d/divide-4d.ts:9](https://github.com/fimbul-works/vec/blob/main/src/4d/divide-4d.ts#L9)
 
 Divides two 4D vectors component-wise.
 
@@ -386,7 +389,7 @@ The divided vector
 function dot4D(xyzw1, xyzw2): number;
 ```
 
-Defined in: [4d/dot-4d.ts:9](https://github.com/claus-codes/vec/blob/main/src/4d/dot-4d.ts#L9)
+Defined in: [4d/dot-4d.ts:9](https://github.com/fimbul-works/vec/blob/main/src/4d/dot-4d.ts#L9)
 
 Calculates the dot product of two 4D vectors.
 
@@ -411,7 +414,7 @@ The dot product
 function fromObject4D(obj): ArrayVector4D;
 ```
 
-Defined in: [4d/from-object-4d.ts:8](https://github.com/claus-codes/vec/blob/main/src/4d/from-object-4d.ts#L8)
+Defined in: [4d/from-object-4d.ts:8](https://github.com/fimbul-works/vec/blob/main/src/4d/from-object-4d.ts#L8)
 
 Creates a 4D vector from an object with x, y, z, w properties.
 
@@ -439,7 +442,7 @@ Creates a 4D vector from an object with x, y, z, w properties.
 function immutable4D(xyzw): readonly [number, number, number, number];
 ```
 
-Defined in: [4d/immutable-4d.ts:8](https://github.com/claus-codes/vec/blob/main/src/4d/immutable-4d.ts#L8)
+Defined in: [4d/immutable-4d.ts:8](https://github.com/fimbul-works/vec/blob/main/src/4d/immutable-4d.ts#L8)
 
 Create an immutable 4D vector.
 
@@ -463,7 +466,7 @@ The immutable vector
 function isEqual4D(xyzw1, xyzw2): boolean;
 ```
 
-Defined in: [4d/is-equal-4d.ts:9](https://github.com/claus-codes/vec/blob/main/src/4d/is-equal-4d.ts#L9)
+Defined in: [4d/is-equal-4d.ts:9](https://github.com/fimbul-works/vec/blob/main/src/4d/is-equal-4d.ts#L9)
 
 Checks if two 4D vectors are exactly equal.
 
@@ -488,10 +491,11 @@ Checks if two 4D vectors are exactly equal.
 function isEqualApprox4D(
    xyzw1, 
    xyzw2, 
-   epsilon?): boolean;
+   epsilon?
+): boolean;
 ```
 
-Defined in: [4d/is-equal-approx-4d.ts:10](https://github.com/claus-codes/vec/blob/main/src/4d/is-equal-approx-4d.ts#L10)
+Defined in: [4d/is-equal-approx-4d.ts:10](https://github.com/fimbul-works/vec/blob/main/src/4d/is-equal-approx-4d.ts#L10)
 
 Checks if two 4D vectors are approximately equal within epsilon.
 
@@ -517,7 +521,7 @@ Checks if two 4D vectors are approximately equal within epsilon.
 function isInfinite4D(xyzw): boolean;
 ```
 
-Defined in: [4d/is-infinite-4d.ts:8](https://github.com/claus-codes/vec/blob/main/src/4d/is-infinite-4d.ts#L8)
+Defined in: [4d/is-infinite-4d.ts:8](https://github.com/fimbul-works/vec/blob/main/src/4d/is-infinite-4d.ts#L8)
 
 Checks if a 4D vector has infinite components.
 
@@ -541,7 +545,7 @@ Checks if a 4D vector has infinite components.
 function isNan4D(xyzw): boolean;
 ```
 
-Defined in: [4d/is-nan-4d.ts:8](https://github.com/claus-codes/vec/blob/main/src/4d/is-nan-4d.ts#L8)
+Defined in: [4d/is-nan-4d.ts:8](https://github.com/fimbul-works/vec/blob/main/src/4d/is-nan-4d.ts#L8)
 
 Checks if a 4D vector has NaN components.
 
@@ -565,7 +569,7 @@ Checks if a 4D vector has NaN components.
 function isOpposite4D(xyzw1, xyzw2): boolean;
 ```
 
-Defined in: [4d/is-opposite-4d.ts:9](https://github.com/claus-codes/vec/blob/main/src/4d/is-opposite-4d.ts#L9)
+Defined in: [4d/is-opposite-4d.ts:9](https://github.com/fimbul-works/vec/blob/main/src/4d/is-opposite-4d.ts#L9)
 
 Checks if two 4D vectors are opposite.
 
@@ -590,7 +594,7 @@ Checks if two 4D vectors are opposite.
 function isZero4D(xyzw): boolean;
 ```
 
-Defined in: [4d/is-zero-4d.ts:8](https://github.com/claus-codes/vec/blob/main/src/4d/is-zero-4d.ts#L8)
+Defined in: [4d/is-zero-4d.ts:8](https://github.com/fimbul-works/vec/blob/main/src/4d/is-zero-4d.ts#L8)
 
 Checks if a 4D vector is zero.
 
@@ -614,10 +618,11 @@ Checks if a 4D vector is zero.
 function lerp4D(
    xyzw1, 
    xyzw2, 
-   t): ArrayVector4D;
+   t
+): ArrayVector4D;
 ```
 
-Defined in: [4d/lerp-4d.ts:10](https://github.com/claus-codes/vec/blob/main/src/4d/lerp-4d.ts#L10)
+Defined in: [4d/lerp-4d.ts:10](https://github.com/fimbul-works/vec/blob/main/src/4d/lerp-4d.ts#L10)
 
 Performs linear interpolation between two 4D vectors.
 
@@ -643,10 +648,11 @@ The interpolated vector
 function limitMax4D(
    xyzw, 
    max, 
-   m?): ArrayVector4D;
+   m?
+): ArrayVector4D;
 ```
 
-Defined in: [4d/limit-max-4d.ts:11](https://github.com/claus-codes/vec/blob/main/src/4d/limit-max-4d.ts#L11)
+Defined in: [4d/limit-max-4d.ts:11](https://github.com/fimbul-works/vec/blob/main/src/4d/limit-max-4d.ts#L11)
 
 Limits the maximum magnitude of a 4D vector.
 
@@ -672,10 +678,11 @@ Vector with limited magnitude
 function limitMin4D(
    xyzw, 
    min, 
-   m?): ArrayVector4D;
+   m?
+): ArrayVector4D;
 ```
 
-Defined in: [4d/limit-min-4d.ts:11](https://github.com/claus-codes/vec/blob/main/src/4d/limit-min-4d.ts#L11)
+Defined in: [4d/limit-min-4d.ts:11](https://github.com/fimbul-works/vec/blob/main/src/4d/limit-min-4d.ts#L11)
 
 Limits the minimum magnitude of a 4D vector.
 
@@ -702,10 +709,11 @@ function lookAt4D(
    xyzw1, 
    xyzw2, 
    m1?, 
-   m2?): ArrayVector4D;
+   m2?
+): ArrayVector4D;
 ```
 
-Defined in: [4d/look-at-4d.ts:12](https://github.com/claus-codes/vec/blob/main/src/4d/look-at-4d.ts#L12)
+Defined in: [4d/look-at-4d.ts:12](https://github.com/fimbul-works/vec/blob/main/src/4d/look-at-4d.ts#L12)
 
 Makes a 4D vector point towards another vector.
 
@@ -732,7 +740,7 @@ Vector pointing at the target with the magnitude of xyzw1
 function magnitude4D(xyzw): number;
 ```
 
-Defined in: [4d/magnitude-4d.ts:8](https://github.com/claus-codes/vec/blob/main/src/4d/magnitude-4d.ts#L8)
+Defined in: [4d/magnitude-4d.ts:8](https://github.com/fimbul-works/vec/blob/main/src/4d/magnitude-4d.ts#L8)
 
 Calculates the magnitude (length) of a 4D vector.
 
@@ -756,7 +764,7 @@ The magnitude
 function magnitudeSq4D(xyzw): number;
 ```
 
-Defined in: [4d/magnitude-sq-4d.ts:9](https://github.com/claus-codes/vec/blob/main/src/4d/magnitude-sq-4d.ts#L9)
+Defined in: [4d/magnitude-sq-4d.ts:9](https://github.com/fimbul-works/vec/blob/main/src/4d/magnitude-sq-4d.ts#L9)
 
 Calculates the squared magnitude of a 4D vector.
 Faster than magnitude for comparisons.
@@ -781,7 +789,7 @@ The squared magnitude
 function multiply4D(xyzw1, xyzw2): ArrayVector4D;
 ```
 
-Defined in: [4d/multiply-4d.ts:9](https://github.com/claus-codes/vec/blob/main/src/4d/multiply-4d.ts#L9)
+Defined in: [4d/multiply-4d.ts:9](https://github.com/fimbul-works/vec/blob/main/src/4d/multiply-4d.ts#L9)
 
 Multiplies two 4D vectors component-wise.
 
@@ -806,7 +814,7 @@ The multiplied vector
 function negate4D(xyzw): ArrayVector4D;
 ```
 
-Defined in: [4d/negate-4d.ts:8](https://github.com/claus-codes/vec/blob/main/src/4d/negate-4d.ts#L8)
+Defined in: [4d/negate-4d.ts:8](https://github.com/fimbul-works/vec/blob/main/src/4d/negate-4d.ts#L8)
 
 Negates a 4D vector.
 
@@ -830,7 +838,7 @@ The negated vector
 function normalize4D(xyzw, m?): ArrayVector4D;
 ```
 
-Defined in: [4d/normalize-4d.ts:10](https://github.com/claus-codes/vec/blob/main/src/4d/normalize-4d.ts#L10)
+Defined in: [4d/normalize-4d.ts:10](https://github.com/fimbul-works/vec/blob/main/src/4d/normalize-4d.ts#L10)
 
 Normalizes a 4D vector to unit length.
 
@@ -855,7 +863,7 @@ The normalized vector
 function one4D(): ArrayVector4D;
 ```
 
-Defined in: [4d/one-4d.ts:7](https://github.com/claus-codes/vec/blob/main/src/4d/one-4d.ts#L7)
+Defined in: [4d/one-4d.ts:7](https://github.com/fimbul-works/vec/blob/main/src/4d/one-4d.ts#L7)
 
 Creates a 4D vector with all components set to 1.
 
@@ -874,10 +882,11 @@ function project4D(
    xyzw1, 
    xyzw2, 
    m1?, 
-   m2?): ArrayVector4D;
+   m2?
+): ArrayVector4D;
 ```
 
-Defined in: [4d/project-4d.ts:13](https://github.com/claus-codes/vec/blob/main/src/4d/project-4d.ts#L13)
+Defined in: [4d/project-4d.ts:13](https://github.com/fimbul-works/vec/blob/main/src/4d/project-4d.ts#L13)
 
 Projects one 4D vector onto another.
 
@@ -904,7 +913,7 @@ The projected vector
 function random4D(random?): ArrayVector4D;
 ```
 
-Defined in: [4d/random-4d.ts:10](https://github.com/claus-codes/vec/blob/main/src/4d/random-4d.ts#L10)
+Defined in: [4d/random-4d.ts:10](https://github.com/fimbul-works/vec/blob/main/src/4d/random-4d.ts#L10)
 
 Creates a random unit 4D vector.
 
@@ -928,7 +937,7 @@ A random unit vector
 function reflect4D(xyzw, normal): ArrayVector4D;
 ```
 
-Defined in: [4d/reflect-4d.ts:11](https://github.com/claus-codes/vec/blob/main/src/4d/reflect-4d.ts#L11)
+Defined in: [4d/reflect-4d.ts:11](https://github.com/fimbul-works/vec/blob/main/src/4d/reflect-4d.ts#L11)
 
 Reflects a 4D vector across a normal vector.
 The normal vector should be normalized (unit length).
@@ -954,10 +963,11 @@ The reflected vector
 function setMagnitude4D(
    xyzw, 
    newMag, 
-   m?): ArrayVector4D;
+   m?
+): ArrayVector4D;
 ```
 
-Defined in: [4d/set-magnitude-4d.ts:11](https://github.com/claus-codes/vec/blob/main/src/4d/set-magnitude-4d.ts#L11)
+Defined in: [4d/set-magnitude-4d.ts:11](https://github.com/fimbul-works/vec/blob/main/src/4d/set-magnitude-4d.ts#L11)
 
 Sets the magnitude of a 4D vector while maintaining its direction.
 
@@ -983,7 +993,7 @@ Vector with the new magnitude
 function subtract4D(xyzw1, xyzw2): ArrayVector4D;
 ```
 
-Defined in: [4d/subtract-4d.ts:9](https://github.com/claus-codes/vec/blob/main/src/4d/subtract-4d.ts#L9)
+Defined in: [4d/subtract-4d.ts:9](https://github.com/fimbul-works/vec/blob/main/src/4d/subtract-4d.ts#L9)
 
 Subtracts two 4D vectors.
 
@@ -1008,7 +1018,7 @@ The difference of the vectors
 function zero4D(): ArrayVector4D;
 ```
 
-Defined in: [4d/zero-4d.ts:7](https://github.com/claus-codes/vec/blob/main/src/4d/zero-4d.ts#L7)
+Defined in: [4d/zero-4d.ts:7](https://github.com/fimbul-works/vec/blob/main/src/4d/zero-4d.ts#L7)
 
 Creates a zero 4D vector.
 
