@@ -1,17 +1,17 @@
 import { magnitude3D } from "./magnitude-3d.js";
-import type { ArrayVector3D } from "./types.js";
+import type { ArrayVector3D, ArrayVector3DLike } from "./types.js";
 
 /**
  * Projects one 3D vector onto the second.
- * @param {ArrayVector3D} xyz1 - Vector to project
- * @param {ArrayVector3D} xyz2 - Vector to project onto
+ * @param {ArrayVector3DLike} xyz1 - Vector to project
+ * @param {ArrayVector3DLike} xyz2 - Vector to project onto
  * @param {number} [m1] - Optional magnitude of the vector to project (default: `magnitude3D(xyz1)`)
  * @param {number} [m2] - Optional magnitude of the vector to project onto (default: `magnitude3D(xyz2)`)
  * @returns {ArrayVector3D} The projected vector
  */
 export const project3D = (
-  xyz1: ArrayVector3D,
-  xyz2: ArrayVector3D,
+  xyz1: ArrayVector3DLike,
+  xyz2: ArrayVector3DLike,
   m1: number = magnitude3D(xyz1),
   m2: number = magnitude3D(xyz2),
 ): ArrayVector3D => {

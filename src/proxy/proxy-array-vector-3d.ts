@@ -1,11 +1,12 @@
 import type { ArrayVector3D } from "../3d/types.js";
+import type { ArrayVector3DShape } from "../types.js";
 import { ProxyArrayVector } from "./proxy-array-vector.js";
 import type { ProxyArrayVectorTarget } from "./types.js";
 
 /**
  * A proxy for a 3D array vector.
  */
-export class ProxyArrayVector3D extends ProxyArrayVector<ArrayVector3D> {
+export class ProxyArrayVector3D extends ProxyArrayVector<ArrayVector3D> implements ArrayVector3DShape {
   /**
    * Creates a new ProxyArrayVector3D.
    * @param target - The target array.
@@ -17,42 +18,49 @@ export class ProxyArrayVector3D extends ProxyArrayVector<ArrayVector3D> {
   }
 
   /**
-   * Gets the x-component of the vector.
+   * Returns the length of the array.
+   */
+  get length(): 3 {
+    return 3;
+  }
+
+  /**
+   * Gets the 1st component of the vector.
    */
   get 0(): number {
     return this.at(0);
   }
 
   /**
-   * Sets the x-component of the vector.
+   * Sets the 1st component of the vector.
    */
   set 0(value: number) {
     this.set(0, value);
   }
 
   /**
-   * Gets the y-component of the vector.
+   * Gets the 2nd component of the vector.
    */
   get 1(): number {
     return this.at(1);
   }
 
   /**
-   * Sets the y-component of the vector.
+   * Sets the 2nd component of the vector.
    */
   set 1(value: number) {
     this.set(1, value);
   }
 
   /**
-   * Gets the z-component of the vector.
+   * Gets the 3rd component of the vector.
    */
   get 2(): number {
     return this.at(2);
   }
 
   /**
-   * Sets the z-component of the vector.
+   * Sets the 3rd component of the vector.
    */
   set 2(value: number) {
     this.set(2, value);

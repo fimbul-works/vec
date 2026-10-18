@@ -3,9 +3,9 @@ import type { ProxyArrayVectorTarget } from "./types.js";
 /**
  * A proxy for an array of numbers.
  */
-export class ProxyArrayVector<T extends Array<number>> implements Iterable<number> {
-  #idx: T;
+export abstract class ProxyArrayVector<T extends Array<number>> implements Iterable<number> {
   #target: ProxyArrayVectorTarget;
+  #idx: T;
 
   /**
    * Creates a new ProxyArrayVector.
@@ -44,44 +44,19 @@ export class ProxyArrayVector<T extends Array<number>> implements Iterable<numbe
   }
 
   /**
-   * Returns an array of key, value pairs for every entry in the array.
+   * Returns an iterator for this array.
    */
-  *entries(): ArrayIterator<[number, number]> {
-    for (let i = 0; i < this.#idx.length; i++) {
-      yield [i, this.#target[this.#idx[i]]];
-    }
-  }
-
-  /**
-   * Returns an list of keys in the array.
-   */
-  *keys(): ArrayIterator<number> {
-    for (let i = 0; i < this.#idx.length; i++) {
-      yield i;
-    }
-  }
-
-  /**
-   * Returns an list of values in the array.
-   */
-  *values(): ArrayIterator<number> {
+  *[Symbol.iterator](): ArrayIterator<number> {
     for (const idx of this.#idx) {
       yield this.#target[idx];
     }
   }
 
   /**
-   * Returns an iterator for this array.
-   */
-  [Symbol.iterator](): ArrayIterator<number> {
-    return this.values();
-  }
-
-  /**
    * Returns the values of the array.
    */
   valueOf(): T {
-    return Array.from(this.values()) as T;
+    return Array.from(this) as T;
   }
 
   /**

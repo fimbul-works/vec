@@ -1,18 +1,18 @@
 import { dot4D } from "./dot-4d.js";
 import { magnitude4D } from "./magnitude-4d.js";
-import type { ArrayVector4D } from "./types.js";
+import type { ArrayVector4D, ArrayVector4DLike } from "./types.js";
 
 /**
  * Projects one 4D vector onto another.
- * @param {ArrayVector4D} xyzw1 - First vector as `[x, y, z, w]`
- * @param {ArrayVector4D} xyzw2 - Second vector as `[x, y, z, w]` to project onto
+ * @param {ArrayVector4DLike} xyzw1 - First vector as `[x, y, z, w]`
+ * @param {ArrayVector4DLike} xyzw2 - Second vector as `[x, y, z, w]` to project onto
  * @param {number} [m1] - Optional current magnitude (default: `magnitude4D(xyzw1)`)
  * @param {number} [m2] - Optional current magnitude (default: `magnitude4D(xyzw2)`)
  * @returns {ArrayVector4D} The projected vector
  */
 export const project4D = (
-  xyzw1: ArrayVector4D,
-  xyzw2: ArrayVector4D,
+  xyzw1: ArrayVector4DLike,
+  xyzw2: ArrayVector4DLike,
   m1: number = magnitude4D(xyzw1),
   m2: number = magnitude4D(xyzw2),
 ): ArrayVector4D => {
