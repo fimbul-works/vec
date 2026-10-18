@@ -1,13 +1,13 @@
-import type { ArrayVector2D } from "./types.js";
+import type { ArrayVector2D, ArrayVector2DLike } from "./types.js";
 
 /**
  * Rotates a 2D point around an arbitrary axis point
- * @param {ArrayVector2D} xy - Point to rotate
+ * @param {ArrayVector2DLike} xy - Point to rotate
  * @param {number} phi - Rotation angle in radians
- * @param {ArrayVector2D} axis - Rotation axis point (default: `[0, 0]`)
+ * @param {ArrayVector2DLike} axis - Rotation axis point (default: `[0, 0]`)
  * @returns {ArrayVector2D} The rotated vector
  */
-export const rotate2D = (xy: ArrayVector2D, phi: number, axis: ArrayVector2D = [0, 0]): ArrayVector2D => {
+export const rotate2D = (xy: ArrayVector2DLike, phi: number, axis: ArrayVector2DLike = [0, 0]): ArrayVector2D => {
   const cos = Math.cos(phi);
   const sin = Math.sin(phi);
   // No need to translate if axis is [0, 0]
