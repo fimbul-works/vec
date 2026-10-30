@@ -1,11 +1,51 @@
-import type { ArrayVector2DShape } from "../types.js";
+import type { ArrayVector2D } from "../array-2d/types.js";
+import type { XYObject } from "../types.js";
+import type { Vec2 } from "./vec2.js";
 
-/**
- * 2D vector as an array.
- */
-export type ArrayVector2D = [number, number];
-
-/**
- * 2D vector as an array-like object.
- */
-export type ArrayVector2DLike = ArrayVector2D | ArrayVector2DShape;
+export interface Vec2Like {
+  x: number;
+  y: number;
+  xy: ArrayVector2D;
+  magnitude: number;
+  readonly magnitudeSq: number;
+  angleX: number;
+  angleY: number;
+  add(v: Vec2Like): this;
+  subtract(v: Vec2Like): this;
+  multiply(v: Vec2Like): this;
+  divide(v: Vec2Like): this;
+  angleBetween(v: Vec2Like): number;
+  clamp(min: number, max: number): this;
+  clone(): Vec2;
+  copy(v: Vec2Like): this;
+  distance(v: Vec2Like): number;
+  distanceChebyshev(v: Vec2Like): number;
+  distanceManhattan(v: Vec2Like): number;
+  distanceMinkowski(v: Vec2Like, p: number): number;
+  distanceSq(v: Vec2Like): number;
+  dot(v: Vec2Like): number;
+  cross(v: Vec2Like): number;
+  reflect(normal: Vec2Like): Vec2;
+  isInfinite(): boolean;
+  isNaN(): boolean;
+  isZero(): boolean;
+  limitMax(max: number): this;
+  limitMin(min: number): this;
+  lookAt(v: Vec2Like): this;
+  negate(): this;
+  normalize(): this;
+  project(v: Vec2Like): this;
+  random(random?: () => number): this;
+  rotateZ(phi: number): this;
+  satisfyEquality(v: Vec2Like): boolean;
+  satisfyOpposition(v: Vec2Like): boolean;
+  equals(v: Vec2Like, epsilon?: number): boolean;
+  scale(c: number): this;
+  turnLeft(): this;
+  turnRight(): this;
+  zero(): this;
+  [Symbol.iterator](): Iterable<number>;
+  toString(): string;
+  toObject(): XYObject;
+  toJSON(): XYObject;
+}

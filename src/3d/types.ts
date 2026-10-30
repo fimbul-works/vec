@@ -1,11 +1,57 @@
-import type { ArrayVector3DShape } from "../types.js";
+import type { ArrayVector3D } from "../array-3d";
+import type { XYZObject } from "../types";
+import type { Vec3 } from "./vec3";
 
-/**
- * 3D vector as an array.
- */
-export type ArrayVector3D = [number, number, number];
-
-/**
- * 3D vector as an array-like object.
- */
-export type ArrayVector3DLike = ArrayVector3D | ArrayVector3DShape;
+export interface Vec3Like {
+  x: number;
+  y: number;
+  z: number;
+  xyz: ArrayVector3D;
+  magnitude: number;
+  readonly magnitudeSq: number;
+  r: number;
+  g: number;
+  b: number;
+  rgb: ArrayVector3D;
+  readonly angleX: number;
+  readonly angleY: number;
+  readonly angleZ: number;
+  add(v: Vec3Like): this;
+  subtract(v: Vec3Like): this;
+  multiply(v: Vec3Like): this;
+  divide(v: Vec3Like): this;
+  angleBetween(v: Vec3Like): number;
+  clamp(min: number, max: number): this;
+  clone(): Vec3;
+  copy(v: Vec3Like): this;
+  dot(v: Vec3Like): number;
+  cross(v: Vec3Like): this;
+  reflect(normal: Vec3Like): this;
+  distance(v: Vec3Like): number;
+  distanceChebyshev(v: Vec3Like): number;
+  distanceManhattan(v: Vec3Like): number;
+  distanceMinkowski(v: Vec3Like, p: number): number;
+  distanceSq(v: Vec3Like): number;
+  isInfinite(): boolean;
+  isNaN(): boolean;
+  isZero(): boolean;
+  limitMax(max: number): this;
+  limitMin(min: number): this;
+  lookAt(v: Vec3Like): this;
+  negate(): this;
+  normalize(): this;
+  project(v: Vec3Like): this;
+  random(random?: () => number): this;
+  rotateX(phi: number): this;
+  rotateY(phi: number): this;
+  rotateZ(phi: number): this;
+  satisfyEquality(v: Vec3Like): boolean;
+  satisfyOpposition(v: Vec3Like): boolean;
+  equals(v: Vec3Like, epsilon?: number): boolean;
+  scale(c: number): this;
+  zero(): this;
+  [Symbol.iterator](): IterableIterator<number>;
+  toString(): string;
+  toObject(): XYZObject;
+  toJSON(): XYZObject;
+}

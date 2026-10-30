@@ -1,13 +1,7 @@
 {
   "$schema": "https://typedoc.org/schema.json",
   "entryPoints": [
-    "src/2d/index.ts",
-    "src/3d/index.ts",
-    "src/4d/index.ts",
-    "src/vec2.ts",
-    "src/vec3.ts",
-    "src/vec4.ts",
-    "src/slerp.ts"
+    "src/index.ts",
   ],
   "outputs": [
     {
@@ -51,5 +45,6 @@
   "parametersFormat": "table",
   "interfacePropertiesFormat": "table",
   "classPropertiesFormat": "table",
-  "typeDeclarationFormat": "table"
+  "typeDeclarationFormat": "table",
+  "disableSources": true
 }

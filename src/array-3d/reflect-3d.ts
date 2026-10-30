@@ -1,0 +1,14 @@
+import { dot3D } from "./dot-3d.js";
+import type { ArrayVector3D } from "./types.js";
+
+/**
+ * Reflects a vector across a normal vector.
+ * The normal vector should be normalized (unit length).
+ * @param xyz - Vector as `[x, y, z]` to reflect
+ * @param normal - Normal vector to reflect across (must be normalized)
+ * @returns The reflected vector
+ */
+export const reflect3D = (xyz: ArrayVector3D, normal: ArrayVector3D): ArrayVector3D => {
+  const dot = dot3D(xyz, normal);
+  return [xyz[0] - 2 * dot * normal[0], xyz[1] - 2 * dot * normal[1], xyz[2] - 2 * dot * normal[2]];
+};

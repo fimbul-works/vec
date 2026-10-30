@@ -1,8 +1,3 @@
-/**
- * Documentation for spherical linear interpolation functions.
- * @module Slerp
- */
-
 const PI2 = 2 * Math.PI;
 const PI3 = 3 * Math.PI;
 

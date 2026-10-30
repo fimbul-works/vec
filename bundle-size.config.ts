@@ -6,7 +6,7 @@ export default {
     },
     {
       name: "Functional",
-      include: "bundles/fn*d.js",
+      include: "bundles/array*d.js",
     },
     {
       name: "Classes",
