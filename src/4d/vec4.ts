@@ -1,3 +1,5 @@
+import type { Vec4Like } from "./types.js";
+
 /**
  * Documentation for 4D Vector class.
  * @module Vec4
@@ -8,7 +10,7 @@ const { sin, cos, acos, atan2, sqrt, abs, log, PI } = Math;
 /**
  * Represents a 4D vector with various operations.
  */
-export class Vec4 {
+export class Vec4 implements Vec4Like {
   #magnitude = 0;
   #prevXYZW = new Float64Array([0, 0, 0, 0]);
   #xyzw = new Float64Array(4);
@@ -53,8 +55,8 @@ export class Vec4 {
    * @param {Vec4} w - The second vector.
    * @returns {Vec4} A new Vec4 instance representing the sum.
    */
-  static add(v: Vec4, w: Vec4) {
-    return new Vec4(v.#xyzw[0] + w.#xyzw[0], v.#xyzw[1] + w.#xyzw[1], v.#xyzw[2] + w.#xyzw[2], v.#xyzw[3] + w.#xyzw[3]);
+  static add(v: Vec4Like, w: Vec4Like) {
+    return new Vec4(v.x + w.x, v.y + w.y, v.z + w.z, v.w + w.w);
   }
 
   /**
@@ -63,8 +65,8 @@ export class Vec4 {
    * @param {Vec4} w - The vector to subtract.
    * @returns {Vec4} A new Vec4 instance representing the difference.
    */
-  static subtract(v: Vec4, w: Vec4) {
-    return new Vec4(v.#xyzw[0] - w.#xyzw[0], v.#xyzw[1] - w.#xyzw[1], v.#xyzw[2] - w.#xyzw[2], v.#xyzw[3] - w.#xyzw[3]);
+  static subtract(v: Vec4Like, w: Vec4Like) {
+    return new Vec4(v.x - w.x, v.y - w.y, v.z - w.z, v.w - w.w);
   }
 
   /**
@@ -73,7 +75,7 @@ export class Vec4 {
    * @param w - The second vector.
    * @returns A new Vec4 instance representing the multiplied value.
    */
-  static multiply(v: Vec4, w: Vec4): Vec4 {
+  static multiply(v: Vec4Like, w: Vec4Like): Vec4 {
     return new Vec4(v.x * w.x, v.y * w.y, v.z * w.z, v.w * w.w);
   }
 
@@ -83,7 +85,7 @@ export class Vec4 {
    * @param w - Divisor.
    * @returns A new Vec4 instance representing the divided value.
    */
-  static divide(v: Vec4, w: Vec4): Vec4 {
+  static divide(v: Vec4Like, w: Vec4Like): Vec4 {
     return new Vec4(
       w.x === 0 ? Number.POSITIVE_INFINITY : v.x / w.x,
       w.y === 0 ? Number.POSITIVE_INFINITY : v.y / w.y,
@@ -98,11 +100,8 @@ export class Vec4 {
    * @param {Vec4} w - The second vector.
    * @returns {number} The angle between the vectors in radians.
    */
-  static angleBetween(v: Vec4, w: Vec4) {
-    return acos(
-      (v.#xyzw[0] * w.#xyzw[0] + v.#xyzw[1] * w.#xyzw[1] + v.#xyzw[2] * w.#xyzw[2] + v.#xyzw[3] * w.#xyzw[3]) /
-        (v.#magnitude * w.#magnitude),
-    );
+  static angleBetween(v: Vec4Like, w: Vec4Like) {
+    return acos((v.x * w.x + v.y * w.y + v.z * w.z + v.w * w.w) / (v.magnitude * w.magnitude));
   }
 
   /**
@@ -111,13 +110,8 @@ export class Vec4 {
    * @param {Vec4} w - The second vector.
    * @returns {number} The distance between the vectors.
    */
-  static distance(v: Vec4, w: Vec4) {
-    return sqrt(
-      (v.#xyzw[0] - w.#xyzw[0]) ** 2 +
-        (v.#xyzw[1] - w.#xyzw[1]) ** 2 +
-        (v.#xyzw[2] - w.#xyzw[2]) ** 2 +
-        (v.#xyzw[3] - w.#xyzw[3]) ** 2,
-    );
+  static distance(v: Vec4Like, w: Vec4Like) {
+    return sqrt((v.x - w.x) ** 2 + (v.y - w.y) ** 2 + (v.z - w.z) ** 2 + (v.w - w.w) ** 2);
   }
 
   /**
@@ -126,11 +120,11 @@ export class Vec4 {
    * @param {Vec4} w - The second vector.
    * @returns {number} The Chebyshev distance between the vectors.
    */
-  static distanceChebyshev(v: Vec4, w: Vec4) {
-    const absX = abs(v.#xyzw[0] - w.#xyzw[0]);
-    const absY = abs(v.#xyzw[1] - w.#xyzw[1]);
-    const absZ = abs(v.#xyzw[2] - w.#xyzw[2]);
-    const absW = abs(v.#xyzw[3] - w.#xyzw[3]);
+  static distanceChebyshev(v: Vec4Like, w: Vec4Like) {
+    const absX = abs(v.x - w.x);
+    const absY = abs(v.y - w.y);
+    const absZ = abs(v.z - w.z);
+    const absW = abs(v.w - w.w);
     return absX >= absY && absX >= absZ && absX >= absW
       ? absX
       : absY >= absZ && absY >= absW
@@ -146,13 +140,8 @@ export class Vec4 {
    * @param {Vec4} w - The second vector.
    * @returns {number} The Manhattan distance between the vectors.
    */
-  static distanceManhattan(v: Vec4, w: Vec4) {
-    return (
-      abs(v.#xyzw[0] - w.#xyzw[0]) +
-      abs(v.#xyzw[1] - w.#xyzw[1]) +
-      abs(v.#xyzw[2] - w.#xyzw[2]) +
-      abs(v.#xyzw[3] - w.#xyzw[3])
-    );
+  static distanceManhattan(v: Vec4Like, w: Vec4Like) {
+    return abs(v.x - w.x) + abs(v.y - w.y) + abs(v.z - w.z) + abs(v.w - w.w);
   }
 
   /**
@@ -162,14 +151,8 @@ export class Vec4 {
    * @param {number} p - The order of the Minkowski distance.
    * @returns {number} The Minkowski distance between the vectors.
    */
-  static distanceMinkowski(v: Vec4, w: Vec4, p: number) {
-    return (
-      (abs(v.#xyzw[0] - w.#xyzw[0]) ** p +
-        abs(v.#xyzw[1] - w.#xyzw[1]) ** p +
-        abs(v.#xyzw[2] - w.#xyzw[2]) ** p +
-        abs(v.#xyzw[3] - w.#xyzw[3]) ** p) **
-      (1 / p)
-    );
+  static distanceMinkowski(v: Vec4Like, w: Vec4Like, p: number) {
+    return (abs(v.x - w.x) ** p + abs(v.y - w.y) ** p + abs(v.z - w.z) ** p + abs(v.w - w.w) ** p) ** (1 / p);
   }
 
   /**
@@ -178,13 +161,8 @@ export class Vec4 {
    * @param {Vec4} w - The second vector.
    * @returns {number} The squared distance between the vectors.
    */
-  static distanceSq(v: Vec4, w: Vec4) {
-    return (
-      (v.#xyzw[0] - w.#xyzw[0]) ** 2 +
-      (v.#xyzw[1] - w.#xyzw[1]) ** 2 +
-      (v.#xyzw[2] - w.#xyzw[2]) ** 2 +
-      (v.#xyzw[3] - w.#xyzw[3]) ** 2
-    );
+  static distanceSq(v: Vec4Like, w: Vec4Like) {
+    return (v.x - w.x) ** 2 + (v.y - w.y) ** 2 + (v.z - w.z) ** 2 + (v.w - w.w) ** 2;
   }
 
   /**
@@ -193,8 +171,8 @@ export class Vec4 {
    * @param {Vec4} w - The second vector.
    * @returns {number} The dot product of the two vectors.
    */
-  static dot(v: Vec4, w: Vec4) {
-    return v.#xyzw[0] * w.#xyzw[0] + v.#xyzw[1] * w.#xyzw[1] + v.#xyzw[2] * w.#xyzw[2] + v.#xyzw[3] * w.#xyzw[3];
+  static dot(v: Vec4Like, w: Vec4Like) {
+    return v.x * w.x + v.y * w.y + v.z * w.z + v.w * w.w;
   }
 
   /**
@@ -204,19 +182,15 @@ export class Vec4 {
    * @param normal - The normal vector to reflect across (must be normalized).
    * @returns A new Vec4 instance representing the reflected vector.
    */
-  static reflect(v: Vec4, normal: Vec4): Vec4 {
+  static reflect(v: Vec4Like, normal: Vec4Like): Vec4 {
     // R = V - 2(V·N)N
-    const dot =
-      v.#xyzw[0] * normal.#xyzw[0] +
-      v.#xyzw[1] * normal.#xyzw[1] +
-      v.#xyzw[2] * normal.#xyzw[2] +
-      v.#xyzw[3] * normal.#xyzw[3];
+    const dot = v.x * normal.x + v.y * normal.y + v.z * normal.z + v.w * normal.w;
 
     return new Vec4(
-      v.#xyzw[0] - 2 * dot * normal.#xyzw[0],
-      v.#xyzw[1] - 2 * dot * normal.#xyzw[1],
-      v.#xyzw[2] - 2 * dot * normal.#xyzw[2],
-      v.#xyzw[3] - 2 * dot * normal.#xyzw[3],
+      v.x - 2 * dot * normal.x,
+      v.y - 2 * dot * normal.y,
+      v.z - 2 * dot * normal.z,
+      v.w - 2 * dot * normal.w,
     );
   }
   /**
@@ -319,11 +293,11 @@ export class Vec4 {
    * @param {Vec4} v - The vector to check.
    * @returns {boolean} True if the vector has infinite components, false otherwise.
    */
-  static isInfinite(v: Vec4) {
-    const x = v.#xyzw[0];
-    const y = v.#xyzw[1];
-    const z = v.#xyzw[2];
-    const w = v.#xyzw[3];
+  static isInfinite(v: Vec4Like) {
+    const x = v.x;
+    const y = v.y;
+    const z = v.z;
+    const w = v.w;
     return (
       x === +Number.POSITIVE_INFINITY ||
       x === Number.NEGATIVE_INFINITY ||
@@ -341,8 +315,8 @@ export class Vec4 {
    * @param {Vec4} v - The vector to check.
    * @returns {boolean} True if the vector has NaN components, false otherwise.
    */
-  static isNaN(v: Vec4) {
-    return Number.isNaN(v.#xyzw[0]) || Number.isNaN(v.#xyzw[1]) || Number.isNaN(v.#xyzw[2]) || Number.isNaN(v.#xyzw[3]);
+  static isNaN(v: Vec4Like) {
+    return Number.isNaN(v.x) || Number.isNaN(v.y) || Number.isNaN(v.z) || Number.isNaN(v.w);
   }
 
   /**
@@ -350,8 +324,8 @@ export class Vec4 {
    * @param {Vec4} v - The vector to check.
    * @returns {boolean} True if the vector is zero, false otherwise.
    */
-  static isZero(v: Vec4) {
-    return v.#xyzw[0] === 0 && v.#xyzw[1] === 0 && v.#xyzw[2] === 0 && v.#xyzw[3] === 0;
+  static isZero(v: Vec4Like) {
+    return v.x === 0 && v.y === 0 && v.z === 0 && v.w === 0;
   }
 
   /**
@@ -361,19 +335,14 @@ export class Vec4 {
    * @param {number} t - The interpolation parameter (0 to 1).
    * @returns {Vec4} A new Vec4 instance representing the interpolated vector.
    */
-  static lerp(v: Vec4, w: Vec4, t: number) {
+  static lerp(v: Vec4Like, w: Vec4Like, t: number) {
     if (t > 1) t = 1;
     else if (t < 0) t = 0;
-    const vX = v.#xyzw[0];
-    const vY = v.#xyzw[1];
-    const vZ = v.#xyzw[2];
-    const vW = v.#xyzw[3];
-    return new Vec4(
-      vX + (w.#xyzw[0] - vX) * t,
-      vY + (w.#xyzw[1] - vY) * t,
-      vZ + (w.#xyzw[2] - vZ) * t,
-      vW + (w.#xyzw[3] - vW) * t,
-    );
+    const vX = v.x;
+    const vY = v.y;
+    const vZ = v.z;
+    const vW = v.w;
+    return new Vec4(vX + (w.x - vX) * t, vY + (w.y - vY) * t, vZ + (w.z - vZ) * t, vW + (w.w - vW) * t);
   }
 
   /**
@@ -381,8 +350,8 @@ export class Vec4 {
    * @param {Vec4} v - The vector to negate.
    * @returns {Vec4} A new Vec4 instance representing the negated vector.
    */
-  static negate(v: Vec4) {
-    return new Vec4(-v.#xyzw[0], -v.#xyzw[1], -v.#xyzw[2], -v.#xyzw[3]);
+  static negate(v: Vec4Like) {
+    return new Vec4(-v.x, -v.y, -v.z, -v.w);
   }
 
   /**
@@ -390,9 +359,9 @@ export class Vec4 {
    * @param {Vec4} v - The vector to normalize.
    * @returns {Vec4} A new Vec4 instance representing the normalized vector.
    */
-  static normalize(v: Vec4) {
-    const m = v.#magnitude;
-    return new Vec4(v.#xyzw[0] / m, v.#xyzw[1] / m, v.#xyzw[2] / m, v.#xyzw[3] / m);
+  static normalize(v: Vec4Like) {
+    const m = v.magnitude;
+    return new Vec4(v.x / m, v.y / m, v.z / m, v.w / m);
   }
 
   /**
@@ -401,14 +370,14 @@ export class Vec4 {
    * @param {Vec4} w - The vector to project onto.
    * @returns {Vec4} A new Vec4 instance representing the projected vector.
    */
-  static project(v: Vec4, w: Vec4) {
-    const vM = v.#magnitude;
-    const wM = w.#magnitude;
-    const wX = w.#xyzw[0];
-    const wY = w.#xyzw[1];
-    const wZ = w.#xyzw[2];
-    const wW = w.#xyzw[3];
-    const f = vM * cos(acos((v.#xyzw[0] * wX + v.#xyzw[1] * wY + v.#xyzw[2] * wZ + v.#xyzw[3] * wW) / (vM * wM)));
+  static project(v: Vec4Like, w: Vec4Like) {
+    const vM = v.magnitude;
+    const wM = w.magnitude;
+    const wX = w.x;
+    const wY = w.y;
+    const wZ = w.z;
+    const wW = w.w;
+    const f = vM * cos(acos((v.x * wX + v.y * wY + v.z * wZ + v.w * wW) / (vM * wM)));
     return new Vec4((wX / wM) * f, (wY / wM) * f, (wZ / wM) * f, (wW / wM) * f);
   }
 
@@ -437,10 +406,8 @@ export class Vec4 {
    * @param {Vec4} w - The second vector.
    * @returns {boolean} True if the vectors are equal, false otherwise.
    */
-  static satisfyEquality(v: Vec4, w: Vec4) {
-    return (
-      v.#xyzw[0] === w.#xyzw[0] && v.#xyzw[1] === w.#xyzw[1] && v.#xyzw[2] === w.#xyzw[2] && v.#xyzw[3] === w.#xyzw[3]
-    );
+  static satisfyEquality(v: Vec4Like, w: Vec4Like) {
+    return v.x === w.x && v.y === w.y && v.z === w.z && v.w === w.w;
   }
 
   /**
@@ -449,13 +416,8 @@ export class Vec4 {
    * @param {Vec4} w - The second vector.
    * @returns {boolean} True if the vectors are opposite, false otherwise.
    */
-  static satisfyOpposition(v: Vec4, w: Vec4) {
-    return (
-      v.#xyzw[0] === -w.#xyzw[0] &&
-      v.#xyzw[1] === -w.#xyzw[1] &&
-      v.#xyzw[2] === -w.#xyzw[2] &&
-      v.#xyzw[3] === -w.#xyzw[3]
-    );
+  static satisfyOpposition(v: Vec4Like, w: Vec4Like) {
+    return v.x === -w.x && v.y === -w.y && v.z === -w.z && v.w === -w.w;
   }
 
   /**
@@ -465,12 +427,9 @@ export class Vec4 {
    * @param epsilon - The maximum difference between components to consider them equal.
    * @returns True if the vectors are equal within epsilon, false otherwise.
    */
-  static equals(v: Vec4, w: Vec4, epsilon: number = Number.EPSILON): boolean {
+  static equals(v: Vec4Like, w: Vec4Like, epsilon: number = Number.EPSILON): boolean {
     return (
-      abs(v.#xyzw[0] - w.#xyzw[0]) <= epsilon &&
-      abs(v.#xyzw[1] - w.#xyzw[1]) <= epsilon &&
-      abs(v.#xyzw[2] - w.#xyzw[2]) <= epsilon &&
-      abs(v.#xyzw[3] - w.#xyzw[3]) <= epsilon
+      abs(v.x - w.x) <= epsilon && abs(v.y - w.y) <= epsilon && abs(v.z - w.z) <= epsilon && abs(v.w - w.w) <= epsilon
     );
   }
 
@@ -480,8 +439,8 @@ export class Vec4 {
    * @param {number} c - The scalar value.
    * @returns {Vec4} A new Vec4 instance representing the scaled vector.
    */
-  static scale(v: Vec4, c: number) {
-    return new Vec4(v.#xyzw[0] * c, v.#xyzw[1] * c, v.#xyzw[2] * c, v.#xyzw[3] * c);
+  static scale(v: Vec4Like, c: number) {
+    return new Vec4(v.x * c, v.y * c, v.z * c, v.w * c);
   }
 
   /**
@@ -771,11 +730,11 @@ export class Vec4 {
    * @param {Vec4} v - The vector to add.
    * @returns {this} This Vec4 instance for method chaining.
    */
-  add(v: Vec4) {
-    this.#xyzw[0] += v.#xyzw[0];
-    this.#xyzw[1] += v.#xyzw[1];
-    this.#xyzw[2] += v.#xyzw[2];
-    this.#xyzw[3] += v.#xyzw[3];
+  add(v: Vec4Like) {
+    this.#xyzw[0] += v.x;
+    this.#xyzw[1] += v.y;
+    this.#xyzw[2] += v.z;
+    this.#xyzw[3] += v.w;
     this.#computeMagnitude();
     return this;
   }
@@ -785,11 +744,11 @@ export class Vec4 {
    * @param v - The vector to subtract.
    * @returns This Vec4 instance for method chaining.
    */
-  subtract(v: Vec4): this {
-    this.#xyzw[0] -= v.#xyzw[0];
-    this.#xyzw[1] -= v.#xyzw[1];
-    this.#xyzw[2] -= v.#xyzw[2];
-    this.#xyzw[3] -= v.#xyzw[3];
+  subtract(v: Vec4Like): this {
+    this.#xyzw[0] -= v.x;
+    this.#xyzw[1] -= v.y;
+    this.#xyzw[2] -= v.z;
+    this.#xyzw[3] -= v.w;
     this.#computeMagnitude();
     return this;
   }
@@ -799,10 +758,11 @@ export class Vec4 {
    * @param v - The vector to multiply with.
    * @returns This Vec4 instance for method chaining.
    */
-  multiply(v: Vec4): this {
-    this.#xyzw[0] *= v.#xyzw[0];
-    this.#xyzw[1] *= v.#xyzw[1];
-    this.#xyzw[2] *= v.#xyzw[2];
+  multiply(v: Vec4Like): this {
+    this.#xyzw[0] *= v.x;
+    this.#xyzw[1] *= v.y;
+    this.#xyzw[2] *= v.z;
+    this.#xyzw[3] *= v.w;
     this.#computeMagnitude();
     return this;
   }
@@ -812,11 +772,11 @@ export class Vec4 {
    * @param v - The vector to divide with.
    * @returns This Vec4 instance for method chaining.
    */
-  divide(v: Vec4): this {
-    this.#xyzw[0] = v.#xyzw[0] === 0 ? Number.POSITIVE_INFINITY : this.#xyzw[0] / v.#xyzw[0];
-    this.#xyzw[1] = v.#xyzw[1] === 0 ? Number.POSITIVE_INFINITY : this.#xyzw[1] / v.#xyzw[1];
-    this.#xyzw[2] = v.#xyzw[2] === 0 ? Number.POSITIVE_INFINITY : this.#xyzw[2] / v.#xyzw[2];
-    this.#xyzw[3] = v.#xyzw[3] === 0 ? Number.POSITIVE_INFINITY : this.#xyzw[3] / v.#xyzw[3];
+  divide(v: Vec4Like): this {
+    this.#xyzw[0] = v.x === 0 ? Number.POSITIVE_INFINITY : this.#xyzw[0] / v.x;
+    this.#xyzw[1] = v.y === 0 ? Number.POSITIVE_INFINITY : this.#xyzw[1] / v.y;
+    this.#xyzw[2] = v.z === 0 ? Number.POSITIVE_INFINITY : this.#xyzw[2] / v.z;
+    this.#xyzw[3] = v.w === 0 ? Number.POSITIVE_INFINITY : this.#xyzw[3] / v.w;
     this.#computeMagnitude();
     return this;
   }
@@ -826,13 +786,10 @@ export class Vec4 {
    * @param v - The other vector.
    * @returns The angle between the vectors in radians.
    */
-  angleBetween(v: Vec4): number {
+  angleBetween(v: Vec4Like): number {
     return acos(
-      (this.#xyzw[0] * v.#xyzw[0] +
-        this.#xyzw[1] * v.#xyzw[1] +
-        this.#xyzw[2] * v.#xyzw[2] +
-        this.#xyzw[3] * v.#xyzw[3]) /
-        (this.#magnitude * v.#magnitude),
+      (this.#xyzw[0] * v.x + this.#xyzw[1] * v.y + this.#xyzw[2] * v.z + this.#xyzw[3] * v.w) /
+        (this.#magnitude * v.magnitude),
     );
   }
 
@@ -873,11 +830,11 @@ export class Vec4 {
    * @param v - The vector to copy from.
    * @returns This Vec2 instance for method chaining.
    */
-  copy(v: Vec4) {
-    this.#xyzw[0] = v.#xyzw[0];
-    this.#xyzw[1] = v.#xyzw[1];
-    this.#xyzw[2] = v.#xyzw[2];
-    this.#xyzw[3] = v.#xyzw[3];
+  copy(v: Vec4Like) {
+    this.#xyzw[0] = v.x;
+    this.#xyzw[1] = v.y;
+    this.#xyzw[2] = v.z;
+    this.#xyzw[3] = v.w;
     this.#computeMagnitude();
     return this;
   }
@@ -887,12 +844,9 @@ export class Vec4 {
    * @param v - The other vector.
    * @returns The distance between the vectors.
    */
-  distance(v: Vec4): number {
+  distance(v: Vec4Like): number {
     return sqrt(
-      (this.#xyzw[0] - v.#xyzw[0]) ** 2 +
-        (this.#xyzw[1] - v.#xyzw[1]) ** 2 +
-        (this.#xyzw[2] - v.#xyzw[2]) ** 2 +
-        (this.#xyzw[3] - v.#xyzw[3]) ** 2,
+      (this.#xyzw[0] - v.x) ** 2 + (this.#xyzw[1] - v.y) ** 2 + (this.#xyzw[2] - v.z) ** 2 + (this.#xyzw[3] - v.w) ** 2,
     );
   }
 
@@ -901,11 +855,11 @@ export class Vec4 {
    * @param {Vec4} v - The other vector.
    * @returns {number} The Chebyshev distance between the vectors.
    */
-  distanceChebyshev(v: Vec4) {
-    const absX = abs(this.#xyzw[0] - v.#xyzw[0]);
-    const absY = abs(this.#xyzw[1] - v.#xyzw[1]);
-    const absZ = abs(this.#xyzw[2] - v.#xyzw[2]);
-    const absW = abs(this.#xyzw[3] - v.#xyzw[3]);
+  distanceChebyshev(v: Vec4Like) {
+    const absX = abs(this.#xyzw[0] - v.x);
+    const absY = abs(this.#xyzw[1] - v.y);
+    const absZ = abs(this.#xyzw[2] - v.z);
+    const absW = abs(this.#xyzw[3] - v.w);
     return absX >= absY && absX >= absZ && absX >= absW
       ? absX
       : absY >= absZ && absY >= absW
@@ -920,13 +874,8 @@ export class Vec4 {
    * @param {Vec4} v - The other vector.
    * @returns {number} The Manhattan distance between the vectors.
    */
-  distanceManhattan(v: Vec4) {
-    return (
-      abs(this.#xyzw[0] - v.#xyzw[0]) +
-      abs(this.#xyzw[1] - v.#xyzw[1]) +
-      abs(this.#xyzw[2] - v.#xyzw[2]) +
-      abs(this.#xyzw[3] - v.#xyzw[3])
-    );
+  distanceManhattan(v: Vec4Like) {
+    return abs(this.#xyzw[0] - v.x) + abs(this.#xyzw[1] - v.y) + abs(this.#xyzw[2] - v.z) + abs(this.#xyzw[3] - v.w);
   }
 
   /**
@@ -935,12 +884,12 @@ export class Vec4 {
    * @param {number} p - The order of the Minkowski distance.
    * @returns {number} The Minkowski distance between the vectors.
    */
-  distanceMinkowski(v: Vec4, p: number) {
+  distanceMinkowski(v: Vec4Like, p: number) {
     return (
-      (abs(this.#xyzw[0] - v.#xyzw[0]) ** p +
-        abs(this.#xyzw[1] - v.#xyzw[1]) ** p +
-        abs(this.#xyzw[2] - v.#xyzw[2]) ** p +
-        abs(this.#xyzw[3] - v.#xyzw[3]) ** p) **
+      (abs(this.#xyzw[0] - v.x) ** p +
+        abs(this.#xyzw[1] - v.y) ** p +
+        abs(this.#xyzw[2] - v.z) ** p +
+        abs(this.#xyzw[3] - v.w) ** p) **
       (1 / p)
     );
   }
@@ -950,12 +899,9 @@ export class Vec4 {
    * @param v - The other vector.
    * @returns The squared distance between the vectors.
    */
-  distanceSq(v: Vec4): number {
+  distanceSq(v: Vec4Like): number {
     return (
-      (this.#xyzw[0] - v.#xyzw[0]) ** 2 +
-      (this.#xyzw[1] - v.#xyzw[1]) ** 2 +
-      (this.#xyzw[2] - v.#xyzw[2]) ** 2 +
-      (this.#xyzw[3] - v.#xyzw[3]) ** 2
+      (this.#xyzw[0] - v.x) ** 2 + (this.#xyzw[1] - v.y) ** 2 + (this.#xyzw[2] - v.z) ** 2 + (this.#xyzw[3] - v.w) ** 2
     );
   }
 
@@ -964,10 +910,8 @@ export class Vec4 {
    * @param v - The other vector.
    * @returns The dot product of the vectors.
    */
-  dot(v: Vec4): number {
-    return (
-      this.#xyzw[0] * v.#xyzw[0] + this.#xyzw[1] * v.#xyzw[1] + this.#xyzw[2] * v.#xyzw[2] + this.#xyzw[3] * v.#xyzw[3]
-    );
+  dot(v: Vec4Like): number {
+    return this.#xyzw[0] * v.x + this.#xyzw[1] * v.y + this.#xyzw[2] * v.z + this.#xyzw[3] * v.w;
   }
 
   /**
@@ -976,17 +920,14 @@ export class Vec4 {
    * @param normal - The normal vector to reflect across (must be normalized).
    * @returns This Vec4 instance for method chaining.
    */
-  reflect(normal: Vec4): this {
+  reflect(normal: Vec4Like): this {
     const dot =
-      this.#xyzw[0] * normal.#xyzw[0] +
-      this.#xyzw[1] * normal.#xyzw[1] +
-      this.#xyzw[2] * normal.#xyzw[2] +
-      this.#xyzw[3] * normal.#xyzw[3];
+      this.#xyzw[0] * normal.x + this.#xyzw[1] * normal.y + this.#xyzw[2] * normal.z + this.#xyzw[3] * normal.w;
 
-    this.#xyzw[0] -= 2 * dot * normal.#xyzw[0];
-    this.#xyzw[1] -= 2 * dot * normal.#xyzw[1];
-    this.#xyzw[2] -= 2 * dot * normal.#xyzw[2];
-    this.#xyzw[3] -= 2 * dot * normal.#xyzw[3];
+    this.#xyzw[0] -= 2 * dot * normal.x;
+    this.#xyzw[1] -= 2 * dot * normal.y;
+    this.#xyzw[2] -= 2 * dot * normal.z;
+    this.#xyzw[3] -= 2 * dot * normal.w;
     this.#computeMagnitude();
     return this;
   }
@@ -1072,13 +1013,13 @@ export class Vec4 {
    * @param v - The vector to look at.
    * @returns This Vec4 instance for method chaining.
    */
-  lookAt(v: Vec4): this {
+  lookAt(v: Vec4Like): this {
     const m = this.#magnitude;
-    const vM = v.#magnitude;
-    this.#xyzw[0] = (v.#xyzw[0] / vM) * m;
-    this.#xyzw[1] = (v.#xyzw[1] / vM) * m;
-    this.#xyzw[2] = (v.#xyzw[2] / vM) * m;
-    this.#xyzw[3] = (v.#xyzw[3] / vM) * m;
+    const vM = v.magnitude;
+    this.#xyzw[0] = (v.x / vM) * m;
+    this.#xyzw[1] = (v.y / vM) * m;
+    this.#xyzw[2] = (v.z / vM) * m;
+    this.#xyzw[3] = (v.w / vM) * m;
     this.#computeMagnitude();
     return this;
   }
@@ -1115,13 +1056,13 @@ export class Vec4 {
    * @param v - The vector to project onto.
    * @returns This Vec4 instance for method chaining.
    */
-  project(v: Vec4): this {
+  project(v: Vec4Like): this {
     const m = this.#magnitude;
-    const vM = v.#magnitude;
-    const vX = v.#xyzw[0];
-    const vY = v.#xyzw[1];
-    const vZ = v.#xyzw[2];
-    const vW = v.#xyzw[3];
+    const vM = v.magnitude;
+    const vX = v.x;
+    const vY = v.y;
+    const vZ = v.z;
+    const vW = v.w;
     const f =
       m * cos(acos((this.#xyzw[0] * vX + this.#xyzw[1] * vY + this.#xyzw[2] * vZ + this.#xyzw[3] * vW) / (m * vM)));
     this.#xyzw[0] = (vX / vM) * f;
@@ -1147,13 +1088,8 @@ export class Vec4 {
    * @param v - The other vector.
    * @returns True if the vectors are equal, false otherwise.
    */
-  satisfyEquality(v: Vec4): boolean {
-    return (
-      this.#xyzw[0] === v.#xyzw[0] &&
-      this.#xyzw[1] === v.#xyzw[1] &&
-      this.#xyzw[2] === v.#xyzw[2] &&
-      this.#xyzw[3] === v.#xyzw[3]
-    );
+  satisfyEquality(v: Vec4Like): boolean {
+    return this.#xyzw[0] === v.x && this.#xyzw[1] === v.y && this.#xyzw[2] === v.z && this.#xyzw[3] === v.w;
   }
 
   /**
@@ -1161,13 +1097,8 @@ export class Vec4 {
    * @param v - The other vector.
    * @returns True if the vectors are opposite, false otherwise.
    */
-  satisfyOpposition(v: Vec4): boolean {
-    return (
-      this.#xyzw[0] === -v.#xyzw[0] &&
-      this.#xyzw[1] === -v.#xyzw[1] &&
-      this.#xyzw[2] === -v.#xyzw[2] &&
-      this.#xyzw[3] === -v.#xyzw[3]
-    );
+  satisfyOpposition(v: Vec4Like): boolean {
+    return this.#xyzw[0] === -v.x && this.#xyzw[1] === -v.y && this.#xyzw[2] === -v.z && this.#xyzw[3] === -v.w;
   }
 
   /**
@@ -1176,12 +1107,12 @@ export class Vec4 {
    * @param epsilon - The maximum difference between components to consider them equal.
    * @returns True if the vectors are equal within epsilon, false otherwise.
    */
-  equals(v: Vec4, epsilon: number = Number.EPSILON): boolean {
+  equals(v: Vec4Like, epsilon: number = Number.EPSILON): boolean {
     return (
-      abs(this.#xyzw[0] - v.#xyzw[0]) <= epsilon &&
-      abs(this.#xyzw[1] - v.#xyzw[1]) <= epsilon &&
-      abs(this.#xyzw[2] - v.#xyzw[2]) <= epsilon &&
-      abs(this.#xyzw[3] - v.#xyzw[3]) <= epsilon
+      abs(this.#xyzw[0] - v.x) <= epsilon &&
+      abs(this.#xyzw[1] - v.y) <= epsilon &&
+      abs(this.#xyzw[2] - v.z) <= epsilon &&
+      abs(this.#xyzw[3] - v.w) <= epsilon
     );
   }
 
@@ -1244,7 +1175,7 @@ export class Vec4 {
    * Serializes the vector to a JSON-friendly format.
    * @returns A JSON-friendly object representation of the vector.
    */
-  toJSON(): { x: number; y: number } {
+  toJSON(): { x: number; y: number; z: number; w: number } {
     return this.toObject();
   }
 }

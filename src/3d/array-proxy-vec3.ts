@@ -69,6 +69,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @throws Error when z-component is out of target array bounds.
    */
   setTarget(target: T, offset: number, stride: number = 0): this {
+    this.validateIndices(target, offset, stride);
     this.#t = target;
     this.#o = offset;
     this.#s = stride;
@@ -89,8 +90,21 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @throws Error when z-component is out of target bounds.
    */
   set offset(offset) {
+    this.validateIndices(this.#t, offset, this.#s);
     this.#o = offset;
     this.calculateIndices();
+  }
+
+  private validateIndices(target: T, offset: number, stride: number): void {
+    if (
+      !Number.isInteger(offset) ||
+      !Number.isInteger(stride) ||
+      offset < 0 ||
+      stride < 0 ||
+      offset + 2 * (stride + 1) >= target.length
+    ) {
+      throw new Error("Index out of bounds");
+    }
   }
 
   /**
@@ -99,14 +113,10 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @throws Error when z-component is out of target bounds.
    */
   private calculateIndices(): void {
-    const x = this.#o;
-    const stride = this.#s;
-    const y = x + stride + 1;
-    const z = x + stride * 2 + 2;
-    if (this.#t[this.#iy] >= this.#t.length) throw new Error("Index out of bounds");
-    this.#t[this.#ix] = x;
-    this.#t[this.#iy] = y;
-    this.#t[this.#iz] = z;
+    this.validateIndices(this.#t, this.#o, this.#s);
+    this.#ix = this.#o;
+    this.#iy = this.#o + this.#s + 1;
+    this.#iz = this.#o + 2 * (this.#s + 1);
   }
 
   /**
