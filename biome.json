@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.5.15/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.6.7/schema.json",
   "root": true,
   "formatter": {
     "indentStyle": "space",
@@ -20,7 +20,8 @@
         "noForEach": "off",
         "noCommaOperator": "off",
         "noArguments": "off",
-        "noImportantStyles": "off"
+        "noImportantStyles": "off",
+        "useMathMinMax": "off"
       },
       "suspicious": {
         "noAssignInExpressions": "off",
