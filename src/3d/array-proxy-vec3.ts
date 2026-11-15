@@ -10,113 +10,99 @@ const { sin, cos, atan2, sqrt, abs, acos } = Math;
  */
 export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Like {
   /**
-   * Targt array.
+   * Previous values.
    */
-  #t: T;
-
+  #prev = new Float64Array([0, 0, 0]);
+  /**
+   * Magnitude.
+   */
+  #mag = 0;
+  /**
+   * Target array.
+   */
+  #target: T;
   /**
    * Starting offset in target array.
    */
-  #o: number;
-
+  #offset: number;
   /**
    * Gap between components (stride).
    */
-  #s: number;
-
+  #gap: number;
   /**
    * Index for the x-componet.
    */
   #ix: number = 0;
-
   /**
    * Index for the y-componet.
    */
   #iy: number = 1;
-
   /**
    * Index for the y-componet.
    */
   #iz: number = 2;
 
   /**
-   * Previous values.
-   */
-  #prev: Float64Array = new Float64Array([0, 0, 0]);
-
-  /**
-   * Magniude.
-   */
-  #mag = 0;
-
-  /**
    * @param target - The target array.
    * @param offset - The offset of the array.
-   * @param stride - The stride between indices.
+   * @param gap - The stride between indices.
+   * @throws Error when offset is negative, or not an integer.
+   * @throws Error when gap is negative, or not an integer.
+   * @throws Error when z-component is out of target array bounds.
    */
-  constructor(target: T, offset: number, stride: number) {
-    this.#t = target;
-    this.#o = offset;
-    this.#s = stride;
-    this.calculateIndices();
+  constructor(target: T, offset: number, gap: number = 0) {
+    this.#target = target;
+    this.#offset = offset;
+    this.#gap = gap;
+    this.bind(target, offset, gap);
   }
 
   /**
    * Set the proxy target.
    * @param target - The target array.
    * @param offset - The offset in the array.
-   * @param stride - The stride between positions.
+   * @param gap - The gap (stride) between positions.
+   * @throws Error when offset is negative, or not an integer.
+   * @throws Error when gap is negative, or not an integer.
    * @throws Error when z-component is out of target array bounds.
    */
-  setTarget(target: T, offset: number, stride: number = 0): this {
-    this.validateIndices(target, offset, stride);
-    this.#t = target;
-    this.#o = offset;
-    this.#s = stride;
-    this.calculateIndices();
-    return this;
+  public bind(target: T, offset: number, gap: number): void {
+    if (!Number.isInteger(offset) || offset < 0) throw new Error(`Invalid offset: ${offset}`);
+    if (!Number.isInteger(gap) || gap < 0) throw new Error(`Invalid gap: ${gap}`);
+
+    const z = offset + (gap + 1) * 2;
+    if (z >= target.length) throw new Error(`Index out of bounds: ${z} >= ${target.length}`);
+
+    this.#target = target;
+    this.#offset = offset;
+    this.#gap = gap;
+    this.#ix = offset;
+    this.#iy = offset + gap + 1;
+    this.#iz = z;
   }
 
   /**
-   * Get the current offset in the target array.
+   * Get the starting offset in the target array.
    */
   get offset(): number {
-    return this.#o;
+    return this.#offset;
   }
 
   /**
-   * Set a new offset.
+   * Set a new starting offset.
    * @param offset - The offset in the target array.
+   * @throws Error when offset is negative, or not an integer.
    * @throws Error when z-component is out of target bounds.
    */
   set offset(offset) {
-    this.validateIndices(this.#t, offset, this.#s);
-    this.#o = offset;
-    this.calculateIndices();
-  }
-
-  private validateIndices(target: T, offset: number, stride: number): void {
-    if (
-      !Number.isInteger(offset) ||
-      !Number.isInteger(stride) ||
-      offset < 0 ||
-      stride < 0 ||
-      offset + 2 * (stride + 1) >= target.length
-    ) {
-      throw new Error("Index out of bounds");
-    }
+    this.bind(this.#target, offset, this.#gap);
   }
 
   /**
-   * Calculate indices in target array.
-   * @param offset - Starting offset in the array.
-   * @throws Error when z-component is out of target bounds.
+   * Range of min and max component indices.
    */
-  private calculateIndices(): void {
-    this.validateIndices(this.#t, this.#o, this.#s);
-    this.#ix = this.#o;
-    this.#iy = this.#o + this.#s + 1;
-    this.#iz = this.#o + 2 * (this.#s + 1);
+  get indexRange(): readonly [number, number] {
+    return [this.#offset, this.#iz] as const;
   }
 
   /**
@@ -124,7 +110,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns The x-component.
    */
   get x(): number {
-    return this.#t[this.#ix];
+    return this.#target[this.#ix];
   }
 
   /**
@@ -132,7 +118,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @param x - The new x-component.
    */
   set x(x: number) {
-    this.#t[this.#ix] = x;
+    this.#target[this.#ix] = x;
   }
 
   /**
@@ -140,7 +126,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns The y-component.
    */
   get y(): number {
-    return this.#t[this.#iy];
+    return this.#target[this.#iy];
   }
 
   /**
@@ -148,7 +134,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @param y - The new y-component.
    */
   set y(y: number) {
-    this.#t[this.#iy] = y;
+    this.#target[this.#iy] = y;
   }
 
   /**
@@ -156,7 +142,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns The z-component.
    */
   get z(): number {
-    return this.#t[this.#iz];
+    return this.#target[this.#iz];
   }
 
   /**
@@ -164,7 +150,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @param z - The new z-component.
    */
   set z(z: number) {
-    this.#t[this.#iz] = z;
+    this.#target[this.#iz] = z;
   }
 
   /**
@@ -172,7 +158,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns An array containing the x, y and z components of the vector.
    */
   get xyz(): ArrayVector3D {
-    return [this.#t[this.#ix], this.#t[this.#iy], this.#t[this.#iz]];
+    return [this.#target[this.#ix], this.#target[this.#iy], this.#target[this.#iz]];
   }
 
   /**
@@ -180,18 +166,16 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @param xyz - An array containing the new x, y and z components.
    */
   set xyz(xyz: ArrayVector3D) {
-    this.#t[this.#ix] = xyz[0] ?? 0;
-    this.#t[this.#iy] = xyz[1] ?? 0;
-    this.#t[this.#iz] = xyz[2] ?? 0;
+    this.#target[this.#ix] = xyz[0] ?? 0;
+    this.#target[this.#iy] = xyz[1] ?? 0;
+    this.#target[this.#iz] = xyz[2] ?? 0;
   }
 
   /**
    * Sets the magnitude (length) of the vector, maintaining its direction.
    */
   get magnitude(): number {
-    const x = this.#t[this.#ix],
-      y = this.#t[this.#iy],
-      z = this.#t[this.#iz];
+    const { x, y, z } = this;
     if (x !== this.#prev[0] || y !== this.#prev[1] || z !== this.#prev[2]) {
       this.#mag = sqrt(x ** 2 + y ** 2 + z ** 2);
       this.#prev[0] = x;
@@ -207,9 +191,9 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    */
   set magnitude(m: number) {
     const M = this.magnitude;
-    this.#t[this.#ix] = (this.#t[this.#ix] / M) * m;
-    this.#t[this.#iy] = (this.#t[this.#iy] / M) * m;
-    this.#t[this.#iz] = (this.#t[this.#iz] / M) * m;
+    this.#target[this.#ix] = (this.#target[this.#ix] / M) * m;
+    this.#target[this.#iy] = (this.#target[this.#iy] / M) * m;
+    this.#target[this.#iz] = (this.#target[this.#iz] / M) * m;
   }
 
   /**
@@ -226,7 +210,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns The Red-component.
    */
   get r() {
-    return this.#t[this.#ix];
+    return this.#target[this.#ix];
   }
 
   /**
@@ -235,7 +219,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns {void}
    */
   set r(r: number) {
-    this.#t[this.#ix] = r;
+    this.#target[this.#ix] = r;
   }
 
   /**
@@ -243,7 +227,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns The Green-component.
    */
   get g() {
-    return this.#t[this.#iy];
+    return this.#target[this.#iy];
   }
 
   /**
@@ -252,7 +236,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns {void}
    */
   set g(g: number) {
-    this.#t[this.#iy] = g;
+    this.#target[this.#iy] = g;
   }
 
   /**
@@ -260,7 +244,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns The Blue-component.
    */
   get b() {
-    return this.#t[this.#iz];
+    return this.#target[this.#iz];
   }
 
   /**
@@ -268,7 +252,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @param b - The new Blue-component.
    */
   set b(b: number) {
-    this.#t[this.#iz] = b;
+    this.#target[this.#iz] = b;
   }
 
   /**
@@ -292,7 +276,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns The angle in radians, always in the range [0, 2π).
    */
   get angleX(): number {
-    return atan2(sqrt(this.#t[this.#iy] ** 2 + this.#t[this.#iz] ** 2), this.#t[this.#ix]);
+    return atan2(sqrt(this.#target[this.#iy] ** 2 + this.#target[this.#iz] ** 2), this.#target[this.#ix]);
   }
 
   /**
@@ -300,7 +284,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns The angle in radians, always in the range [0, 2π).
    */
   get angleY(): number {
-    return atan2(sqrt(this.#t[this.#iz] ** 2 + this.#t[this.#ix] ** 2), this.#t[this.#iy]);
+    return atan2(sqrt(this.#target[this.#iz] ** 2 + this.#target[this.#ix] ** 2), this.#target[this.#iy]);
   }
 
   /**
@@ -308,7 +292,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns The angle in radians, always in the range [0, 2π).
    */
   get angleZ(): number {
-    return atan2(sqrt(this.#t[this.#ix] ** 2 + this.#t[this.#iy] ** 2), this.#t[this.#iz]);
+    return atan2(sqrt(this.#target[this.#ix] ** 2 + this.#target[this.#iy] ** 2), this.#target[this.#iz]);
   }
 
   /**
@@ -317,9 +301,9 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns `this` instance for method chaining.
    */
   add(v: Vec3Like): this {
-    this.#t[this.#ix] += v.x;
-    this.#t[this.#iy] += v.y;
-    this.#t[this.#iz] += v.z;
+    this.#target[this.#ix] += v.x;
+    this.#target[this.#iy] += v.y;
+    this.#target[this.#iz] += v.z;
     return this;
   }
 
@@ -329,9 +313,9 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns `this` instance for method chaining.
    */
   subtract(v: Vec3Like): this {
-    this.#t[this.#ix] -= v.x;
-    this.#t[this.#iy] -= v.y;
-    this.#t[this.#iz] -= v.z;
+    this.#target[this.#ix] -= v.x;
+    this.#target[this.#iy] -= v.y;
+    this.#target[this.#iz] -= v.z;
     return this;
   }
 
@@ -341,9 +325,9 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns `this` instance for method chaining.
    */
   multiply(v: Vec3Like): this {
-    this.#t[this.#ix] *= v.x;
-    this.#t[this.#iy] *= v.y;
-    this.#t[this.#iz] *= v.z;
+    this.#target[this.#ix] *= v.x;
+    this.#target[this.#iy] *= v.y;
+    this.#target[this.#iz] *= v.z;
     return this;
   }
 
@@ -353,9 +337,9 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns `this` instance for method chaining.
    */
   divide(v: Vec3Like): this {
-    this.#t[this.#ix] = this.#t[this.#ix] / v.x;
-    this.#t[this.#iy] = this.#t[this.#iy] / v.y;
-    this.#t[this.#iz] = this.#t[this.#iz] / v.z;
+    this.#target[this.#ix] = this.#target[this.#ix] / v.x;
+    this.#target[this.#iy] = this.#target[this.#iy] / v.y;
+    this.#target[this.#iz] = this.#target[this.#iz] / v.z;
     return this;
   }
 
@@ -367,7 +351,9 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
   angleBetween(v: Vec3Like): number {
     const M = this.magnitude;
     const vM = v.magnitude;
-    return acos((this.#t[this.#ix] * v.x + this.#t[this.#iy] * v.y + this.#t[this.#iz] * v.z) / (M * vM));
+    return acos(
+      (this.#target[this.#ix] * v.x + this.#target[this.#iy] * v.y + this.#target[this.#iz] * v.z) / (M * vM),
+    );
   }
 
   /**
@@ -379,13 +365,13 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
   clamp(min: number, max: number): this {
     const M = this.magnitude;
     if (M > max) {
-      this.#t[this.#ix] = (this.#t[this.#ix] / M) * max;
-      this.#t[this.#iy] = (this.#t[this.#iy] / M) * max;
-      this.#t[this.#iz] = (this.#t[this.#iz] / M) * max;
+      this.#target[this.#ix] = (this.#target[this.#ix] / M) * max;
+      this.#target[this.#iy] = (this.#target[this.#iy] / M) * max;
+      this.#target[this.#iz] = (this.#target[this.#iz] / M) * max;
     } else if (M < min) {
-      this.#t[this.#ix] = (this.#t[this.#ix] / M) * min;
-      this.#t[this.#iy] = (this.#t[this.#iy] / M) * min;
-      this.#t[this.#iz] = (this.#t[this.#iz] / M) * min;
+      this.#target[this.#ix] = (this.#target[this.#ix] / M) * min;
+      this.#target[this.#iy] = (this.#target[this.#iy] / M) * min;
+      this.#target[this.#iz] = (this.#target[this.#iz] / M) * min;
     }
     return this;
   }
@@ -395,7 +381,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns A new Vec3 instance with the same components.
    */
   clone() {
-    return new Vec3(this.#t[this.#ix], this.#t[this.#iy], this.#t[this.#iz]);
+    return new Vec3(this.#target[this.#ix], this.#target[this.#iy], this.#target[this.#iz]);
   }
 
   /**
@@ -404,9 +390,9 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns `this` instance for method chaining.
    */
   copy(v: Vec3Like): this {
-    this.#t[this.#ix] = v.x;
-    this.#t[this.#iy] = v.y;
-    this.#t[this.#iz] = v.z;
+    this.#target[this.#ix] = v.x;
+    this.#target[this.#iy] = v.y;
+    this.#target[this.#iz] = v.z;
     return this;
   }
 
@@ -416,7 +402,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns The dot product of the vectors.
    */
   dot(v: Vec3Like): number {
-    return this.#t[this.#ix] * v.x + this.#t[this.#iy] * v.y + this.#t[this.#iz] * v.z;
+    return this.#target[this.#ix] * v.x + this.#target[this.#iy] * v.y + this.#target[this.#iz] * v.z;
   }
 
   /**
@@ -425,15 +411,15 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns `this` instance for method chaining.
    */
   cross(v: Vec3Like): this {
-    const x = this.#t[this.#ix];
-    const y = this.#t[this.#iy];
-    const z = this.#t[this.#iz];
+    const x = this.#target[this.#ix];
+    const y = this.#target[this.#iy];
+    const z = this.#target[this.#iz];
     const vX = v.x;
     const vY = v.y;
     const vZ = v.z;
-    this.#t[this.#ix] = y * vZ - z * vY;
-    this.#t[this.#iy] = z * vX - x * vZ;
-    this.#t[this.#iz] = x * vY - y * vX;
+    this.#target[this.#ix] = y * vZ - z * vY;
+    this.#target[this.#iy] = z * vX - x * vZ;
+    this.#target[this.#iz] = x * vY - y * vX;
     return this;
   }
 
@@ -443,10 +429,11 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns `this` instance for method chaining.
    */
   reflect(normal: Vec3Like): this {
-    const dot = this.#t[this.#ix] * normal.x + this.#t[this.#iy] * normal.y + this.#t[this.#iz] * normal.z;
-    this.#t[this.#ix] -= 2 * dot * normal.x;
-    this.#t[this.#iy] -= 2 * dot * normal.y;
-    this.#t[this.#iz] -= 2 * dot * normal.z;
+    const dot =
+      this.#target[this.#ix] * normal.x + this.#target[this.#iy] * normal.y + this.#target[this.#iz] * normal.z;
+    this.#target[this.#ix] -= 2 * dot * normal.x;
+    this.#target[this.#iy] -= 2 * dot * normal.y;
+    this.#target[this.#iz] -= 2 * dot * normal.z;
     return this;
   }
 
@@ -456,7 +443,9 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns The distance between the vectors.
    */
   distance(v: Vec3Like): number {
-    return sqrt((this.#t[this.#ix] - v.x) ** 2 + (this.#t[this.#iy] - v.y) ** 2 + (this.#t[this.#iz] - v.z) ** 2);
+    return sqrt(
+      (this.#target[this.#ix] - v.x) ** 2 + (this.#target[this.#iy] - v.y) ** 2 + (this.#target[this.#iz] - v.z) ** 2,
+    );
   }
 
   /**
@@ -465,9 +454,9 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns The Chebyshev distance between the vectors.
    */
   distanceChebyshev(v: Vec3Like): number {
-    const absX = abs(this.#t[this.#ix] - v.x);
-    const absY = abs(this.#t[this.#iy] - v.y);
-    const absZ = abs(this.#t[this.#iz] - v.z);
+    const absX = abs(this.#target[this.#ix] - v.x);
+    const absY = abs(this.#target[this.#iy] - v.y);
+    const absZ = abs(this.#target[this.#iz] - v.z);
     return absX >= absY && absX >= absZ ? absX : absY >= absZ ? absY : absZ;
   }
 
@@ -477,7 +466,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns The Manhattan distance between the vectors.
    */
   distanceManhattan(v: Vec3Like): number {
-    return abs(this.#t[this.#ix] - v.x) + abs(this.#t[this.#iy] - v.y) + abs(this.#t[this.#iz] - v.z);
+    return abs(this.#target[this.#ix] - v.x) + abs(this.#target[this.#iy] - v.y) + abs(this.#target[this.#iz] - v.z);
   }
 
   /**
@@ -488,7 +477,9 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    */
   distanceMinkowski(v: Vec3Like, p: number): number {
     return (
-      (abs(this.#t[this.#ix] - v.x) ** p + abs(this.#t[this.#iy] - v.y) ** p + abs(this.#t[this.#iz] - v.z) ** p) **
+      (abs(this.#target[this.#ix] - v.x) ** p +
+        abs(this.#target[this.#iy] - v.y) ** p +
+        abs(this.#target[this.#iz] - v.z) ** p) **
       (1 / p)
     );
   }
@@ -499,7 +490,9 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns The squared distance between the vectors.
    */
   distanceSq(v: Vec3Like): number {
-    return (this.#t[this.#ix] - v.x) ** 2 + (this.#t[this.#iy] - v.y) ** 2 + (this.#t[this.#iz] - v.z) ** 2;
+    return (
+      (this.#target[this.#ix] - v.x) ** 2 + (this.#target[this.#iy] - v.y) ** 2 + (this.#target[this.#iz] - v.z) ** 2
+    );
   }
 
   /**
@@ -507,9 +500,9 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns `true` if the vector has infinite components, `false` otherwise.
    */
   isInfinite(): boolean {
-    const x = this.#t[this.#ix];
-    const y = this.#t[this.#iy];
-    const z = this.#t[this.#iz];
+    const x = this.#target[this.#ix];
+    const y = this.#target[this.#iy];
+    const z = this.#target[this.#iz];
     return x === Infinity || x === -Infinity || y === Infinity || y === -Infinity || z === Infinity || z === -Infinity;
   }
 
@@ -518,7 +511,11 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns `true` if the vector has NaN components, `false` otherwise.
    */
   isNaN(): boolean {
-    return Number.isNaN(this.#t[this.#ix]) || Number.isNaN(this.#t[this.#iy]) || Number.isNaN(this.#t[this.#iz]);
+    return (
+      Number.isNaN(this.#target[this.#ix]) ||
+      Number.isNaN(this.#target[this.#iy]) ||
+      Number.isNaN(this.#target[this.#iz])
+    );
   }
 
   /**
@@ -526,7 +523,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns `true` if the vector is zero, `false` otherwise.
    */
   isZero(): boolean {
-    return this.#t[this.#ix] === 0 && this.#t[this.#iy] === 0 && this.#t[this.#iz] === 0;
+    return this.#target[this.#ix] === 0 && this.#target[this.#iy] === 0 && this.#target[this.#iz] === 0;
   }
 
   /**
@@ -537,9 +534,9 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
   limitMax(max: number): this {
     const M = this.magnitude;
     if (M > max) {
-      this.#t[this.#ix] = (this.#t[this.#ix] / M) * max;
-      this.#t[this.#iy] = (this.#t[this.#iy] / M) * max;
-      this.#t[this.#iz] = (this.#t[this.#iz] / M) * max;
+      this.#target[this.#ix] = (this.#target[this.#ix] / M) * max;
+      this.#target[this.#iy] = (this.#target[this.#iy] / M) * max;
+      this.#target[this.#iz] = (this.#target[this.#iz] / M) * max;
     }
     return this;
   }
@@ -552,9 +549,9 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
   limitMin(min: number): this {
     const M = this.magnitude;
     if (M < min) {
-      this.#t[this.#ix] = (this.#t[this.#ix] / M) * min;
-      this.#t[this.#iy] = (this.#t[this.#iy] / M) * min;
-      this.#t[this.#iz] = (this.#t[this.#iz] / M) * min;
+      this.#target[this.#ix] = (this.#target[this.#ix] / M) * min;
+      this.#target[this.#iy] = (this.#target[this.#iy] / M) * min;
+      this.#target[this.#iz] = (this.#target[this.#iz] / M) * min;
     }
     return this;
   }
@@ -567,9 +564,9 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
   lookAt(v: Vec3Like): this {
     const M = this.magnitude;
     const vM = v.magnitude;
-    this.#t[this.#ix] = (v.x / vM) * M;
-    this.#t[this.#iy] = (v.y / vM) * M;
-    this.#t[this.#iz] = (v.z / vM) * M;
+    this.#target[this.#ix] = (v.x / vM) * M;
+    this.#target[this.#iy] = (v.y / vM) * M;
+    this.#target[this.#iz] = (v.z / vM) * M;
     return this;
   }
 
@@ -578,9 +575,9 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns `this` instance for method chaining.
    */
   negate(): this {
-    this.#t[this.#ix] *= -1;
-    this.#t[this.#iy] *= -1;
-    this.#t[this.#iz] *= -1;
+    this.#target[this.#ix] *= -1;
+    this.#target[this.#iy] *= -1;
+    this.#target[this.#iz] *= -1;
     return this;
   }
 
@@ -590,9 +587,9 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    */
   normalize(): this {
     const M = this.magnitude;
-    this.#t[this.#ix] /= M;
-    this.#t[this.#iy] /= M;
-    this.#t[this.#iz] /= M;
+    this.#target[this.#ix] /= M;
+    this.#target[this.#iy] /= M;
+    this.#target[this.#iz] /= M;
     return this;
   }
 
@@ -608,10 +605,12 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
     const vX = v.x;
     const vY = v.y;
     const vZ = v.z;
-    const f = M * cos(acos((this.#t[this.#ix] * vX + this.#t[this.#iy] * vY + this.#t[this.#iz] * vZ) / (M * vM)));
-    this.#t[this.#ix] = (vX / vM) * f;
-    this.#t[this.#iy] = (vY / vM) * f;
-    this.#t[this.#iz] = (vZ / vM) * f;
+    const f =
+      M *
+      cos(acos((this.#target[this.#ix] * vX + this.#target[this.#iy] * vY + this.#target[this.#iz] * vZ) / (M * vM)));
+    this.#target[this.#ix] = (vX / vM) * f;
+    this.#target[this.#iy] = (vY / vM) * f;
+    this.#target[this.#iz] = (vZ / vM) * f;
     return this;
   }
 
@@ -635,10 +634,10 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
   rotateX(phi: number): this {
     const cosPhi = cos(phi);
     const sinPhi = sin(phi);
-    const y = this.#t[this.#iy];
-    const z = this.#t[this.#iz];
-    this.#t[this.#iy] = y * cosPhi - z * sinPhi;
-    this.#t[this.#iz] = y * sinPhi + z * cosPhi;
+    const y = this.#target[this.#iy];
+    const z = this.#target[this.#iz];
+    this.#target[this.#iy] = y * cosPhi - z * sinPhi;
+    this.#target[this.#iz] = y * sinPhi + z * cosPhi;
     return this;
   }
 
@@ -650,10 +649,10 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
   rotateY(phi: number): this {
     const cosPhi = cos(phi);
     const sinPhi = sin(phi);
-    const x = this.#t[this.#ix];
-    const z = this.#t[this.#iz];
-    this.#t[this.#ix] = x * cosPhi + z * sinPhi;
-    this.#t[this.#iz] = x * sinPhi + z * cosPhi;
+    const x = this.#target[this.#ix];
+    const z = this.#target[this.#iz];
+    this.#target[this.#ix] = x * cosPhi + z * sinPhi;
+    this.#target[this.#iz] = x * sinPhi + z * cosPhi;
     return this;
   }
 
@@ -665,10 +664,10 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
   rotateZ(phi: number): this {
     const cosPhi = cos(phi);
     const sinPhi = sin(phi);
-    const x = this.#t[this.#ix];
-    const y = this.#t[this.#iy];
-    this.#t[this.#ix] = x * cosPhi - y * sinPhi;
-    this.#t[this.#iy] = x * sinPhi + y * cosPhi;
+    const x = this.#target[this.#ix];
+    const y = this.#target[this.#iy];
+    this.#target[this.#ix] = x * cosPhi - y * sinPhi;
+    this.#target[this.#iy] = x * sinPhi + y * cosPhi;
     return this;
   }
 
@@ -678,7 +677,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns `true` if the vectors are equal, `false` otherwise.
    */
   satisfyEquality(v: Vec3Like): boolean {
-    return this.#t[this.#ix] === v.x && this.#t[this.#iy] === v.y && this.#t[this.#iz] === v.z;
+    return this.#target[this.#ix] === v.x && this.#target[this.#iy] === v.y && this.#target[this.#iz] === v.z;
   }
 
   /**
@@ -687,7 +686,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns `true` if the vectors are opposite, `false` otherwise.
    */
   satisfyOpposition(v: Vec3Like): boolean {
-    return this.#t[this.#ix] === -v.x && this.#t[this.#iy] === -v.y && this.#t[this.#iz] === -v.z;
+    return this.#target[this.#ix] === -v.x && this.#target[this.#iy] === -v.y && this.#target[this.#iz] === -v.z;
   }
 
   /**
@@ -698,9 +697,9 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    */
   equals(v: Vec3Like, epsilon: number = Number.EPSILON): boolean {
     return (
-      abs(this.#t[this.#ix] - v.x) <= epsilon &&
-      abs(this.#t[this.#iy] - v.y) <= epsilon &&
-      abs(this.#t[this.#iz] - v.z) <= epsilon
+      abs(this.#target[this.#ix] - v.x) <= epsilon &&
+      abs(this.#target[this.#iy] - v.y) <= epsilon &&
+      abs(this.#target[this.#iz] - v.z) <= epsilon
     );
   }
 
@@ -710,9 +709,9 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns `this` instance for method chaining.
    */
   scale(c: number): this {
-    this.#t[this.#ix] *= c;
-    this.#t[this.#iy] *= c;
-    this.#t[this.#iz] *= c;
+    this.#target[this.#ix] *= c;
+    this.#target[this.#iy] *= c;
+    this.#target[this.#iz] *= c;
     return this;
   }
 
@@ -721,9 +720,9 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns `this` instance for method chaining.
    */
   zero(): this {
-    this.#t[this.#ix] = 0;
-    this.#t[this.#iy] = 0;
-    this.#t[this.#iz] = 0;
+    this.#target[this.#ix] = 0;
+    this.#target[this.#iy] = 0;
+    this.#target[this.#iz] = 0;
     return this;
   }
 
@@ -732,9 +731,9 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @yields The x, y and z components of the vector.
    */
   *[Symbol.iterator](): IterableIterator<number> {
-    yield this.#t[this.#ix];
-    yield this.#t[this.#iy];
-    yield this.#t[this.#iz];
+    yield this.#target[this.#ix];
+    yield this.#target[this.#iy];
+    yield this.#target[this.#iz];
   }
 
   /**
@@ -742,7 +741,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns A string in the format "ArrayProxyVec3(x, y, z)".
    */
   toString(): string {
-    return `ArrayProxyVec3(${this.#t[this.#ix]}, ${this.#t[this.#iy]}, ${this.#t[this.#iz]})`;
+    return `ArrayProxyVec3(${this.#target[this.#ix]}, ${this.#target[this.#iy]}, ${this.#target[this.#iz]})`;
   }
 
   /**
@@ -750,7 +749,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns An object with x, y and z properties.
    */
   toObject(): XYZObject {
-    return { x: this.#t[this.#ix], y: this.#t[this.#iy], z: this.#t[this.#iz] };
+    return { x: this.#target[this.#ix], y: this.#target[this.#iy], z: this.#target[this.#iz] };
   }
 
   /**

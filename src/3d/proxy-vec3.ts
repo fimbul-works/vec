@@ -1,7 +1,7 @@
-import type { ArrayVector3D } from "../array-3d";
-import type { XYZObject } from "../types";
-import type { Vec3Like } from "./types";
-import { Vec3 } from "./vec3";
+import type { ArrayVector3D } from "../array-3d/index.js";
+import type { XYZObject } from "../types.js";
+import type { Vec3Like } from "./types.js";
+import { Vec3 } from "./vec3.js";
 
 const { sin, cos, atan2, sqrt, abs, acos } = Math;
 
@@ -96,12 +96,10 @@ export class ProxyVec3 implements Vec3Like {
   }
 
   /**
-   * Sets the magnitude (length) of the vector, maintaining its direction.
+   * Gets the magnitude (length) of the vector.
    */
   get magnitude(): number {
-    const x = this.getX(),
-      y = this.getY(),
-      z = this.getZ();
+    const { x, y, z } = this;
     if (x !== this.#prev[0] || y !== this.#prev[1] || z !== this.#prev[2]) {
       this.#mag = sqrt(x ** 2 + y ** 2 + z ** 2);
       this.#prev[0] = x;
@@ -109,15 +107,6 @@ export class ProxyVec3 implements Vec3Like {
       this.#prev[2] = z;
     }
     return this.#mag;
-  }
-
-  /**
-   * Gets the squared magnitude of the vector.
-   * This is faster to compute than the actual magnitude and is useful for comparisons.
-   * @returns The squared magnitude of the vector.
-   */
-  get magnitudeSq(): number {
-    return this.magnitude ** 2;
   }
 
   /**
@@ -129,6 +118,15 @@ export class ProxyVec3 implements Vec3Like {
     this.setX((this.getX() / M) * m);
     this.setY((this.getY() / M) * m);
     this.setZ((this.getZ() / M) * m);
+  }
+
+  /**
+   * Gets the squared magnitude of the vector.
+   * This is faster to compute than the actual magnitude and is useful for comparisons.
+   * @returns The squared magnitude of the vector.
+   */
+  get magnitudeSq(): number {
+    return this.magnitude ** 2;
   }
 
   /**

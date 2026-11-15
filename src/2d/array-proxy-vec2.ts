@@ -11,44 +11,40 @@ const PI2 = PI * 2;
  */
 export class ArrayProxyVec2<T extends ProxyArrayVectorTarget> implements Vec2Like {
   /**
-   * Targt array.
+   * Previous values.
+   */
+  #prev = new Float64Array([0, 0]);
+  /**
+   * Magniude.
+   */
+  #mag = 0;
+  /**
+   * Target array.
    */
   #target: T;
-
   /**
    * Starting offset in target array.
    */
   #offset: number;
-
   /**
    * Gap between components (stride).
    */
   #gap: number;
-
   /**
    * Index for the x-componet.
    */
   #ix: number = 0;
-
   /**
    * Index for the y-componet.
    */
   #iy: number = 1;
 
   /**
-   * Previous values.
-   */
-  #prev: Float64Array = new Float64Array([0, 0]);
-
-  /**
-   * Magniude.
-   */
-  #mag = 0;
-
-  /**
    * @param target - The target array.
    * @param offset - The offset in the array.
    * @param gap - Gap between components (stride).
+   * @throws Error when offset is negative, or not an integer.
+   * @throws Error when gap is negative, or not an integer.
    * @throws Error when y-component is out of target array bounds.
    */
   constructor(target: T, offset: number, gap: number = 0) {
@@ -62,15 +58,23 @@ export class ArrayProxyVec2<T extends ProxyArrayVectorTarget> implements Vec2Lik
    * Set the proxy target.
    * @param target - The target array.
    * @param offset - The offset in the array.
-   * @param stride - The stride between positions.
+   * @param gap - The gap (stride) between positions.
+   * @throws Error when offset is negative, or not an integer.
+   * @throws Error when gap is negative, or not an integer.
    * @throws Error when y-component is out of target array bounds.
    */
-  private bind(t: T, offset: number, gap: number): void {
-    const y = offset + gap + 1;
+  public bind(target: T, offset: number, gap: number): void {
+    if (!Number.isInteger(offset) || offset < 0) throw new Error(`Invalid offset: ${offset}`);
+    if (!Number.isInteger(gap) || gap < 0) throw new Error(`Invalid gap: ${gap}`);
 
-    if (!(offset >= 0 && y < t.length)) throw new Error("Index out of bounds");
-    
-    this.#target = t; this.#gap = gap; this.#ix = offset; this.#iy = y;
+    const y = offset + gap + 1;
+    if (y >= target.length) throw new Error(`Index out of bounds: ${y} >= ${target.length}`);
+
+    this.#target = target;
+    this.#offset = offset;
+    this.#gap = gap;
+    this.#ix = offset;
+    this.#iy = y;
   }
 
   /**
@@ -83,10 +87,18 @@ export class ArrayProxyVec2<T extends ProxyArrayVectorTarget> implements Vec2Lik
   /**
    * Set a new offset.
    * @param offset - The offset in the array.
+   * @throws Error when offset is negative, or not an integer.
    * @throws Error when y-component is out of target bounds.
    */
   set offset(offset: number) {
     this.bind(this.#target, offset, this.#gap);
+  }
+
+  /**
+   * Range of min and max component indices.
+   */
+  get indexRange(): readonly [number, number] {
+    return [this.#offset, this.#iy] as const;
   }
 
   /**
@@ -143,8 +155,7 @@ export class ArrayProxyVec2<T extends ProxyArrayVectorTarget> implements Vec2Lik
    * @returns The magnitude of the vector.
    */
   get magnitude(): number {
-    const x = this.#target[this.#ix],
-      y = this.#target[this.#iy];
+    const { x, y } = this;
     if (x !== this.#prev[0] || y !== this.#prev[1]) {
       this.#mag = sqrt(x ** 2 + y ** 2);
       this.#prev[0] = x;

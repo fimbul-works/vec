@@ -124,13 +124,13 @@ describe("ArrayProxyVec4 indexing", () => {
     v.offset = 1;
     expect(v.xyzw).toEqual([0, 0, 5, 12]);
     expect(v.magnitude).toBe(13);
-    expect(v.setTarget([0, 0, 0, 2], 0)).toBe(v);
+    v.bind([0, 0, 0, 2], 0, 0);
     expect(v.magnitude).toBe(2);
     expect(() => {
       v.offset = 1;
     }).toThrow("Index out of bounds");
     expect(v.offset).toBe(0);
-    expect(() => v.setTarget([1], 0)).toThrow();
+    expect(() => v.bind([1], 0, 0)).toThrow();
     expect(v.w).toBe(2);
   });
 

@@ -2,13 +2,7871 @@
 
 ## Classes
 
+### ArrayProxyVec2
+
+Proxying 2D vector into an interleaved array.
+
+#### Type Parameters
+
+| Type Parameter |
+| ------ |
+| `T` *extends* [`ProxyArrayVectorTarget`](#proxyarrayvectortarget) |
+
+#### Implements
+
+- [`Vec2Like`](#vec2like)
+
+#### Constructors
+
+##### Constructor
+
+```ts
+new ArrayProxyVec2<T>(
+   target, 
+   offset, 
+   gap?
+): ArrayProxyVec2<T>;
+```
+
+###### Parameters
+
+| Parameter | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `target` | `T` | `undefined` | The target array. |
+| `offset` | `number` | `undefined` | The offset in the array. |
+| `gap` | `number` | `0` | Gap between components (stride). |
+
+###### Returns
+
+[`ArrayProxyVec2`](#arrayproxyvec2)\<`T`\>
+
+###### Throws
+
+Error when offset is negative, or not an integer.
+
+###### Throws
+
+Error when gap is negative, or not an integer.
+
+###### Throws
+
+Error when y-component is out of target array bounds.
+
+#### Accessors
+
+##### angleX
+
+###### Get Signature
+
+```ts
+get angleX(): number;
+```
+
+Gets the angle between the vector and the positive x-axis in radians.
+
+###### Returns
+
+`number`
+
+The angle in radians, always in the range [0, 2π).
+
+###### Set Signature
+
+```ts
+set angleX(phi): void;
+```
+
+Sets the angle between the vector and the positive x-axis, maintaining the vector's magnitude.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `phi` | `number` | The new angle in radians. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`angleX`](#property-anglex)
+
+##### angleY
+
+###### Get Signature
+
+```ts
+get angleY(): number;
+```
+
+Gets the angle between the vector and the positive y-axis in radians.
+
+###### Returns
+
+`number`
+
+The angle in radians, always in the range [0, 2π).
+
+###### Set Signature
+
+```ts
+set angleY(phi): void;
+```
+
+Sets the angle between the vector and the positive y-axis, maintaining the vector's magnitude.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `phi` | `number` | The new angle in radians. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`angleY`](#property-angley)
+
+##### indexRange
+
+###### Get Signature
+
+```ts
+get indexRange(): readonly [number, number];
+```
+
+Range of min and max component indices.
+
+###### Returns
+
+readonly \[`number`, `number`\]
+
+##### magnitude
+
+###### Get Signature
+
+```ts
+get magnitude(): number;
+```
+
+Gets the magnitude (length) of the vector.
+
+###### Returns
+
+`number`
+
+The magnitude of the vector.
+
+###### Set Signature
+
+```ts
+set magnitude(m): void;
+```
+
+Sets the magnitude (length) of the vector, maintaining its direction.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `m` | `number` | The new magnitude. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`magnitude`](#property-magnitude)
+
+##### magnitudeSq
+
+###### Get Signature
+
+```ts
+get magnitudeSq(): number;
+```
+
+Gets the squared magnitude of the vector.
+
+###### Returns
+
+`number`
+
+The squared magnitude of the vector.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`magnitudeSq`](#property-magnitudesq)
+
+##### offset
+
+###### Get Signature
+
+```ts
+get offset(): number;
+```
+
+Get the current offset in the target array.
+
+###### Returns
+
+`number`
+
+###### Set Signature
+
+```ts
+set offset(offset): void;
+```
+
+Set a new offset.
+
+###### Throws
+
+Error when offset is negative, or not an integer.
+
+###### Throws
+
+Error when y-component is out of target bounds.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `offset` | `number` | The offset in the array. |
+
+###### Returns
+
+`void`
+
+##### x
+
+###### Get Signature
+
+```ts
+get x(): number;
+```
+
+Gets the x-component of the vector.
+
+###### Returns
+
+`number`
+
+The x-component.
+
+###### Set Signature
+
+```ts
+set x(x): void;
+```
+
+Sets the x-component of the vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `x` | `number` | The new x-component. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`x`](#property-x)
+
+##### xy
+
+###### Get Signature
+
+```ts
+get xy(): ArrayVector2D;
+```
+
+Gets a copy of the vector's components as an array.
+
+###### Returns
+
+[`ArrayVector2D`](#arrayvector2d)
+
+An array containing the x and y components of the vector.
+
+###### Set Signature
+
+```ts
+set xy(xy): void;
+```
+
+Sets both components of the vector at once.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xy` | [`ArrayVector2D`](#arrayvector2d) | An array containing the new x and y components. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`xy`](#property-xy)
+
+##### y
+
+###### Get Signature
+
+```ts
+get y(): number;
+```
+
+Gets the y-component of the vector.
+
+###### Returns
+
+`number`
+
+The y-component.
+
+###### Set Signature
+
+```ts
+set y(y): void;
+```
+
+Sets the y-component of the vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `y` | `number` | The new y-component. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`y`](#property-y)
+
+#### Methods
+
+##### \[iterator\]()
+
+```ts
+iterator: IterableIterator<number>;
+```
+
+Iterator over this vector's components.
+
+###### Returns
+
+`IterableIterator`\<`number`\>
+
+###### Yields
+
+The x and y components of the vector.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`[iterator]`](#iterator-9)
+
+##### add()
+
+```ts
+add(v): this;
+```
+
+Adds another vector to this vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) | The vector to add. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`add`](#add-12)
+
+##### angleBetween()
+
+```ts
+angleBetween(v): number;
+```
+
+Calculates the angle between this vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The angle between the vectors in radians.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`angleBetween`](#anglebetween-12)
+
+##### bind()
+
+```ts
+bind(
+   target, 
+   offset, 
+   gap
+): void;
+```
+
+Set the proxy target.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `target` | `T` | The target array. |
+| `offset` | `number` | The offset in the array. |
+| `gap` | `number` | The gap (stride) between positions. |
+
+###### Returns
+
+`void`
+
+###### Throws
+
+Error when offset is negative, or not an integer.
+
+###### Throws
+
+Error when gap is negative, or not an integer.
+
+###### Throws
+
+Error when y-component is out of target array bounds.
+
+##### clamp()
+
+```ts
+clamp(min, max): this;
+```
+
+Clamps the magnitude of this vector between a minimum and maximum value.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `min` | `number` | The minimum magnitude. |
+| `max` | `number` | The maximum magnitude. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`clamp`](#clamp-9)
+
+##### clone()
+
+```ts
+clone(): Vec2;
+```
+
+Creates a new Vec2 instance based on this vector.
+
+###### Returns
+
+[`Vec2`](#vec2)
+
+A new Vec2 instance with the same components.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`clone`](#clone-9)
+
+##### copy()
+
+```ts
+copy(v): this;
+```
+
+Copies the components of another vector to this vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) | The vector to copy from. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`copy`](#copy-9)
+
+##### cross()
+
+```ts
+cross(v): number;
+```
+
+Calculates the cross product of this vector with another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The cross product of the vectors.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`cross`](#cross-8)
+
+##### distance()
+
+```ts
+distance(v): number;
+```
+
+Calculates the distance between this vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The distance between the vectors.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`distance`](#distance-12)
+
+##### distanceChebyshev()
+
+```ts
+distanceChebyshev(v): number;
+```
+
+Calculates the Chebyshev distance between this vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The Chebyshev distance between the vectors.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`distanceChebyshev`](#distancechebyshev-12)
+
+##### distanceManhattan()
+
+```ts
+distanceManhattan(v): number;
+```
+
+Calculates the Manhattan distance between this vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The Manhattan distance between the vectors.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`distanceManhattan`](#distancemanhattan-12)
+
+##### distanceMinkowski()
+
+```ts
+distanceMinkowski(v, p): number;
+```
+
+Calculates the Minkowski distance between this vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) | The other vector. |
+| `p` | `number` | The order of the Minkowski distance. |
+
+###### Returns
+
+`number`
+
+The Minkowski distance between the vectors.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`distanceMinkowski`](#distanceminkowski-12)
+
+##### distanceSq()
+
+```ts
+distanceSq(v): number;
+```
+
+Calculates the squared distance between this vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The squared distance between the vectors.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`distanceSq`](#distancesq-12)
+
+##### divide()
+
+```ts
+divide(v): this;
+```
+
+Divides this vector with another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) | The vector to divide with. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`divide`](#divide-12)
+
+##### dot()
+
+```ts
+dot(v): number;
+```
+
+Calculates the dot product of this vector with another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The dot product of the vectors.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`dot`](#dot-12)
+
+##### equals()
+
+```ts
+equals(v, epsilon?): boolean;
+```
+
+Compares this vector with another vector using an epsilon value for floating-point comparison.
+
+###### Parameters
+
+| Parameter | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) | `undefined` | The vector to compare with. |
+| `epsilon` | `number` | `Number.EPSILON` | The maximum difference between components to consider them equal. |
+
+###### Returns
+
+`boolean`
+
+True if the vectors are equal within epsilon, false otherwise.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`equals`](#equals-12)
+
+##### isInfinite()
+
+```ts
+isInfinite(): boolean;
+```
+
+Checks if this vector has infinite components.
+
+###### Returns
+
+`boolean`
+
+True if the vector has infinite components, false otherwise.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`isInfinite`](#isinfinite-12)
+
+##### isNaN()
+
+```ts
+isNaN(): boolean;
+```
+
+Checks if this vector has NaN components.
+
+###### Returns
+
+`boolean`
+
+True if the vector has NaN components, false otherwise.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`isNaN`](#isnan-12)
+
+##### isZero()
+
+```ts
+isZero(): boolean;
+```
+
+Checks if this vector is zero.
+
+###### Returns
+
+`boolean`
+
+True if the vector is zero, false otherwise.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`isZero`](#iszero-12)
+
+##### limitMax()
+
+```ts
+limitMax(max): this;
+```
+
+Limits the maximum magnitude of this vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `max` | `number` | The maximum magnitude. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`limitMax`](#limitmax-9)
+
+##### limitMin()
+
+```ts
+limitMin(min): this;
+```
+
+Limits the minimum magnitude of this vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `min` | `number` | The minimum magnitude. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`limitMin`](#limitmin-9)
+
+##### lookAt()
+
+```ts
+lookAt(v): this;
+```
+
+Sets this vector to point towards another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) | The vector to look at. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`lookAt`](#lookat-9)
+
+##### multiply()
+
+```ts
+multiply(v): this;
+```
+
+Multiplies this vector with another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) | The vector to multiply with. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`multiply`](#multiply-12)
+
+##### negate()
+
+```ts
+negate(): this;
+```
+
+Negates this vector.
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`negate`](#negate-12)
+
+##### normalize()
+
+```ts
+normalize(): this;
+```
+
+Normalizes this vector.
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`normalize`](#normalize-12)
+
+##### project()
+
+```ts
+project(v): this;
+```
+
+Projects this vector onto another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) | The vector to project onto. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`project`](#project-12)
+
+##### random()
+
+```ts
+random(random?): this;
+```
+
+Sets this vector to a random direction with the same magnitude.
+
+###### Parameters
+
+| Parameter | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `random` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`random`](#random-12)
+
+##### reflect()
+
+```ts
+reflect(normal): Vec2;
+```
+
+Reflects this vector across a normal vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `normal` | [`Vec2Like`](#vec2like) | The normal vector to reflect across (must be normalized). |
+
+###### Returns
+
+[`Vec2`](#vec2)
+
+A new Vec2Like instance representing the reflected vector.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`reflect`](#reflect-12)
+
+##### rotateZ()
+
+```ts
+rotateZ(phi): this;
+```
+
+Rotates this vector around the Z-axis.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `phi` | `number` | The angle of rotation in radians. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`rotateZ`](#rotatez-6)
+
+##### satisfyEquality()
+
+```ts
+satisfyEquality(v): boolean;
+```
+
+Checks if this vector is equal to another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) | The other vector. |
+
+###### Returns
+
+`boolean`
+
+True if the vectors are equal, false otherwise.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`satisfyEquality`](#satisfyequality-12)
+
+##### satisfyOpposition()
+
+```ts
+satisfyOpposition(v): boolean;
+```
+
+Checks if this vector is opposite to another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) | The other vector. |
+
+###### Returns
+
+`boolean`
+
+True if the vectors are opposite, false otherwise.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`satisfyOpposition`](#satisfyopposition-12)
+
+##### scale()
+
+```ts
+scale(c): this;
+```
+
+Scales this vector by a scalar value.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `c` | `number` | The scalar value. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`scale`](#scale-12)
+
+##### subtract()
+
+```ts
+subtract(v): this;
+```
+
+Subtracts another vector from this vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) | The vector to subtract. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`subtract`](#subtract-12)
+
+##### toJSON()
+
+```ts
+toJSON(): XYObject;
+```
+
+Serializes the vector to a JSON-friendly format.
+
+###### Returns
+
+[`XYObject`](#xyobject)
+
+A JSON-friendly object representation of the vector.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`toJSON`](#tojson-9)
+
+##### toObject()
+
+```ts
+toObject(): XYObject;
+```
+
+Converts the vector to a plain object.
+
+###### Returns
+
+[`XYObject`](#xyobject)
+
+An object with x and y properties.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`toObject`](#toobject-9)
+
+##### toString()
+
+```ts
+toString(): string;
+```
+
+Returns a string representation of the vector.
+
+###### Returns
+
+`string`
+
+A string in the format "ArrayProxyVec2(x, y)".
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`toString`](#tostring-9)
+
+##### turnLeft()
+
+```ts
+turnLeft(): this;
+```
+
+Rotates this vector 90 degrees to the left.
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`turnLeft`](#turnleft-3)
+
+##### turnRight()
+
+```ts
+turnRight(): this;
+```
+
+Rotates this vector 90 degrees to the right.
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`turnRight`](#turnright-3)
+
+##### zero()
+
+```ts
+zero(): this;
+```
+
+Sets this vector to zero.
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`zero`](#zero-12)
+
+***
+
+### ArrayProxyVec3
+
+Proxying 3D vector into an interleaved array.
+
+#### Type Parameters
+
+| Type Parameter |
+| ------ |
+| `T` *extends* [`ProxyArrayVectorTarget`](#proxyarrayvectortarget) |
+
+#### Implements
+
+- [`Vec3Like`](#vec3like)
+
+#### Constructors
+
+##### Constructor
+
+```ts
+new ArrayProxyVec3<T>(
+   target, 
+   offset, 
+   gap?
+): ArrayProxyVec3<T>;
+```
+
+###### Parameters
+
+| Parameter | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `target` | `T` | `undefined` | The target array. |
+| `offset` | `number` | `undefined` | The offset of the array. |
+| `gap` | `number` | `0` | The stride between indices. |
+
+###### Returns
+
+[`ArrayProxyVec3`](#arrayproxyvec3)\<`T`\>
+
+###### Throws
+
+Error when offset is negative, or not an integer.
+
+###### Throws
+
+Error when gap is negative, or not an integer.
+
+###### Throws
+
+Error when z-component is out of target array bounds.
+
+#### Accessors
+
+##### angleX
+
+###### Get Signature
+
+```ts
+get angleX(): number;
+```
+
+Gets the angle between the vector and the positive x-axis in radians.
+
+###### Returns
+
+`number`
+
+The angle in radians, always in the range [0, 2π).
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`angleX`](#property-anglex-1)
+
+##### angleY
+
+###### Get Signature
+
+```ts
+get angleY(): number;
+```
+
+Gets the angle between the vector and the positive y-axis in radians.
+
+###### Returns
+
+`number`
+
+The angle in radians, always in the range [0, 2π).
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`angleY`](#property-angley-1)
+
+##### angleZ
+
+###### Get Signature
+
+```ts
+get angleZ(): number;
+```
+
+Gets the angle between the vector and the positive z-axis in radians.
+
+###### Returns
+
+`number`
+
+The angle in radians, always in the range [0, 2π).
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`angleZ`](#property-anglez)
+
+##### b
+
+###### Get Signature
+
+```ts
+get b(): number;
+```
+
+Gets the Blue-component of the color.
+
+###### Returns
+
+`number`
+
+The Blue-component.
+
+###### Set Signature
+
+```ts
+set b(b): void;
+```
+
+Sets the Blue-component of the Color.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `b` | `number` | The new Blue-component. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`b`](#property-b)
+
+##### g
+
+###### Get Signature
+
+```ts
+get g(): number;
+```
+
+Gets the Green-component of a Color.
+
+###### Returns
+
+`number`
+
+The Green-component.
+
+###### Set Signature
+
+```ts
+set g(g): void;
+```
+
+Sets the Green-component of the Color.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `g` | `number` | The new Green-component. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`g`](#property-g)
+
+##### indexRange
+
+###### Get Signature
+
+```ts
+get indexRange(): readonly [number, number];
+```
+
+Range of min and max component indices.
+
+###### Returns
+
+readonly \[`number`, `number`\]
+
+##### magnitude
+
+###### Get Signature
+
+```ts
+get magnitude(): number;
+```
+
+Sets the magnitude (length) of the vector, maintaining its direction.
+
+###### Returns
+
+`number`
+
+###### Set Signature
+
+```ts
+set magnitude(m): void;
+```
+
+Sets the magnitude (length) of the vector, maintaining its direction.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `m` | `number` | The new magnitude. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`magnitude`](#property-magnitude-1)
+
+##### magnitudeSq
+
+###### Get Signature
+
+```ts
+get magnitudeSq(): number;
+```
+
+Gets the squared magnitude of the vector.
+This is faster to compute than the actual magnitude and is useful for comparisons.
+
+###### Returns
+
+`number`
+
+The squared magnitude of the vector.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`magnitudeSq`](#property-magnitudesq-1)
+
+##### offset
+
+###### Get Signature
+
+```ts
+get offset(): number;
+```
+
+Get the starting offset in the target array.
+
+###### Returns
+
+`number`
+
+###### Set Signature
+
+```ts
+set offset(offset): void;
+```
+
+Set a new starting offset.
+
+###### Throws
+
+Error when offset is negative, or not an integer.
+
+###### Throws
+
+Error when z-component is out of target bounds.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `offset` | `number` | The offset in the target array. |
+
+###### Returns
+
+`void`
+
+##### r
+
+###### Get Signature
+
+```ts
+get r(): number;
+```
+
+Gets the Red-component of a Color.
+
+###### Returns
+
+`number`
+
+The Red-component.
+
+###### Set Signature
+
+```ts
+set r(r): void;
+```
+
+Sets the Red-component of a Color.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `r` | `number` | The new Red-component. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`r`](#property-r)
+
+##### rgb
+
+###### Get Signature
+
+```ts
+get rgb(): ArrayVector3D;
+```
+
+Gets a copy of the vector's components as an array.
+
+###### Returns
+
+[`ArrayVector3D`](#arrayvector3d)
+
+An array containing the x, y and z components of the vector.
+
+###### Set Signature
+
+```ts
+set rgb(rgb): void;
+```
+
+Sets all components of the Color at once.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `rgb` | [`ArrayVector3D`](#arrayvector3d) | An array containing the new Red, Green and Blue components. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`rgb`](#property-rgb)
+
+##### x
+
+###### Get Signature
+
+```ts
+get x(): number;
+```
+
+Gets the x-component of the vector.
+
+###### Returns
+
+`number`
+
+The x-component.
+
+###### Set Signature
+
+```ts
+set x(x): void;
+```
+
+Sets the x-component of the vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `x` | `number` | The new x-component. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`x`](#property-x-1)
+
+##### xyz
+
+###### Get Signature
+
+```ts
+get xyz(): ArrayVector3D;
+```
+
+Gets a copy of the vector's components as an array.
+
+###### Returns
+
+[`ArrayVector3D`](#arrayvector3d)
+
+An array containing the x, y and z components of the vector.
+
+###### Set Signature
+
+```ts
+set xyz(xyz): void;
+```
+
+Sets all components of the vector at once.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz` | [`ArrayVector3D`](#arrayvector3d) | An array containing the new x, y and z components. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`xyz`](#property-xyz)
+
+##### y
+
+###### Get Signature
+
+```ts
+get y(): number;
+```
+
+Gets the y-component of the vector.
+
+###### Returns
+
+`number`
+
+The y-component.
+
+###### Set Signature
+
+```ts
+set y(y): void;
+```
+
+Sets the y-component of the vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `y` | `number` | The new y-component. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`y`](#property-y-1)
+
+##### z
+
+###### Get Signature
+
+```ts
+get z(): number;
+```
+
+Gets the z-component of the vector.
+
+###### Returns
+
+`number`
+
+The z-component.
+
+###### Set Signature
+
+```ts
+set z(z): void;
+```
+
+Sets the z-component of the vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `z` | `number` | The new z-component. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`z`](#property-z)
+
+#### Methods
+
+##### \[iterator\]()
+
+```ts
+iterator: IterableIterator<number>;
+```
+
+Iterator over this vector's components.
+
+###### Returns
+
+`IterableIterator`\<`number`\>
+
+###### Yields
+
+The x, y and z components of the vector.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`[iterator]`](#iterator-10)
+
+##### add()
+
+```ts
+add(v): this;
+```
+
+Adds another vector to this vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) | The vector to add. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`add`](#add-13)
+
+##### angleBetween()
+
+```ts
+angleBetween(v): number;
+```
+
+Calculates the angle between this vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The angle between the vectors in radians.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`angleBetween`](#anglebetween-13)
+
+##### bind()
+
+```ts
+bind(
+   target, 
+   offset, 
+   gap
+): void;
+```
+
+Set the proxy target.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `target` | `T` | The target array. |
+| `offset` | `number` | The offset in the array. |
+| `gap` | `number` | The gap (stride) between positions. |
+
+###### Returns
+
+`void`
+
+###### Throws
+
+Error when offset is negative, or not an integer.
+
+###### Throws
+
+Error when gap is negative, or not an integer.
+
+###### Throws
+
+Error when z-component is out of target array bounds.
+
+##### clamp()
+
+```ts
+clamp(min, max): this;
+```
+
+Clamps the magnitude of this vector between a minimum and maximum value.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `min` | `number` | The minimum magnitude. |
+| `max` | `number` | The maximum magnitude. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`clamp`](#clamp-10)
+
+##### clone()
+
+```ts
+clone(): Vec3;
+```
+
+Creates a copy of this vector.
+
+###### Returns
+
+[`Vec3`](#vec3)
+
+A new Vec3 instance with the same components.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`clone`](#clone-10)
+
+##### copy()
+
+```ts
+copy(v): this;
+```
+
+Copies the components of another vector to this vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) | The vector to copy from. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`copy`](#copy-10)
+
+##### cross()
+
+```ts
+cross(v): this;
+```
+
+Calculates cross product between this vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) | The other vector. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`cross`](#cross-9)
+
+##### distance()
+
+```ts
+distance(v): number;
+```
+
+Calculates the distance between this vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The distance between the vectors.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`distance`](#distance-13)
+
+##### distanceChebyshev()
+
+```ts
+distanceChebyshev(v): number;
+```
+
+Calculates the Chebyshev distance between vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The Chebyshev distance between the vectors.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`distanceChebyshev`](#distancechebyshev-13)
+
+##### distanceManhattan()
+
+```ts
+distanceManhattan(v): number;
+```
+
+Calculates the Manhattan distance between vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The Manhattan distance between the vectors.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`distanceManhattan`](#distancemanhattan-13)
+
+##### distanceMinkowski()
+
+```ts
+distanceMinkowski(v, p): number;
+```
+
+Calculates the Minkowski distance between this vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) | The other vector. |
+| `p` | `number` | The order of the Minkowski distance. |
+
+###### Returns
+
+`number`
+
+The Minkowski distance between the vectors.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`distanceMinkowski`](#distanceminkowski-13)
+
+##### distanceSq()
+
+```ts
+distanceSq(v): number;
+```
+
+Calculates the squared distance between this vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The squared distance between the vectors.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`distanceSq`](#distancesq-13)
+
+##### divide()
+
+```ts
+divide(v): this;
+```
+
+Divides this vector with another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) | The vector to divide with. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`divide`](#divide-13)
+
+##### dot()
+
+```ts
+dot(v): number;
+```
+
+Calculates the dot product of this vector with another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The dot product of the vectors.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`dot`](#dot-13)
+
+##### equals()
+
+```ts
+equals(v, epsilon?): boolean;
+```
+
+Compares this vector with another vector using an epsilon value for floating-point comparison.
+
+###### Parameters
+
+| Parameter | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) | `undefined` | The vector to compare with. |
+| `epsilon` | `number` | `Number.EPSILON` | The maximum difference between components to consider them equal. |
+
+###### Returns
+
+`boolean`
+
+`true` if the vectors are equal within epsilon, `false` otherwise.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`equals`](#equals-13)
+
+##### isInfinite()
+
+```ts
+isInfinite(): boolean;
+```
+
+Checks if this vector has infinite components.
+
+###### Returns
+
+`boolean`
+
+`true` if the vector has infinite components, `false` otherwise.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`isInfinite`](#isinfinite-13)
+
+##### isNaN()
+
+```ts
+isNaN(): boolean;
+```
+
+Checks if this vector has NaN components.
+
+###### Returns
+
+`boolean`
+
+`true` if the vector has NaN components, `false` otherwise.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`isNaN`](#isnan-13)
+
+##### isZero()
+
+```ts
+isZero(): boolean;
+```
+
+Checks if this vector is zero.
+
+###### Returns
+
+`boolean`
+
+`true` if the vector is zero, `false` otherwise.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`isZero`](#iszero-13)
+
+##### limitMax()
+
+```ts
+limitMax(max): this;
+```
+
+Limits the maximum magnitude of this vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `max` | `number` | The maximum magnitude. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`limitMax`](#limitmax-10)
+
+##### limitMin()
+
+```ts
+limitMin(min): this;
+```
+
+Limits the minimum magnitude of this vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `min` | `number` | The minimum magnitude. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`limitMin`](#limitmin-10)
+
+##### lookAt()
+
+```ts
+lookAt(v): this;
+```
+
+Sets this vector to point towards another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) | The vector to look at. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`lookAt`](#lookat-10)
+
+##### multiply()
+
+```ts
+multiply(v): this;
+```
+
+Multiplies this vector with another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) | The vector to multiply with. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`multiply`](#multiply-13)
+
+##### negate()
+
+```ts
+negate(): this;
+```
+
+Negates this vector.
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`negate`](#negate-13)
+
+##### normalize()
+
+```ts
+normalize(): this;
+```
+
+Normalizes this vector.
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`normalize`](#normalize-13)
+
+##### project()
+
+```ts
+project(v): this;
+```
+
+Projects this vector onto another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) | The vector to project onto. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`project`](#project-13)
+
+##### random()
+
+```ts
+random(random?): this;
+```
+
+Sets this vector to a random direction with the same magnitude.
+
+###### Parameters
+
+| Parameter | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `random` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`random`](#random-13)
+
+##### reflect()
+
+```ts
+reflect(normal): this;
+```
+
+Reflects this vector across a normal vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `normal` | [`Vec3Like`](#vec3like) | The normal vector to reflect across (must be normalized). |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`reflect`](#reflect-13)
+
+##### rotateX()
+
+```ts
+rotateX(phi): this;
+```
+
+Rotates this vector around the x-axis.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `phi` | `number` | The angle of rotation in radians. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`rotateX`](#rotatex-3)
+
+##### rotateY()
+
+```ts
+rotateY(phi): this;
+```
+
+Rotates this vector around the y-axis.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `phi` | `number` | The angle of rotation in radians. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`rotateY`](#rotatey-3)
+
+##### rotateZ()
+
+```ts
+rotateZ(phi): this;
+```
+
+Rotates this vector around the z-axis.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `phi` | `number` | The angle of rotation in radians. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`rotateZ`](#rotatez-7)
+
+##### satisfyEquality()
+
+```ts
+satisfyEquality(v): boolean;
+```
+
+Checks if this vector is equal to another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) | The other vector. |
+
+###### Returns
+
+`boolean`
+
+`true` if the vectors are equal, `false` otherwise.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`satisfyEquality`](#satisfyequality-13)
+
+##### satisfyOpposition()
+
+```ts
+satisfyOpposition(v): boolean;
+```
+
+Checks if this vector is opposite to another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) | The other vector. |
+
+###### Returns
+
+`boolean`
+
+`true` if the vectors are opposite, `false` otherwise.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`satisfyOpposition`](#satisfyopposition-13)
+
+##### scale()
+
+```ts
+scale(c): this;
+```
+
+Scales this vector by a scalar value.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `c` | `number` | The scalar value. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`scale`](#scale-13)
+
+##### subtract()
+
+```ts
+subtract(v): this;
+```
+
+Subtracts another vector from this vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) | The vector to subtract. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`subtract`](#subtract-13)
+
+##### toJSON()
+
+```ts
+toJSON(): XYZObject;
+```
+
+Serializes the vector to a JSON-friendly format.
+
+###### Returns
+
+[`XYZObject`](#xyzobject)
+
+A JSON-friendly object representation of the vector.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`toJSON`](#tojson-10)
+
+##### toObject()
+
+```ts
+toObject(): XYZObject;
+```
+
+Converts the vector to a plain object.
+
+###### Returns
+
+[`XYZObject`](#xyzobject)
+
+An object with x, y and z properties.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`toObject`](#toobject-10)
+
+##### toString()
+
+```ts
+toString(): string;
+```
+
+Returns a string representation of the vector.
+
+###### Returns
+
+`string`
+
+A string in the format "ArrayProxyVec3(x, y, z)".
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`toString`](#tostring-10)
+
+##### zero()
+
+```ts
+zero(): this;
+```
+
+Sets this vector to zero.
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`zero`](#zero-13)
+
+***
+
+### ArrayProxyVec4
+
+A 4D vector backed by an interleaved array. Stride is the gap between components.
+
+#### Type Parameters
+
+| Type Parameter |
+| ------ |
+| `T` *extends* [`ProxyArrayVectorTarget`](#proxyarrayvectortarget) |
+
+#### Implements
+
+- [`Vec4Like`](#vec4like)
+
+#### Constructors
+
+##### Constructor
+
+```ts
+new ArrayProxyVec4<T>(
+   target, 
+   offset, 
+   gap
+): ArrayProxyVec4<T>;
+```
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `target` | `T` | The target array. |
+| `offset` | `number` | The offset in the array. |
+| `gap` | `number` | Gap between components (stride). |
+
+###### Returns
+
+[`ArrayProxyVec4`](#arrayproxyvec4)\<`T`\>
+
+###### Throws
+
+Error when offset is negative, or not an integer.
+
+###### Throws
+
+Error when gap is negative, or not an integer.
+
+###### Throws
+
+Error when w-component is out of target array bounds.
+
+#### Accessors
+
+##### a
+
+###### Get Signature
+
+```ts
+get a(): number;
+```
+
+Gets the Alpha-component of the color.
+
+###### Returns
+
+`number`
+
+The Alpha-component.
+
+###### Set Signature
+
+```ts
+set a(a): void;
+```
+
+Sets the Alpha-component of the Color.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `a` | `number` | The new Alpha-component. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`a`](#property-a)
+
+##### angleW
+
+###### Get Signature
+
+```ts
+get angleW(): number;
+```
+
+Gets the angle between the vector and the positive w-axis in radians.
+
+###### Returns
+
+`number`
+
+The angle in radians, always in the range [0, 2π).
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`angleW`](#property-anglew)
+
+##### angleX
+
+###### Get Signature
+
+```ts
+get angleX(): number;
+```
+
+Gets the angle between the vector and the positive x-axis in radians.
+
+###### Returns
+
+`number`
+
+The angle in radians, always in the range [0, 2π).
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`angleX`](#property-anglex-2)
+
+##### angleY
+
+###### Get Signature
+
+```ts
+get angleY(): number;
+```
+
+Gets the angle between the vector and the positive y-axis in radians.
+
+###### Returns
+
+`number`
+
+The angle in radians, always in the range [0, 2π).
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`angleY`](#property-angley-2)
+
+##### angleZ
+
+###### Get Signature
+
+```ts
+get angleZ(): number;
+```
+
+Gets the angle between the vector and the positive z-axis in radians.
+
+###### Returns
+
+`number`
+
+The angle in radians, always in the range [0, 2π).
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`angleZ`](#property-anglez-1)
+
+##### b
+
+###### Get Signature
+
+```ts
+get b(): number;
+```
+
+Gets the Blue-component of the color.
+
+###### Returns
+
+`number`
+
+The Blue-component.
+
+###### Set Signature
+
+```ts
+set b(b): void;
+```
+
+Sets the Blue-component of the Color.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `b` | `number` | The new Blue-component. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`b`](#property-b-1)
+
+##### g
+
+###### Get Signature
+
+```ts
+get g(): number;
+```
+
+Gets the Green-component of a Color.
+
+###### Returns
+
+`number`
+
+The Green-component.
+
+###### Set Signature
+
+```ts
+set g(g): void;
+```
+
+Sets the Green-component of the Color.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `g` | `number` | The new Green-component. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`g`](#property-g-1)
+
+##### indexRange
+
+###### Get Signature
+
+```ts
+get indexRange(): readonly [number, number];
+```
+
+Range of min and max component indices.
+
+###### Returns
+
+readonly \[`number`, `number`\]
+
+##### magnitude
+
+###### Get Signature
+
+```ts
+get magnitude(): number;
+```
+
+Reads the current target components, including external changes.
+
+###### Returns
+
+`number`
+
+###### Set Signature
+
+```ts
+set magnitude(m): void;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `m` | `number` |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`magnitude`](#property-magnitude-2)
+
+##### magnitudeSq
+
+###### Get Signature
+
+```ts
+get magnitudeSq(): number;
+```
+
+###### Returns
+
+`number`
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`magnitudeSq`](#property-magnitudesq-2)
+
+##### offset
+
+###### Get Signature
+
+```ts
+get offset(): number;
+```
+
+Get the starting offset in the target array.
+
+###### Returns
+
+`number`
+
+###### Set Signature
+
+```ts
+set offset(offset): void;
+```
+
+Set a new starting offset.
+
+###### Throws
+
+Error when offset is negative, or not an integer.
+
+###### Throws
+
+Error when w-component is out of target bounds.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `offset` | `number` | The offset in the target array. |
+
+###### Returns
+
+`void`
+
+##### r
+
+###### Get Signature
+
+```ts
+get r(): number;
+```
+
+Gets the Red-component of a Color.
+
+###### Returns
+
+`number`
+
+The Red-component.
+
+###### Set Signature
+
+```ts
+set r(r): void;
+```
+
+Sets the Red-component of a Color.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `r` | `number` | The new Red-component. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`r`](#property-r-1)
+
+##### rgba
+
+###### Get Signature
+
+```ts
+get rgba(): ArrayVector4D;
+```
+
+Gets a copy of the vector's components as an array.
+
+###### Returns
+
+[`ArrayVector4D`](#arrayvector4d)
+
+An array containing the Red, Green, Blue and Alpha components of the Color.
+
+###### Set Signature
+
+```ts
+set rgba(rgba): void;
+```
+
+Sets all components of the Color at once.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `rgba` | [`ArrayVector4D`](#arrayvector4d) | An array containing the new Red, Green, Blue and Alpha components. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`rgba`](#property-rgba)
+
+##### w
+
+###### Get Signature
+
+```ts
+get w(): number;
+```
+
+Gets the w-component of the vector.
+
+###### Returns
+
+`number`
+
+The w-component.
+
+###### Set Signature
+
+```ts
+set w(w): void;
+```
+
+Sets the w-component of the vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `w` | `number` | The new w-component. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`w`](#property-w)
+
+##### x
+
+###### Get Signature
+
+```ts
+get x(): number;
+```
+
+Gets the x-component of the vector.
+
+###### Returns
+
+`number`
+
+The x-component.
+
+###### Set Signature
+
+```ts
+set x(x): void;
+```
+
+Sets the x-component of the vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `x` | `number` | The new x-component. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`x`](#property-x-2)
+
+##### xyzw
+
+###### Get Signature
+
+```ts
+get xyzw(): ArrayVector4D;
+```
+
+Gets a copy of the vector's components as an array.
+
+###### Returns
+
+[`ArrayVector4D`](#arrayvector4d)
+
+An array containing the x, y, z, and w components of the vector.
+
+###### Set Signature
+
+```ts
+set xyzw(value): void;
+```
+
+Sets all components of the vector at once.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `value` | [`ArrayVector4D`](#arrayvector4d) | An array containing the new x, y, z, and w components. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`xyzw`](#property-xyzw)
+
+##### y
+
+###### Get Signature
+
+```ts
+get y(): number;
+```
+
+Gets the y-component of the vector.
+
+###### Returns
+
+`number`
+
+The y-component.
+
+###### Set Signature
+
+```ts
+set y(y): void;
+```
+
+Sets the y-component of the vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `y` | `number` | The new y-component. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`y`](#property-y-2)
+
+##### z
+
+###### Get Signature
+
+```ts
+get z(): number;
+```
+
+Gets the z-component of the vector.
+
+###### Returns
+
+`number`
+
+The z-component.
+
+###### Set Signature
+
+```ts
+set z(z): void;
+```
+
+Sets the z-component of the vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `z` | `number` | The new z-component. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`z`](#property-z-1)
+
+#### Methods
+
+##### \[iterator\]()
+
+```ts
+iterator: IterableIterator<number>;
+```
+
+Makes the Vec4 instance iterable.
+
+###### Returns
+
+`IterableIterator`\<`number`\>
+
+###### Yields
+
+The x, y, z and w components of the vector.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`[iterator]`](#iterator-11)
+
+##### add()
+
+```ts
+add(v): this;
+```
+
+Adds another vector to this vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) | The vector to add. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`add`](#add-14)
+
+##### angleBetween()
+
+```ts
+angleBetween(v): number;
+```
+
+Calculates the angle between this vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The angle between the vectors in radians.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`angleBetween`](#anglebetween-14)
+
+##### bind()
+
+```ts
+bind(
+   target, 
+   offset, 
+   gap
+): void;
+```
+
+Set the proxy target.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `target` | `T` | The target array. |
+| `offset` | `number` | The offset in the array. |
+| `gap` | `number` | - |
+
+###### Returns
+
+`void`
+
+###### Throws
+
+Error when w-component is out of target array bounds.
+
+##### clamp()
+
+```ts
+clamp(min, max): ArrayProxyVec4<T>;
+```
+
+Clamps the magnitude of this vector between a minimum and maximum value.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `min` | `number` | The minimum magnitude. |
+| `max` | `number` | The maximum magnitude. |
+
+###### Returns
+
+[`ArrayProxyVec4`](#arrayproxyvec4)\<`T`\>
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`clamp`](#clamp-11)
+
+##### clone()
+
+```ts
+clone(): Vec4;
+```
+
+Creates a copy of this vector.
+
+###### Returns
+
+[`Vec4`](#vec4)
+
+A new Vec4 instance with the same components.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`clone`](#clone-11)
+
+##### copy()
+
+```ts
+copy(v): ArrayProxyVec4<T>;
+```
+
+Copies the components of another vector to this vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) | The vector to copy from. |
+
+###### Returns
+
+[`ArrayProxyVec4`](#arrayproxyvec4)\<`T`\>
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`copy`](#copy-11)
+
+##### distance()
+
+```ts
+distance(v): number;
+```
+
+Calculates the distance between this vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The distance between the vectors.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`distance`](#distance-14)
+
+##### distanceChebyshev()
+
+```ts
+distanceChebyshev(v): number;
+```
+
+Calculates the Chebyshev distance between this vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The Chebyshev distance between the vectors.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`distanceChebyshev`](#distancechebyshev-14)
+
+##### distanceManhattan()
+
+```ts
+distanceManhattan(v): number;
+```
+
+Calculates the Manhattan distance between this vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The Manhattan distance between the vectors.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`distanceManhattan`](#distancemanhattan-14)
+
+##### distanceMinkowski()
+
+```ts
+distanceMinkowski(v, p): number;
+```
+
+Calculates the Minkowski distance between this vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) | The other vector. |
+| `p` | `number` | The order of the Minkowski distance. |
+
+###### Returns
+
+`number`
+
+The Minkowski distance between the vectors.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`distanceMinkowski`](#distanceminkowski-14)
+
+##### distanceSq()
+
+```ts
+distanceSq(v): number;
+```
+
+Calculates the squared distance between this vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The squared distance between the vectors.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`distanceSq`](#distancesq-14)
+
+##### divide()
+
+```ts
+divide(v): this;
+```
+
+Divides this vector with another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) | The vector to divide with. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`divide`](#divide-14)
+
+##### dot()
+
+```ts
+dot(v): number;
+```
+
+Calculates the dot product of this vector with another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The dot product of the vectors.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`dot`](#dot-14)
+
+##### equals()
+
+```ts
+equals(v, epsilon?): boolean;
+```
+
+Compares this vector with another vector using an epsilon value for floating-point comparison.
+
+###### Parameters
+
+| Parameter | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) | `undefined` | The vector to compare with. |
+| `epsilon` | `number` | `Number.EPSILON` | The maximum difference between components to consider them equal. |
+
+###### Returns
+
+`boolean`
+
+`true` if the vectors are equal within epsilon, `false` otherwise.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`equals`](#equals-14)
+
+##### isInfinite()
+
+```ts
+isInfinite(): boolean;
+```
+
+Checks if this vector has infinite components.
+
+###### Returns
+
+`boolean`
+
+`true` if the vector has infinite components, `false` otherwise.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`isInfinite`](#isinfinite-14)
+
+##### isNaN()
+
+```ts
+isNaN(): boolean;
+```
+
+Checks if this vector has NaN components.
+
+###### Returns
+
+`boolean`
+
+`true` if the vector has NaN components, `false` otherwise.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`isNaN`](#isnan-14)
+
+##### isZero()
+
+```ts
+isZero(): boolean;
+```
+
+Checks if this vector is zero.
+
+###### Returns
+
+`boolean`
+
+`true` if the vector is zero, `false` otherwise.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`isZero`](#iszero-14)
+
+##### limitMax()
+
+```ts
+limitMax(max): this;
+```
+
+Limits the maximum magnitude of this vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `max` | `number` | The maximum magnitude. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`limitMax`](#limitmax-11)
+
+##### limitMin()
+
+```ts
+limitMin(min): this;
+```
+
+Limits the minimum magnitude of this vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `min` | `number` | The minimum magnitude. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`limitMin`](#limitmin-11)
+
+##### lookAt()
+
+```ts
+lookAt(v): this;
+```
+
+Sets this vector to point towards another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) | The vector to look at. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`lookAt`](#lookat-11)
+
+##### multiply()
+
+```ts
+multiply(v): this;
+```
+
+Multiplies this vector with another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) | The vector to multiply with. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`multiply`](#multiply-14)
+
+##### negate()
+
+```ts
+negate(): this;
+```
+
+Negates this vector.
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`negate`](#negate-14)
+
+##### normalize()
+
+```ts
+normalize(): this;
+```
+
+Normalizes this vector.
+
+###### Returns
+
+`this`
+
+This Ve4 instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`normalize`](#normalize-14)
+
+##### project()
+
+```ts
+project(v): this;
+```
+
+Projects this vector onto another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) | The vector to project onto. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`project`](#project-14)
+
+##### random()
+
+```ts
+random(random?): this;
+```
+
+Sets this vector to a random direction with the same magnitude.
+
+###### Parameters
+
+| Parameter | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `random` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`random`](#random-14)
+
+##### reflect()
+
+```ts
+reflect(normal): this;
+```
+
+Reflects this vector across a normal vector.
+The normal vector should be normalized (unit length).
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `normal` | [`Vec4Like`](#vec4like) | The normal vector to reflect across (must be normalized). |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`reflect`](#reflect-14)
+
+##### satisfyEquality()
+
+```ts
+satisfyEquality(v): boolean;
+```
+
+Checks if this vector is equal to another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) | The other vector. |
+
+###### Returns
+
+`boolean`
+
+`true` if the vectors are equal, `false` otherwise.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`satisfyEquality`](#satisfyequality-14)
+
+##### satisfyOpposition()
+
+```ts
+satisfyOpposition(v): boolean;
+```
+
+Checks if this vector is opposite to another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) | The other vector. |
+
+###### Returns
+
+`boolean`
+
+`true` if the vectors are opposite, `false` otherwise.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`satisfyOpposition`](#satisfyopposition-14)
+
+##### scale()
+
+```ts
+scale(c): this;
+```
+
+Scales this vector by a scalar value.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `c` | `number` | The scalar value. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`scale`](#scale-14)
+
+##### subtract()
+
+```ts
+subtract(v): this;
+```
+
+Subtracts another vector from this vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) | The vector to subtract. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`subtract`](#subtract-14)
+
+##### toJSON()
+
+```ts
+toJSON(): {
+  w: number;
+  x: number;
+  y: number;
+  z: number;
+};
+```
+
+Serializes the vector to a JSON-friendly format.
+
+###### Returns
+
+```ts
+{
+  w: number;
+  x: number;
+  y: number;
+  z: number;
+}
+```
+
+A JSON-friendly object representation of the vector.
+
+| Name | Type |
+| ------ | ------ |
+| `w` | `number` |
+| `x` | `number` |
+| `y` | `number` |
+| `z` | `number` |
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`toJSON`](#tojson-11)
+
+##### toObject()
+
+```ts
+toObject(): {
+  w: number;
+  x: number;
+  y: number;
+  z: number;
+};
+```
+
+Converts the vector to a plain object.
+
+###### Returns
+
+```ts
+{
+  w: number;
+  x: number;
+  y: number;
+  z: number;
+}
+```
+
+An object with x, y, z and w properties.
+
+| Name | Type |
+| ------ | ------ |
+| `w` | `number` |
+| `x` | `number` |
+| `y` | `number` |
+| `z` | `number` |
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`toObject`](#toobject-11)
+
+##### toString()
+
+```ts
+toString(): string;
+```
+
+Returns a string representation of the vector.
+
+###### Returns
+
+`string`
+
+A string in the format "ArrayProxyVec4(x, y, z, w)".
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`toString`](#tostring-11)
+
+##### zero()
+
+```ts
+zero(): this;
+```
+
+Sets this vector to zero.
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`zero`](#zero-14)
+
+***
+
+### ProxyVec2
+
+Proxying 2D vector.
+
+#### Implements
+
+- [`Vec2Like`](#vec2like)
+
+#### Constructors
+
+##### Constructor
+
+```ts
+new ProxyVec2(
+   getX, 
+   getY, 
+   setX, 
+   setY
+): ProxyVec2;
+```
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `getX` | () => `number` | Function that returns the x-component of the vector. |
+| `getY` | () => `number` | Function that returns the y-component of the vector. |
+| `setX` | (`x`) => `void` | Function to set the x-component of the vector. |
+| `setY` | (`y`) => `void` | Function to set the y-component of the vector. |
+
+###### Returns
+
+[`ProxyVec2`](#proxyvec2)
+
+#### Accessors
+
+##### angleX
+
+###### Get Signature
+
+```ts
+get angleX(): number;
+```
+
+Gets the angle between the vector and the positive x-axis in radians.
+
+###### Returns
+
+`number`
+
+The angle in radians, always in the range [0, 2π).
+
+###### Set Signature
+
+```ts
+set angleX(phi): void;
+```
+
+Sets the angle between the vector and the positive x-axis, maintaining the vector's magnitude.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `phi` | `number` | The new angle in radians. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`angleX`](#property-anglex)
+
+##### angleY
+
+###### Get Signature
+
+```ts
+get angleY(): number;
+```
+
+Gets the angle between the vector and the positive y-axis in radians.
+
+###### Returns
+
+`number`
+
+The angle in radians, always in the range [0, 2π).
+
+###### Set Signature
+
+```ts
+set angleY(phi): void;
+```
+
+Sets the angle between the vector and the positive y-axis, maintaining the vector's magnitude.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `phi` | `number` | The new angle in radians. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`angleY`](#property-angley)
+
+##### magnitude
+
+###### Get Signature
+
+```ts
+get magnitude(): number;
+```
+
+Gets the magnitude (length) of the vector.
+
+###### Returns
+
+`number`
+
+The magnitude of the vector.
+
+###### Set Signature
+
+```ts
+set magnitude(m): void;
+```
+
+Sets the magnitude (length) of the vector, maintaining its direction.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `m` | `number` | The new magnitude. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`magnitude`](#property-magnitude)
+
+##### magnitudeSq
+
+###### Get Signature
+
+```ts
+get magnitudeSq(): number;
+```
+
+Gets the squared magnitude of the vector.
+
+###### Returns
+
+`number`
+
+The squared magnitude of the vector.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`magnitudeSq`](#property-magnitudesq)
+
+##### x
+
+###### Get Signature
+
+```ts
+get x(): number;
+```
+
+Gets the x-component of the vector.
+
+###### Returns
+
+`number`
+
+The x-component.
+
+###### Set Signature
+
+```ts
+set x(x): void;
+```
+
+Sets the x-component of the vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `x` | `number` | The new x-component. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`x`](#property-x)
+
+##### xy
+
+###### Get Signature
+
+```ts
+get xy(): ArrayVector2D;
+```
+
+Gets a copy of the vector's components as an array.
+
+###### Returns
+
+[`ArrayVector2D`](#arrayvector2d)
+
+An array containing the x and y components of the vector.
+
+###### Set Signature
+
+```ts
+set xy(xy): void;
+```
+
+Sets both components of the vector at once.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xy` | [`ArrayVector2D`](#arrayvector2d) | An array containing the new x and y components. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`xy`](#property-xy)
+
+##### y
+
+###### Get Signature
+
+```ts
+get y(): number;
+```
+
+Gets the y-component of the vector.
+
+###### Returns
+
+`number`
+
+The y-component.
+
+###### Set Signature
+
+```ts
+set y(y): void;
+```
+
+Sets the y-component of the vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `y` | `number` | The new y-component. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`y`](#property-y)
+
+#### Methods
+
+##### \[iterator\]()
+
+```ts
+iterator: IterableIterator<number>;
+```
+
+Iterator over this vector's components.
+
+###### Returns
+
+`IterableIterator`\<`number`\>
+
+###### Yields
+
+The x and y components of the vector.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`[iterator]`](#iterator-9)
+
+##### add()
+
+```ts
+add(v): this;
+```
+
+Adds another vector to this vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) | The vector to add. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`add`](#add-12)
+
+##### angleBetween()
+
+```ts
+angleBetween(v): number;
+```
+
+Calculates the angle between this vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The angle between the vectors in radians.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`angleBetween`](#anglebetween-12)
+
+##### clamp()
+
+```ts
+clamp(min, max): this;
+```
+
+Clamps the magnitude of this vector between a minimum and maximum value.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `min` | `number` | The minimum magnitude. |
+| `max` | `number` | The maximum magnitude. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`clamp`](#clamp-9)
+
+##### clone()
+
+```ts
+clone(): Vec2;
+```
+
+Creates a new Vec2 instance based on this vector.
+
+###### Returns
+
+[`Vec2`](#vec2)
+
+A new Vec2 instance with the same components.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`clone`](#clone-9)
+
+##### copy()
+
+```ts
+copy(v): this;
+```
+
+Copies the components of another vector to this vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) | The vector to copy from. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`copy`](#copy-9)
+
+##### cross()
+
+```ts
+cross(v): number;
+```
+
+Calculates the cross product of this vector with another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The cross product of the vectors.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`cross`](#cross-8)
+
+##### distance()
+
+```ts
+distance(v): number;
+```
+
+Calculates the distance between this vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The distance between the vectors.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`distance`](#distance-12)
+
+##### distanceChebyshev()
+
+```ts
+distanceChebyshev(v): number;
+```
+
+Calculates the Chebyshev distance between this vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The Chebyshev distance between the vectors.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`distanceChebyshev`](#distancechebyshev-12)
+
+##### distanceManhattan()
+
+```ts
+distanceManhattan(v): number;
+```
+
+Calculates the Manhattan distance between this vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The Manhattan distance between the vectors.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`distanceManhattan`](#distancemanhattan-12)
+
+##### distanceMinkowski()
+
+```ts
+distanceMinkowski(v, p): number;
+```
+
+Calculates the Minkowski distance between this vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) | The other vector. |
+| `p` | `number` | The order of the Minkowski distance. |
+
+###### Returns
+
+`number`
+
+The Minkowski distance between the vectors.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`distanceMinkowski`](#distanceminkowski-12)
+
+##### distanceSq()
+
+```ts
+distanceSq(v): number;
+```
+
+Calculates the squared distance between this vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The squared distance between the vectors.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`distanceSq`](#distancesq-12)
+
+##### divide()
+
+```ts
+divide(v): this;
+```
+
+Divides this vector with another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) | The vector to divide with. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`divide`](#divide-12)
+
+##### dot()
+
+```ts
+dot(v): number;
+```
+
+Calculates the dot product of this vector with another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The dot product of the vectors.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`dot`](#dot-12)
+
+##### equals()
+
+```ts
+equals(v, epsilon?): boolean;
+```
+
+Compares this vector with another vector using an epsilon value for floating-point comparison.
+
+###### Parameters
+
+| Parameter | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) | `undefined` | The vector to compare with. |
+| `epsilon` | `number` | `Number.EPSILON` | The maximum difference between components to consider them equal. |
+
+###### Returns
+
+`boolean`
+
+True if the vectors are equal within epsilon, false otherwise.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`equals`](#equals-12)
+
+##### isInfinite()
+
+```ts
+isInfinite(): boolean;
+```
+
+Checks if this vector has infinite components.
+
+###### Returns
+
+`boolean`
+
+True if the vector has infinite components, false otherwise.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`isInfinite`](#isinfinite-12)
+
+##### isNaN()
+
+```ts
+isNaN(): boolean;
+```
+
+Checks if this vector has NaN components.
+
+###### Returns
+
+`boolean`
+
+True if the vector has NaN components, false otherwise.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`isNaN`](#isnan-12)
+
+##### isZero()
+
+```ts
+isZero(): boolean;
+```
+
+Checks if this vector is zero.
+
+###### Returns
+
+`boolean`
+
+True if the vector is zero, false otherwise.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`isZero`](#iszero-12)
+
+##### limitMax()
+
+```ts
+limitMax(max): this;
+```
+
+Limits the maximum magnitude of this vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `max` | `number` | The maximum magnitude. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`limitMax`](#limitmax-9)
+
+##### limitMin()
+
+```ts
+limitMin(min): this;
+```
+
+Limits the minimum magnitude of this vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `min` | `number` | The minimum magnitude. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`limitMin`](#limitmin-9)
+
+##### lookAt()
+
+```ts
+lookAt(v): this;
+```
+
+Sets this vector to point towards another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) | The vector to look at. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`lookAt`](#lookat-9)
+
+##### multiply()
+
+```ts
+multiply(v): this;
+```
+
+Multiplies this vector with another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) | The vector to multiply with. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`multiply`](#multiply-12)
+
+##### negate()
+
+```ts
+negate(): this;
+```
+
+Negates this vector.
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`negate`](#negate-12)
+
+##### normalize()
+
+```ts
+normalize(): this;
+```
+
+Normalizes this vector.
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`normalize`](#normalize-12)
+
+##### project()
+
+```ts
+project(v): this;
+```
+
+Projects this vector onto another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) | The vector to project onto. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`project`](#project-12)
+
+##### random()
+
+```ts
+random(random?): this;
+```
+
+Sets this vector to a random direction with the same magnitude.
+
+###### Parameters
+
+| Parameter | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `random` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`random`](#random-12)
+
+##### reflect()
+
+```ts
+reflect(normal): Vec2;
+```
+
+Reflects this vector across a normal vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `normal` | [`Vec2Like`](#vec2like) | The normal vector to reflect across (must be normalized). |
+
+###### Returns
+
+[`Vec2`](#vec2)
+
+A new Vec2Like instance representing the reflected vector.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`reflect`](#reflect-12)
+
+##### rotateZ()
+
+```ts
+rotateZ(phi): this;
+```
+
+Rotates this vector around the Z-axis.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `phi` | `number` | The angle of rotation in radians. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`rotateZ`](#rotatez-6)
+
+##### satisfyEquality()
+
+```ts
+satisfyEquality(v): boolean;
+```
+
+Checks if this vector is equal to another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) | The other vector. |
+
+###### Returns
+
+`boolean`
+
+True if the vectors are equal, false otherwise.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`satisfyEquality`](#satisfyequality-12)
+
+##### satisfyOpposition()
+
+```ts
+satisfyOpposition(v): boolean;
+```
+
+Checks if this vector is opposite to another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) | The other vector. |
+
+###### Returns
+
+`boolean`
+
+True if the vectors are opposite, false otherwise.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`satisfyOpposition`](#satisfyopposition-12)
+
+##### scale()
+
+```ts
+scale(c): this;
+```
+
+Scales this vector by a scalar value.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `c` | `number` | The scalar value. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`scale`](#scale-12)
+
+##### subtract()
+
+```ts
+subtract(v): this;
+```
+
+Subtracts another vector from this vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) | The vector to subtract. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`subtract`](#subtract-12)
+
+##### toJSON()
+
+```ts
+toJSON(): XYObject;
+```
+
+Serializes the vector to a JSON-friendly format.
+
+###### Returns
+
+[`XYObject`](#xyobject)
+
+A JSON-friendly object representation of the vector.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`toJSON`](#tojson-9)
+
+##### toObject()
+
+```ts
+toObject(): XYObject;
+```
+
+Converts the vector to a plain object.
+
+###### Returns
+
+[`XYObject`](#xyobject)
+
+An object with x and y properties.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`toObject`](#toobject-9)
+
+##### toString()
+
+```ts
+toString(): string;
+```
+
+Returns a string representation of the vector.
+
+###### Returns
+
+`string`
+
+A string in the format "ProxyVec2(x, y)".
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`toString`](#tostring-9)
+
+##### turnLeft()
+
+```ts
+turnLeft(): this;
+```
+
+Rotates this vector 90 degrees to the left.
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`turnLeft`](#turnleft-3)
+
+##### turnRight()
+
+```ts
+turnRight(): this;
+```
+
+Rotates this vector 90 degrees to the right.
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`turnRight`](#turnright-3)
+
+##### zero()
+
+```ts
+zero(): this;
+```
+
+Sets this vector to zero.
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec2Like`](#vec2like).[`zero`](#zero-12)
+
+***
+
+### ProxyVec3
+
+Proxying 3D vector.
+
+#### Implements
+
+- [`Vec3Like`](#vec3like)
+
+#### Constructors
+
+##### Constructor
+
+```ts
+new ProxyVec3(
+   getX, 
+   getY, 
+   getZ, 
+   setX, 
+   setY, 
+   setZ
+): ProxyVec3;
+```
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `getX` | () => `number` | Function that returns the x-component of the vector. |
+| `getY` | () => `number` | Function that returns the y-component of the vector. |
+| `getZ` | () => `number` | Function that returns the z-component of the vector. |
+| `setX` | (`x`) => `void` | Function to set the x-component of the vector. |
+| `setY` | (`y`) => `void` | Function to set the y-component of the vector. |
+| `setZ` | (`z`) => `void` | Function to set the z-component of the vector. |
+
+###### Returns
+
+[`ProxyVec3`](#proxyvec3)
+
+#### Accessors
+
+##### angleX
+
+###### Get Signature
+
+```ts
+get angleX(): number;
+```
+
+Gets the angle between the vector and the positive x-axis in radians.
+
+###### Returns
+
+`number`
+
+The angle in radians, always in the range [0, 2π).
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`angleX`](#property-anglex-1)
+
+##### angleY
+
+###### Get Signature
+
+```ts
+get angleY(): number;
+```
+
+Gets the angle between the vector and the positive y-axis in radians.
+
+###### Returns
+
+`number`
+
+The angle in radians, always in the range [0, 2π).
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`angleY`](#property-angley-1)
+
+##### angleZ
+
+###### Get Signature
+
+```ts
+get angleZ(): number;
+```
+
+Gets the angle between the vector and the positive z-axis in radians.
+
+###### Returns
+
+`number`
+
+The angle in radians, always in the range [0, 2π).
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`angleZ`](#property-anglez)
+
+##### b
+
+###### Get Signature
+
+```ts
+get b(): number;
+```
+
+Gets the Blue-component of the color.
+
+###### Returns
+
+`number`
+
+The Blue-component.
+
+###### Set Signature
+
+```ts
+set b(b): void;
+```
+
+Sets the Blue-component of the Color.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `b` | `number` | The new Blue-component. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`b`](#property-b)
+
+##### g
+
+###### Get Signature
+
+```ts
+get g(): number;
+```
+
+Gets the Green-component of a Color.
+
+###### Returns
+
+`number`
+
+The Green-component.
+
+###### Set Signature
+
+```ts
+set g(g): void;
+```
+
+Sets the Green-component of the Color.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `g` | `number` | The new Green-component. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`g`](#property-g)
+
+##### magnitude
+
+###### Get Signature
+
+```ts
+get magnitude(): number;
+```
+
+Gets the magnitude (length) of the vector.
+
+###### Returns
+
+`number`
+
+###### Set Signature
+
+```ts
+set magnitude(m): void;
+```
+
+Sets the magnitude (length) of the vector, maintaining its direction.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `m` | `number` | The new magnitude. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`magnitude`](#property-magnitude-1)
+
+##### magnitudeSq
+
+###### Get Signature
+
+```ts
+get magnitudeSq(): number;
+```
+
+Gets the squared magnitude of the vector.
+This is faster to compute than the actual magnitude and is useful for comparisons.
+
+###### Returns
+
+`number`
+
+The squared magnitude of the vector.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`magnitudeSq`](#property-magnitudesq-1)
+
+##### r
+
+###### Get Signature
+
+```ts
+get r(): number;
+```
+
+Gets the Red-component of a Color.
+
+###### Returns
+
+`number`
+
+The Red-component.
+
+###### Set Signature
+
+```ts
+set r(r): void;
+```
+
+Sets the Red-component of a Color.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `r` | `number` | The new Red-component. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`r`](#property-r)
+
+##### rgb
+
+###### Get Signature
+
+```ts
+get rgb(): ArrayVector3D;
+```
+
+Gets a copy of the vector's components as an array.
+
+###### Returns
+
+[`ArrayVector3D`](#arrayvector3d)
+
+An array containing the x, y and z components of the vector.
+
+###### Set Signature
+
+```ts
+set rgb(rgb): void;
+```
+
+Sets all components of the Color at once.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `rgb` | [`ArrayVector3D`](#arrayvector3d) | An array containing the new Red, Green and Blue components. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`rgb`](#property-rgb)
+
+##### x
+
+###### Get Signature
+
+```ts
+get x(): number;
+```
+
+Gets the x-component of the vector.
+
+###### Returns
+
+`number`
+
+The x-component.
+
+###### Set Signature
+
+```ts
+set x(x): void;
+```
+
+Sets the x-component of the vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `x` | `number` | The new x-component. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`x`](#property-x-1)
+
+##### xyz
+
+###### Get Signature
+
+```ts
+get xyz(): ArrayVector3D;
+```
+
+Gets a copy of the vector's components as an array.
+
+###### Returns
+
+[`ArrayVector3D`](#arrayvector3d)
+
+An array containing the x, y and z components of the vector.
+
+###### Set Signature
+
+```ts
+set xyz(xyz): void;
+```
+
+Sets all components of the vector at once.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `xyz` | [`ArrayVector3D`](#arrayvector3d) | An array containing the new x, y and z components. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`xyz`](#property-xyz)
+
+##### y
+
+###### Get Signature
+
+```ts
+get y(): number;
+```
+
+Gets the y-component of the vector.
+
+###### Returns
+
+`number`
+
+The y-component.
+
+###### Set Signature
+
+```ts
+set y(y): void;
+```
+
+Sets the y-component of the vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `y` | `number` | The new y-component. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`y`](#property-y-1)
+
+##### z
+
+###### Get Signature
+
+```ts
+get z(): number;
+```
+
+Gets the z-component of the vector.
+
+###### Returns
+
+`number`
+
+The z-component.
+
+###### Set Signature
+
+```ts
+set z(z): void;
+```
+
+Sets the z-component of the vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `z` | `number` | The new z-component. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`z`](#property-z)
+
+#### Methods
+
+##### \[iterator\]()
+
+```ts
+iterator: IterableIterator<number>;
+```
+
+Iterator over this vector's components.
+
+###### Returns
+
+`IterableIterator`\<`number`\>
+
+###### Yields
+
+The x, y and z components of the vector.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`[iterator]`](#iterator-10)
+
+##### add()
+
+```ts
+add(v): ProxyVec3;
+```
+
+Adds another vector to this vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) | The vector to add. |
+
+###### Returns
+
+[`ProxyVec3`](#proxyvec3)
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`add`](#add-13)
+
+##### angleBetween()
+
+```ts
+angleBetween(v): number;
+```
+
+Calculates the angle between this vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The angle between the vectors in radians.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`angleBetween`](#anglebetween-13)
+
+##### clamp()
+
+```ts
+clamp(min, max): this;
+```
+
+Clamps the magnitude of this vector between a minimum and maximum value.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `min` | `number` | The minimum magnitude. |
+| `max` | `number` | The maximum magnitude. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`clamp`](#clamp-10)
+
+##### clone()
+
+```ts
+clone(): Vec3;
+```
+
+Creates a copy of this vector.
+
+###### Returns
+
+[`Vec3`](#vec3)
+
+A new Vec3 instance with the same components.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`clone`](#clone-10)
+
+##### copy()
+
+```ts
+copy(v): this;
+```
+
+Copies the components of another vector to this vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) | The vector to copy from. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`copy`](#copy-10)
+
+##### cross()
+
+```ts
+cross(v): this;
+```
+
+Calculates cross product between this vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) | The other vector. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`cross`](#cross-9)
+
+##### distance()
+
+```ts
+distance(v): number;
+```
+
+Calculates the distance between this vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The distance between the vectors.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`distance`](#distance-13)
+
+##### distanceChebyshev()
+
+```ts
+distanceChebyshev(v): number;
+```
+
+Calculates the Chebyshev distance between vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The Chebyshev distance between the vectors.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`distanceChebyshev`](#distancechebyshev-13)
+
+##### distanceManhattan()
+
+```ts
+distanceManhattan(v): number;
+```
+
+Calculates the Manhattan distance between vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The Manhattan distance between the vectors.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`distanceManhattan`](#distancemanhattan-13)
+
+##### distanceMinkowski()
+
+```ts
+distanceMinkowski(v, p): number;
+```
+
+Calculates the Minkowski distance between this vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) | The other vector. |
+| `p` | `number` | The order of the Minkowski distance. |
+
+###### Returns
+
+`number`
+
+The Minkowski distance between the vectors.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`distanceMinkowski`](#distanceminkowski-13)
+
+##### distanceSq()
+
+```ts
+distanceSq(v): number;
+```
+
+Calculates the squared distance between this vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The squared distance between the vectors.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`distanceSq`](#distancesq-13)
+
+##### divide()
+
+```ts
+divide(v): this;
+```
+
+Divides this vector with another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) | The vector to divide with. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`divide`](#divide-13)
+
+##### dot()
+
+```ts
+dot(v): number;
+```
+
+Calculates the dot product of this vector with another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The dot product of the vectors.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`dot`](#dot-13)
+
+##### equals()
+
+```ts
+equals(v, epsilon?): boolean;
+```
+
+Compares this vector with another vector using an epsilon value for floating-point comparison.
+
+###### Parameters
+
+| Parameter | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) | `undefined` | The vector to compare with. |
+| `epsilon` | `number` | `Number.EPSILON` | The maximum difference between components to consider them equal. |
+
+###### Returns
+
+`boolean`
+
+`true` if the vectors are equal within epsilon, `false` otherwise.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`equals`](#equals-13)
+
+##### isInfinite()
+
+```ts
+isInfinite(): boolean;
+```
+
+Checks if this vector has infinite components.
+
+###### Returns
+
+`boolean`
+
+`true` if the vector has infinite components, `false` otherwise.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`isInfinite`](#isinfinite-13)
+
+##### isNaN()
+
+```ts
+isNaN(): boolean;
+```
+
+Checks if this vector has NaN components.
+
+###### Returns
+
+`boolean`
+
+`true` if the vector has NaN components, `false` otherwise.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`isNaN`](#isnan-13)
+
+##### isZero()
+
+```ts
+isZero(): boolean;
+```
+
+Checks if this vector is zero.
+
+###### Returns
+
+`boolean`
+
+`true` if the vector is zero, `false` otherwise.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`isZero`](#iszero-13)
+
+##### limitMax()
+
+```ts
+limitMax(max): this;
+```
+
+Limits the maximum magnitude of this vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `max` | `number` | The maximum magnitude. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`limitMax`](#limitmax-10)
+
+##### limitMin()
+
+```ts
+limitMin(min): this;
+```
+
+Limits the minimum magnitude of this vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `min` | `number` | The minimum magnitude. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`limitMin`](#limitmin-10)
+
+##### lookAt()
+
+```ts
+lookAt(v): this;
+```
+
+Sets this vector to point towards another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) | The vector to look at. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`lookAt`](#lookat-10)
+
+##### multiply()
+
+```ts
+multiply(v): this;
+```
+
+Multiplies this vector with another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) | The vector to multiply with. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`multiply`](#multiply-13)
+
+##### negate()
+
+```ts
+negate(): this;
+```
+
+Negates this vector.
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`negate`](#negate-13)
+
+##### normalize()
+
+```ts
+normalize(): this;
+```
+
+Normalizes this vector.
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`normalize`](#normalize-13)
+
+##### project()
+
+```ts
+project(v): this;
+```
+
+Projects this vector onto another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) | The vector to project onto. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`project`](#project-13)
+
+##### random()
+
+```ts
+random(random?): this;
+```
+
+Sets this vector to a random direction with the same magnitude.
+
+###### Parameters
+
+| Parameter | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `random` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`random`](#random-13)
+
+##### reflect()
+
+```ts
+reflect(normal): this;
+```
+
+Reflects this vector across a normal vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `normal` | [`Vec3Like`](#vec3like) | The normal vector to reflect across (must be normalized). |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`reflect`](#reflect-13)
+
+##### rotateX()
+
+```ts
+rotateX(phi): this;
+```
+
+Rotates this vector around the x-axis.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `phi` | `number` | The angle of rotation in radians. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`rotateX`](#rotatex-3)
+
+##### rotateY()
+
+```ts
+rotateY(phi): this;
+```
+
+Rotates this vector around the y-axis.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `phi` | `number` | The angle of rotation in radians. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`rotateY`](#rotatey-3)
+
+##### rotateZ()
+
+```ts
+rotateZ(phi): this;
+```
+
+Rotates this vector around the z-axis.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `phi` | `number` | The angle of rotation in radians. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`rotateZ`](#rotatez-7)
+
+##### satisfyEquality()
+
+```ts
+satisfyEquality(v): boolean;
+```
+
+Checks if this vector is equal to another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) | The other vector. |
+
+###### Returns
+
+`boolean`
+
+`true` if the vectors are equal, `false` otherwise.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`satisfyEquality`](#satisfyequality-13)
+
+##### satisfyOpposition()
+
+```ts
+satisfyOpposition(v): boolean;
+```
+
+Checks if this vector is opposite to another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) | The other vector. |
+
+###### Returns
+
+`boolean`
+
+`true` if the vectors are opposite, `false` otherwise.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`satisfyOpposition`](#satisfyopposition-13)
+
+##### scale()
+
+```ts
+scale(c): this;
+```
+
+Scales this vector by a scalar value.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `c` | `number` | The scalar value. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`scale`](#scale-13)
+
+##### subtract()
+
+```ts
+subtract(v): this;
+```
+
+Subtracts another vector from this vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) | The vector to subtract. |
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`subtract`](#subtract-13)
+
+##### toJSON()
+
+```ts
+toJSON(): XYZObject;
+```
+
+Serializes the vector to a JSON-friendly format.
+
+###### Returns
+
+[`XYZObject`](#xyzobject)
+
+A JSON-friendly object representation of the vector.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`toJSON`](#tojson-10)
+
+##### toObject()
+
+```ts
+toObject(): XYZObject;
+```
+
+Converts the vector to a plain object.
+
+###### Returns
+
+[`XYZObject`](#xyzobject)
+
+An object with x, y and z properties.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`toObject`](#toobject-10)
+
+##### toString()
+
+```ts
+toString(): string;
+```
+
+Returns a string representation of the vector.
+
+###### Returns
+
+`string`
+
+A string in the format "ProxyVec3(x, y, z)".
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`toString`](#tostring-10)
+
+##### zero()
+
+```ts
+zero(): this;
+```
+
+Sets this vector to zero.
+
+###### Returns
+
+`this`
+
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec3Like`](#vec3like).[`zero`](#zero-13)
+
+***
+
+### ProxyVec4
+
+A 4D vector backed by getter and setter functions.
+
+#### Implements
+
+- [`Vec4Like`](#vec4like)
+
+#### Constructors
+
+##### Constructor
+
+```ts
+new ProxyVec4(
+   getX, 
+   getY, 
+   getZ, 
+   getW, 
+   setX, 
+   setY, 
+   setZ, 
+   setW
+): ProxyVec4;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `getX` | () => `number` |
+| `getY` | () => `number` |
+| `getZ` | () => `number` |
+| `getW` | () => `number` |
+| `setX` | (`x`) => `void` |
+| `setY` | (`y`) => `void` |
+| `setZ` | (`z`) => `void` |
+| `setW` | (`w`) => `void` |
+
+###### Returns
+
+[`ProxyVec4`](#proxyvec4)
+
+#### Accessors
+
+##### a
+
+###### Get Signature
+
+```ts
+get a(): number;
+```
+
+Gets the Alpha-component of the color.
+
+###### Returns
+
+`number`
+
+The Alpha-component.
+
+###### Set Signature
+
+```ts
+set a(a): void;
+```
+
+Sets the Alpha-component of the Color.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `a` | `number` | The new Alpha-component. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`a`](#property-a)
+
+##### angleW
+
+###### Get Signature
+
+```ts
+get angleW(): number;
+```
+
+Gets the angle between the vector and the positive w-axis in radians.
+
+###### Returns
+
+`number`
+
+The angle in radians, always in the range [0, 2π).
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`angleW`](#property-anglew)
+
+##### angleX
+
+###### Get Signature
+
+```ts
+get angleX(): number;
+```
+
+Gets the angle between the vector and the positive x-axis in radians.
+
+###### Returns
+
+`number`
+
+The angle in radians, always in the range [0, 2π).
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`angleX`](#property-anglex-2)
+
+##### angleY
+
+###### Get Signature
+
+```ts
+get angleY(): number;
+```
+
+Gets the angle between the vector and the positive y-axis in radians.
+
+###### Returns
+
+`number`
+
+The angle in radians, always in the range [0, 2π).
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`angleY`](#property-angley-2)
+
+##### angleZ
+
+###### Get Signature
+
+```ts
+get angleZ(): number;
+```
+
+Gets the angle between the vector and the positive z-axis in radians.
+
+###### Returns
+
+`number`
+
+The angle in radians, always in the range [0, 2π).
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`angleZ`](#property-anglez-1)
+
+##### b
+
+###### Get Signature
+
+```ts
+get b(): number;
+```
+
+Gets the Blue-component of the color.
+
+###### Returns
+
+`number`
+
+The Blue-component.
+
+###### Set Signature
+
+```ts
+set b(b): void;
+```
+
+Sets the Blue-component of the Color.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `b` | `number` | The new Blue-component. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`b`](#property-b-1)
+
+##### g
+
+###### Get Signature
+
+```ts
+get g(): number;
+```
+
+Gets the Green-component of a Color.
+
+###### Returns
+
+`number`
+
+The Green-component.
+
+###### Set Signature
+
+```ts
+set g(g): void;
+```
+
+Sets the Green-component of the Color.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `g` | `number` | The new Green-component. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`g`](#property-g-1)
+
+##### magnitude
+
+###### Get Signature
+
+```ts
+get magnitude(): number;
+```
+
+Reads the current target components, including external changes.
+
+###### Returns
+
+`number`
+
+###### Set Signature
+
+```ts
+set magnitude(m): void;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `m` | `number` |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`magnitude`](#property-magnitude-2)
+
+##### magnitudeSq
+
+###### Get Signature
+
+```ts
+get magnitudeSq(): number;
+```
+
+###### Returns
+
+`number`
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`magnitudeSq`](#property-magnitudesq-2)
+
+##### r
+
+###### Get Signature
+
+```ts
+get r(): number;
+```
+
+Gets the Red-component of a Color.
+
+###### Returns
+
+`number`
+
+The Red-component.
+
+###### Set Signature
+
+```ts
+set r(r): void;
+```
+
+Sets the Red-component of a Color.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `r` | `number` | The new Red-component. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`r`](#property-r-1)
+
+##### rgba
+
+###### Get Signature
+
+```ts
+get rgba(): ArrayVector4D;
+```
+
+Gets a copy of the vector's components as an array.
+
+###### Returns
+
+[`ArrayVector4D`](#arrayvector4d)
+
+An array containing the Red, Green, Blue and Alpha components of the Color.
+
+###### Set Signature
+
+```ts
+set rgba(rgba): void;
+```
+
+Sets all components of the Color at once.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `rgba` | [`ArrayVector4D`](#arrayvector4d) | An array containing the new Red, Green, Blue and Alpha components. |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`rgba`](#property-rgba)
+
+##### w
+
+###### Get Signature
+
+```ts
+get w(): number;
+```
+
+###### Returns
+
+`number`
+
+###### Set Signature
+
+```ts
+set w(w): void;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `w` | `number` |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`w`](#property-w)
+
+##### x
+
+###### Get Signature
+
+```ts
+get x(): number;
+```
+
+###### Returns
+
+`number`
+
+###### Set Signature
+
+```ts
+set x(x): void;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `x` | `number` |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`x`](#property-x-2)
+
+##### xyzw
+
+###### Get Signature
+
+```ts
+get xyzw(): ArrayVector4D;
+```
+
+###### Returns
+
+[`ArrayVector4D`](#arrayvector4d)
+
+###### Set Signature
+
+```ts
+set xyzw(value): void;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `value` | [`ArrayVector4D`](#arrayvector4d) |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`xyzw`](#property-xyzw)
+
+##### y
+
+###### Get Signature
+
+```ts
+get y(): number;
+```
+
+###### Returns
+
+`number`
+
+###### Set Signature
+
+```ts
+set y(y): void;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `y` | `number` |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`y`](#property-y-2)
+
+##### z
+
+###### Get Signature
+
+```ts
+get z(): number;
+```
+
+###### Returns
+
+`number`
+
+###### Set Signature
+
+```ts
+set z(z): void;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `z` | `number` |
+
+###### Returns
+
+`void`
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`z`](#property-z-1)
+
+#### Methods
+
+##### \[iterator\]()
+
+```ts
+iterator: IterableIterator<number>;
+```
+
+Makes the Vec4 instance iterable.
+
+###### Returns
+
+`IterableIterator`\<`number`\>
+
+###### Yields
+
+The x, y, z and w components of the vector.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`[iterator]`](#iterator-11)
+
+##### add()
+
+```ts
+add(v): ProxyVec4;
+```
+
+Adds another vector to this vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) | The vector to add. |
+
+###### Returns
+
+[`ProxyVec4`](#proxyvec4)
+
+This Vec4 instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`add`](#add-14)
+
+##### angleBetween()
+
+```ts
+angleBetween(v): number;
+```
+
+Calculates the angle between this vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The angle between the vectors in radians.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`angleBetween`](#anglebetween-14)
+
+##### clamp()
+
+```ts
+clamp(min, max): ProxyVec4;
+```
+
+Clamps the magnitude of this vector between a minimum and maximum value.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `min` | `number` | The minimum magnitude. |
+| `max` | `number` | The maximum magnitude. |
+
+###### Returns
+
+[`ProxyVec4`](#proxyvec4)
+
+This Vec4 instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`clamp`](#clamp-11)
+
+##### clone()
+
+```ts
+clone(): Vec4;
+```
+
+Creates a copy of this vector.
+
+###### Returns
+
+[`Vec4`](#vec4)
+
+A new Vec4 instance with the same components.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`clone`](#clone-11)
+
+##### copy()
+
+```ts
+copy(v): ProxyVec4;
+```
+
+Copies the components of another vector to this vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) | The vector to copy from. |
+
+###### Returns
+
+[`ProxyVec4`](#proxyvec4)
+
+This Vec2 instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`copy`](#copy-11)
+
+##### distance()
+
+```ts
+distance(v): number;
+```
+
+Calculates the distance between this vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The distance between the vectors.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`distance`](#distance-14)
+
+##### distanceChebyshev()
+
+```ts
+distanceChebyshev(v): number;
+```
+
+Calculates the Chebyshev distance between this vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The Chebyshev distance between the vectors.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`distanceChebyshev`](#distancechebyshev-14)
+
+##### distanceManhattan()
+
+```ts
+distanceManhattan(v): number;
+```
+
+Calculates the Manhattan distance between this vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The Manhattan distance between the vectors.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`distanceManhattan`](#distancemanhattan-14)
+
+##### distanceMinkowski()
+
+```ts
+distanceMinkowski(v, p): number;
+```
+
+Calculates the Minkowski distance between this vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) | The other vector. |
+| `p` | `number` | The order of the Minkowski distance. |
+
+###### Returns
+
+`number`
+
+The Minkowski distance between the vectors.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`distanceMinkowski`](#distanceminkowski-14)
+
+##### distanceSq()
+
+```ts
+distanceSq(v): number;
+```
+
+Calculates the squared distance between this vector and another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The squared distance between the vectors.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`distanceSq`](#distancesq-14)
+
+##### divide()
+
+```ts
+divide(v): this;
+```
+
+Divides this vector with another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) | The vector to divide with. |
+
+###### Returns
+
+`this`
+
+This Vec4 instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`divide`](#divide-14)
+
+##### dot()
+
+```ts
+dot(v): number;
+```
+
+Calculates the dot product of this vector with another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) | The other vector. |
+
+###### Returns
+
+`number`
+
+The dot product of the vectors.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`dot`](#dot-14)
+
+##### equals()
+
+```ts
+equals(v, epsilon?): boolean;
+```
+
+Compares this vector with another vector using an epsilon value for floating-point comparison.
+
+###### Parameters
+
+| Parameter | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) | `undefined` | The vector to compare with. |
+| `epsilon` | `number` | `Number.EPSILON` | The maximum difference between components to consider them equal. |
+
+###### Returns
+
+`boolean`
+
+True if the vectors are equal within epsilon, false otherwise.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`equals`](#equals-14)
+
+##### isInfinite()
+
+```ts
+isInfinite(): boolean;
+```
+
+Checks if this vector has infinite components.
+
+###### Returns
+
+`boolean`
+
+True if the vector has infinite components, false otherwise.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`isInfinite`](#isinfinite-14)
+
+##### isNaN()
+
+```ts
+isNaN(): boolean;
+```
+
+Checks if this vector has NaN components.
+
+###### Returns
+
+`boolean`
+
+True if the vector has NaN components, false otherwise.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`isNaN`](#isnan-14)
+
+##### isZero()
+
+```ts
+isZero(): boolean;
+```
+
+Checks if this vector is zero.
+
+###### Returns
+
+`boolean`
+
+True if the vector is zero, false otherwise.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`isZero`](#iszero-14)
+
+##### limitMax()
+
+```ts
+limitMax(max): this;
+```
+
+Limits the maximum magnitude of this vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `max` | `number` | The maximum magnitude. |
+
+###### Returns
+
+`this`
+
+This Vec2 instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`limitMax`](#limitmax-11)
+
+##### limitMin()
+
+```ts
+limitMin(min): this;
+```
+
+Limits the minimum magnitude of this vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `min` | `number` | The minimum magnitude. |
+
+###### Returns
+
+`this`
+
+This Vec4 instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`limitMin`](#limitmin-11)
+
+##### lookAt()
+
+```ts
+lookAt(v): this;
+```
+
+Sets this vector to point towards another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) | The vector to look at. |
+
+###### Returns
+
+`this`
+
+This Vec4 instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`lookAt`](#lookat-11)
+
+##### multiply()
+
+```ts
+multiply(v): this;
+```
+
+Multiplies this vector with another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) | The vector to multiply with. |
+
+###### Returns
+
+`this`
+
+This Vec4 instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`multiply`](#multiply-14)
+
+##### negate()
+
+```ts
+negate(): this;
+```
+
+Negates this vector.
+
+###### Returns
+
+`this`
+
+This Vec4 instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`negate`](#negate-14)
+
+##### normalize()
+
+```ts
+normalize(): this;
+```
+
+Normalizes this vector.
+
+###### Returns
+
+`this`
+
+This Ve4 instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`normalize`](#normalize-14)
+
+##### project()
+
+```ts
+project(v): this;
+```
+
+Projects this vector onto another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) | The vector to project onto. |
+
+###### Returns
+
+`this`
+
+This Vec4 instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`project`](#project-14)
+
+##### random()
+
+```ts
+random(random?): this;
+```
+
+Sets this vector to a random direction with the same magnitude.
+
+###### Parameters
+
+| Parameter | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `random` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1. |
+
+###### Returns
+
+`this`
+
+This Vec4 instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`random`](#random-14)
+
+##### reflect()
+
+```ts
+reflect(normal): this;
+```
+
+Reflects this vector across a normal vector.
+The normal vector should be normalized (unit length).
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `normal` | [`Vec4Like`](#vec4like) | The normal vector to reflect across (must be normalized). |
+
+###### Returns
+
+`this`
+
+This Vec4 instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`reflect`](#reflect-14)
+
+##### satisfyEquality()
+
+```ts
+satisfyEquality(v): boolean;
+```
+
+Checks if this vector is equal to another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) | The other vector. |
+
+###### Returns
+
+`boolean`
+
+True if the vectors are equal, false otherwise.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`satisfyEquality`](#satisfyequality-14)
+
+##### satisfyOpposition()
+
+```ts
+satisfyOpposition(v): boolean;
+```
+
+Checks if this vector is opposite to another vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) | The other vector. |
+
+###### Returns
+
+`boolean`
+
+True if the vectors are opposite, false otherwise.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`satisfyOpposition`](#satisfyopposition-14)
+
+##### scale()
+
+```ts
+scale(c): this;
+```
+
+Scales this vector by a scalar value.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `c` | `number` | The scalar value. |
+
+###### Returns
+
+`this`
+
+This Vec4 instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`scale`](#scale-14)
+
+##### subtract()
+
+```ts
+subtract(v): this;
+```
+
+Subtracts another vector from this vector.
+
+###### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) | The vector to subtract. |
+
+###### Returns
+
+`this`
+
+This Vec4 instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`subtract`](#subtract-14)
+
+##### toJSON()
+
+```ts
+toJSON(): {
+  w: number;
+  x: number;
+  y: number;
+  z: number;
+};
+```
+
+Serializes the vector to a JSON-friendly format.
+
+###### Returns
+
+```ts
+{
+  w: number;
+  x: number;
+  y: number;
+  z: number;
+}
+```
+
+A JSON-friendly object representation of the vector.
+
+| Name | Type |
+| ------ | ------ |
+| `w` | `number` |
+| `x` | `number` |
+| `y` | `number` |
+| `z` | `number` |
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`toJSON`](#tojson-11)
+
+##### toObject()
+
+```ts
+toObject(): {
+  w: number;
+  x: number;
+  y: number;
+  z: number;
+};
+```
+
+Converts the vector to a plain object.
+
+###### Returns
+
+```ts
+{
+  w: number;
+  x: number;
+  y: number;
+  z: number;
+}
+```
+
+An object with x, y, z and w properties.
+
+| Name | Type |
+| ------ | ------ |
+| `w` | `number` |
+| `x` | `number` |
+| `y` | `number` |
+| `z` | `number` |
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`toObject`](#toobject-11)
+
+##### toString()
+
+```ts
+toString(): string;
+```
+
+Returns a string representation of the vector.
+
+###### Returns
+
+`string`
+
+A string in the format "Vec4(x, y, z, w)".
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`toString`](#tostring-11)
+
+##### zero()
+
+```ts
+zero(): this;
+```
+
+Sets this vector to zero.
+
+###### Returns
+
+`this`
+
+This Vec4 instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`zero`](#zero-14)
+
+***
+
 ### Vec2
 
 2D vector.
 
 #### Implements
 
-- `Vec2Like`
+- [`Vec2Like`](#vec2like)
 
 #### Constructors
 
@@ -17,6 +7875,8 @@
 ```ts
 new Vec2(x?, y?): Vec2;
 ```
+
+Creates a new Vec2 instance.
 
 ###### Parameters
 
@@ -67,9 +7927,7 @@ Sets the angle between the vector and the positive x-axis, maintaining the vecto
 
 ###### Implementation of
 
-```ts
-Vec2Like.angleX
-```
+[`Vec2Like`](#vec2like).[`angleX`](#property-anglex)
 
 ##### angleY
 
@@ -107,9 +7965,7 @@ Sets the angle between the vector and the positive y-axis, maintaining the vecto
 
 ###### Implementation of
 
-```ts
-Vec2Like.angleY
-```
+[`Vec2Like`](#vec2like).[`angleY`](#property-angley)
 
 ##### magnitude
 
@@ -147,9 +8003,7 @@ Sets the magnitude (length) of the vector, maintaining its direction.
 
 ###### Implementation of
 
-```ts
-Vec2Like.magnitude
-```
+[`Vec2Like`](#vec2like).[`magnitude`](#property-magnitude)
 
 ##### magnitudeSq
 
@@ -169,9 +8023,7 @@ The squared magnitude of the vector.
 
 ###### Implementation of
 
-```ts
-Vec2Like.magnitudeSq
-```
+[`Vec2Like`](#vec2like).[`magnitudeSq`](#property-magnitudesq)
 
 ##### x
 
@@ -209,9 +8061,7 @@ Sets the x-component of the vector.
 
 ###### Implementation of
 
-```ts
-Vec2Like.x
-```
+[`Vec2Like`](#vec2like).[`x`](#property-x)
 
 ##### xy
 
@@ -249,9 +8099,7 @@ Sets both components of the vector at once.
 
 ###### Implementation of
 
-```ts
-Vec2Like.xy
-```
+[`Vec2Like`](#vec2like).[`xy`](#property-xy)
 
 ##### y
 
@@ -289,9 +8137,7 @@ Sets the y-component of the vector.
 
 ###### Implementation of
 
-```ts
-Vec2Like.y
-```
+[`Vec2Like`](#vec2like).[`y`](#property-y)
 
 #### Methods
 
@@ -313,9 +8159,7 @@ The x and y components of the vector.
 
 ###### Implementation of
 
-```ts
-Vec2Like.[iterator]
-```
+[`Vec2Like`](#vec2like).[`[iterator]`](#iterator-9)
 
 ##### add()
 
@@ -329,7 +8173,7 @@ Adds another vector to this vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The vector to add. |
+| `v` | [`Vec2Like`](#vec2like) | The vector to add. |
 
 ###### Returns
 
@@ -339,9 +8183,7 @@ Adds another vector to this vector.
 
 ###### Implementation of
 
-```ts
-Vec2Like.add
-```
+[`Vec2Like`](#vec2like).[`add`](#add-12)
 
 ##### angleBetween()
 
@@ -355,7 +8197,7 @@ Calculates the angle between this vector and another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The other vector. |
+| `v` | [`Vec2Like`](#vec2like) | The other vector. |
 
 ###### Returns
 
@@ -365,9 +8207,7 @@ The angle between the vectors in radians.
 
 ###### Implementation of
 
-```ts
-Vec2Like.angleBetween
-```
+[`Vec2Like`](#vec2like).[`angleBetween`](#anglebetween-12)
 
 ##### clamp()
 
@@ -392,9 +8232,7 @@ Clamps the magnitude of this vector between a minimum and maximum value.
 
 ###### Implementation of
 
-```ts
-Vec2Like.clamp
-```
+[`Vec2Like`](#vec2like).[`clamp`](#clamp-9)
 
 ##### clone()
 
@@ -412,9 +8250,7 @@ A new Vec2 instance with the same components.
 
 ###### Implementation of
 
-```ts
-Vec2Like.clone
-```
+[`Vec2Like`](#vec2like).[`clone`](#clone-9)
 
 ##### copy()
 
@@ -428,7 +8264,7 @@ Copies the components of another vector to this vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The vector to copy from. |
+| `v` | [`Vec2Like`](#vec2like) | The vector to copy from. |
 
 ###### Returns
 
@@ -438,9 +8274,7 @@ Copies the components of another vector to this vector.
 
 ###### Implementation of
 
-```ts
-Vec2Like.copy
-```
+[`Vec2Like`](#vec2like).[`copy`](#copy-9)
 
 ##### cross()
 
@@ -454,7 +8288,7 @@ Calculates the cross product of this vector with another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The other vector. |
+| `v` | [`Vec2Like`](#vec2like) | The other vector. |
 
 ###### Returns
 
@@ -464,9 +8298,7 @@ The cross product of the vectors.
 
 ###### Implementation of
 
-```ts
-Vec2Like.cross
-```
+[`Vec2Like`](#vec2like).[`cross`](#cross-8)
 
 ##### distance()
 
@@ -480,7 +8312,7 @@ Calculates the distance between this vector and another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The other vector. |
+| `v` | [`Vec2Like`](#vec2like) | The other vector. |
 
 ###### Returns
 
@@ -490,9 +8322,7 @@ The distance between the vectors.
 
 ###### Implementation of
 
-```ts
-Vec2Like.distance
-```
+[`Vec2Like`](#vec2like).[`distance`](#distance-12)
 
 ##### distanceChebyshev()
 
@@ -506,7 +8336,7 @@ Calculates the Chebyshev distance between this vector and another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The other vector. |
+| `v` | [`Vec2Like`](#vec2like) | The other vector. |
 
 ###### Returns
 
@@ -516,9 +8346,7 @@ The Chebyshev distance between the vectors.
 
 ###### Implementation of
 
-```ts
-Vec2Like.distanceChebyshev
-```
+[`Vec2Like`](#vec2like).[`distanceChebyshev`](#distancechebyshev-12)
 
 ##### distanceManhattan()
 
@@ -532,7 +8360,7 @@ Calculates the Manhattan distance between this vector and another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The other vector. |
+| `v` | [`Vec2Like`](#vec2like) | The other vector. |
 
 ###### Returns
 
@@ -542,9 +8370,7 @@ The Manhattan distance between the vectors.
 
 ###### Implementation of
 
-```ts
-Vec2Like.distanceManhattan
-```
+[`Vec2Like`](#vec2like).[`distanceManhattan`](#distancemanhattan-12)
 
 ##### distanceMinkowski()
 
@@ -558,7 +8384,7 @@ Calculates the Minkowski distance between this vector and another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The other vector. |
+| `v` | [`Vec2Like`](#vec2like) | The other vector. |
 | `p` | `number` | The order of the Minkowski distance. |
 
 ###### Returns
@@ -569,9 +8395,7 @@ The Minkowski distance between the vectors.
 
 ###### Implementation of
 
-```ts
-Vec2Like.distanceMinkowski
-```
+[`Vec2Like`](#vec2like).[`distanceMinkowski`](#distanceminkowski-12)
 
 ##### distanceSq()
 
@@ -585,7 +8409,7 @@ Calculates the squared distance between this vector and another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The other vector. |
+| `v` | [`Vec2Like`](#vec2like) | The other vector. |
 
 ###### Returns
 
@@ -595,9 +8419,7 @@ The squared distance between the vectors.
 
 ###### Implementation of
 
-```ts
-Vec2Like.distanceSq
-```
+[`Vec2Like`](#vec2like).[`distanceSq`](#distancesq-12)
 
 ##### divide()
 
@@ -611,7 +8433,7 @@ Divides this vector with another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The vector to divide with. |
+| `v` | [`Vec2Like`](#vec2like) | The vector to divide with. |
 
 ###### Returns
 
@@ -621,9 +8443,7 @@ Divides this vector with another vector.
 
 ###### Implementation of
 
-```ts
-Vec2Like.divide
-```
+[`Vec2Like`](#vec2like).[`divide`](#divide-12)
 
 ##### dot()
 
@@ -637,7 +8457,7 @@ Calculates the dot product of this vector with another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The other vector. |
+| `v` | [`Vec2Like`](#vec2like) | The other vector. |
 
 ###### Returns
 
@@ -647,9 +8467,7 @@ The dot product of the vectors.
 
 ###### Implementation of
 
-```ts
-Vec2Like.dot
-```
+[`Vec2Like`](#vec2like).[`dot`](#dot-12)
 
 ##### equals()
 
@@ -663,7 +8481,7 @@ Compares this vector with another vector using an epsilon value for floating-poi
 
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
-| `v` | `Vec2Like` | `undefined` | The vector to compare with. |
+| `v` | [`Vec2Like`](#vec2like) | `undefined` | The vector to compare with. |
 | `epsilon` | `number` | `Number.EPSILON` | The maximum difference between components to consider them equal. |
 
 ###### Returns
@@ -674,9 +8492,7 @@ Compares this vector with another vector using an epsilon value for floating-poi
 
 ###### Implementation of
 
-```ts
-Vec2Like.equals
-```
+[`Vec2Like`](#vec2like).[`equals`](#equals-12)
 
 ##### isInfinite()
 
@@ -694,9 +8510,7 @@ Checks if this vector has infinite components.
 
 ###### Implementation of
 
-```ts
-Vec2Like.isInfinite
-```
+[`Vec2Like`](#vec2like).[`isInfinite`](#isinfinite-12)
 
 ##### isNaN()
 
@@ -714,9 +8528,7 @@ Checks if this vector has NaN components.
 
 ###### Implementation of
 
-```ts
-Vec2Like.isNaN
-```
+[`Vec2Like`](#vec2like).[`isNaN`](#isnan-12)
 
 ##### isZero()
 
@@ -734,9 +8546,7 @@ Checks if this vector is zero.
 
 ###### Implementation of
 
-```ts
-Vec2Like.isZero
-```
+[`Vec2Like`](#vec2like).[`isZero`](#iszero-12)
 
 ##### limitMax()
 
@@ -760,9 +8570,7 @@ Limits the maximum magnitude of this vector.
 
 ###### Implementation of
 
-```ts
-Vec2Like.limitMax
-```
+[`Vec2Like`](#vec2like).[`limitMax`](#limitmax-9)
 
 ##### limitMin()
 
@@ -786,9 +8594,7 @@ Limits the minimum magnitude of this vector.
 
 ###### Implementation of
 
-```ts
-Vec2Like.limitMin
-```
+[`Vec2Like`](#vec2like).[`limitMin`](#limitmin-9)
 
 ##### lookAt()
 
@@ -802,7 +8608,7 @@ Sets this vector to point towards another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The vector to look at. |
+| `v` | [`Vec2Like`](#vec2like) | The vector to look at. |
 
 ###### Returns
 
@@ -812,9 +8618,7 @@ Sets this vector to point towards another vector.
 
 ###### Implementation of
 
-```ts
-Vec2Like.lookAt
-```
+[`Vec2Like`](#vec2like).[`lookAt`](#lookat-9)
 
 ##### multiply()
 
@@ -828,7 +8632,7 @@ Multiplies this vector with another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The vector to multiply with. |
+| `v` | [`Vec2Like`](#vec2like) | The vector to multiply with. |
 
 ###### Returns
 
@@ -838,9 +8642,7 @@ Multiplies this vector with another vector.
 
 ###### Implementation of
 
-```ts
-Vec2Like.multiply
-```
+[`Vec2Like`](#vec2like).[`multiply`](#multiply-12)
 
 ##### negate()
 
@@ -858,9 +8660,7 @@ Negates this vector.
 
 ###### Implementation of
 
-```ts
-Vec2Like.negate
-```
+[`Vec2Like`](#vec2like).[`negate`](#negate-12)
 
 ##### normalize()
 
@@ -878,9 +8678,7 @@ Normalizes this vector.
 
 ###### Implementation of
 
-```ts
-Vec2Like.normalize
-```
+[`Vec2Like`](#vec2like).[`normalize`](#normalize-12)
 
 ##### project()
 
@@ -894,7 +8692,7 @@ Projects this vector onto another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The vector to project onto. |
+| `v` | [`Vec2Like`](#vec2like) | The vector to project onto. |
 
 ###### Returns
 
@@ -904,9 +8702,7 @@ Projects this vector onto another vector.
 
 ###### Implementation of
 
-```ts
-Vec2Like.project
-```
+[`Vec2Like`](#vec2like).[`project`](#project-12)
 
 ##### random()
 
@@ -930,9 +8726,7 @@ Sets this vector to a random direction with the same magnitude.
 
 ###### Implementation of
 
-```ts
-Vec2Like.random
-```
+[`Vec2Like`](#vec2like).[`random`](#random-12)
 
 ##### reflect()
 
@@ -946,7 +8740,7 @@ Reflects this vector across a normal vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `normal` | `Vec2Like` | The normal vector to reflect across (must be normalized). |
+| `normal` | [`Vec2Like`](#vec2like) | The normal vector to reflect across (must be normalized). |
 
 ###### Returns
 
@@ -956,9 +8750,7 @@ A new Vec2 instance representing the reflected vector.
 
 ###### Implementation of
 
-```ts
-Vec2Like.reflect
-```
+[`Vec2Like`](#vec2like).[`reflect`](#reflect-12)
 
 ##### rotateZ()
 
@@ -982,9 +8774,7 @@ Rotates this vector around the Z-axis.
 
 ###### Implementation of
 
-```ts
-Vec2Like.rotateZ
-```
+[`Vec2Like`](#vec2like).[`rotateZ`](#rotatez-6)
 
 ##### satisfyEquality()
 
@@ -998,7 +8788,7 @@ Checks if this vector is equal to another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The other vector. |
+| `v` | [`Vec2Like`](#vec2like) | The other vector. |
 
 ###### Returns
 
@@ -1008,9 +8798,7 @@ Checks if this vector is equal to another vector.
 
 ###### Implementation of
 
-```ts
-Vec2Like.satisfyEquality
-```
+[`Vec2Like`](#vec2like).[`satisfyEquality`](#satisfyequality-12)
 
 ##### satisfyOpposition()
 
@@ -1024,7 +8812,7 @@ Checks if this vector is opposite to another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The other vector. |
+| `v` | [`Vec2Like`](#vec2like) | The other vector. |
 
 ###### Returns
 
@@ -1034,9 +8822,7 @@ Checks if this vector is opposite to another vector.
 
 ###### Implementation of
 
-```ts
-Vec2Like.satisfyOpposition
-```
+[`Vec2Like`](#vec2like).[`satisfyOpposition`](#satisfyopposition-12)
 
 ##### scale()
 
@@ -1060,9 +8846,7 @@ Scales this vector by a scalar value.
 
 ###### Implementation of
 
-```ts
-Vec2Like.scale
-```
+[`Vec2Like`](#vec2like).[`scale`](#scale-12)
 
 ##### subtract()
 
@@ -1076,7 +8860,7 @@ Subtracts another vector from this vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The vector to subtract. |
+| `v` | [`Vec2Like`](#vec2like) | The vector to subtract. |
 
 ###### Returns
 
@@ -1086,9 +8870,7 @@ Subtracts another vector from this vector.
 
 ###### Implementation of
 
-```ts
-Vec2Like.subtract
-```
+[`Vec2Like`](#vec2like).[`subtract`](#subtract-12)
 
 ##### toJSON()
 
@@ -1106,9 +8888,7 @@ A JSON-friendly object representation of the vector.
 
 ###### Implementation of
 
-```ts
-Vec2Like.toJSON
-```
+[`Vec2Like`](#vec2like).[`toJSON`](#tojson-9)
 
 ##### toObject()
 
@@ -1126,9 +8906,7 @@ An object with x and y properties.
 
 ###### Implementation of
 
-```ts
-Vec2Like.toObject
-```
+[`Vec2Like`](#vec2like).[`toObject`](#toobject-9)
 
 ##### toString()
 
@@ -1146,9 +8924,7 @@ A string in the format "Vec2(x, y)".
 
 ###### Implementation of
 
-```ts
-Vec2Like.toString
-```
+[`Vec2Like`](#vec2like).[`toString`](#tostring-9)
 
 ##### turnLeft()
 
@@ -1166,9 +8942,7 @@ Rotates this vector 90 degrees to the left.
 
 ###### Implementation of
 
-```ts
-Vec2Like.turnLeft
-```
+[`Vec2Like`](#vec2like).[`turnLeft`](#turnleft-3)
 
 ##### turnRight()
 
@@ -1186,9 +8960,7 @@ Rotates this vector 90 degrees to the right.
 
 ###### Implementation of
 
-```ts
-Vec2Like.turnRight
-```
+[`Vec2Like`](#vec2like).[`turnRight`](#turnright-3)
 
 ##### zero()
 
@@ -1206,9 +8978,7 @@ Sets this vector to zero.
 
 ###### Implementation of
 
-```ts
-Vec2Like.zero
-```
+[`Vec2Like`](#vec2like).[`zero`](#zero-12)
 
 ##### add()
 
@@ -1222,8 +8992,8 @@ Adds two vectors.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The first vector. |
-| `w` | `Vec2Like` | The second vector. |
+| `v` | [`Vec2Like`](#vec2like) | The first vector. |
+| `w` | [`Vec2Like`](#vec2like) | The second vector. |
 
 ###### Returns
 
@@ -1243,8 +9013,8 @@ Calculates the angle between two vectors.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The first vector. |
-| `w` | `Vec2Like` | The second vector. |
+| `v` | [`Vec2Like`](#vec2like) | The first vector. |
+| `w` | [`Vec2Like`](#vec2like) | The second vector. |
 
 ###### Returns
 
@@ -1264,8 +9034,8 @@ Calculates the cross product of two vectors.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The first vector. |
-| `w` | `Vec2Like` | The second vector. |
+| `v` | [`Vec2Like`](#vec2like) | The first vector. |
+| `w` | [`Vec2Like`](#vec2like) | The second vector. |
 
 ###### Returns
 
@@ -1285,8 +9055,8 @@ Calculates the Euclidean distance between two vectors.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The first vector. |
-| `w` | `Vec2Like` | The second vector. |
+| `v` | [`Vec2Like`](#vec2like) | The first vector. |
+| `w` | [`Vec2Like`](#vec2like) | The second vector. |
 
 ###### Returns
 
@@ -1306,8 +9076,8 @@ Calculates the Chebyshev distance between two vectors.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The first vector. |
-| `w` | `Vec2Like` | The second vector. |
+| `v` | [`Vec2Like`](#vec2like) | The first vector. |
+| `w` | [`Vec2Like`](#vec2like) | The second vector. |
 
 ###### Returns
 
@@ -1327,8 +9097,8 @@ Calculates the Manhattan distance between two vectors.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The first vector. |
-| `w` | `Vec2Like` | The second vector. |
+| `v` | [`Vec2Like`](#vec2like) | The first vector. |
+| `w` | [`Vec2Like`](#vec2like) | The second vector. |
 
 ###### Returns
 
@@ -1352,8 +9122,8 @@ Calculates the Minkowski distance between two vectors.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The first vector. |
-| `w` | `Vec2Like` | The second vector. |
+| `v` | [`Vec2Like`](#vec2like) | The first vector. |
+| `w` | [`Vec2Like`](#vec2like) | The second vector. |
 | `p` | `number` | The order of the Minkowski distance. |
 
 ###### Returns
@@ -1374,8 +9144,8 @@ Calculates the squared Euclidean distance between two vectors.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The first vector. |
-| `w` | `Vec2Like` | The second vector. |
+| `v` | [`Vec2Like`](#vec2like) | The first vector. |
+| `w` | [`Vec2Like`](#vec2like) | The second vector. |
 
 ###### Returns
 
@@ -1395,8 +9165,8 @@ Divides one vector with another.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | Divident. |
-| `w` | `Vec2Like` | Divisor. |
+| `v` | [`Vec2Like`](#vec2like) | Divident. |
+| `w` | [`Vec2Like`](#vec2like) | Divisor. |
 
 ###### Returns
 
@@ -1416,8 +9186,8 @@ Calculates the dot product of two vectors.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The first vector. |
-| `w` | `Vec2Like` | The second vector. |
+| `v` | [`Vec2Like`](#vec2like) | The first vector. |
+| `w` | [`Vec2Like`](#vec2like) | The second vector. |
 
 ###### Returns
 
@@ -1441,8 +9211,8 @@ Compares a vector with another vector using an epsilon value for floating-point 
 
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
-| `v` | `Vec2Like` | `undefined` | The first vector. |
-| `w` | `Vec2Like` | `undefined` | The second vector. |
+| `v` | [`Vec2Like`](#vec2like) | `undefined` | The first vector. |
+| `w` | [`Vec2Like`](#vec2like) | `undefined` | The second vector. |
 | `epsilon` | `number` | `Number.EPSILON` | The maximum difference between components to consider them equal. |
 
 ###### Returns
@@ -1463,7 +9233,7 @@ Creates a Vec2 from an array.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `arr` | `number`[] | An array containing the x and y coordinates. |
+| `arr` | [`ArrayVector2D`](#arrayvector2d) \| `number`[] | An array containing the x and y coordinates. |
 
 ###### Returns
 
@@ -1565,7 +9335,7 @@ Checks if a vector has infinite components.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The vector to check. |
+| `v` | [`Vec2Like`](#vec2like) | The vector to check. |
 
 ###### Returns
 
@@ -1585,7 +9355,7 @@ Checks if a vector has NaN components.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The vector to check. |
+| `v` | [`Vec2Like`](#vec2like) | The vector to check. |
 
 ###### Returns
 
@@ -1605,7 +9375,7 @@ Checks if a vector is zero.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The vector to check. |
+| `v` | [`Vec2Like`](#vec2like) | The vector to check. |
 
 ###### Returns
 
@@ -1629,8 +9399,8 @@ Performs linear interpolation between two vectors.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The first vector. |
-| `w` | `Vec2Like` | The second vector. |
+| `v` | [`Vec2Like`](#vec2like) | The first vector. |
+| `w` | [`Vec2Like`](#vec2like) | The second vector. |
 | `t` | `number` | The interpolation parameter (0 to 1). |
 
 ###### Returns
@@ -1651,8 +9421,8 @@ Multiplies one vector with another.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The first vector. |
-| `w` | `Vec2Like` | The second vector. |
+| `v` | [`Vec2Like`](#vec2like) | The first vector. |
+| `w` | [`Vec2Like`](#vec2like) | The second vector. |
 
 ###### Returns
 
@@ -1672,7 +9442,7 @@ Negates a vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The vector to negate. |
+| `v` | [`Vec2Like`](#vec2like) | The vector to negate. |
 
 ###### Returns
 
@@ -1692,7 +9462,7 @@ Normalizes a vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The vector to normalize. |
+| `v` | [`Vec2Like`](#vec2like) | The vector to normalize. |
 
 ###### Returns
 
@@ -1726,8 +9496,8 @@ Projects one vector onto another.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The vector to project. |
-| `w` | `Vec2Like` | The vector to project onto. |
+| `v` | [`Vec2Like`](#vec2like) | The vector to project. |
+| `w` | [`Vec2Like`](#vec2like) | The vector to project onto. |
 
 ###### Returns
 
@@ -1767,8 +9537,8 @@ Reflects the vector across a normal vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The vector to reflect. |
-| `normal` | `Vec2Like` | The normal vector to reflect across (must be normalized). |
+| `v` | [`Vec2Like`](#vec2like) | The vector to reflect. |
+| `normal` | [`Vec2Like`](#vec2like) | The normal vector to reflect across (must be normalized). |
 
 ###### Returns
 
@@ -1788,8 +9558,8 @@ Checks if two vectors are equal.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The first vector. |
-| `w` | `Vec2Like` | The second vector. |
+| `v` | [`Vec2Like`](#vec2like) | The first vector. |
+| `w` | [`Vec2Like`](#vec2like) | The second vector. |
 
 ###### Returns
 
@@ -1809,8 +9579,8 @@ Checks if two vectors are opposite.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The first vector. |
-| `w` | `Vec2Like` | The second vector. |
+| `v` | [`Vec2Like`](#vec2like) | The first vector. |
+| `w` | [`Vec2Like`](#vec2like) | The second vector. |
 
 ###### Returns
 
@@ -1830,7 +9600,7 @@ Scales a vector by a scalar value.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The vector to scale. |
+| `v` | [`Vec2Like`](#vec2like) | The vector to scale. |
 | `c` | `number` | The scalar value. |
 
 ###### Returns
@@ -1851,8 +9621,8 @@ Subtracts one vector from another.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec2Like` | The vector to subtract from. |
-| `w` | `Vec2Like` | The vector to subtract. |
+| `v` | [`Vec2Like`](#vec2like) | The vector to subtract from. |
+| `w` | [`Vec2Like`](#vec2like) | The vector to subtract. |
 
 ###### Returns
 
@@ -1882,7 +9652,7 @@ A new Vec2 instance representing a zero vector.
 
 #### Implements
 
-- `Vec3Like`
+- [`Vec3Like`](#vec3like)
 
 #### Constructors
 
@@ -1930,9 +9700,7 @@ The angle in radians, always in the range [0, 2π).
 
 ###### Implementation of
 
-```ts
-Vec3Like.angleX
-```
+[`Vec3Like`](#vec3like).[`angleX`](#property-anglex-1)
 
 ##### angleY
 
@@ -1952,9 +9720,7 @@ The angle in radians, always in the range [0, 2π).
 
 ###### Implementation of
 
-```ts
-Vec3Like.angleY
-```
+[`Vec3Like`](#vec3like).[`angleY`](#property-angley-1)
 
 ##### angleZ
 
@@ -1974,9 +9740,7 @@ The angle in radians, always in the range [0, 2π).
 
 ###### Implementation of
 
-```ts
-Vec3Like.angleZ
-```
+[`Vec3Like`](#vec3like).[`angleZ`](#property-anglez)
 
 ##### b
 
@@ -2014,9 +9778,7 @@ Sets the Blue-component of the Color.
 
 ###### Implementation of
 
-```ts
-Vec3Like.b
-```
+[`Vec3Like`](#vec3like).[`b`](#property-b)
 
 ##### g
 
@@ -2054,9 +9816,7 @@ Sets the Green-component of the Color.
 
 ###### Implementation of
 
-```ts
-Vec3Like.g
-```
+[`Vec3Like`](#vec3like).[`g`](#property-g)
 
 ##### magnitude
 
@@ -2066,7 +9826,7 @@ Vec3Like.g
 get magnitude(): number;
 ```
 
-Sets the magnitude (length) of the vector, maintaining its direction.
+Gets the magnitude (length) of the vector.
 
 ###### Returns
 
@@ -2092,9 +9852,7 @@ Sets the magnitude (length) of the vector, maintaining its direction.
 
 ###### Implementation of
 
-```ts
-Vec3Like.magnitude
-```
+[`Vec3Like`](#vec3like).[`magnitude`](#property-magnitude-1)
 
 ##### magnitudeSq
 
@@ -2115,9 +9873,7 @@ The squared magnitude of the vector.
 
 ###### Implementation of
 
-```ts
-Vec3Like.magnitudeSq
-```
+[`Vec3Like`](#vec3like).[`magnitudeSq`](#property-magnitudesq-1)
 
 ##### r
 
@@ -2155,9 +9911,7 @@ Sets the Red-component of a Color.
 
 ###### Implementation of
 
-```ts
-Vec3Like.r
-```
+[`Vec3Like`](#vec3like).[`r`](#property-r)
 
 ##### rgb
 
@@ -2195,9 +9949,7 @@ Sets all components of the Color at once.
 
 ###### Implementation of
 
-```ts
-Vec3Like.rgb
-```
+[`Vec3Like`](#vec3like).[`rgb`](#property-rgb)
 
 ##### x
 
@@ -2235,9 +9987,7 @@ Sets the x-component of the vector.
 
 ###### Implementation of
 
-```ts
-Vec3Like.x
-```
+[`Vec3Like`](#vec3like).[`x`](#property-x-1)
 
 ##### xyz
 
@@ -2275,9 +10025,7 @@ Sets all components of the vector at once.
 
 ###### Implementation of
 
-```ts
-Vec3Like.xyz
-```
+[`Vec3Like`](#vec3like).[`xyz`](#property-xyz)
 
 ##### y
 
@@ -2315,9 +10063,7 @@ Sets the y-component of the vector.
 
 ###### Implementation of
 
-```ts
-Vec3Like.y
-```
+[`Vec3Like`](#vec3like).[`y`](#property-y-1)
 
 ##### z
 
@@ -2355,9 +10101,7 @@ Sets the z-component of the vector.
 
 ###### Implementation of
 
-```ts
-Vec3Like.z
-```
+[`Vec3Like`](#vec3like).[`z`](#property-z)
 
 #### Methods
 
@@ -2379,9 +10123,7 @@ The x, y and z components of the vector.
 
 ###### Implementation of
 
-```ts
-Vec3Like.[iterator]
-```
+[`Vec3Like`](#vec3like).[`[iterator]`](#iterator-10)
 
 ##### add()
 
@@ -2395,7 +10137,7 @@ Adds another vector to this vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The vector to add. |
+| `v` | [`Vec3Like`](#vec3like) | The vector to add. |
 
 ###### Returns
 
@@ -2405,9 +10147,7 @@ Adds another vector to this vector.
 
 ###### Implementation of
 
-```ts
-Vec3Like.add
-```
+[`Vec3Like`](#vec3like).[`add`](#add-13)
 
 ##### angleBetween()
 
@@ -2421,7 +10161,7 @@ Calculates the angle between this vector and another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The other vector. |
+| `v` | [`Vec3Like`](#vec3like) | The other vector. |
 
 ###### Returns
 
@@ -2431,9 +10171,7 @@ The angle between the vectors in radians.
 
 ###### Implementation of
 
-```ts
-Vec3Like.angleBetween
-```
+[`Vec3Like`](#vec3like).[`angleBetween`](#anglebetween-13)
 
 ##### clamp()
 
@@ -2458,9 +10196,7 @@ Clamps the magnitude of this vector between a minimum and maximum value.
 
 ###### Implementation of
 
-```ts
-Vec3Like.clamp
-```
+[`Vec3Like`](#vec3like).[`clamp`](#clamp-10)
 
 ##### clone()
 
@@ -2478,9 +10214,7 @@ A new Vec3 instance with the same components.
 
 ###### Implementation of
 
-```ts
-Vec3Like.clone
-```
+[`Vec3Like`](#vec3like).[`clone`](#clone-10)
 
 ##### copy()
 
@@ -2494,7 +10228,7 @@ Copies the components of another vector to this vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The vector to copy from. |
+| `v` | [`Vec3Like`](#vec3like) | The vector to copy from. |
 
 ###### Returns
 
@@ -2504,9 +10238,7 @@ Copies the components of another vector to this vector.
 
 ###### Implementation of
 
-```ts
-Vec3Like.copy
-```
+[`Vec3Like`](#vec3like).[`copy`](#copy-10)
 
 ##### cross()
 
@@ -2520,7 +10252,7 @@ Calculates cross product between this vector and another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The other vector. |
+| `v` | [`Vec3Like`](#vec3like) | The other vector. |
 
 ###### Returns
 
@@ -2530,9 +10262,7 @@ Calculates cross product between this vector and another vector.
 
 ###### Implementation of
 
-```ts
-Vec3Like.cross
-```
+[`Vec3Like`](#vec3like).[`cross`](#cross-9)
 
 ##### distance()
 
@@ -2546,7 +10276,7 @@ Calculates the distance between this vector and another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The other vector. |
+| `v` | [`Vec3Like`](#vec3like) | The other vector. |
 
 ###### Returns
 
@@ -2556,9 +10286,7 @@ The distance between the vectors.
 
 ###### Implementation of
 
-```ts
-Vec3Like.distance
-```
+[`Vec3Like`](#vec3like).[`distance`](#distance-13)
 
 ##### distanceChebyshev()
 
@@ -2572,7 +10300,7 @@ Calculates the Chebyshev distance between vector and another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The other vector. |
+| `v` | [`Vec3Like`](#vec3like) | The other vector. |
 
 ###### Returns
 
@@ -2582,9 +10310,7 @@ The Chebyshev distance between the vectors.
 
 ###### Implementation of
 
-```ts
-Vec3Like.distanceChebyshev
-```
+[`Vec3Like`](#vec3like).[`distanceChebyshev`](#distancechebyshev-13)
 
 ##### distanceManhattan()
 
@@ -2598,7 +10324,7 @@ Calculates the Manhattan distance between vector and another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The other vector. |
+| `v` | [`Vec3Like`](#vec3like) | The other vector. |
 
 ###### Returns
 
@@ -2608,9 +10334,7 @@ The Manhattan distance between the vectors.
 
 ###### Implementation of
 
-```ts
-Vec3Like.distanceManhattan
-```
+[`Vec3Like`](#vec3like).[`distanceManhattan`](#distancemanhattan-13)
 
 ##### distanceMinkowski()
 
@@ -2624,7 +10348,7 @@ Calculates the Minkowski distance between this vector and another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The other vector. |
+| `v` | [`Vec3Like`](#vec3like) | The other vector. |
 | `p` | `number` | The order of the Minkowski distance. |
 
 ###### Returns
@@ -2635,9 +10359,7 @@ The Minkowski distance between the vectors.
 
 ###### Implementation of
 
-```ts
-Vec3Like.distanceMinkowski
-```
+[`Vec3Like`](#vec3like).[`distanceMinkowski`](#distanceminkowski-13)
 
 ##### distanceSq()
 
@@ -2651,7 +10373,7 @@ Calculates the squared distance between this vector and another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The other vector. |
+| `v` | [`Vec3Like`](#vec3like) | The other vector. |
 
 ###### Returns
 
@@ -2661,9 +10383,7 @@ The squared distance between the vectors.
 
 ###### Implementation of
 
-```ts
-Vec3Like.distanceSq
-```
+[`Vec3Like`](#vec3like).[`distanceSq`](#distancesq-13)
 
 ##### divide()
 
@@ -2677,7 +10397,7 @@ Divides this vector with another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The vector to divide with. |
+| `v` | [`Vec3Like`](#vec3like) | The vector to divide with. |
 
 ###### Returns
 
@@ -2687,9 +10407,7 @@ Divides this vector with another vector.
 
 ###### Implementation of
 
-```ts
-Vec3Like.divide
-```
+[`Vec3Like`](#vec3like).[`divide`](#divide-13)
 
 ##### dot()
 
@@ -2703,7 +10421,7 @@ Calculates the dot product of this vector with another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The other vector. |
+| `v` | [`Vec3Like`](#vec3like) | The other vector. |
 
 ###### Returns
 
@@ -2713,9 +10431,7 @@ The dot product of the vectors.
 
 ###### Implementation of
 
-```ts
-Vec3Like.dot
-```
+[`Vec3Like`](#vec3like).[`dot`](#dot-13)
 
 ##### equals()
 
@@ -2729,7 +10445,7 @@ Compares this vector with another vector using an epsilon value for floating-poi
 
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
-| `v` | `Vec3Like` | `undefined` | The vector to compare with. |
+| `v` | [`Vec3Like`](#vec3like) | `undefined` | The vector to compare with. |
 | `epsilon` | `number` | `Number.EPSILON` | The maximum difference between components to consider them equal. |
 
 ###### Returns
@@ -2740,9 +10456,7 @@ Compares this vector with another vector using an epsilon value for floating-poi
 
 ###### Implementation of
 
-```ts
-Vec3Like.equals
-```
+[`Vec3Like`](#vec3like).[`equals`](#equals-13)
 
 ##### isInfinite()
 
@@ -2760,9 +10474,7 @@ Checks if this vector has infinite components.
 
 ###### Implementation of
 
-```ts
-Vec3Like.isInfinite
-```
+[`Vec3Like`](#vec3like).[`isInfinite`](#isinfinite-13)
 
 ##### isNaN()
 
@@ -2780,9 +10492,7 @@ Checks if this vector has NaN components.
 
 ###### Implementation of
 
-```ts
-Vec3Like.isNaN
-```
+[`Vec3Like`](#vec3like).[`isNaN`](#isnan-13)
 
 ##### isZero()
 
@@ -2800,9 +10510,7 @@ Checks if this vector is zero.
 
 ###### Implementation of
 
-```ts
-Vec3Like.isZero
-```
+[`Vec3Like`](#vec3like).[`isZero`](#iszero-13)
 
 ##### limitMax()
 
@@ -2826,9 +10534,7 @@ Limits the maximum magnitude of this vector.
 
 ###### Implementation of
 
-```ts
-Vec3Like.limitMax
-```
+[`Vec3Like`](#vec3like).[`limitMax`](#limitmax-10)
 
 ##### limitMin()
 
@@ -2852,9 +10558,7 @@ Limits the minimum magnitude of this vector.
 
 ###### Implementation of
 
-```ts
-Vec3Like.limitMin
-```
+[`Vec3Like`](#vec3like).[`limitMin`](#limitmin-10)
 
 ##### lookAt()
 
@@ -2868,7 +10572,7 @@ Sets this vector to point towards another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The vector to look at. |
+| `v` | [`Vec3Like`](#vec3like) | The vector to look at. |
 
 ###### Returns
 
@@ -2878,9 +10582,7 @@ Sets this vector to point towards another vector.
 
 ###### Implementation of
 
-```ts
-Vec3Like.lookAt
-```
+[`Vec3Like`](#vec3like).[`lookAt`](#lookat-10)
 
 ##### multiply()
 
@@ -2894,7 +10596,7 @@ Multiplies this vector with another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The vector to multiply with. |
+| `v` | [`Vec3Like`](#vec3like) | The vector to multiply with. |
 
 ###### Returns
 
@@ -2904,9 +10606,7 @@ Multiplies this vector with another vector.
 
 ###### Implementation of
 
-```ts
-Vec3Like.multiply
-```
+[`Vec3Like`](#vec3like).[`multiply`](#multiply-13)
 
 ##### negate()
 
@@ -2924,9 +10624,7 @@ Negates this vector.
 
 ###### Implementation of
 
-```ts
-Vec3Like.negate
-```
+[`Vec3Like`](#vec3like).[`negate`](#negate-13)
 
 ##### normalize()
 
@@ -2944,9 +10642,7 @@ Normalizes this vector.
 
 ###### Implementation of
 
-```ts
-Vec3Like.normalize
-```
+[`Vec3Like`](#vec3like).[`normalize`](#normalize-13)
 
 ##### project()
 
@@ -2960,7 +10656,7 @@ Projects this vector onto another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The vector to project onto. |
+| `v` | [`Vec3Like`](#vec3like) | The vector to project onto. |
 
 ###### Returns
 
@@ -2970,9 +10666,7 @@ Projects this vector onto another vector.
 
 ###### Implementation of
 
-```ts
-Vec3Like.project
-```
+[`Vec3Like`](#vec3like).[`project`](#project-13)
 
 ##### random()
 
@@ -2996,9 +10690,7 @@ Sets this vector to a random direction with the same magnitude.
 
 ###### Implementation of
 
-```ts
-Vec3Like.random
-```
+[`Vec3Like`](#vec3like).[`random`](#random-13)
 
 ##### reflect()
 
@@ -3012,7 +10704,7 @@ Reflects this vector across a normal vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `normal` | `Vec3Like` | The normal vector to reflect across (must be normalized). |
+| `normal` | [`Vec3Like`](#vec3like) | The normal vector to reflect across (must be normalized). |
 
 ###### Returns
 
@@ -3022,9 +10714,7 @@ Reflects this vector across a normal vector.
 
 ###### Implementation of
 
-```ts
-Vec3Like.reflect
-```
+[`Vec3Like`](#vec3like).[`reflect`](#reflect-13)
 
 ##### rotateX()
 
@@ -3048,9 +10738,7 @@ Rotates this vector around the x-axis.
 
 ###### Implementation of
 
-```ts
-Vec3Like.rotateX
-```
+[`Vec3Like`](#vec3like).[`rotateX`](#rotatex-3)
 
 ##### rotateY()
 
@@ -3074,9 +10762,7 @@ Rotates this vector around the y-axis.
 
 ###### Implementation of
 
-```ts
-Vec3Like.rotateY
-```
+[`Vec3Like`](#vec3like).[`rotateY`](#rotatey-3)
 
 ##### rotateZ()
 
@@ -3100,9 +10786,7 @@ Rotates this vector around the z-axis.
 
 ###### Implementation of
 
-```ts
-Vec3Like.rotateZ
-```
+[`Vec3Like`](#vec3like).[`rotateZ`](#rotatez-7)
 
 ##### satisfyEquality()
 
@@ -3116,7 +10800,7 @@ Checks if this vector is equal to another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The other vector. |
+| `v` | [`Vec3Like`](#vec3like) | The other vector. |
 
 ###### Returns
 
@@ -3126,9 +10810,7 @@ Checks if this vector is equal to another vector.
 
 ###### Implementation of
 
-```ts
-Vec3Like.satisfyEquality
-```
+[`Vec3Like`](#vec3like).[`satisfyEquality`](#satisfyequality-13)
 
 ##### satisfyOpposition()
 
@@ -3142,7 +10824,7 @@ Checks if this vector is opposite to another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The other vector. |
+| `v` | [`Vec3Like`](#vec3like) | The other vector. |
 
 ###### Returns
 
@@ -3152,9 +10834,7 @@ Checks if this vector is opposite to another vector.
 
 ###### Implementation of
 
-```ts
-Vec3Like.satisfyOpposition
-```
+[`Vec3Like`](#vec3like).[`satisfyOpposition`](#satisfyopposition-13)
 
 ##### scale()
 
@@ -3178,9 +10858,7 @@ Scales this vector by a scalar value.
 
 ###### Implementation of
 
-```ts
-Vec3Like.scale
-```
+[`Vec3Like`](#vec3like).[`scale`](#scale-13)
 
 ##### subtract()
 
@@ -3194,7 +10872,7 @@ Subtracts another vector from this vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The vector to subtract. |
+| `v` | [`Vec3Like`](#vec3like) | The vector to subtract. |
 
 ###### Returns
 
@@ -3204,9 +10882,7 @@ Subtracts another vector from this vector.
 
 ###### Implementation of
 
-```ts
-Vec3Like.subtract
-```
+[`Vec3Like`](#vec3like).[`subtract`](#subtract-13)
 
 ##### toJSON()
 
@@ -3224,9 +10900,7 @@ A JSON-friendly object representation of the vector.
 
 ###### Implementation of
 
-```ts
-Vec3Like.toJSON
-```
+[`Vec3Like`](#vec3like).[`toJSON`](#tojson-10)
 
 ##### toObject()
 
@@ -3244,9 +10918,7 @@ An object with x, y and z properties.
 
 ###### Implementation of
 
-```ts
-Vec3Like.toObject
-```
+[`Vec3Like`](#vec3like).[`toObject`](#toobject-10)
 
 ##### toString()
 
@@ -3264,9 +10936,7 @@ A string in the format "Vec3(x, y, z)".
 
 ###### Implementation of
 
-```ts
-Vec3Like.toString
-```
+[`Vec3Like`](#vec3like).[`toString`](#tostring-10)
 
 ##### zero()
 
@@ -3284,9 +10954,7 @@ Sets this vector to zero.
 
 ###### Implementation of
 
-```ts
-Vec3Like.zero
-```
+[`Vec3Like`](#vec3like).[`zero`](#zero-13)
 
 ##### add()
 
@@ -3300,7 +10968,7 @@ Adds two vectors.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The first vector. |
+| `v` | [`Vec3Like`](#vec3like) | The first vector. |
 | `w` | [`Vec3`](#vec3) | The second vector. |
 
 ###### Returns
@@ -3321,7 +10989,7 @@ Calculates the angle between two vectors.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The first vector. |
+| `v` | [`Vec3Like`](#vec3like) | The first vector. |
 | `w` | [`Vec3`](#vec3) | The second vector. |
 
 ###### Returns
@@ -3342,7 +11010,7 @@ Calculates the cross product of two vectors.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The first vector. |
+| `v` | [`Vec3Like`](#vec3like) | The first vector. |
 | `w` | [`Vec3`](#vec3) | The second vector. |
 
 ###### Returns
@@ -3363,7 +11031,7 @@ Calculates the Euclidean distance between two vectors.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The first vector. |
+| `v` | [`Vec3Like`](#vec3like) | The first vector. |
 | `w` | [`Vec3`](#vec3) | The second vector. |
 
 ###### Returns
@@ -3384,7 +11052,7 @@ Calculates the Chebyshev distance between two vectors.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The first vector. |
+| `v` | [`Vec3Like`](#vec3like) | The first vector. |
 | `w` | [`Vec3`](#vec3) | The second vector. |
 
 ###### Returns
@@ -3405,7 +11073,7 @@ Calculates the Manhattan distance between two vectors.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The first vector. |
+| `v` | [`Vec3Like`](#vec3like) | The first vector. |
 | `w` | [`Vec3`](#vec3) | The second vector. |
 
 ###### Returns
@@ -3430,7 +11098,7 @@ Calculates the Minkowski distance between two vectors.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The first vector. |
+| `v` | [`Vec3Like`](#vec3like) | The first vector. |
 | `w` | [`Vec3`](#vec3) | The second vector. |
 | `p` | `number` | The order of the Minkowski distance. |
 
@@ -3452,7 +11120,7 @@ Calculates the squared Euclidean distance between two vectors.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The first vector. |
+| `v` | [`Vec3Like`](#vec3like) | The first vector. |
 | `w` | [`Vec3`](#vec3) | The second vector. |
 
 ###### Returns
@@ -3473,7 +11141,7 @@ Divides one vector with another.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | Divident. |
+| `v` | [`Vec3Like`](#vec3like) | Divident. |
 | `w` | [`Vec3`](#vec3) | Divisor. |
 
 ###### Returns
@@ -3494,7 +11162,7 @@ Calculates the dot product of two vectors.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The first vector. |
+| `v` | [`Vec3Like`](#vec3like) | The first vector. |
 | `w` | [`Vec3`](#vec3) | The second vector. |
 
 ###### Returns
@@ -3519,7 +11187,7 @@ Compares a vector with another vector using an epsilon value for floating-point 
 
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
-| `v` | `Vec3Like` | `undefined` | The first vector. |
+| `v` | [`Vec3Like`](#vec3like) | `undefined` | The first vector. |
 | `w` | [`Vec3`](#vec3) | `undefined` | The second vector. |
 | `epsilon` | `number` | `Number.EPSILON` | The maximum difference between components to consider them equal. |
 
@@ -3541,7 +11209,7 @@ Creates a Vec3 from an array.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `arr` | `number`[] | An array containing the x, y, and z coordinates. |
+| `arr` | `number`[] \| [`ArrayVector3D`](#arrayvector3d) | An array containing the x, y, and z coordinates. |
 
 ###### Returns
 
@@ -3679,7 +11347,7 @@ Checks if a vector has infinite components.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The vector to check. |
+| `v` | [`Vec3Like`](#vec3like) | The vector to check. |
 
 ###### Returns
 
@@ -3699,7 +11367,7 @@ Checks if a vector has NaN components.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The vector to check. |
+| `v` | [`Vec3Like`](#vec3like) | The vector to check. |
 
 ###### Returns
 
@@ -3719,7 +11387,7 @@ Checks if a vector is zero.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The vector to check. |
+| `v` | [`Vec3Like`](#vec3like) | The vector to check. |
 
 ###### Returns
 
@@ -3743,7 +11411,7 @@ Performs linear interpolation between two vectors.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The first vector. |
+| `v` | [`Vec3Like`](#vec3like) | The first vector. |
 | `w` | [`Vec3`](#vec3) | The second vector. |
 | `t` | `number` | The interpolation parameter (0 to 1). |
 
@@ -3765,7 +11433,7 @@ Multiplies one vector with another.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The first vector. |
+| `v` | [`Vec3Like`](#vec3like) | The first vector. |
 | `w` | [`Vec3`](#vec3) | The second vector. |
 
 ###### Returns
@@ -3786,7 +11454,7 @@ Negates a vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The vector to negate. |
+| `v` | [`Vec3Like`](#vec3like) | The vector to negate. |
 
 ###### Returns
 
@@ -3806,7 +11474,7 @@ Normalizes a vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The vector to normalize. |
+| `v` | [`Vec3Like`](#vec3like) | The vector to normalize. |
 
 ###### Returns
 
@@ -3840,7 +11508,7 @@ Projects one vector onto another.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The vector to project. |
+| `v` | [`Vec3Like`](#vec3like) | The vector to project. |
 | `w` | [`Vec3`](#vec3) | The vector to project onto. |
 
 ###### Returns
@@ -3881,8 +11549,8 @@ Reflects a vector across a normal vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The vector to reflect. |
-| `normal` | `Vec3Like` | The normal vector to reflect across (must be normalized). |
+| `v` | [`Vec3Like`](#vec3like) | The vector to reflect. |
+| `normal` | [`Vec3Like`](#vec3like) | The normal vector to reflect across (must be normalized). |
 
 ###### Returns
 
@@ -3902,7 +11570,7 @@ Checks if two vectors are equal.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The first vector. |
+| `v` | [`Vec3Like`](#vec3like) | The first vector. |
 | `w` | [`Vec3`](#vec3) | The second vector. |
 
 ###### Returns
@@ -3923,7 +11591,7 @@ Checks if two vectors are opposite.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The first vector. |
+| `v` | [`Vec3Like`](#vec3like) | The first vector. |
 | `w` | [`Vec3`](#vec3) | The second vector. |
 
 ###### Returns
@@ -3944,7 +11612,7 @@ Scales a vector by a scalar value.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The vector to scale. |
+| `v` | [`Vec3Like`](#vec3like) | The vector to scale. |
 | `c` | `number` | The scalar value. |
 
 ###### Returns
@@ -3965,7 +11633,7 @@ Subtracts one vector from another.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | `Vec3Like` | The vector to subtract from. |
+| `v` | [`Vec3Like`](#vec3like) | The vector to subtract from. |
 | `w` | [`Vec3`](#vec3) | The vector to subtract. |
 
 ###### Returns
@@ -3993,6 +11661,10 @@ A new Vec3 instance representing a zero vector.
 ### Vec4
 
 Represents a 4D vector with various operations.
+
+#### Implements
+
+- [`Vec4Like`](#vec4like)
 
 #### Constructors
 
@@ -4058,6 +11730,10 @@ Sets the Alpha-component of the Color.
 
 `void`
 
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`a`](#property-a)
+
 ##### angleW
 
 ###### Get Signature
@@ -4073,6 +11749,10 @@ Gets the angle between the vector and the positive w-axis in radians.
 `number`
 
 The angle in radians, always in the range [0, 2π).
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`angleW`](#property-anglew)
 
 ##### angleX
 
@@ -4090,6 +11770,10 @@ Gets the angle between the vector and the positive x-axis in radians.
 
 The angle in radians, always in the range [0, 2π).
 
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`angleX`](#property-anglex-2)
+
 ##### angleY
 
 ###### Get Signature
@@ -4106,6 +11790,10 @@ Gets the angle between the vector and the positive y-axis in radians.
 
 The angle in radians, always in the range [0, 2π).
 
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`angleY`](#property-angley-2)
+
 ##### angleZ
 
 ###### Get Signature
@@ -4121,6 +11809,10 @@ Gets the angle between the vector and the positive z-axis in radians.
 `number`
 
 The angle in radians, always in the range [0, 2π).
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`angleZ`](#property-anglez-1)
 
 ##### b
 
@@ -4156,6 +11848,10 @@ Sets the Blue-component of the Color.
 
 `void`
 
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`b`](#property-b-1)
+
 ##### g
 
 ###### Get Signature
@@ -4190,6 +11886,10 @@ Sets the Green-component of the Color.
 
 `void`
 
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`g`](#property-g-1)
+
 ##### magnitude
 
 ###### Get Signature
@@ -4222,6 +11922,10 @@ Sets the magnitude (length) of the vector, maintaining its direction.
 
 `void`
 
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`magnitude`](#property-magnitude-2)
+
 ##### magnitudeSq
 
 ###### Get Signature
@@ -4238,6 +11942,10 @@ This is faster to compute than the actual magnitude and is useful for comparison
 `number`
 
 The squared magnitude of the vector.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`magnitudeSq`](#property-magnitudesq-2)
 
 ##### r
 
@@ -4273,19 +11981,23 @@ Sets the Red-component of a Color.
 
 `void`
 
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`r`](#property-r-1)
+
 ##### rgba
 
 ###### Get Signature
 
 ```ts
-get rgba(): [number, number, number, number];
+get rgba(): ArrayVector4D;
 ```
 
 Gets a copy of the vector's components as an array.
 
 ###### Returns
 
-\[`number`, `number`, `number`, `number`\]
+[`ArrayVector4D`](#arrayvector4d)
 
 An array containing the Red, Green, Blue and Alpha components of the Color.
 
@@ -4301,11 +12013,15 @@ Sets all components of the Color at once.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `rgba` | \[`number`, `number`, `number`, `number`\] | An array containing the new Red, Green, Blue and Alpha components. |
+| `rgba` | [`ArrayVector4D`](#arrayvector4d) | An array containing the new Red, Green, Blue and Alpha components. |
 
 ###### Returns
 
 `void`
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`rgba`](#property-rgba)
 
 ##### w
 
@@ -4341,6 +12057,10 @@ Sets the w-component of the vector.
 
 `void`
 
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`w`](#property-w)
+
 ##### x
 
 ###### Get Signature
@@ -4375,19 +12095,23 @@ Sets the x-component of the vector.
 
 `void`
 
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`x`](#property-x-2)
+
 ##### xyzw
 
 ###### Get Signature
 
 ```ts
-get xyzw(): [number, number, number, number];
+get xyzw(): ArrayVector4D;
 ```
 
 Gets a copy of the vector's components as an array.
 
 ###### Returns
 
-\[`number`, `number`, `number`, `number`\]
+[`ArrayVector4D`](#arrayvector4d)
 
 An array containing the x, y, z and w components of the vector.
 
@@ -4403,11 +12127,15 @@ Sets both components of the vector at once.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `xyzw` | \[`number`, `number`, `number`, `number`\] | An array containing the new x, y, z and w components. |
+| `xyzw` | [`ArrayVector4D`](#arrayvector4d) | An array containing the new x, y, z and w components. |
 
 ###### Returns
 
 `void`
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`xyzw`](#property-xyzw)
 
 ##### y
 
@@ -4443,6 +12171,10 @@ Sets the z-component of the vector.
 
 `void`
 
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`y`](#property-y-2)
+
 ##### z
 
 ###### Get Signature
@@ -4477,6 +12209,10 @@ Sets the z-component of the vector.
 
 `void`
 
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`z`](#property-z-1)
+
 #### Methods
 
 ##### \[iterator\]()
@@ -4495,6 +12231,10 @@ Makes the Vec4 instance iterable.
 
 The x, y, z and w components of the vector.
 
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`[iterator]`](#iterator-11)
+
 ##### add()
 
 ```ts
@@ -4507,13 +12247,17 @@ Adds another vector to this vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The vector to add. |
+| `v` | [`Vec4Like`](#vec4like) | The vector to add. |
 
 ###### Returns
 
 [`Vec4`](#vec4)
 
-This Vec4 instance for method chaining.
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`add`](#add-14)
 
 ##### angleBetween()
 
@@ -4527,13 +12271,17 @@ Calculates the angle between this vector and another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The other vector. |
+| `v` | [`Vec4Like`](#vec4like) | The other vector. |
 
 ###### Returns
 
 `number`
 
 The angle between the vectors in radians.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`angleBetween`](#anglebetween-14)
 
 ##### clamp()
 
@@ -4554,7 +12302,11 @@ Clamps the magnitude of this vector between a minimum and maximum value.
 
 [`Vec4`](#vec4)
 
-This Vec4 instance for method chaining.
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`clamp`](#clamp-11)
 
 ##### clone()
 
@@ -4570,6 +12322,10 @@ Creates a copy of this vector.
 
 A new Vec4 instance with the same components.
 
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`clone`](#clone-11)
+
 ##### copy()
 
 ```ts
@@ -4582,13 +12338,17 @@ Copies the components of another vector to this vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The vector to copy from. |
+| `v` | [`Vec4Like`](#vec4like) | The vector to copy from. |
 
 ###### Returns
 
 [`Vec4`](#vec4)
 
 This Vec2 instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`copy`](#copy-11)
 
 ##### distance()
 
@@ -4602,13 +12362,17 @@ Calculates the distance between this vector and another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The other vector. |
+| `v` | [`Vec4Like`](#vec4like) | The other vector. |
 
 ###### Returns
 
 `number`
 
 The distance between the vectors.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`distance`](#distance-14)
 
 ##### distanceChebyshev()
 
@@ -4622,13 +12386,17 @@ Calculates the Chebyshev distance between this vector and another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The other vector. |
+| `v` | [`Vec4Like`](#vec4like) | The other vector. |
 
 ###### Returns
 
 `number`
 
 The Chebyshev distance between the vectors.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`distanceChebyshev`](#distancechebyshev-14)
 
 ##### distanceManhattan()
 
@@ -4642,13 +12410,17 @@ Calculates the Manhattan distance between this vector and another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The other vector. |
+| `v` | [`Vec4Like`](#vec4like) | The other vector. |
 
 ###### Returns
 
 `number`
 
 The Manhattan distance between the vectors.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`distanceManhattan`](#distancemanhattan-14)
 
 ##### distanceMinkowski()
 
@@ -4662,7 +12434,7 @@ Calculates the Minkowski distance between this vector and another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The other vector. |
+| `v` | [`Vec4Like`](#vec4like) | The other vector. |
 | `p` | `number` | The order of the Minkowski distance. |
 
 ###### Returns
@@ -4670,6 +12442,10 @@ Calculates the Minkowski distance between this vector and another vector.
 `number`
 
 The Minkowski distance between the vectors.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`distanceMinkowski`](#distanceminkowski-14)
 
 ##### distanceSq()
 
@@ -4683,13 +12459,17 @@ Calculates the squared distance between this vector and another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The other vector. |
+| `v` | [`Vec4Like`](#vec4like) | The other vector. |
 
 ###### Returns
 
 `number`
 
 The squared distance between the vectors.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`distanceSq`](#distancesq-14)
 
 ##### divide()
 
@@ -4703,13 +12483,17 @@ Divides this vector with another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The vector to divide with. |
+| `v` | [`Vec4Like`](#vec4like) | The vector to divide with. |
 
 ###### Returns
 
 `this`
 
-This Vec4 instance for method chaining.
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`divide`](#divide-14)
 
 ##### dot()
 
@@ -4723,13 +12507,17 @@ Calculates the dot product of this vector with another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The other vector. |
+| `v` | [`Vec4Like`](#vec4like) | The other vector. |
 
 ###### Returns
 
 `number`
 
 The dot product of the vectors.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`dot`](#dot-14)
 
 ##### equals()
 
@@ -4743,14 +12531,18 @@ Compares this vector with another vector using an epsilon value for floating-poi
 
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | `undefined` | The vector to compare with. |
+| `v` | [`Vec4Like`](#vec4like) | `undefined` | The vector to compare with. |
 | `epsilon` | `number` | `Number.EPSILON` | The maximum difference between components to consider them equal. |
 
 ###### Returns
 
 `boolean`
 
-True if the vectors are equal within epsilon, false otherwise.
+`true` if the vectors are equal within epsilon, `false` otherwise.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`equals`](#equals-14)
 
 ##### isInfinite()
 
@@ -4764,7 +12556,11 @@ Checks if this vector has infinite components.
 
 `boolean`
 
-True if the vector has infinite components, false otherwise.
+`true` if the vector has infinite components, `false` otherwise.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`isInfinite`](#isinfinite-14)
 
 ##### isNaN()
 
@@ -4778,7 +12574,11 @@ Checks if this vector has NaN components.
 
 `boolean`
 
-True if the vector has NaN components, false otherwise.
+`true` if the vector has NaN components, `false` otherwise.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`isNaN`](#isnan-14)
 
 ##### isZero()
 
@@ -4792,7 +12592,11 @@ Checks if this vector is zero.
 
 `boolean`
 
-True if the vector is zero, false otherwise.
+`true` if the vector is zero, `false` otherwise.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`isZero`](#iszero-14)
 
 ##### limitMax()
 
@@ -4814,6 +12618,10 @@ Limits the maximum magnitude of this vector.
 
 This Vec2 instance for method chaining.
 
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`limitMax`](#limitmax-11)
+
 ##### limitMin()
 
 ```ts
@@ -4832,7 +12640,11 @@ Limits the minimum magnitude of this vector.
 
 `this`
 
-This Vec4 instance for method chaining.
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`limitMin`](#limitmin-11)
 
 ##### lookAt()
 
@@ -4846,13 +12658,17 @@ Sets this vector to point towards another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The vector to look at. |
+| `v` | [`Vec4Like`](#vec4like) | The vector to look at. |
 
 ###### Returns
 
 `this`
 
-This Vec4 instance for method chaining.
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`lookAt`](#lookat-11)
 
 ##### multiply()
 
@@ -4866,13 +12682,17 @@ Multiplies this vector with another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The vector to multiply with. |
+| `v` | [`Vec4Like`](#vec4like) | The vector to multiply with. |
 
 ###### Returns
 
 `this`
 
-This Vec4 instance for method chaining.
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`multiply`](#multiply-14)
 
 ##### negate()
 
@@ -4886,7 +12706,11 @@ Negates this vector.
 
 `this`
 
-This Vec4 instance for method chaining.
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`negate`](#negate-14)
 
 ##### normalize()
 
@@ -4902,6 +12726,10 @@ Normalizes this vector.
 
 This Ve4 instance for method chaining.
 
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`normalize`](#normalize-14)
+
 ##### project()
 
 ```ts
@@ -4914,13 +12742,17 @@ Projects this vector onto another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The vector to project onto. |
+| `v` | [`Vec4Like`](#vec4like) | The vector to project onto. |
 
 ###### Returns
 
 `this`
 
-This Vec4 instance for method chaining.
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`project`](#project-14)
 
 ##### random()
 
@@ -4940,7 +12772,11 @@ Sets this vector to a random direction with the same magnitude.
 
 `this`
 
-This Vec4 instance for method chaining.
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`random`](#random-14)
 
 ##### reflect()
 
@@ -4955,13 +12791,17 @@ The normal vector should be normalized (unit length).
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `normal` | [`Vec4`](#vec4) | The normal vector to reflect across (must be normalized). |
+| `normal` | [`Vec4Like`](#vec4like) | The normal vector to reflect across (must be normalized). |
 
 ###### Returns
 
 `this`
 
-This Vec4 instance for method chaining.
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`reflect`](#reflect-14)
 
 ##### satisfyEquality()
 
@@ -4975,13 +12815,17 @@ Checks if this vector is equal to another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The other vector. |
+| `v` | [`Vec4Like`](#vec4like) | The other vector. |
 
 ###### Returns
 
 `boolean`
 
-True if the vectors are equal, false otherwise.
+`true` if the vectors are equal, `false` otherwise.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`satisfyEquality`](#satisfyequality-14)
 
 ##### satisfyOpposition()
 
@@ -4995,13 +12839,17 @@ Checks if this vector is opposite to another vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The other vector. |
+| `v` | [`Vec4Like`](#vec4like) | The other vector. |
 
 ###### Returns
 
 `boolean`
 
-True if the vectors are opposite, false otherwise.
+`true` if the vectors are opposite, `false` otherwise.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`satisfyOpposition`](#satisfyopposition-14)
 
 ##### scale()
 
@@ -5021,7 +12869,11 @@ Scales this vector by a scalar value.
 
 `this`
 
-This Vec4 instance for method chaining.
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`scale`](#scale-14)
 
 ##### subtract()
 
@@ -5035,73 +12887,53 @@ Subtracts another vector from this vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The vector to subtract. |
+| `v` | [`Vec4Like`](#vec4like) | The vector to subtract. |
 
 ###### Returns
 
 `this`
 
-This Vec4 instance for method chaining.
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`subtract`](#subtract-14)
 
 ##### toJSON()
 
 ```ts
-toJSON(): {
-  x: number;
-  y: number;
-};
+toJSON(): XYZWObject;
 ```
 
 Serializes the vector to a JSON-friendly format.
 
 ###### Returns
 
-```ts
-{
-  x: number;
-  y: number;
-}
-```
+[`XYZWObject`](#xyzwobject)
 
 A JSON-friendly object representation of the vector.
 
-| Name | Type |
-| ------ | ------ |
-| `x` | `number` |
-| `y` | `number` |
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`toJSON`](#tojson-11)
 
 ##### toObject()
 
 ```ts
-toObject(): {
-  w: number;
-  x: number;
-  y: number;
-  z: number;
-};
+toObject(): XYZWObject;
 ```
 
 Converts the vector to a plain object.
 
 ###### Returns
 
-```ts
-{
-  w: number;
-  x: number;
-  y: number;
-  z: number;
-}
-```
+[`XYZWObject`](#xyzwobject)
 
 An object with x, y, z and w properties.
 
-| Name | Type |
-| ------ | ------ |
-| `w` | `number` |
-| `x` | `number` |
-| `y` | `number` |
-| `z` | `number` |
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`toObject`](#toobject-11)
 
 ##### toString()
 
@@ -5117,6 +12949,10 @@ Returns a string representation of the vector.
 
 A string in the format "Vec4(x, y, z, w)".
 
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`toString`](#tostring-11)
+
 ##### zero()
 
 ```ts
@@ -5129,7 +12965,11 @@ Sets this vector to zero.
 
 `this`
 
-This Vec4 instance for method chaining.
+`this` instance for method chaining.
+
+###### Implementation of
+
+[`Vec4Like`](#vec4like).[`zero`](#zero-14)
 
 ##### add()
 
@@ -5143,8 +12983,8 @@ Adds two vectors.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The first vector. |
-| `w` | [`Vec4`](#vec4) | The second vector. |
+| `v` | [`Vec4Like`](#vec4like) | The first vector. |
+| `w` | [`Vec4Like`](#vec4like) | The second vector. |
 
 ###### Returns
 
@@ -5164,8 +13004,8 @@ Calculates the angle between two vectors.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The first vector. |
-| `w` | [`Vec4`](#vec4) | The second vector. |
+| `v` | [`Vec4Like`](#vec4like) | The first vector. |
+| `w` | [`Vec4Like`](#vec4like) | The second vector. |
 
 ###### Returns
 
@@ -5185,8 +13025,8 @@ Calculates the Euclidean distance between two vectors.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The first vector. |
-| `w` | [`Vec4`](#vec4) | The second vector. |
+| `v` | [`Vec4Like`](#vec4like) | The first vector. |
+| `w` | [`Vec4Like`](#vec4like) | The second vector. |
 
 ###### Returns
 
@@ -5206,8 +13046,8 @@ Calculates the Chebyshev distance between two vectors.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The first vector. |
-| `w` | [`Vec4`](#vec4) | The second vector. |
+| `v` | [`Vec4Like`](#vec4like) | The first vector. |
+| `w` | [`Vec4Like`](#vec4like) | The second vector. |
 
 ###### Returns
 
@@ -5227,8 +13067,8 @@ Calculates the Manhattan distance between two vectors.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The first vector. |
-| `w` | [`Vec4`](#vec4) | The second vector. |
+| `v` | [`Vec4Like`](#vec4like) | The first vector. |
+| `w` | [`Vec4Like`](#vec4like) | The second vector. |
 
 ###### Returns
 
@@ -5252,8 +13092,8 @@ Calculates the Minkowski distance between two vectors.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The first vector. |
-| `w` | [`Vec4`](#vec4) | The second vector. |
+| `v` | [`Vec4Like`](#vec4like) | The first vector. |
+| `w` | [`Vec4Like`](#vec4like) | The second vector. |
 | `p` | `number` | The order of the Minkowski distance. |
 
 ###### Returns
@@ -5274,8 +13114,8 @@ Calculates the squared Euclidean distance between two vectors.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The first vector. |
-| `w` | [`Vec4`](#vec4) | The second vector. |
+| `v` | [`Vec4Like`](#vec4like) | The first vector. |
+| `w` | [`Vec4Like`](#vec4like) | The second vector. |
 
 ###### Returns
 
@@ -5295,8 +13135,8 @@ Divides one vector with another.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | Divident. |
-| `w` | [`Vec4`](#vec4) | Divisor. |
+| `v` | [`Vec4Like`](#vec4like) | Divident. |
+| `w` | [`Vec4Like`](#vec4like) | Divisor. |
 
 ###### Returns
 
@@ -5316,8 +13156,8 @@ Calculates the dot product of two vectors.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The first vector. |
-| `w` | [`Vec4`](#vec4) | The second vector. |
+| `v` | [`Vec4Like`](#vec4like) | The first vector. |
+| `w` | [`Vec4Like`](#vec4like) | The second vector. |
 
 ###### Returns
 
@@ -5341,15 +13181,15 @@ Compares a vector with another vector using an epsilon value for floating-point 
 
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | `undefined` | The first vector. |
-| `w` | [`Vec4`](#vec4) | `undefined` | The second vector. |
+| `v` | [`Vec4Like`](#vec4like) | `undefined` | The first vector. |
+| `w` | [`Vec4Like`](#vec4like) | `undefined` | The second vector. |
 | `epsilon` | `number` | `Number.EPSILON` | The maximum difference between components to consider them equal. |
 
 ###### Returns
 
 `boolean`
 
-True if the vectors are equal within epsilon, false otherwise.
+`true` if the vectors are equal within epsilon, `false` otherwise.
 
 ##### fromArray()
 
@@ -5363,7 +13203,7 @@ Creates a Vec4 from an array.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `arr` | `number`[] \| \[`number`, `number`, `number`, `number`\] | An array containing the x, y, z, and w coordinates. |
+| `arr` | `number`[] \| [`ArrayVector4D`](#arrayvector4d) | An array containing the x, y, z, and w coordinates. |
 
 ###### Returns
 
@@ -5377,17 +13217,13 @@ A new Vec4 instance.
 static fromJSON(json): Vec4;
 ```
 
-Creates a Vec3 instance from a JSON-parsed object.
+Creates a Vec4 instance from a JSON-parsed object.
 
 ###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `json` | \{ `w`: `number`; `x`: `number`; `y`: `number`; `z`: `number`; \} | The JSON-parsed object containing x and y properties. |
-| `json.w` | `number` | - |
-| `json.x` | `number` | - |
-| `json.y` | `number` | - |
-| `json.z` | `number` | - |
+| `json` | [`XYZWObject`](#xyzwobject) | The JSON-parsed object containing x and y properties. |
 
 ###### Returns
 
@@ -5407,11 +13243,7 @@ Creates a Vec4 from an object with x, y, z and w properties.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `obj` | \{ `w`: `number`; `x`: `number`; `y`: `number`; `z`: `number`; \} | An object with x, y, z, and w properties. |
-| `obj.w` | `number` | - |
-| `obj.x` | `number` | - |
-| `obj.y` | `number` | - |
-| `obj.z` | `number` | - |
+| `obj` | [`XYZWObject`](#xyzwobject) | An object with x, y, z, and w properties. |
 
 ###### Returns
 
@@ -5427,30 +13259,10 @@ static immutable(
    y?, 
    z?, 
    w?
-): {
-  get a(): number;
-  get angleW(): number;
-  get angleX(): number;
-  get angleY(): number;
-  get angleZ(): number;
-  get b(): number;
-  get g(): number;
-  get isInfinite(): boolean;
-  get isNaN(): boolean;
-  get isZero(): boolean;
-  get magnitude(): number;
-  get magnitudeSq(): number;
-  get r(): number;
-  get rgba(): readonly number[];
-  get w(): number;
-  get x(): number;
-  get xyzw(): readonly number[];
-  get y(): number;
-  get z(): number;
-};
+): Readonly<Vec4>;
 ```
 
-Creates an immutable Vec4-like object.
+Creates an immutable Vec4 instance.
 
 ###### Parameters
 
@@ -5463,53 +13275,9 @@ Creates an immutable Vec4-like object.
 
 ###### Returns
 
-```ts
-{
-  get a(): number;
-  get angleW(): number;
-  get angleX(): number;
-  get angleY(): number;
-  get angleZ(): number;
-  get b(): number;
-  get g(): number;
-  get isInfinite(): boolean;
-  get isNaN(): boolean;
-  get isZero(): boolean;
-  get magnitude(): number;
-  get magnitudeSq(): number;
-  get r(): number;
-  get rgba(): readonly number[];
-  get w(): number;
-  get x(): number;
-  get xyzw(): readonly number[];
-  get y(): number;
-  get z(): number;
-}
-```
+`Readonly`\<[`Vec4`](#vec4)\>
 
-An immutable object with Vec4-like properties.
-
-| Name | Type |
-| ------ | ------ |
-| `get a` | `number` |
-| `get angleW` | `number` |
-| `get angleX` | `number` |
-| `get angleY` | `number` |
-| `get angleZ` | `number` |
-| `get b` | `number` |
-| `get g` | `number` |
-| `get isInfinite` | `boolean` |
-| `get isNaN` | `boolean` |
-| `get isZero` | `boolean` |
-| `get magnitude` | `number` |
-| `get magnitudeSq` | `number` |
-| `get r` | `number` |
-| `get rgba` | readonly `number`[] |
-| `get w` | `number` |
-| `get x` | `number` |
-| `get xyzw` | readonly `number`[] |
-| `get y` | `number` |
-| `get z` | `number` |
+A read-only Vec4 instance.
 
 ##### isInfinite()
 
@@ -5523,13 +13291,13 @@ Checks if a vector has infinite components.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The vector to check. |
+| `v` | [`Vec4Like`](#vec4like) | The vector to check. |
 
 ###### Returns
 
 `boolean`
 
-True if the vector has infinite components, false otherwise.
+`true` if the vector has infinite components, `false` otherwise.
 
 ##### isNaN()
 
@@ -5543,13 +13311,13 @@ Checks if a vector has NaN components.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The vector to check. |
+| `v` | [`Vec4Like`](#vec4like) | The vector to check. |
 
 ###### Returns
 
 `boolean`
 
-True if the vector has NaN components, false otherwise.
+`true` if the vector has NaN components, `false` otherwise.
 
 ##### isZero()
 
@@ -5563,13 +13331,13 @@ Checks if a vector is zero.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The vector to check. |
+| `v` | [`Vec4Like`](#vec4like) | The vector to check. |
 
 ###### Returns
 
 `boolean`
 
-True if the vector is zero, false otherwise.
+`true` if the vector is zero, `false` otherwise.
 
 ##### lerp()
 
@@ -5587,8 +13355,8 @@ Performs linear interpolation between two vectors.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The first vector. |
-| `w` | [`Vec4`](#vec4) | The second vector. |
+| `v` | [`Vec4Like`](#vec4like) | The first vector. |
+| `w` | [`Vec4Like`](#vec4like) | The second vector. |
 | `t` | `number` | The interpolation parameter (0 to 1). |
 
 ###### Returns
@@ -5609,8 +13377,8 @@ Multiplies one vector with another.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The first vector. |
-| `w` | [`Vec4`](#vec4) | The second vector. |
+| `v` | [`Vec4Like`](#vec4like) | The first vector. |
+| `w` | [`Vec4Like`](#vec4like) | The second vector. |
 
 ###### Returns
 
@@ -5630,7 +13398,7 @@ Negates a vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The vector to negate. |
+| `v` | [`Vec4Like`](#vec4like) | The vector to negate. |
 
 ###### Returns
 
@@ -5650,7 +13418,7 @@ Normalizes a vector.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The vector to normalize. |
+| `v` | [`Vec4Like`](#vec4like) | The vector to normalize. |
 
 ###### Returns
 
@@ -5684,8 +13452,8 @@ Projects one vector onto another.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The vector to project. |
-| `w` | [`Vec4`](#vec4) | The vector to project onto. |
+| `v` | [`Vec4Like`](#vec4like) | The vector to project. |
+| `w` | [`Vec4Like`](#vec4like) | The vector to project onto. |
 
 ###### Returns
 
@@ -5726,8 +13494,8 @@ The normal vector should be normalized (unit length).
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The vector to reflect. |
-| `normal` | [`Vec4`](#vec4) | The normal vector to reflect across (must be normalized). |
+| `v` | [`Vec4Like`](#vec4like) | The vector to reflect. |
+| `normal` | [`Vec4Like`](#vec4like) | The normal vector to reflect across (must be normalized). |
 
 ###### Returns
 
@@ -5747,14 +13515,14 @@ Checks if two vectors are equal.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The first vector. |
-| `w` | [`Vec4`](#vec4) | The second vector. |
+| `v` | [`Vec4Like`](#vec4like) | The first vector. |
+| `w` | [`Vec4Like`](#vec4like) | The second vector. |
 
 ###### Returns
 
 `boolean`
 
-True if the vectors are equal, false otherwise.
+`true` if the vectors are equal, `false` otherwise.
 
 ##### satisfyOpposition()
 
@@ -5768,14 +13536,14 @@ Checks if two vectors are opposite.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The first vector. |
-| `w` | [`Vec4`](#vec4) | The second vector. |
+| `v` | [`Vec4Like`](#vec4like) | The first vector. |
+| `w` | [`Vec4Like`](#vec4like) | The second vector. |
 
 ###### Returns
 
 `boolean`
 
-True if the vectors are opposite, false otherwise.
+`true` if the vectors are opposite, `false` otherwise.
 
 ##### scale()
 
@@ -5789,7 +13557,7 @@ Scales a vector by a scalar value.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The vector to scale. |
+| `v` | [`Vec4Like`](#vec4like) | The vector to scale. |
 | `c` | `number` | The scalar value. |
 
 ###### Returns
@@ -5810,8 +13578,8 @@ Subtracts one vector from another.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `v` | [`Vec4`](#vec4) | The vector to subtract from. |
-| `w` | [`Vec4`](#vec4) | The vector to subtract. |
+| `v` | [`Vec4Like`](#vec4like) | The vector to subtract from. |
+| `w` | [`Vec4Like`](#vec4like) | The vector to subtract. |
 
 ###### Returns
 
@@ -5835,14 +13603,1642 @@ A new Vec4 instance representing a zero vector.
 
 ## Interfaces
 
+### Vec2Like
+
+#### Properties
+
+| Property | Modifier | Type |
+| ------ | ------ | ------ |
+| <a id="property-anglex"></a> `angleX` | `public` | `number` |
+| <a id="property-angley"></a> `angleY` | `public` | `number` |
+| <a id="property-magnitude"></a> `magnitude` | `public` | `number` |
+| <a id="property-magnitudesq"></a> `magnitudeSq` | `readonly` | `number` |
+| <a id="property-x"></a> `x` | `public` | `number` |
+| <a id="property-xy"></a> `xy` | `public` | [`ArrayVector2D`](#arrayvector2d) |
+| <a id="property-y"></a> `y` | `public` | `number` |
+
+#### Methods
+
+##### \[iterator\]()
+
+```ts
+iterator: Iterable<number>;
+```
+
+###### Returns
+
+`Iterable`\<`number`\>
+
+##### add()
+
+```ts
+add(v): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) |
+
+###### Returns
+
+`this`
+
+##### angleBetween()
+
+```ts
+angleBetween(v): number;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) |
+
+###### Returns
+
+`number`
+
+##### clamp()
+
+```ts
+clamp(min, max): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `min` | `number` |
+| `max` | `number` |
+
+###### Returns
+
+`this`
+
+##### clone()
+
+```ts
+clone(): Vec2;
+```
+
+###### Returns
+
+[`Vec2`](#vec2)
+
+##### copy()
+
+```ts
+copy(v): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) |
+
+###### Returns
+
+`this`
+
+##### cross()
+
+```ts
+cross(v): number;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) |
+
+###### Returns
+
+`number`
+
+##### distance()
+
+```ts
+distance(v): number;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) |
+
+###### Returns
+
+`number`
+
+##### distanceChebyshev()
+
+```ts
+distanceChebyshev(v): number;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) |
+
+###### Returns
+
+`number`
+
+##### distanceManhattan()
+
+```ts
+distanceManhattan(v): number;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) |
+
+###### Returns
+
+`number`
+
+##### distanceMinkowski()
+
+```ts
+distanceMinkowski(v, p): number;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) |
+| `p` | `number` |
+
+###### Returns
+
+`number`
+
+##### distanceSq()
+
+```ts
+distanceSq(v): number;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) |
+
+###### Returns
+
+`number`
+
+##### divide()
+
+```ts
+divide(v): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) |
+
+###### Returns
+
+`this`
+
+##### dot()
+
+```ts
+dot(v): number;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) |
+
+###### Returns
+
+`number`
+
+##### equals()
+
+```ts
+equals(v, epsilon?): boolean;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) |
+| `epsilon?` | `number` |
+
+###### Returns
+
+`boolean`
+
+##### isInfinite()
+
+```ts
+isInfinite(): boolean;
+```
+
+###### Returns
+
+`boolean`
+
+##### isNaN()
+
+```ts
+isNaN(): boolean;
+```
+
+###### Returns
+
+`boolean`
+
+##### isZero()
+
+```ts
+isZero(): boolean;
+```
+
+###### Returns
+
+`boolean`
+
+##### limitMax()
+
+```ts
+limitMax(max): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `max` | `number` |
+
+###### Returns
+
+`this`
+
+##### limitMin()
+
+```ts
+limitMin(min): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `min` | `number` |
+
+###### Returns
+
+`this`
+
+##### lookAt()
+
+```ts
+lookAt(v): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) |
+
+###### Returns
+
+`this`
+
+##### multiply()
+
+```ts
+multiply(v): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) |
+
+###### Returns
+
+`this`
+
+##### negate()
+
+```ts
+negate(): this;
+```
+
+###### Returns
+
+`this`
+
+##### normalize()
+
+```ts
+normalize(): this;
+```
+
+###### Returns
+
+`this`
+
+##### project()
+
+```ts
+project(v): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) |
+
+###### Returns
+
+`this`
+
+##### random()
+
+```ts
+random(random?): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `random?` | () => `number` |
+
+###### Returns
+
+`this`
+
+##### reflect()
+
+```ts
+reflect(normal): Vec2;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `normal` | [`Vec2Like`](#vec2like) |
+
+###### Returns
+
+[`Vec2`](#vec2)
+
+##### rotateZ()
+
+```ts
+rotateZ(phi): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `phi` | `number` |
+
+###### Returns
+
+`this`
+
+##### satisfyEquality()
+
+```ts
+satisfyEquality(v): boolean;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) |
+
+###### Returns
+
+`boolean`
+
+##### satisfyOpposition()
+
+```ts
+satisfyOpposition(v): boolean;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) |
+
+###### Returns
+
+`boolean`
+
+##### scale()
+
+```ts
+scale(c): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `c` | `number` |
+
+###### Returns
+
+`this`
+
+##### subtract()
+
+```ts
+subtract(v): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec2Like`](#vec2like) |
+
+###### Returns
+
+`this`
+
+##### toJSON()
+
+```ts
+toJSON(): XYObject;
+```
+
+###### Returns
+
+[`XYObject`](#xyobject)
+
+##### toObject()
+
+```ts
+toObject(): XYObject;
+```
+
+###### Returns
+
+[`XYObject`](#xyobject)
+
+##### toString()
+
+```ts
+toString(): string;
+```
+
+###### Returns
+
+`string`
+
+##### turnLeft()
+
+```ts
+turnLeft(): this;
+```
+
+###### Returns
+
+`this`
+
+##### turnRight()
+
+```ts
+turnRight(): this;
+```
+
+###### Returns
+
+`this`
+
+##### zero()
+
+```ts
+zero(): this;
+```
+
+###### Returns
+
+`this`
+
+***
+
+### Vec3Like
+
+#### Properties
+
+| Property | Modifier | Type |
+| ------ | ------ | ------ |
+| <a id="property-anglex-1"></a> `angleX` | `readonly` | `number` |
+| <a id="property-angley-1"></a> `angleY` | `readonly` | `number` |
+| <a id="property-anglez"></a> `angleZ` | `readonly` | `number` |
+| <a id="property-b"></a> `b` | `public` | `number` |
+| <a id="property-g"></a> `g` | `public` | `number` |
+| <a id="property-magnitude-1"></a> `magnitude` | `public` | `number` |
+| <a id="property-magnitudesq-1"></a> `magnitudeSq` | `readonly` | `number` |
+| <a id="property-r"></a> `r` | `public` | `number` |
+| <a id="property-rgb"></a> `rgb` | `public` | [`ArrayVector3D`](#arrayvector3d) |
+| <a id="property-x-1"></a> `x` | `public` | `number` |
+| <a id="property-xyz"></a> `xyz` | `public` | [`ArrayVector3D`](#arrayvector3d) |
+| <a id="property-y-1"></a> `y` | `public` | `number` |
+| <a id="property-z"></a> `z` | `public` | `number` |
+
+#### Methods
+
+##### \[iterator\]()
+
+```ts
+iterator: IterableIterator<number>;
+```
+
+###### Returns
+
+`IterableIterator`\<`number`\>
+
+##### add()
+
+```ts
+add(v): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) |
+
+###### Returns
+
+`this`
+
+##### angleBetween()
+
+```ts
+angleBetween(v): number;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) |
+
+###### Returns
+
+`number`
+
+##### clamp()
+
+```ts
+clamp(min, max): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `min` | `number` |
+| `max` | `number` |
+
+###### Returns
+
+`this`
+
+##### clone()
+
+```ts
+clone(): Vec3;
+```
+
+###### Returns
+
+[`Vec3`](#vec3)
+
+##### copy()
+
+```ts
+copy(v): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) |
+
+###### Returns
+
+`this`
+
+##### cross()
+
+```ts
+cross(v): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) |
+
+###### Returns
+
+`this`
+
+##### distance()
+
+```ts
+distance(v): number;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) |
+
+###### Returns
+
+`number`
+
+##### distanceChebyshev()
+
+```ts
+distanceChebyshev(v): number;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) |
+
+###### Returns
+
+`number`
+
+##### distanceManhattan()
+
+```ts
+distanceManhattan(v): number;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) |
+
+###### Returns
+
+`number`
+
+##### distanceMinkowski()
+
+```ts
+distanceMinkowski(v, p): number;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) |
+| `p` | `number` |
+
+###### Returns
+
+`number`
+
+##### distanceSq()
+
+```ts
+distanceSq(v): number;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) |
+
+###### Returns
+
+`number`
+
+##### divide()
+
+```ts
+divide(v): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) |
+
+###### Returns
+
+`this`
+
+##### dot()
+
+```ts
+dot(v): number;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) |
+
+###### Returns
+
+`number`
+
+##### equals()
+
+```ts
+equals(v, epsilon?): boolean;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) |
+| `epsilon?` | `number` |
+
+###### Returns
+
+`boolean`
+
+##### isInfinite()
+
+```ts
+isInfinite(): boolean;
+```
+
+###### Returns
+
+`boolean`
+
+##### isNaN()
+
+```ts
+isNaN(): boolean;
+```
+
+###### Returns
+
+`boolean`
+
+##### isZero()
+
+```ts
+isZero(): boolean;
+```
+
+###### Returns
+
+`boolean`
+
+##### limitMax()
+
+```ts
+limitMax(max): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `max` | `number` |
+
+###### Returns
+
+`this`
+
+##### limitMin()
+
+```ts
+limitMin(min): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `min` | `number` |
+
+###### Returns
+
+`this`
+
+##### lookAt()
+
+```ts
+lookAt(v): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) |
+
+###### Returns
+
+`this`
+
+##### multiply()
+
+```ts
+multiply(v): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) |
+
+###### Returns
+
+`this`
+
+##### negate()
+
+```ts
+negate(): this;
+```
+
+###### Returns
+
+`this`
+
+##### normalize()
+
+```ts
+normalize(): this;
+```
+
+###### Returns
+
+`this`
+
+##### project()
+
+```ts
+project(v): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) |
+
+###### Returns
+
+`this`
+
+##### random()
+
+```ts
+random(random?): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `random?` | () => `number` |
+
+###### Returns
+
+`this`
+
+##### reflect()
+
+```ts
+reflect(normal): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `normal` | [`Vec3Like`](#vec3like) |
+
+###### Returns
+
+`this`
+
+##### rotateX()
+
+```ts
+rotateX(phi): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `phi` | `number` |
+
+###### Returns
+
+`this`
+
+##### rotateY()
+
+```ts
+rotateY(phi): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `phi` | `number` |
+
+###### Returns
+
+`this`
+
+##### rotateZ()
+
+```ts
+rotateZ(phi): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `phi` | `number` |
+
+###### Returns
+
+`this`
+
+##### satisfyEquality()
+
+```ts
+satisfyEquality(v): boolean;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) |
+
+###### Returns
+
+`boolean`
+
+##### satisfyOpposition()
+
+```ts
+satisfyOpposition(v): boolean;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) |
+
+###### Returns
+
+`boolean`
+
+##### scale()
+
+```ts
+scale(c): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `c` | `number` |
+
+###### Returns
+
+`this`
+
+##### subtract()
+
+```ts
+subtract(v): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec3Like`](#vec3like) |
+
+###### Returns
+
+`this`
+
+##### toJSON()
+
+```ts
+toJSON(): XYZObject;
+```
+
+###### Returns
+
+[`XYZObject`](#xyzobject)
+
+##### toObject()
+
+```ts
+toObject(): XYZObject;
+```
+
+###### Returns
+
+[`XYZObject`](#xyzobject)
+
+##### toString()
+
+```ts
+toString(): string;
+```
+
+###### Returns
+
+`string`
+
+##### zero()
+
+```ts
+zero(): this;
+```
+
+###### Returns
+
+`this`
+
+***
+
+### Vec4Like
+
+#### Properties
+
+| Property | Modifier | Type |
+| ------ | ------ | ------ |
+| <a id="property-a"></a> `a` | `public` | `number` |
+| <a id="property-anglew"></a> `angleW` | `readonly` | `number` |
+| <a id="property-anglex-2"></a> `angleX` | `readonly` | `number` |
+| <a id="property-angley-2"></a> `angleY` | `readonly` | `number` |
+| <a id="property-anglez-1"></a> `angleZ` | `readonly` | `number` |
+| <a id="property-b-1"></a> `b` | `public` | `number` |
+| <a id="property-g-1"></a> `g` | `public` | `number` |
+| <a id="property-magnitude-2"></a> `magnitude` | `public` | `number` |
+| <a id="property-magnitudesq-2"></a> `magnitudeSq` | `readonly` | `number` |
+| <a id="property-r-1"></a> `r` | `public` | `number` |
+| <a id="property-rgba"></a> `rgba` | `public` | [`ArrayVector4D`](#arrayvector4d) |
+| <a id="property-w"></a> `w` | `public` | `number` |
+| <a id="property-x-2"></a> `x` | `public` | `number` |
+| <a id="property-xyzw"></a> `xyzw` | `public` | [`ArrayVector4D`](#arrayvector4d) |
+| <a id="property-y-2"></a> `y` | `public` | `number` |
+| <a id="property-z-1"></a> `z` | `public` | `number` |
+
+#### Methods
+
+##### \[iterator\]()
+
+```ts
+iterator: IterableIterator<number>;
+```
+
+###### Returns
+
+`IterableIterator`\<`number`\>
+
+##### add()
+
+```ts
+add(v): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) |
+
+###### Returns
+
+`this`
+
+##### angleBetween()
+
+```ts
+angleBetween(v): number;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) |
+
+###### Returns
+
+`number`
+
+##### clamp()
+
+```ts
+clamp(min, max): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `min` | `number` |
+| `max` | `number` |
+
+###### Returns
+
+`this`
+
+##### clone()
+
+```ts
+clone(): Vec4;
+```
+
+###### Returns
+
+[`Vec4`](#vec4)
+
+##### copy()
+
+```ts
+copy(v): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) |
+
+###### Returns
+
+`this`
+
+##### distance()
+
+```ts
+distance(v): number;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) |
+
+###### Returns
+
+`number`
+
+##### distanceChebyshev()
+
+```ts
+distanceChebyshev(v): number;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) |
+
+###### Returns
+
+`number`
+
+##### distanceManhattan()
+
+```ts
+distanceManhattan(v): number;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) |
+
+###### Returns
+
+`number`
+
+##### distanceMinkowski()
+
+```ts
+distanceMinkowski(v, p): number;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) |
+| `p` | `number` |
+
+###### Returns
+
+`number`
+
+##### distanceSq()
+
+```ts
+distanceSq(v): number;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) |
+
+###### Returns
+
+`number`
+
+##### divide()
+
+```ts
+divide(v): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) |
+
+###### Returns
+
+`this`
+
+##### dot()
+
+```ts
+dot(v): number;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) |
+
+###### Returns
+
+`number`
+
+##### equals()
+
+```ts
+equals(v, epsilon?): boolean;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) |
+| `epsilon?` | `number` |
+
+###### Returns
+
+`boolean`
+
+##### isInfinite()
+
+```ts
+isInfinite(): boolean;
+```
+
+###### Returns
+
+`boolean`
+
+##### isNaN()
+
+```ts
+isNaN(): boolean;
+```
+
+###### Returns
+
+`boolean`
+
+##### isZero()
+
+```ts
+isZero(): boolean;
+```
+
+###### Returns
+
+`boolean`
+
+##### limitMax()
+
+```ts
+limitMax(max): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `max` | `number` |
+
+###### Returns
+
+`this`
+
+##### limitMin()
+
+```ts
+limitMin(min): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `min` | `number` |
+
+###### Returns
+
+`this`
+
+##### lookAt()
+
+```ts
+lookAt(v): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) |
+
+###### Returns
+
+`this`
+
+##### multiply()
+
+```ts
+multiply(v): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) |
+
+###### Returns
+
+`this`
+
+##### negate()
+
+```ts
+negate(): this;
+```
+
+###### Returns
+
+`this`
+
+##### normalize()
+
+```ts
+normalize(): this;
+```
+
+###### Returns
+
+`this`
+
+##### project()
+
+```ts
+project(v): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) |
+
+###### Returns
+
+`this`
+
+##### random()
+
+```ts
+random(random?): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `random?` | () => `number` |
+
+###### Returns
+
+`this`
+
+##### reflect()
+
+```ts
+reflect(normal): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `normal` | [`Vec4Like`](#vec4like) |
+
+###### Returns
+
+`this`
+
+##### satisfyEquality()
+
+```ts
+satisfyEquality(v): boolean;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) |
+
+###### Returns
+
+`boolean`
+
+##### satisfyOpposition()
+
+```ts
+satisfyOpposition(v): boolean;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) |
+
+###### Returns
+
+`boolean`
+
+##### scale()
+
+```ts
+scale(c): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `c` | `number` |
+
+###### Returns
+
+`this`
+
+##### subtract()
+
+```ts
+subtract(v): this;
+```
+
+###### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `v` | [`Vec4Like`](#vec4like) |
+
+###### Returns
+
+`this`
+
+##### toJSON()
+
+```ts
+toJSON(): XYZWObject;
+```
+
+###### Returns
+
+[`XYZWObject`](#xyzwobject)
+
+##### toObject()
+
+```ts
+toObject(): XYZWObject;
+```
+
+###### Returns
+
+[`XYZWObject`](#xyzwobject)
+
+##### toString()
+
+```ts
+toString(): string;
+```
+
+###### Returns
+
+`string`
+
+##### zero()
+
+```ts
+zero(): this;
+```
+
+###### Returns
+
+`this`
+
+***
+
 ### XYObject
 
 #### Properties
 
 | Property | Type |
 | ------ | ------ |
-| <a id="property-x"></a> `x` | `number` |
-| <a id="property-y"></a> `y` | `number` |
+| <a id="property-x-3"></a> `x` | `number` |
+| <a id="property-y-3"></a> `y` | `number` |
 
 ***
 
@@ -5852,9 +15248,9 @@ A new Vec4 instance representing a zero vector.
 
 | Property | Type |
 | ------ | ------ |
-| <a id="property-x-1"></a> `x` | `number` |
-| <a id="property-y-1"></a> `y` | `number` |
-| <a id="property-z"></a> `z` | `number` |
+| <a id="property-x-4"></a> `x` | `number` |
+| <a id="property-y-4"></a> `y` | `number` |
+| <a id="property-z-2"></a> `z` | `number` |
 
 ***
 
@@ -5864,10 +15260,10 @@ A new Vec4 instance representing a zero vector.
 
 | Property | Type |
 | ------ | ------ |
-| <a id="property-w"></a> `w` | `number` |
-| <a id="property-x-2"></a> `x` | `number` |
-| <a id="property-y-2"></a> `y` | `number` |
-| <a id="property-z-1"></a> `z` | `number` |
+| <a id="property-w-1"></a> `w` | `number` |
+| <a id="property-x-5"></a> `x` | `number` |
+| <a id="property-y-5"></a> `y` | `number` |
+| <a id="property-z-3"></a> `z` | `number` |
 
 ## Type Aliases
 

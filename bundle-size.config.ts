@@ -1,16 +1,20 @@
 export default {
   groups: [
     {
-      name: "Bundle",
-      include: "bundles/bundle.js",
+      name: "Bundles",
+      include: ["bundles/bundle.js", "bundles/vector*.js"],
     },
     {
       name: "Functional",
       include: "bundles/array*d.js",
     },
     {
-      name: "Classes",
-      include: "bundles/vec*.js",
+      name: "Base Vec Classes",
+      include: "bundles/Vec*.js",
+    },
+    {
+      name: "Proxy Vec Classes",
+      include: "bundles/*Proxy*.js",
     },
   ],
   minify: true,

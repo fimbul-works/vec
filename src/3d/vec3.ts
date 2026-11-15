@@ -1,6 +1,6 @@
-import type { ArrayVector3D } from "../array-3d";
-import type { XYZObject } from "../types";
-import type { Vec3Like } from "./types";
+import type { ArrayVector3D } from "../array-3d/index.js";
+import type { XYZObject } from "../types.js";
+import type { Vec3Like } from "./types.js";
 
 const { PI, sin, cos, atan2, sqrt, abs, acos } = Math;
 const PI2 = PI * 2;
@@ -92,12 +92,10 @@ export class Vec3 implements Vec3Like {
   }
 
   /**
-   * Sets the magnitude (length) of the vector, maintaining its direction.
+   * Gets the magnitude (length) of the vector.
    */
   get magnitude(): number {
-    const x = this.#xyz[0],
-      y = this.#xyz[1],
-      z = this.#xyz[2];
+    const { x, y, z } = this;
     if (x !== this.#prev[0] || y !== this.#prev[1] || z !== this.#prev[2]) {
       this.#mag = sqrt(x ** 2 + y ** 2 + z ** 2);
       this.#prev[0] = x;
@@ -989,7 +987,7 @@ export class Vec3 implements Vec3Like {
    * @param arr - An array containing the x, y, and z coordinates.
    * @returns A new Vec3 instance.
    */
-  static fromArray(arr: number[]): Vec3 {
+  static fromArray(arr: ArrayVector3D | number[]): Vec3 {
     return new Vec3(arr[0] ?? 0, arr[1] ?? 0, arr[2] ?? 0);
   }
 

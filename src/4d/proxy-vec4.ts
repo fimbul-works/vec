@@ -6,7 +6,7 @@ const { cos, acos, atan2, sqrt, abs } = Math;
 
 /** A 4D vector backed by getter and setter functions. */
 export class ProxyVec4 implements Vec4Like {
-  #prev = new Float64Array(4);
+  #prev = new Float64Array([0, 0, 0, 0]);
   #mag = 0;
 
   constructor(
@@ -23,6 +23,7 @@ export class ProxyVec4 implements Vec4Like {
   get x(): number {
     return this.getX();
   }
+
   set x(x: number) {
     this.setX(x);
   }
@@ -30,6 +31,7 @@ export class ProxyVec4 implements Vec4Like {
   get y(): number {
     return this.getY();
   }
+
   set y(y: number) {
     this.setY(y);
   }
@@ -37,6 +39,7 @@ export class ProxyVec4 implements Vec4Like {
   get z(): number {
     return this.getZ();
   }
+
   set z(z: number) {
     this.setZ(z);
   }
@@ -44,18 +47,45 @@ export class ProxyVec4 implements Vec4Like {
   get w(): number {
     return this.getW();
   }
+
   set w(w: number) {
     this.setW(w);
   }
 
   get xyzw(): ArrayVector4D {
-    return [this.x, this.y, this.z, this.w];
+    return [this.getX(), this.getY(), this.getZ(), this.getW()];
   }
+
   set xyzw(value: ArrayVector4D) {
-    this.x = value[0] ?? 0;
-    this.y = value[1] ?? 0;
-    this.z = value[2] ?? 0;
-    this.w = value[3] ?? 0;
+    this.setX(value[0] ?? 0);
+    this.setY(value[1] ?? 0);
+    this.setZ(value[2] ?? 0);
+    this.setW(value[3] ?? 0);
+  }
+
+  /** Reads the current target components, including external changes. */
+  get magnitude(): number {
+    const { x, y, z, w } = this;
+    if (x !== this.#prev[0] || y !== this.#prev[1] || z !== this.#prev[2] || w !== this.#prev[3]) {
+      this.#mag = sqrt(x ** 2 + y ** 2 + z ** 2 + w ** 2);
+      this.#prev[0] = x;
+      this.#prev[1] = y;
+      this.#prev[2] = z;
+      this.#prev[3] = w;
+    }
+    return this.#mag;
+  }
+
+  set magnitude(m: number) {
+    const M = this.magnitude;
+    this.x = (this.x / M) * m;
+    this.y = (this.y / M) * m;
+    this.z = (this.z / M) * m;
+    this.w = (this.w / M) * m;
+  }
+
+  get magnitudeSq(): number {
+    return this.magnitude ** 2;
   }
 
   /**
@@ -68,7 +98,7 @@ export class ProxyVec4 implements Vec4Like {
 
   /**
    * Sets the Red-component of a Color.
-   * @param {number} r - The new Red-component.
+   * @param r - The new Red-component.
    * @returns {void}
    */
   set r(r: number) {
@@ -85,7 +115,7 @@ export class ProxyVec4 implements Vec4Like {
 
   /**
    * Sets the Green-component of the Color.
-   * @param {number} g - The new Green-component.
+   * @param g - The new Green-component.
    * @returns {void}
    */
   set g(g: number) {
@@ -102,7 +132,7 @@ export class ProxyVec4 implements Vec4Like {
 
   /**
    * Sets the Blue-component of the Color.
-   * @param {number} b - The new Blue-component.
+   * @param b - The new Blue-component.
    * @returns {void}
    */
   set b(b: number) {
@@ -119,7 +149,7 @@ export class ProxyVec4 implements Vec4Like {
 
   /**
    * Sets the Alpha-component of the Color.
-   * @param {number} a - The new Alpha-component.
+   * @param a - The new Alpha-component.
    * @returns {void}
    */
   set a(a: number) {
@@ -173,31 +203,6 @@ export class ProxyVec4 implements Vec4Like {
    */
   get angleW(): number {
     return atan2(sqrt(this.x ** 2 + this.y ** 2 + this.z ** 2), this.w);
-  }
-
-  /** Reads the current target components, including external changes. */
-  get magnitude(): number {
-    const { x, y, z, w } = this;
-    if (x !== this.#prev[0] || y !== this.#prev[1] || z !== this.#prev[2] || w !== this.#prev[3]) {
-      this.#mag = sqrt(x ** 2 + y ** 2 + z ** 2 + w ** 2);
-      this.#prev[0] = x;
-      this.#prev[1] = y;
-      this.#prev[2] = z;
-      this.#prev[3] = w;
-    }
-    return this.#mag;
-  }
-
-  get magnitudeSq(): number {
-    return this.magnitude ** 2;
-  }
-
-  set magnitude(m: number) {
-    const M = this.magnitude;
-    this.x = (this.x / M) * m;
-    this.y = (this.y / M) * m;
-    this.z = (this.z / M) * m;
-    this.w = (this.w / M) * m;
   }
 
   /**
@@ -263,8 +268,8 @@ export class ProxyVec4 implements Vec4Like {
 
   /**
    * Clamps the magnitude of this vector between a minimum and maximum value.
-   * @param {number} min - The minimum magnitude.
-   * @param {number} max - The maximum magnitude.
+   * @param min - The minimum magnitude.
+   * @param max - The maximum magnitude.
    * @returns {this} This Vec4 instance for method chaining.
    */
   clamp(min: number, max: number) {
@@ -344,7 +349,7 @@ export class ProxyVec4 implements Vec4Like {
   /**
    * Calculates the Minkowski distance between this vector and another vector.
    * @param {Vec4} v - The other vector.
-   * @param {number} p - The order of the Minkowski distance.
+   * @param p - The order of the Minkowski distance.
    * @returns {number} The Minkowski distance between the vectors.
    */
   distanceMinkowski(v: Vec4Like, p: number) {
@@ -379,7 +384,6 @@ export class ProxyVec4 implements Vec4Like {
    */
   reflect(normal: Vec4Like): this {
     const dot = this.x * normal.x + this.y * normal.y + this.z * normal.z + this.w * normal.w;
-
     this.x -= 2 * dot * normal.x;
     this.y -= 2 * dot * normal.y;
     this.z -= 2 * dot * normal.z;
@@ -397,14 +401,14 @@ export class ProxyVec4 implements Vec4Like {
     const z = this.z;
     const w = this.w;
     return (
-      x === +Number.POSITIVE_INFINITY ||
-      x === Number.NEGATIVE_INFINITY ||
-      y === +Number.POSITIVE_INFINITY ||
-      y === Number.NEGATIVE_INFINITY ||
-      z === +Number.POSITIVE_INFINITY ||
-      z === Number.NEGATIVE_INFINITY ||
-      w === +Number.POSITIVE_INFINITY ||
-      w === Number.NEGATIVE_INFINITY
+      x === Infinity ||
+      x === -Infinity ||
+      y === Infinity ||
+      y === -Infinity ||
+      z === Infinity ||
+      z === -Infinity ||
+      w === Infinity ||
+      w === -Infinity
     );
   }
 

@@ -420,7 +420,7 @@ describe("Vec2", () => {
       const result = v.lookAt(target);
 
       expect(result).toBe(v);
-      console.error(String(v.magnitude))
+      console.error(String(v.magnitude));
       expect(v.magnitude).toBeCloseTo(5); // Magnitude preserved
       expect(v.x).toBeCloseTo(0);
       expect(v.y).toBeCloseTo(5); // Now pointing up

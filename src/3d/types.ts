@@ -1,6 +1,6 @@
-import type { ArrayVector3D } from "../array-3d";
-import type { XYZObject } from "../types";
-import type { Vec3 } from "./vec3";
+import type { ArrayVector3D } from "../array-3d/index.js";
+import type { XYZObject } from "../types.js";
+import type { Vec3 } from "./vec3.js";
 
 export interface Vec3Like {
   x: number;

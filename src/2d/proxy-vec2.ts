@@ -78,8 +78,8 @@ export class ProxyVec2 implements Vec2Like {
    * @param xy - An array containing the new x and y components.
    */
   set xy(xy: ArrayVector2D) {
-    this.setX(xy[0]);
-    this.setY(xy[1]);
+    this.setX(xy[0] ?? 0);
+    this.setY(xy[1] ?? 0);
   }
 
   /**
@@ -87,8 +87,7 @@ export class ProxyVec2 implements Vec2Like {
    * @returns The magnitude of the vector.
    */
   get magnitude(): number {
-    const x = this.getX(),
-      y = this.getY();
+    const { x, y } = this;
     if (x !== this.#prev[0] || y !== this.#prev[1]) {
       this.#mag = sqrt(x ** 2 + y ** 2);
       this.#prev[0] = x;
@@ -110,6 +109,12 @@ export class ProxyVec2 implements Vec2Like {
   /**
    * Gets the squared magnitude of the vector.
    * @returns The squared magnitude of the vector.
+   */
+  get magnitudeSq(): number {
+    return this.magnitude ** 2;
+  }
+
+  /**
    * Gets the angle between the vector and the positive x-axis in radians.
    * @returns The angle in radians, always in the range [0, 2π).
    */

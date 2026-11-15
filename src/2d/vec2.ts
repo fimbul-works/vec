@@ -25,6 +25,7 @@ export class Vec2 implements Vec2Like {
   #mag = 0;
 
   /**
+   * Creates a new Vec2 instance.
    * @param x - The x-coordinate of the vector.
    * @param y - The y-coordinate of the vector.
    */
@@ -87,8 +88,7 @@ export class Vec2 implements Vec2Like {
    * @returns The magnitude of the vector.
    */
   get magnitude(): number {
-    const x = this.#xy[0],
-      y = this.#xy[1];
+    const { x, y } = this;
     if (x !== this.#prev[0] || y !== this.#prev[1]) {
       this.#mag = sqrt(x ** 2 + y ** 2);
       this.#prev[0] = x;
@@ -102,7 +102,7 @@ export class Vec2 implements Vec2Like {
    * @param m - The new magnitude.
    */
   set magnitude(m: number) {
-    const x = this.#xy[0], y = this.#xy[this.#xy];
+    const { x, y } = this;
     const f = m / sqrt(x * x + y * y);
     this.#xy[0] = x * f;
     this.#xy[1] = y * f;
@@ -113,7 +113,8 @@ export class Vec2 implements Vec2Like {
    * @returns The squared magnitude of the vector.
    */
   get magnitudeSq(): number {
-    const x = this.#xy[0], y = this.#xy[1];
+    const x = this.#xy[0],
+      y = this.#xy[1];
     return x * x + y * y;
   }
 
@@ -141,8 +142,8 @@ export class Vec2 implements Vec2Like {
    * @returns The angle in radians, always in the range [0, 2π).
    */
   get angleY(): number {
-  const a = -atan2(this.#xy[0], this.#xy[1]);
-  return a < 0 ? a + PI2 : a;
+    const a = -atan2(this.#xy[0], this.#xy[1]);
+    return a < 0 ? a + PI2 : a;
   }
 
   /**
@@ -872,7 +873,7 @@ export class Vec2 implements Vec2Like {
    * @param arr - An array containing the x and y coordinates.
    * @returns A new Vec2 instance.
    */
-  static fromArray(arr: number[]) {
+  static fromArray(arr: ArrayVector2D | number[]) {
     return new Vec2(arr[0] ?? 0, arr[1] ?? 0);
   }
 
