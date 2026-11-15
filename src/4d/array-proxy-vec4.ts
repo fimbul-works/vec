@@ -45,6 +45,11 @@ export class ArrayProxyVec4<T extends ProxyArrayVectorTarget> implements Vec4Lik
   #iw = 3;
 
   /**
+   * Callback to be invoked whenever properties change.
+   */
+  public onChange?: (v: ArrayProxyVec4<T>) => void;
+
+  /**
    * @param target - The target array.
    * @param offset - The offset in the array.
    * @param gap - Gap between components (stride).
@@ -97,13 +102,14 @@ export class ArrayProxyVec4<T extends ProxyArrayVectorTarget> implements Vec4Lik
    */
   set offset(offset: number) {
     this.bind(this.#target, offset, this.#gap);
+    this.onChange?.(this);
   }
 
   /**
    * Range of min and max component indices.
    */
   get indexRange(): readonly [number, number] {
-    return [this.#offset, this.#iw] as const;
+    return [this.#ix, this.#iw] as const;
   }
 
   /**
@@ -119,7 +125,9 @@ export class ArrayProxyVec4<T extends ProxyArrayVectorTarget> implements Vec4Lik
    * @param x - The new x-component.
    */
   set x(x: number) {
+    if (this.#target[this.#ix] === x) return;
     this.#target[this.#ix] = x;
+    this.onChange?.(this);
   }
 
   /**
@@ -135,7 +143,9 @@ export class ArrayProxyVec4<T extends ProxyArrayVectorTarget> implements Vec4Lik
    * @param y - The new y-component.
    */
   set y(y: number) {
+    if (this.#target[this.#iy] === y) return;
     this.#target[this.#iy] = y;
+    this.onChange?.(this);
   }
 
   /**
@@ -151,7 +161,9 @@ export class ArrayProxyVec4<T extends ProxyArrayVectorTarget> implements Vec4Lik
    * @param z - The new z-component.
    */
   set z(z: number) {
+    if (this.#target[this.#iz] === z) return;
     this.#target[this.#iz] = z;
+    this.onChange?.(this);
   }
 
   /**
@@ -167,7 +179,9 @@ export class ArrayProxyVec4<T extends ProxyArrayVectorTarget> implements Vec4Lik
    * @param w - The new w-component.
    */
   set w(w: number) {
+    if (this.#target[this.#iw] === w) return;
     this.#target[this.#iw] = w;
+    this.onChange?.(this);
   }
 
   /**
@@ -187,6 +201,7 @@ export class ArrayProxyVec4<T extends ProxyArrayVectorTarget> implements Vec4Lik
     this.#target[this.#iy] = value[1] ?? 0;
     this.#target[this.#iz] = value[2] ?? 0;
     this.#target[this.#iw] = value[3] ?? 0;
+    this.onChange?.(this);
   }
 
   /**
@@ -202,7 +217,7 @@ export class ArrayProxyVec4<T extends ProxyArrayVectorTarget> implements Vec4Lik
    * @param r - The new Red-component.
    */
   set r(r: number) {
-    this.#target[this.#ix] = r;
+    this.x = r;
   }
 
   /**
@@ -218,7 +233,7 @@ export class ArrayProxyVec4<T extends ProxyArrayVectorTarget> implements Vec4Lik
    * @param g - The new Green-component.
    */
   set g(g: number) {
-    this.#target[this.#iy] = g;
+    this.y = g;
   }
 
   /**
@@ -234,7 +249,7 @@ export class ArrayProxyVec4<T extends ProxyArrayVectorTarget> implements Vec4Lik
    * @param b - The new Blue-component.
    */
   set b(b: number) {
-    this.#target[this.#iz] = b;
+    this.z = b;
   }
 
   /**
@@ -250,7 +265,7 @@ export class ArrayProxyVec4<T extends ProxyArrayVectorTarget> implements Vec4Lik
    * @param a - The new Alpha-component.
    */
   set a(a: number) {
-    this.#target[this.#iw] = a;
+    this.w = a;
   }
 
   /**
@@ -336,6 +351,7 @@ export class ArrayProxyVec4<T extends ProxyArrayVectorTarget> implements Vec4Lik
     this.#target[this.#iy] = (this.#target[this.#iy] / M) * m;
     this.#target[this.#iz] = (this.#target[this.#iz] / M) * m;
     this.#target[this.#iw] = (this.#target[this.#iw] / M) * m;
+    this.onChange?.(this);
   }
 
   /**
@@ -348,6 +364,7 @@ export class ArrayProxyVec4<T extends ProxyArrayVectorTarget> implements Vec4Lik
     this.#target[this.#iy] += v.y;
     this.#target[this.#iz] += v.z;
     this.#target[this.#iw] += v.w;
+    this.onChange?.(this);
     return this;
   }
 
@@ -361,6 +378,7 @@ export class ArrayProxyVec4<T extends ProxyArrayVectorTarget> implements Vec4Lik
     this.#target[this.#iy] -= v.y;
     this.#target[this.#iz] -= v.z;
     this.#target[this.#iw] -= v.w;
+    this.onChange?.(this);
     return this;
   }
 
@@ -374,6 +392,7 @@ export class ArrayProxyVec4<T extends ProxyArrayVectorTarget> implements Vec4Lik
     this.#target[this.#iy] *= v.y;
     this.#target[this.#iz] *= v.z;
     this.#target[this.#iw] *= v.w;
+    this.onChange?.(this);
     return this;
   }
 
@@ -387,6 +406,7 @@ export class ArrayProxyVec4<T extends ProxyArrayVectorTarget> implements Vec4Lik
     this.#target[this.#iy] = v.y === 0 ? Number.POSITIVE_INFINITY : this.#target[this.#iy] / v.y;
     this.#target[this.#iz] = v.z === 0 ? Number.POSITIVE_INFINITY : this.#target[this.#iz] / v.z;
     this.#target[this.#iw] = v.w === 0 ? Number.POSITIVE_INFINITY : this.#target[this.#iw] / v.w;
+    this.onChange?.(this);
     return this;
   }
 
@@ -409,7 +429,7 @@ export class ArrayProxyVec4<T extends ProxyArrayVectorTarget> implements Vec4Lik
    * Clamps the magnitude of this vector between a minimum and maximum value.
    * @param min - The minimum magnitude.
    * @param max - The maximum magnitude.
-   * @returns {this} `this` instance for method chaining.
+   * @returns `this` instance for method chaining.
    */
   clamp(min: number, max: number) {
     const m = this.magnitude;
@@ -445,6 +465,7 @@ export class ArrayProxyVec4<T extends ProxyArrayVectorTarget> implements Vec4Lik
     this.#target[this.#iy] = v.y;
     this.#target[this.#iz] = v.z;
     this.#target[this.#iw] = v.w;
+    this.onChange?.(this);
     return this;
   }
 
@@ -467,7 +488,7 @@ export class ArrayProxyVec4<T extends ProxyArrayVectorTarget> implements Vec4Lik
    * @param v - The other vector.
    * @returns The Chebyshev distance between the vectors.
    */
-  distanceChebyshev(v: Vec4Like) {
+  distanceChebyshev(v: Vec4Like): number {
     const absX = abs(this.#target[this.#ix] - v.x);
     const absY = abs(this.#target[this.#iy] - v.y);
     const absZ = abs(this.#target[this.#iz] - v.z);
@@ -486,7 +507,7 @@ export class ArrayProxyVec4<T extends ProxyArrayVectorTarget> implements Vec4Lik
    * @param v - The other vector.
    * @returns The Manhattan distance between the vectors.
    */
-  distanceManhattan(v: Vec4Like) {
+  distanceManhattan(v: Vec4Like): number {
     return (
       abs(this.#target[this.#ix] - v.x) +
       abs(this.#target[this.#iy] - v.y) +
@@ -501,7 +522,7 @@ export class ArrayProxyVec4<T extends ProxyArrayVectorTarget> implements Vec4Lik
    * @param p - The order of the Minkowski distance.
    * @returns The Minkowski distance between the vectors.
    */
-  distanceMinkowski(v: Vec4Like, p: number) {
+  distanceMinkowski(v: Vec4Like, p: number): number {
     return (
       (abs(this.#target[this.#ix] - v.x) ** p +
         abs(this.#target[this.#iy] - v.y) ** p +
@@ -556,6 +577,7 @@ export class ArrayProxyVec4<T extends ProxyArrayVectorTarget> implements Vec4Lik
     this.#target[this.#iy] -= 2 * dot * normal.y;
     this.#target[this.#iz] -= 2 * dot * normal.z;
     this.#target[this.#iw] -= 2 * dot * normal.w;
+    this.onChange?.(this);
     return this;
   }
 
@@ -618,6 +640,7 @@ export class ArrayProxyVec4<T extends ProxyArrayVectorTarget> implements Vec4Lik
       this.#target[this.#iy] = (this.#target[this.#iy] / M) * max;
       this.#target[this.#iz] = (this.#target[this.#iz] / M) * max;
       this.#target[this.#iw] = (this.#target[this.#iw] / M) * max;
+      this.onChange?.(this);
     }
     return this;
   }
@@ -634,6 +657,7 @@ export class ArrayProxyVec4<T extends ProxyArrayVectorTarget> implements Vec4Lik
       this.#target[this.#iy] = (this.#target[this.#iy] / M) * min;
       this.#target[this.#iz] = (this.#target[this.#iz] / M) * min;
       this.#target[this.#iw] = (this.#target[this.#iw] / M) * min;
+      this.onChange?.(this);
     }
     return this;
   }
@@ -650,6 +674,7 @@ export class ArrayProxyVec4<T extends ProxyArrayVectorTarget> implements Vec4Lik
     this.#target[this.#iy] = (v.y / vM) * M;
     this.#target[this.#iz] = (v.z / vM) * M;
     this.#target[this.#iw] = (v.w / vM) * M;
+    this.onChange?.(this);
     return this;
   }
 
@@ -662,6 +687,7 @@ export class ArrayProxyVec4<T extends ProxyArrayVectorTarget> implements Vec4Lik
     this.#target[this.#iy] *= -1;
     this.#target[this.#iz] *= -1;
     this.#target[this.#iw] *= -1;
+    this.onChange?.(this);
     return this;
   }
 
@@ -675,6 +701,7 @@ export class ArrayProxyVec4<T extends ProxyArrayVectorTarget> implements Vec4Lik
     this.#target[this.#iy] /= M;
     this.#target[this.#iz] /= M;
     this.#target[this.#iw] /= M;
+    this.onChange?.(this);
     return this;
   }
 
@@ -705,6 +732,7 @@ export class ArrayProxyVec4<T extends ProxyArrayVectorTarget> implements Vec4Lik
     this.#target[this.#iy] = (vY / vM) * f;
     this.#target[this.#iz] = (vZ / vM) * f;
     this.#target[this.#iw] = (vW / vM) * f;
+    this.onChange?.(this);
     return this;
   }
 
@@ -773,6 +801,7 @@ export class ArrayProxyVec4<T extends ProxyArrayVectorTarget> implements Vec4Lik
     this.#target[this.#iy] *= c;
     this.#target[this.#iz] *= c;
     this.#target[this.#iw] *= c;
+    this.onChange?.(this);
     return this;
   }
 
@@ -785,6 +814,7 @@ export class ArrayProxyVec4<T extends ProxyArrayVectorTarget> implements Vec4Lik
     this.#target[this.#iy] = 0;
     this.#target[this.#iz] = 0;
     this.#target[this.#iw] = 0;
+    this.onChange?.(this);
     return this;
   }
 

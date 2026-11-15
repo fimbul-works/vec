@@ -10,7 +10,7 @@ Proxying 2D vector into an interleaved array.
 
 | Type Parameter |
 | ------ |
-| `T` *extends* [`ProxyArrayVectorTarget`](#proxyarrayvectortarget) |
+| <a id="type-parameter-t"></a> `T` *extends* [`ProxyArrayVectorTarget`](#proxyarrayvectortarget) |
 
 #### Implements
 
@@ -34,7 +34,7 @@ new ArrayProxyVec2<T>(
 | ------ | ------ | ------ | ------ |
 | `target` | `T` | `undefined` | The target array. |
 | `offset` | `number` | `undefined` | The offset in the array. |
-| `gap` | `number` | `0` | Gap between components (stride). |
+| `gap?` | `number` | `0` | Gap between components (stride). |
 
 ###### Returns
 
@@ -51,6 +51,12 @@ Error when gap is negative, or not an integer.
 ###### Throws
 
 Error when y-component is out of target array bounds.
+
+#### Properties
+
+| Property | Modifier | Type | Description |
+| ------ | ------ | ------ | ------ |
+| <a id="property-onchange"></a> `onChange?` | `public` | (`v`) => `void` | Callback to be invoked whenever properties change. |
 
 #### Accessors
 
@@ -361,7 +367,7 @@ Sets the y-component of the vector.
 ##### \[iterator\]()
 
 ```ts
-iterator: IterableIterator<number>;
+[iterator](): IterableIterator<number>;
 ```
 
 Iterator over this vector's components.
@@ -735,7 +741,7 @@ Compares this vector with another vector using an epsilon value for floating-poi
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
 | `v` | [`Vec2Like`](#vec2like) | `undefined` | The vector to compare with. |
-| `epsilon` | `number` | `Number.EPSILON` | The maximum difference between components to consider them equal. |
+| `epsilon?` | `number` | `Number.EPSILON` | The maximum difference between components to consider them equal. |
 
 ###### Returns
 
@@ -969,7 +975,7 @@ Sets this vector to a random direction with the same magnitude.
 
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
-| `random` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1. |
+| `random?` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1. |
 
 ###### Returns
 
@@ -1243,7 +1249,7 @@ Proxying 3D vector into an interleaved array.
 
 | Type Parameter |
 | ------ |
-| `T` *extends* [`ProxyArrayVectorTarget`](#proxyarrayvectortarget) |
+| <a id="type-parameter-t-1"></a> `T` *extends* [`ProxyArrayVectorTarget`](#proxyarrayvectortarget) |
 
 #### Implements
 
@@ -1267,7 +1273,7 @@ new ArrayProxyVec3<T>(
 | ------ | ------ | ------ | ------ |
 | `target` | `T` | `undefined` | The target array. |
 | `offset` | `number` | `undefined` | The offset of the array. |
-| `gap` | `number` | `0` | The stride between indices. |
+| `gap?` | `number` | `0` | The stride between indices. |
 
 ###### Returns
 
@@ -1284,6 +1290,12 @@ Error when gap is negative, or not an integer.
 ###### Throws
 
 Error when z-component is out of target array bounds.
+
+#### Properties
+
+| Property | Modifier | Type | Description |
+| ------ | ------ | ------ | ------ |
+| <a id="property-onchange-1"></a> `onChange?` | `public` | (`v`) => `void` | Callback to be invoked whenever properties change. |
 
 #### Accessors
 
@@ -1767,7 +1779,7 @@ Sets the z-component of the vector.
 ##### \[iterator\]()
 
 ```ts
-iterator: IterableIterator<number>;
+[iterator](): IterableIterator<number>;
 ```
 
 Iterator over this vector's components.
@@ -2141,7 +2153,7 @@ Compares this vector with another vector using an epsilon value for floating-poi
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
 | `v` | [`Vec3Like`](#vec3like) | `undefined` | The vector to compare with. |
-| `epsilon` | `number` | `Number.EPSILON` | The maximum difference between components to consider them equal. |
+| `epsilon?` | `number` | `Number.EPSILON` | The maximum difference between components to consider them equal. |
 
 ###### Returns
 
@@ -2375,7 +2387,7 @@ Sets this vector to a random direction with the same magnitude.
 
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
-| `random` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1. |
+| `random?` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1. |
 
 ###### Returns
 
@@ -2661,7 +2673,7 @@ A 4D vector backed by an interleaved array. Stride is the gap between components
 
 | Type Parameter |
 | ------ |
-| `T` *extends* [`ProxyArrayVectorTarget`](#proxyarrayvectortarget) |
+| <a id="type-parameter-t-2"></a> `T` *extends* [`ProxyArrayVectorTarget`](#proxyarrayvectortarget) |
 
 #### Implements
 
@@ -2702,6 +2714,12 @@ Error when gap is negative, or not an integer.
 ###### Throws
 
 Error when w-component is out of target array bounds.
+
+#### Properties
+
+| Property | Modifier | Type | Description |
+| ------ | ------ | ------ | ------ |
+| <a id="property-onchange-2"></a> `onChange?` | `public` | (`v`) => `void` | Callback to be invoked whenever properties change. |
 
 #### Accessors
 
@@ -3274,7 +3292,7 @@ Sets the z-component of the vector.
 ##### \[iterator\]()
 
 ```ts
-iterator: IterableIterator<number>;
+[iterator](): IterableIterator<number>;
 ```
 
 Makes the Vec4 instance iterable.
@@ -3616,7 +3634,7 @@ Compares this vector with another vector using an epsilon value for floating-poi
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
 | `v` | [`Vec4Like`](#vec4like) | `undefined` | The vector to compare with. |
-| `epsilon` | `number` | `Number.EPSILON` | The maximum difference between components to consider them equal. |
+| `epsilon?` | `number` | `Number.EPSILON` | The maximum difference between components to consider them equal. |
 
 ###### Returns
 
@@ -3850,7 +3868,7 @@ Sets this vector to a random direction with the same magnitude.
 
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
-| `random` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1. |
+| `random?` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1. |
 
 ###### Returns
 
@@ -4384,7 +4402,7 @@ Sets the y-component of the vector.
 ##### \[iterator\]()
 
 ```ts
-iterator: IterableIterator<number>;
+[iterator](): IterableIterator<number>;
 ```
 
 Iterator over this vector's components.
@@ -4722,7 +4740,7 @@ Compares this vector with another vector using an epsilon value for floating-poi
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
 | `v` | [`Vec2Like`](#vec2like) | `undefined` | The vector to compare with. |
-| `epsilon` | `number` | `Number.EPSILON` | The maximum difference between components to consider them equal. |
+| `epsilon?` | `number` | `Number.EPSILON` | The maximum difference between components to consider them equal. |
 
 ###### Returns
 
@@ -4956,7 +4974,7 @@ Sets this vector to a random direction with the same magnitude.
 
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
-| `random` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1. |
+| `random?` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1. |
 
 ###### Returns
 
@@ -5688,7 +5706,7 @@ Sets the z-component of the vector.
 ##### \[iterator\]()
 
 ```ts
-iterator: IterableIterator<number>;
+[iterator](): IterableIterator<number>;
 ```
 
 Iterator over this vector's components.
@@ -6026,7 +6044,7 @@ Compares this vector with another vector using an epsilon value for floating-poi
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
 | `v` | [`Vec3Like`](#vec3like) | `undefined` | The vector to compare with. |
-| `epsilon` | `number` | `Number.EPSILON` | The maximum difference between components to consider them equal. |
+| `epsilon?` | `number` | `Number.EPSILON` | The maximum difference between components to consider them equal. |
 
 ###### Returns
 
@@ -6260,7 +6278,7 @@ Sets this vector to a random direction with the same magnitude.
 
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
-| `random` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1. |
+| `random?` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1. |
 
 ###### Returns
 
@@ -7067,7 +7085,7 @@ set z(z): void;
 ##### \[iterator\]()
 
 ```ts
-iterator: IterableIterator<number>;
+[iterator](): IterableIterator<number>;
 ```
 
 Makes the Vec4 instance iterable.
@@ -7381,7 +7399,7 @@ Compares this vector with another vector using an epsilon value for floating-poi
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
 | `v` | [`Vec4Like`](#vec4like) | `undefined` | The vector to compare with. |
-| `epsilon` | `number` | `Number.EPSILON` | The maximum difference between components to consider them equal. |
+| `epsilon?` | `number` | `Number.EPSILON` | The maximum difference between components to consider them equal. |
 
 ###### Returns
 
@@ -7615,7 +7633,7 @@ Sets this vector to a random direction with the same magnitude.
 
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
-| `random` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1. |
+| `random?` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1. |
 
 ###### Returns
 
@@ -7882,8 +7900,8 @@ Creates a new Vec2 instance.
 
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
-| `x` | `number` | `0` | The x-coordinate of the vector. |
-| `y` | `number` | `x` | The y-coordinate of the vector. |
+| `x?` | `number` | `0` | The x-coordinate of the vector. |
+| `y?` | `number` | `x` | The y-coordinate of the vector. |
 
 ###### Returns
 
@@ -8144,7 +8162,7 @@ Sets the y-component of the vector.
 ##### \[iterator\]()
 
 ```ts
-iterator: IterableIterator<number>;
+[iterator](): IterableIterator<number>;
 ```
 
 Iterator over this vector's components.
@@ -8482,7 +8500,7 @@ Compares this vector with another vector using an epsilon value for floating-poi
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
 | `v` | [`Vec2Like`](#vec2like) | `undefined` | The vector to compare with. |
-| `epsilon` | `number` | `Number.EPSILON` | The maximum difference between components to consider them equal. |
+| `epsilon?` | `number` | `Number.EPSILON` | The maximum difference between components to consider them equal. |
 
 ###### Returns
 
@@ -8716,7 +8734,7 @@ Sets this vector to a random direction with the same magnitude.
 
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
-| `random` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1. |
+| `random?` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1. |
 
 ###### Returns
 
@@ -9213,7 +9231,7 @@ Compares a vector with another vector using an epsilon value for floating-point 
 | ------ | ------ | ------ | ------ |
 | `v` | [`Vec2Like`](#vec2like) | `undefined` | The first vector. |
 | `w` | [`Vec2Like`](#vec2like) | `undefined` | The second vector. |
-| `epsilon` | `number` | `Number.EPSILON` | The maximum difference between components to consider them equal. |
+| `epsilon?` | `number` | `Number.EPSILON` | The maximum difference between components to consider them equal. |
 
 ###### Returns
 
@@ -9314,8 +9332,8 @@ Creates an immutable Vec2 instance.
 
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
-| `x` | `number` | `0` | The x-coordinate of the vector. |
-| `y` | `number` | `0` | The y-coordinate of the vector. |
+| `x?` | `number` | `0` | The x-coordinate of the vector. |
+| `y?` | `number` | `0` | The y-coordinate of the vector. |
 
 ###### Returns
 
@@ -9517,7 +9535,7 @@ Creates a random unit vector.
 
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
-| `random` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1. |
+| `random?` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1. |
 
 ###### Returns
 
@@ -9672,9 +9690,9 @@ Creates a new Vec3 instance.
 
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
-| `x` | `number` | `0` | The x-coordinate of the vector. |
-| `y` | `number` | `0` | The y-coordinate of the vector. |
-| `z` | `number` | `0` | The z-coordinate of the vector. |
+| `x?` | `number` | `0` | The x-coordinate of the vector. |
+| `y?` | `number` | `0` | The y-coordinate of the vector. |
+| `z?` | `number` | `0` | The z-coordinate of the vector. |
 
 ###### Returns
 
@@ -10108,7 +10126,7 @@ Sets the z-component of the vector.
 ##### \[iterator\]()
 
 ```ts
-iterator: IterableIterator<number>;
+[iterator](): IterableIterator<number>;
 ```
 
 Iterator over this vector's components.
@@ -10446,7 +10464,7 @@ Compares this vector with another vector using an epsilon value for floating-poi
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
 | `v` | [`Vec3Like`](#vec3like) | `undefined` | The vector to compare with. |
-| `epsilon` | `number` | `Number.EPSILON` | The maximum difference between components to consider them equal. |
+| `epsilon?` | `number` | `Number.EPSILON` | The maximum difference between components to consider them equal. |
 
 ###### Returns
 
@@ -10680,7 +10698,7 @@ Sets this vector to a random direction with the same magnitude.
 
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
-| `random` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1. |
+| `random?` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1. |
 
 ###### Returns
 
@@ -11189,7 +11207,7 @@ Compares a vector with another vector using an epsilon value for floating-point 
 | ------ | ------ | ------ | ------ |
 | `v` | [`Vec3Like`](#vec3like) | `undefined` | The first vector. |
 | `w` | [`Vec3`](#vec3) | `undefined` | The second vector. |
-| `epsilon` | `number` | `Number.EPSILON` | The maximum difference between components to consider them equal. |
+| `epsilon?` | `number` | `Number.EPSILON` | The maximum difference between components to consider them equal. |
 
 ###### Returns
 
@@ -11325,9 +11343,9 @@ Creates an immutable Vec3 instance.
 
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
-| `x` | `number` | `0` | The x-coordinate of the vector. |
-| `y` | `number` | `0` | The y-coordinate of the vector. |
-| `z` | `number` | `0` | The z-coordinate of the vector. |
+| `x?` | `number` | `0` | The x-coordinate of the vector. |
+| `y?` | `number` | `0` | The y-coordinate of the vector. |
+| `z?` | `number` | `0` | The z-coordinate of the vector. |
 
 ###### Returns
 
@@ -11529,7 +11547,7 @@ Creates a random unit vector.
 
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
-| `random` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1. |
+| `random?` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1. |
 
 ###### Returns
 
@@ -11685,10 +11703,10 @@ Creates a new Vec4 instance.
 
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
-| `x` | `number` | `0` | The x-coordinate of the vector. |
-| `y` | `number` | `0` | The y-coordinate of the vector. |
-| `z` | `number` | `0` | The z-coordinate of the vector. |
-| `w` | `number` | `0` | The w-coordinate of the vector. |
+| `x?` | `number` | `0` | The x-coordinate of the vector. |
+| `y?` | `number` | `0` | The y-coordinate of the vector. |
+| `z?` | `number` | `0` | The z-coordinate of the vector. |
+| `w?` | `number` | `0` | The w-coordinate of the vector. |
 
 ###### Returns
 
@@ -12218,7 +12236,7 @@ Sets the z-component of the vector.
 ##### \[iterator\]()
 
 ```ts
-iterator: IterableIterator<number>;
+[iterator](): IterableIterator<number>;
 ```
 
 Makes the Vec4 instance iterable.
@@ -12532,7 +12550,7 @@ Compares this vector with another vector using an epsilon value for floating-poi
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
 | `v` | [`Vec4Like`](#vec4like) | `undefined` | The vector to compare with. |
-| `epsilon` | `number` | `Number.EPSILON` | The maximum difference between components to consider them equal. |
+| `epsilon?` | `number` | `Number.EPSILON` | The maximum difference between components to consider them equal. |
 
 ###### Returns
 
@@ -12766,7 +12784,7 @@ Sets this vector to a random direction with the same magnitude.
 
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
-| `random` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1. |
+| `random?` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1. |
 
 ###### Returns
 
@@ -13183,7 +13201,7 @@ Compares a vector with another vector using an epsilon value for floating-point 
 | ------ | ------ | ------ | ------ |
 | `v` | [`Vec4Like`](#vec4like) | `undefined` | The first vector. |
 | `w` | [`Vec4Like`](#vec4like) | `undefined` | The second vector. |
-| `epsilon` | `number` | `Number.EPSILON` | The maximum difference between components to consider them equal. |
+| `epsilon?` | `number` | `Number.EPSILON` | The maximum difference between components to consider them equal. |
 
 ###### Returns
 
@@ -13268,10 +13286,10 @@ Creates an immutable Vec4 instance.
 
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
-| `x` | `number` | `0` | The x-coordinate of the vector. |
-| `y` | `number` | `0` | The y-coordinate of the vector. |
-| `z` | `number` | `0` | The z-coordinate of the vector. |
-| `w` | `number` | `0` | The w-coordinate of the vector. |
+| `x?` | `number` | `0` | The x-coordinate of the vector. |
+| `y?` | `number` | `0` | The y-coordinate of the vector. |
+| `z?` | `number` | `0` | The z-coordinate of the vector. |
+| `w?` | `number` | `0` | The w-coordinate of the vector. |
 
 ###### Returns
 
@@ -13473,7 +13491,7 @@ Creates a random unit vector.
 
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
-| `random` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1. |
+| `random?` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1. |
 
 ###### Returns
 
@@ -13622,7 +13640,7 @@ A new Vec4 instance representing a zero vector.
 ##### \[iterator\]()
 
 ```ts
-iterator: Iterable<number>;
+[iterator](): Iterable<number>;
 ```
 
 ###### Returns
@@ -14179,7 +14197,7 @@ zero(): this;
 ##### \[iterator\]()
 
 ```ts
-iterator: IterableIterator<number>;
+[iterator](): IterableIterator<number>;
 ```
 
 ###### Returns
@@ -14751,7 +14769,7 @@ zero(): this;
 ##### \[iterator\]()
 
 ```ts
-iterator: IterableIterator<number>;
+[iterator](): IterableIterator<number>;
 ```
 
 ###### Returns
@@ -15418,8 +15436,8 @@ Calculates the angle between two 3D vectors.
 | ------ | ------ | ------ |
 | `xyz1` | [`ArrayVector3D`](#arrayvector3d) | First vector as `[x, y, z]` |
 | `xyz2` | [`ArrayVector3D`](#arrayvector3d) | Second vector as `[x, y, z]` |
-| `m1` | `number` | Optional first vector magnitude (default: `magnitude3D(xyz1)`) |
-| `m2` | `number` | Optional second vector magnitude (default: `magnitude3D(xyz2)`) |
+| `m1?` | `number` | Optional first vector magnitude (default: `magnitude3D(xyz1)`) |
+| `m2?` | `number` | Optional second vector magnitude (default: `magnitude3D(xyz2)`) |
 
 #### Returns
 
@@ -15448,8 +15466,8 @@ Calculates the angle between two 4D vectors.
 | ------ | ------ | ------ |
 | `xyzw1` | [`ArrayVector4D`](#arrayvector4d) | First vector as `[x, y, z, w]` |
 | `xyzw2` | [`ArrayVector4D`](#arrayvector4d) | Second vector as `[x, y, z, w]` |
-| `m1` | `number` | Optional magnitude of the first vector (default: `magnitude4D(xyzw1)`) |
-| `m2` | `number` | Optional magnitude of the second vector (default: `magnitude4D(xyzw2)`) |
+| `m1?` | `number` | Optional magnitude of the first vector (default: `magnitude4D(xyzw1)`) |
+| `m2?` | `number` | Optional magnitude of the second vector (default: `magnitude4D(xyzw2)`) |
 
 #### Returns
 
@@ -15677,7 +15695,7 @@ Clamps the magnitude of a 2DArrayVector between a minimum and maximum value.
 | `xy` | [`ArrayVector2D`](#arrayvector2d) | Vector as `[x, y]` |
 | `min` | `number` | Minimum magnitude |
 | `max` | `number` | Maximum magnitude |
-| `m` | `number` | Optional current magnitude (default: `magnitude2D(xy)`) |
+| `m?` | `number` | Optional current magnitude (default: `magnitude2D(xy)`) |
 
 #### Returns
 
@@ -15707,7 +15725,7 @@ Clamps the magnitude of a vector between min and max.
 | `xyz` | [`ArrayVector3D`](#arrayvector3d) | Vector as `[x, y, z]` |
 | `min` | `number` | Minimum magnitude |
 | `max` | `number` | Maximum magnitude |
-| `m` | `number` | Optional current magnitude (default: `magnitude3D(xyz)`) |
+| `m?` | `number` | Optional current magnitude (default: `magnitude3D(xyz)`) |
 
 #### Returns
 
@@ -15737,7 +15755,7 @@ Clamps the magnitude of a 4DArrayVector between min and max.
 | `xyzw` | [`ArrayVector4D`](#arrayvector4d) | Vector as `[x, y, z, w]` |
 | `min` | `number` | Minimum magnitude |
 | `max` | `number` | Maximum magnitude |
-| `m` | `number` | Optional current magnitude (default: `magnitude4D(xyzw)`) |
+| `m?` | `number` | Optional current magnitude (default: `magnitude4D(xyzw)`) |
 
 #### Returns
 
@@ -16371,7 +16389,7 @@ Creates an ArrayVector2D from x-axis angle.
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
 | `phi` | `number` | `undefined` | Angle in radians |
-| `magnitude` | `number` | `1` | Optional magnitude of the vector (default: `1`) |
+| `magnitude?` | `number` | `1` | Optional magnitude of the vector (default: `1`) |
 
 #### Returns
 
@@ -16394,7 +16412,7 @@ Creates an ArrayVector2D from y-axis angle.
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
 | `phi` | `number` | `undefined` | Angle in radians |
-| `magnitude` | `number` | `1` | Optional magnitude of the vector (default: `1`) |
+| `magnitude?` | `number` | `1` | Optional magnitude of the vector (default: `1`) |
 
 #### Returns
 
@@ -16520,7 +16538,7 @@ Creates an `ArrayVector2D` from polar coordinates.
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
 | `phi` | `number` | `undefined` | Angle in radians |
-| `m` | `number` | `1` | Optional magnitude (default: `1`) |
+| `m?` | `number` | `1` | Optional magnitude (default: `1`) |
 
 #### Returns
 
@@ -16548,7 +16566,7 @@ Creates a 3DArrayVector from spherical coordinates.
 | ------ | ------ | ------ | ------ |
 | `theta` | `number` | `undefined` | First angle |
 | `phi` | `number` | `undefined` | Second angle |
-| `m` | `number` | `1` | Optional magnitude (default: `1`) |
+| `m?` | `number` | `1` | Optional magnitude (default: `1`) |
 
 #### Returns
 
@@ -16711,7 +16729,7 @@ Compares a 2DArrayVector with another vector using an epsilon value for floating
 | ------ | ------ | ------ | ------ |
 | `xy1` | [`ArrayVector2D`](#arrayvector2d) | `undefined` | First vector as `[x, y]` |
 | `xy2` | [`ArrayVector2D`](#arrayvector2d) | `undefined` | Second vector as `[x, y]` |
-| `epsilon` | `number` | `Number.EPSILON` | Maximum difference between components to consider them equal (default: `Number.EPSILON`) |
+| `epsilon?` | `number` | `Number.EPSILON` | Maximum difference between components to consider them equal (default: `Number.EPSILON`) |
 
 #### Returns
 
@@ -16739,7 +16757,7 @@ Compares two 3D vectors using an epsilon value for floating-point comparison.
 | ------ | ------ | ------ | ------ |
 | `xyz1` | [`ArrayVector3D`](#arrayvector3d) | `undefined` | First vector as `[x, y, z]` |
 | `xyz2` | [`ArrayVector3D`](#arrayvector3d) | `undefined` | Second vector as `[x, y, z]` |
-| `epsilon` | `number` | `Number.EPSILON` | Tolerance for comparison (default: `Number.EPSILON`) |
+| `epsilon?` | `number` | `Number.EPSILON` | Tolerance for comparison (default: `Number.EPSILON`) |
 
 #### Returns
 
@@ -16767,7 +16785,7 @@ Checks if two 4D vectors are approximately equal within epsilon.
 | ------ | ------ | ------ | ------ |
 | `xyzw1` | [`ArrayVector4D`](#arrayvector4d) | `undefined` | First vector as `[x, y, z, w]` |
 | `xyzw2` | [`ArrayVector4D`](#arrayvector4d) | `undefined` | Second vector as `[x, y, z, w]` |
-| `epsilon` | `number` | `Number.EPSILON` | Maximum difference (default: `Number.EPSILON`) |
+| `epsilon?` | `number` | `Number.EPSILON` | Maximum difference (default: `Number.EPSILON`) |
 
 #### Returns
 
@@ -17146,7 +17164,7 @@ Limits the maximum magnitude of a 2DArrayVector.
 | ------ | ------ | ------ |
 | `xy` | [`ArrayVector2D`](#arrayvector2d) | Vector as `[x, y]` |
 | `max` | `number` | Maximum magnitude |
-| `m` | `number` | Optional current magnitude (default: `magnitude2D(xy)`) |
+| `m?` | `number` | Optional current magnitude (default: `magnitude2D(xy)`) |
 
 #### Returns
 
@@ -17174,7 +17192,7 @@ Limits the maximum magnitude of a 3DArrayVector.
 | ------ | ------ | ------ |
 | `xyz` | [`ArrayVector3D`](#arrayvector3d) | Vector as `[x, y, z]` |
 | `max` | `number` | Maximum magnitude |
-| `m` | `number` | Optional current magnitude (default: `magnitude3D(xyz)`) |
+| `m?` | `number` | Optional current magnitude (default: `magnitude3D(xyz)`) |
 
 #### Returns
 
@@ -17202,7 +17220,7 @@ Limits the maximum magnitude of a 4DArrayVector.
 | ------ | ------ | ------ |
 | `xyzw` | [`ArrayVector4D`](#arrayvector4d) | Vector as `[x, y, z, w]` |
 | `max` | `number` | Maximum magnitude |
-| `m` | `number` | Optional current magnitude (default: `magnitude4D(xyzw)`) |
+| `m?` | `number` | Optional current magnitude (default: `magnitude4D(xyzw)`) |
 
 #### Returns
 
@@ -17230,7 +17248,7 @@ Limits the maximum magnitude of a 2DArrayVector.
 | ------ | ------ | ------ |
 | `xy` | [`ArrayVector2D`](#arrayvector2d) | Vector as `[x, y]` |
 | `min` | `number` | Minimum magnitude |
-| `m` | `number` | Optional current magnitude (default: `magnitude2D(xy)`) |
+| `m?` | `number` | Optional current magnitude (default: `magnitude2D(xy)`) |
 
 #### Returns
 
@@ -17258,7 +17276,7 @@ Limits the minimum magnitude of a 3DArrayVector.
 | ------ | ------ | ------ |
 | `xyz` | [`ArrayVector3D`](#arrayvector3d) | Vector as `[x, y, z]` |
 | `min` | `number` | Minimum magnitude |
-| `m` | `number` | Optional current magnitude (default: `magnitude3D(xyz)`) |
+| `m?` | `number` | Optional current magnitude (default: `magnitude3D(xyz)`) |
 
 #### Returns
 
@@ -17286,7 +17304,7 @@ Limits the minimum magnitude of a 4DArrayVector.
 | ------ | ------ | ------ |
 | `xyzw` | [`ArrayVector4D`](#arrayvector4d) | Vector as `[x, y, z, w]` |
 | `min` | `number` | Minimum magnitude |
-| `m` | `number` | Optional current magnitude (default: `magnitude4D(xyzw)`) |
+| `m?` | `number` | Optional current magnitude (default: `magnitude4D(xyzw)`) |
 
 #### Returns
 
@@ -17315,8 +17333,8 @@ Calculates the 2DArrayVector angle of a vector pointing at another.
 | ------ | ------ | ------ |
 | `xy1` | [`ArrayVector2D`](#arrayvector2d) | First vector as `[x, y]` |
 | `xy2` | [`ArrayVector2D`](#arrayvector2d) | Second vector as `[x, y]` (target to look at) |
-| `m1` | `number` | Optional current magnitude of the first vector (default: magnitude2D(xy1)) |
-| `m2` | `number` | Optional current magnitude of the second vector (default: magnitude2D(xy2)) |
+| `m1?` | `number` | Optional current magnitude of the first vector (default: magnitude2D(xy1)) |
+| `m2?` | `number` | Optional current magnitude of the second vector (default: magnitude2D(xy2)) |
 
 #### Returns
 
@@ -17345,8 +17363,8 @@ Creates a vector pointing from the first vector to the second vector, maintainin
 | ------ | ------ | ------ |
 | `xyz1` | [`ArrayVector3D`](#arrayvector3d) | First vector as `[x, y, z]` (source direction) |
 | `xyz2` | [`ArrayVector3D`](#arrayvector3d) | Second vector as `[x, y, z]` (target direction) |
-| `m1` | `number` | Optional current magnitude of the first vector (default: `magnitude3D(xyz1)`) |
-| `m2` | `number` | Optional current magnitude of the second vector (default: `magnitude3D(xyz2)`) |
+| `m1?` | `number` | Optional current magnitude of the first vector (default: `magnitude3D(xyz1)`) |
+| `m2?` | `number` | Optional current magnitude of the second vector (default: `magnitude3D(xyz2)`) |
 
 #### Returns
 
@@ -17375,8 +17393,8 @@ Makes a 4DArrayVector point towards another vector.
 | ------ | ------ | ------ |
 | `xyzw1` | [`ArrayVector4D`](#arrayvector4d) | First vector as `[x, y, z, w]` |
 | `xyzw2` | [`ArrayVector4D`](#arrayvector4d) | Second vector as `[x, y, z, w]` (target to look at) |
-| `m1` | `number` | Optional current magnitude of the first vector (default: `magnitude4D(xyzw1)`) |
-| `m2` | `number` | Optional current magnitude of the second vector (default: `magnitude4D(xyzw2)`) |
+| `m1?` | `number` | Optional current magnitude of the first vector (default: `magnitude4D(xyzw1)`) |
+| `m2?` | `number` | Optional current magnitude of the second vector (default: `magnitude4D(xyzw2)`) |
 
 #### Returns
 
@@ -17667,7 +17685,7 @@ Normalize a 2DArrayVector.
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `xy` | [`ArrayVector2D`](#arrayvector2d) | Vector as `[x, y]` |
-| `m` | `number` | Optional current magnitude (default: `magnitude2D(xy)`) |
+| `m?` | `number` | Optional current magnitude (default: `magnitude2D(xy)`) |
 
 #### Returns
 
@@ -17690,7 +17708,7 @@ Normalize a 3DArrayVector.
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `xyz` | [`ArrayVector3D`](#arrayvector3d) | Vector as `[x, y, z]` |
-| `m` | `number` | Optional current magnitude (default: `magnitude3D(xyz)`) |
+| `m?` | `number` | Optional current magnitude (default: `magnitude3D(xyz)`) |
 
 #### Returns
 
@@ -17713,7 +17731,7 @@ Normalizes a 4DArrayVector to unit length.
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `xyzw` | [`ArrayVector4D`](#arrayvector4d) | Vector as `[x, y, z, w]` |
-| `m` | `number` | Optional current magnitude (default: `magnitude4D(xyzw)`) |
+| `m?` | `number` | Optional current magnitude (default: `magnitude4D(xyzw)`) |
 
 #### Returns
 
@@ -17790,8 +17808,8 @@ Projects one 2DArrayVector onto another.
 | ------ | ------ | ------ |
 | `xy1` | [`ArrayVector2D`](#arrayvector2d) | Vector to project |
 | `xy2` | [`ArrayVector2D`](#arrayvector2d) | Vector to project onto |
-| `m1` | `number` | Optional magnitude of the first vector (default: `magnitude2D(xy1)`) |
-| `m2` | `number` | Optional magnitude of the second vector (default: `magnitude2D(xy2)`) |
+| `m1?` | `number` | Optional magnitude of the first vector (default: `magnitude2D(xy1)`) |
+| `m2?` | `number` | Optional magnitude of the second vector (default: `magnitude2D(xy2)`) |
 
 #### Returns
 
@@ -17820,8 +17838,8 @@ Projects one 3DArrayVector onto the second.
 | ------ | ------ | ------ |
 | `xyz1` | [`ArrayVector3D`](#arrayvector3d) | Vector to project |
 | `xyz2` | [`ArrayVector3D`](#arrayvector3d) | Vector to project onto |
-| `m1` | `number` | Optional magnitude of the vector to project (default: `magnitude3D(xyz1)`) |
-| `m2` | `number` | Optional magnitude of the vector to project onto (default: `magnitude3D(xyz2)`) |
+| `m1?` | `number` | Optional magnitude of the vector to project (default: `magnitude3D(xyz1)`) |
+| `m2?` | `number` | Optional magnitude of the vector to project onto (default: `magnitude3D(xyz2)`) |
 
 #### Returns
 
@@ -17850,8 +17868,8 @@ Projects one 4DArrayVector onto another.
 | ------ | ------ | ------ |
 | `xyzw1` | [`ArrayVector4D`](#arrayvector4d) | First vector as `[x, y, z, w]` |
 | `xyzw2` | [`ArrayVector4D`](#arrayvector4d) | Second vector as `[x, y, z, w]` to project onto |
-| `m1` | `number` | Optional current magnitude (default: `magnitude4D(xyzw1)`) |
-| `m2` | `number` | Optional current magnitude (default: `magnitude4D(xyzw2)`) |
+| `m1?` | `number` | Optional current magnitude (default: `magnitude4D(xyzw1)`) |
+| `m2?` | `number` | Optional current magnitude (default: `magnitude4D(xyzw2)`) |
 
 #### Returns
 
@@ -17873,7 +17891,7 @@ Creates a random unit 2DArrayVector.
 
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
-| `random` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1 (default: `Math.random`) |
+| `random?` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1 (default: `Math.random`) |
 
 #### Returns
 
@@ -17895,7 +17913,7 @@ Creates a random unit 3DArrayVector.
 
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
-| `random` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1 (default: `Math.random`) |
+| `random?` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1 (default: `Math.random`) |
 
 #### Returns
 
@@ -17917,7 +17935,7 @@ Creates a random unit 4DArrayVector.
 
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
-| `random` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1 (default: `Math.random`) |
+| `random?` | () => `number` | `Math.random` | A function that returns a random number between 0 and 1 (default: `Math.random`) |
 
 #### Returns
 
@@ -18017,7 +18035,7 @@ Rotates a 2D point around an arbitrary axis point
 | ------ | ------ | ------ |
 | `xy` | [`ArrayVector2D`](#arrayvector2d) | Point to rotate |
 | `phi` | `number` | Rotation angle in radians |
-| `axis` | [`ArrayVector2D`](#arrayvector2d) | Rotation axis point (default: `[0, 0]`) |
+| `axis?` | [`ArrayVector2D`](#arrayvector2d) | Rotation axis point (default: `[0, 0]`) |
 
 #### Returns
 
@@ -18045,7 +18063,7 @@ Rotates a 3DArrayVector around the x-axis.
 | ------ | ------ | ------ |
 | `xyz` | [`ArrayVector3D`](#arrayvector3d) | Vector as `[x, y, z]` |
 | `phi` | `number` | Angle of rotation in radians |
-| `axis` | [`ArrayVector3D`](#arrayvector3d) | Rotation axis point (default: `[0, 0, 0]`) |
+| `axis?` | [`ArrayVector3D`](#arrayvector3d) | Rotation axis point (default: `[0, 0, 0]`) |
 
 #### Returns
 
@@ -18073,7 +18091,7 @@ Rotates a 3DArrayVector around the y-axis.
 | ------ | ------ | ------ |
 | `xyz` | [`ArrayVector3D`](#arrayvector3d) | Vector as `[x, y, z]` |
 | `phi` | `number` | Angle of rotation in radians |
-| `axis` | [`ArrayVector3D`](#arrayvector3d) | Rotation axis point (default: `[0, 0, 0]`) |
+| `axis?` | [`ArrayVector3D`](#arrayvector3d) | Rotation axis point (default: `[0, 0, 0]`) |
 
 #### Returns
 
@@ -18101,7 +18119,7 @@ Rotates a 3DArrayVector around the z-axis.
 | ------ | ------ | ------ |
 | `xyz` | [`ArrayVector3D`](#arrayvector3d) | Vector as `[x, y, z]` |
 | `phi` | `number` | Angle of rotation in radians |
-| `axis` | [`ArrayVector3D`](#arrayvector3d) | Rotation axis point (default: `[0, 0, 0]`) |
+| `axis?` | [`ArrayVector3D`](#arrayvector3d) | Rotation axis point (default: `[0, 0, 0]`) |
 
 #### Returns
 
@@ -18129,7 +18147,7 @@ Sets the magnitude (length) of a 2DArrayVector, maintaining its direction.
 | ------ | ------ | ------ |
 | `xy` | [`ArrayVector2D`](#arrayvector2d) | Vector as `[x, y]` |
 | `newMag` | `number` | New magnitude |
-| `m` | `number` | Optional current magnitude (default: `magnitude2D(xy)`) |
+| `m?` | `number` | Optional current magnitude (default: `magnitude2D(xy)`) |
 
 #### Returns
 
@@ -18157,7 +18175,7 @@ Sets the magnitude (length) of a 3DArrayVector, maintaining its direction.
 | ------ | ------ | ------ |
 | `xyz` | [`ArrayVector3D`](#arrayvector3d) | Vector as `[x, y, z]` |
 | `newMagnitude` | `number` | New magnitude |
-| `m` | `number` | Optional current magnitude (default: `magnitude3D(xyz)`) |
+| `m?` | `number` | Optional current magnitude (default: `magnitude3D(xyz)`) |
 
 #### Returns
 
@@ -18185,7 +18203,7 @@ Sets the magnitude of a 4DArrayVector while maintaining its direction.
 | ------ | ------ | ------ |
 | `xyzw` | [`ArrayVector4D`](#arrayvector4d) | Vector as `[x, y, z, w]` |
 | `newMag` | `number` | The new magnitude |
-| `m` | `number` | Optional current magnitude (default: `magnitude4D(xyzw)`) |
+| `m?` | `number` | Optional current magnitude (default: `magnitude4D(xyzw)`) |
 
 #### Returns
 

@@ -43,6 +43,11 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
   #iz: number = 2;
 
   /**
+   * Callback to be invoked whenever properties change.
+   */
+  public onChange?: (v: ArrayProxyVec3<T>) => void;
+
+  /**
    * @param target - The target array.
    * @param offset - The offset of the array.
    * @param gap - The stride between indices.
@@ -96,13 +101,14 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    */
   set offset(offset) {
     this.bind(this.#target, offset, this.#gap);
+    this.onChange?.(this);
   }
 
   /**
    * Range of min and max component indices.
    */
   get indexRange(): readonly [number, number] {
-    return [this.#offset, this.#iz] as const;
+    return [this.#ix, this.#iz] as const;
   }
 
   /**
@@ -118,7 +124,9 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @param x - The new x-component.
    */
   set x(x: number) {
+    if (this.#target[this.#ix] === x) return;
     this.#target[this.#ix] = x;
+    this.onChange?.(this);
   }
 
   /**
@@ -134,7 +142,9 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @param y - The new y-component.
    */
   set y(y: number) {
+    if (this.#target[this.#iy] === y) return;
     this.#target[this.#iy] = y;
+    this.onChange?.(this);
   }
 
   /**
@@ -150,7 +160,9 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @param z - The new z-component.
    */
   set z(z: number) {
+    if (this.#target[this.#iz] === z) return;
     this.#target[this.#iz] = z;
+    this.onChange?.(this);
   }
 
   /**
@@ -169,6 +181,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
     this.#target[this.#ix] = xyz[0] ?? 0;
     this.#target[this.#iy] = xyz[1] ?? 0;
     this.#target[this.#iz] = xyz[2] ?? 0;
+    this.onChange?.(this);
   }
 
   /**
@@ -194,6 +207,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
     this.#target[this.#ix] = (this.#target[this.#ix] / M) * m;
     this.#target[this.#iy] = (this.#target[this.#iy] / M) * m;
     this.#target[this.#iz] = (this.#target[this.#iz] / M) * m;
+    this.onChange?.(this);
   }
 
   /**
@@ -219,7 +233,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns {void}
    */
   set r(r: number) {
-    this.#target[this.#ix] = r;
+    this.x = r;
   }
 
   /**
@@ -236,7 +250,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @returns {void}
    */
   set g(g: number) {
-    this.#target[this.#iy] = g;
+    this.y = g;
   }
 
   /**
@@ -252,7 +266,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @param b - The new Blue-component.
    */
   set b(b: number) {
-    this.#target[this.#iz] = b;
+    this.z = b;
   }
 
   /**
@@ -304,6 +318,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
     this.#target[this.#ix] += v.x;
     this.#target[this.#iy] += v.y;
     this.#target[this.#iz] += v.z;
+    this.onChange?.(this);
     return this;
   }
 
@@ -316,6 +331,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
     this.#target[this.#ix] -= v.x;
     this.#target[this.#iy] -= v.y;
     this.#target[this.#iz] -= v.z;
+    this.onChange?.(this);
     return this;
   }
 
@@ -328,6 +344,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
     this.#target[this.#ix] *= v.x;
     this.#target[this.#iy] *= v.y;
     this.#target[this.#iz] *= v.z;
+    this.onChange?.(this);
     return this;
   }
 
@@ -340,6 +357,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
     this.#target[this.#ix] = this.#target[this.#ix] / v.x;
     this.#target[this.#iy] = this.#target[this.#iy] / v.y;
     this.#target[this.#iz] = this.#target[this.#iz] / v.z;
+    this.onChange?.(this);
     return this;
   }
 
@@ -368,10 +386,12 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
       this.#target[this.#ix] = (this.#target[this.#ix] / M) * max;
       this.#target[this.#iy] = (this.#target[this.#iy] / M) * max;
       this.#target[this.#iz] = (this.#target[this.#iz] / M) * max;
+      this.onChange?.(this);
     } else if (M < min) {
       this.#target[this.#ix] = (this.#target[this.#ix] / M) * min;
       this.#target[this.#iy] = (this.#target[this.#iy] / M) * min;
       this.#target[this.#iz] = (this.#target[this.#iz] / M) * min;
+      this.onChange?.(this);
     }
     return this;
   }
@@ -393,6 +413,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
     this.#target[this.#ix] = v.x;
     this.#target[this.#iy] = v.y;
     this.#target[this.#iz] = v.z;
+    this.onChange?.(this);
     return this;
   }
 
@@ -420,6 +441,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
     this.#target[this.#ix] = y * vZ - z * vY;
     this.#target[this.#iy] = z * vX - x * vZ;
     this.#target[this.#iz] = x * vY - y * vX;
+    this.onChange?.(this);
     return this;
   }
 
@@ -434,6 +456,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
     this.#target[this.#ix] -= 2 * dot * normal.x;
     this.#target[this.#iy] -= 2 * dot * normal.y;
     this.#target[this.#iz] -= 2 * dot * normal.z;
+    this.onChange?.(this);
     return this;
   }
 
@@ -537,6 +560,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
       this.#target[this.#ix] = (this.#target[this.#ix] / M) * max;
       this.#target[this.#iy] = (this.#target[this.#iy] / M) * max;
       this.#target[this.#iz] = (this.#target[this.#iz] / M) * max;
+      this.onChange?.(this);
     }
     return this;
   }
@@ -552,6 +576,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
       this.#target[this.#ix] = (this.#target[this.#ix] / M) * min;
       this.#target[this.#iy] = (this.#target[this.#iy] / M) * min;
       this.#target[this.#iz] = (this.#target[this.#iz] / M) * min;
+      this.onChange?.(this);
     }
     return this;
   }
@@ -567,6 +592,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
     this.#target[this.#ix] = (v.x / vM) * M;
     this.#target[this.#iy] = (v.y / vM) * M;
     this.#target[this.#iz] = (v.z / vM) * M;
+    this.onChange?.(this);
     return this;
   }
 
@@ -578,6 +604,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
     this.#target[this.#ix] *= -1;
     this.#target[this.#iy] *= -1;
     this.#target[this.#iz] *= -1;
+    this.onChange?.(this);
     return this;
   }
 
@@ -590,6 +617,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
     this.#target[this.#ix] /= M;
     this.#target[this.#iy] /= M;
     this.#target[this.#iz] /= M;
+    this.onChange?.(this);
     return this;
   }
 
@@ -611,6 +639,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
     this.#target[this.#ix] = (vX / vM) * f;
     this.#target[this.#iy] = (vY / vM) * f;
     this.#target[this.#iz] = (vZ / vM) * f;
+    this.onChange?.(this);
     return this;
   }
 
@@ -623,6 +652,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
     const M = this.magnitude;
     this.copy(Vec3.random(random));
     this.magnitude = M;
+    this.onChange?.(this);
     return this;
   }
 
@@ -638,6 +668,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
     const z = this.#target[this.#iz];
     this.#target[this.#iy] = y * cosPhi - z * sinPhi;
     this.#target[this.#iz] = y * sinPhi + z * cosPhi;
+    this.onChange?.(this);
     return this;
   }
 
@@ -653,6 +684,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
     const z = this.#target[this.#iz];
     this.#target[this.#ix] = x * cosPhi + z * sinPhi;
     this.#target[this.#iz] = x * sinPhi + z * cosPhi;
+    this.onChange?.(this);
     return this;
   }
 
@@ -668,6 +700,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
     const y = this.#target[this.#iy];
     this.#target[this.#ix] = x * cosPhi - y * sinPhi;
     this.#target[this.#iy] = x * sinPhi + y * cosPhi;
+    this.onChange?.(this);
     return this;
   }
 
@@ -712,6 +745,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
     this.#target[this.#ix] *= c;
     this.#target[this.#iy] *= c;
     this.#target[this.#iz] *= c;
+    this.onChange?.(this);
     return this;
   }
 
@@ -723,6 +757,7 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
     this.#target[this.#ix] = 0;
     this.#target[this.#iy] = 0;
     this.#target[this.#iz] = 0;
+    this.onChange?.(this);
     return this;
   }
 
