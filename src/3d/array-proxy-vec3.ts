@@ -5,6 +5,11 @@ import { Vec3 } from "./vec3.js";
 
 const { sin, cos, atan2, sqrt, abs, acos } = Math;
 
+export interface ArrayProxyVec3Options<T extends ProxyArrayVectorTarget> {
+  defaultValue?: Vec3Like | ArrayVector3D;
+  onChange?: (v: ArrayProxyVec3<T>) => void;
+}
+
 /**
  * Proxying 3D vector into an interleaved array.
  */
@@ -55,11 +60,19 @@ export class ArrayProxyVec3<T extends ProxyArrayVectorTarget> implements Vec3Lik
    * @throws Error when gap is negative, or not an integer.
    * @throws Error when z-component is out of target array bounds.
    */
-  constructor(target: T, offset: number, gap: number = 0) {
+  constructor(target: T, offset: number, gap: number = 0, options: ArrayProxyVec3Options<T> = {}) {
     this.#target = target;
     this.#offset = offset;
     this.#gap = gap;
     this.bind(target, offset, gap);
+
+    if (options.defaultValue) {
+      this.xyz = Array.isArray(options.defaultValue) ? options.defaultValue : options.defaultValue.xyz
+    }
+    if (typeof options.onChange === 'function') {
+      this.onChange = options.onChange;
+      this.onChange(this);
+    }
   }
 
   /**

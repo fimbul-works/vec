@@ -6,6 +6,11 @@ import { Vec2 } from "./vec2.js";
 const { PI, sin, cos, atan2, sqrt, abs } = Math;
 const PI2 = PI * 2;
 
+export interface ArrayProxyVec2Options<T extends ProxyArrayVectorTarget> {
+  defaultValue?: Vec2Like | ArrayVector2D;
+  onChange?: (v: ArrayProxyVec2<T>) => void;
+}
+
 /**
  * Proxying 2D vector into an interleaved array.
  */
@@ -52,11 +57,19 @@ export class ArrayProxyVec2<T extends ProxyArrayVectorTarget> implements Vec2Lik
    * @throws Error when gap is negative, or not an integer.
    * @throws Error when y-component is out of target array bounds.
    */
-  constructor(target: T, offset: number, gap: number = 0) {
+  constructor(target: T, offset: number, gap: number = 0, options: ArrayProxyVec2Options<T> = {}) {
     this.#target = target;
     this.#offset = offset;
     this.#gap = gap;
     this.bind(target, offset, gap);
+
+    if (options.defaultValue) {
+      this.xy = Array.isArray(options.defaultValue) ? options.defaultValue : options.defaultValue.xy
+    }
+    if (typeof options.onChange === 'function') {
+      this.onChange = options.onChange;
+      this.onChange(this);
+    }
   }
 
   /**

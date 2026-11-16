@@ -1,9 +1,14 @@
 import type { ArrayVector4D } from "../array-4d/types.js";
-import type { ProxyArrayVectorTarget } from "../types.js";
+import type { ProxyArrayVectorTarget, XYZWObject } from "../types.js";
 import type { Vec4Like } from "./types.js";
 import { Vec4 } from "./vec4.js";
 
 const { cos, acos, atan2, sqrt, abs } = Math;
+
+export interface ArrayProxyVec4Options<T extends ProxyArrayVectorTarget> {
+  defaultValue?: Vec4Like | ArrayVector4D;
+  onChange?: (v: ArrayProxyVec4<T>) => void;
+}
 
 /** A 4D vector backed by an interleaved array. Stride is the gap between components. */
 export class ArrayProxyVec4<T extends ProxyArrayVectorTarget> implements Vec4Like {
@@ -57,11 +62,19 @@ export class ArrayProxyVec4<T extends ProxyArrayVectorTarget> implements Vec4Lik
    * @throws Error when gap is negative, or not an integer.
    * @throws Error when w-component is out of target array bounds.
    */
-  constructor(target: T, offset: number, gap: number) {
+  constructor(target: T, offset: number, gap: number, options: ArrayProxyVec4Options<T> = {}) {
     this.#target = target;
     this.#offset = offset;
     this.#gap = gap;
     this.bind(target, offset, gap);
+
+    if (options.defaultValue) {
+      this.xyzw = Array.isArray(options.defaultValue) ? options.defaultValue : options.defaultValue.xyzw
+    }
+    if (typeof options.onChange === 'function') {
+      this.onChange = options.onChange;
+      this.onChange(this);
+    }
   }
 
   /**
@@ -841,7 +854,7 @@ export class ArrayProxyVec4<T extends ProxyArrayVectorTarget> implements Vec4Lik
    * Converts the vector to a plain object.
    * @returns An object with x, y, z and w properties.
    */
-  toObject(): { x: number; y: number; z: number; w: number } {
+  toObject(): XYZWObject {
     const { x, y, z, w } = this;
     return { x, y, z, w };
   }
@@ -850,7 +863,7 @@ export class ArrayProxyVec4<T extends ProxyArrayVectorTarget> implements Vec4Lik
    * Serializes the vector to a JSON-friendly format.
    * @returns A JSON-friendly object representation of the vector.
    */
-  toJSON(): { x: number; y: number; z: number; w: number } {
+  toJSON(): XYZWObject {
     return this.toObject();
   }
 }

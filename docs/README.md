@@ -24,7 +24,8 @@ Proxying 2D vector into an interleaved array.
 new ArrayProxyVec2<T>(
    target, 
    offset, 
-   gap?
+   gap?, 
+   options?
 ): ArrayProxyVec2<T>;
 ```
 
@@ -35,6 +36,7 @@ new ArrayProxyVec2<T>(
 | `target` | `T` | `undefined` | The target array. |
 | `offset` | `number` | `undefined` | The offset in the array. |
 | `gap?` | `number` | `0` | Gap between components (stride). |
+| `options?` | [`ArrayProxyVec2Options`](#arrayproxyvec2options)\<`T`\> | `{}` | - |
 
 ###### Returns
 
@@ -1263,7 +1265,8 @@ Proxying 3D vector into an interleaved array.
 new ArrayProxyVec3<T>(
    target, 
    offset, 
-   gap?
+   gap?, 
+   options?
 ): ArrayProxyVec3<T>;
 ```
 
@@ -1274,6 +1277,7 @@ new ArrayProxyVec3<T>(
 | `target` | `T` | `undefined` | The target array. |
 | `offset` | `number` | `undefined` | The offset of the array. |
 | `gap?` | `number` | `0` | The stride between indices. |
+| `options?` | [`ArrayProxyVec3Options`](#arrayproxyvec3options)\<`T`\> | `{}` | - |
 
 ###### Returns
 
@@ -2687,7 +2691,8 @@ A 4D vector backed by an interleaved array. Stride is the gap between components
 new ArrayProxyVec4<T>(
    target, 
    offset, 
-   gap
+   gap, 
+   options?
 ): ArrayProxyVec4<T>;
 ```
 
@@ -2698,6 +2703,7 @@ new ArrayProxyVec4<T>(
 | `target` | `T` | The target array. |
 | `offset` | `number` | The offset in the array. |
 | `gap` | `number` | Gap between components (stride). |
+| `options?` | [`ArrayProxyVec4Options`](#arrayproxyvec4options)\<`T`\> | - |
 
 ###### Returns
 
@@ -4004,35 +4010,16 @@ Subtracts another vector from this vector.
 ##### toJSON()
 
 ```ts
-toJSON(): {
-  w: number;
-  x: number;
-  y: number;
-  z: number;
-};
+toJSON(): XYZWObject;
 ```
 
 Serializes the vector to a JSON-friendly format.
 
 ###### Returns
 
-```ts
-{
-  w: number;
-  x: number;
-  y: number;
-  z: number;
-}
-```
+[`XYZWObject`](#xyzwobject)
 
 A JSON-friendly object representation of the vector.
-
-| Name | Type |
-| ------ | ------ |
-| `w` | `number` |
-| `x` | `number` |
-| `y` | `number` |
-| `z` | `number` |
 
 ###### Implementation of
 
@@ -4041,35 +4028,16 @@ A JSON-friendly object representation of the vector.
 ##### toObject()
 
 ```ts
-toObject(): {
-  w: number;
-  x: number;
-  y: number;
-  z: number;
-};
+toObject(): XYZWObject;
 ```
 
 Converts the vector to a plain object.
 
 ###### Returns
 
-```ts
-{
-  w: number;
-  x: number;
-  y: number;
-  z: number;
-}
-```
+[`XYZWObject`](#xyzwobject)
 
 An object with x, y, z and w properties.
-
-| Name | Type |
-| ------ | ------ |
-| `w` | `number` |
-| `x` | `number` |
-| `y` | `number` |
-| `z` | `number` |
 
 ###### Implementation of
 
@@ -13620,6 +13588,57 @@ Creates a zero vector.
 A new Vec4 instance representing a zero vector.
 
 ## Interfaces
+
+### ArrayProxyVec2Options
+
+#### Type Parameters
+
+| Type Parameter |
+| ------ |
+| <a id="type-parameter-t-3"></a> `T` *extends* [`ProxyArrayVectorTarget`](#proxyarrayvectortarget) |
+
+#### Properties
+
+| Property | Type |
+| ------ | ------ |
+| <a id="property-defaultvalue"></a> `defaultValue?` | [`ArrayVector2D`](#arrayvector2d) \| [`Vec2Like`](#vec2like) |
+| <a id="property-onchange-3"></a> `onChange?` | (`v`) => `void` |
+
+***
+
+### ArrayProxyVec3Options
+
+#### Type Parameters
+
+| Type Parameter |
+| ------ |
+| <a id="type-parameter-t-4"></a> `T` *extends* [`ProxyArrayVectorTarget`](#proxyarrayvectortarget) |
+
+#### Properties
+
+| Property | Type |
+| ------ | ------ |
+| <a id="property-defaultvalue-1"></a> `defaultValue?` | [`ArrayVector3D`](#arrayvector3d) \| [`Vec3Like`](#vec3like) |
+| <a id="property-onchange-4"></a> `onChange?` | (`v`) => `void` |
+
+***
+
+### ArrayProxyVec4Options
+
+#### Type Parameters
+
+| Type Parameter |
+| ------ |
+| <a id="type-parameter-t-5"></a> `T` *extends* [`ProxyArrayVectorTarget`](#proxyarrayvectortarget) |
+
+#### Properties
+
+| Property | Type |
+| ------ | ------ |
+| <a id="property-defaultvalue-2"></a> `defaultValue?` | [`ArrayVector4D`](#arrayvector4d) \| [`Vec4Like`](#vec4like) |
+| <a id="property-onchange-5"></a> `onChange?` | (`v`) => `void` |
+
+***
 
 ### Vec2Like
 
